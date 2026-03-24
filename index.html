@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/boats.css" />
     <link rel="stylesheet" href="css/wanted.css" />
     <link rel="stylesheet" href="css/links.css" />
+    <link rel="stylesheet" href="css/world_bosses.css" />
   </head>
 
   <body>
@@ -87,6 +88,19 @@
           <button class="tabBtn" onclick="switchTab('links', this)">
             <span class="tab-icon">🔗</span><span class="tab-label" data-lang="usefulLinksTab">Links Úteis</span>
           </button>
+
+          <!-- World Bosses folder -->
+          <button class="wb-folder-btn" type="button" onclick="wbToggleFolder(this)" aria-expanded="false" aria-controls="wb-folder-submenu">
+            <span class="tab-icon">🌍</span>
+            <span class="tab-label">World Bosses</span>
+            <span class="wb-folder-arrow">▶</span>
+          </button>
+          <div id="wb-folder-submenu" class="wb-folder-submenu">
+            <button class="tabBtn wb-child-tab" onclick="switchTab('shai_hulud', this)">
+              <span class="tab-icon"><img src="sprites/world_bosses/shai_hulud/shai_icon.png" class="tab-icon-img" alt="Shai-Hulud"></span>
+              <span class="tab-label">Shai-Hulud</span>
+            </button>
+          </div>
         </div>
 
         <div class="sidebar-bottom">
@@ -700,6 +714,55 @@
           </div>
         </div>
 
+        <div id="shai_hulud" class="tabPanel" style="display: none">
+          <div class="panel wb-panel">
+
+            <!-- Boss header -->
+            <div class="wb-boss-header">
+              <img src="sprites/world_bosses/shai_hulud/shai_icon.png" class="wb-boss-icon" alt="Shai-Hulud" />
+              <div>
+                <h3 class="wb-boss-title">Shai-Hulud</h3>
+                <p class="wb-boss-subtitle">World Boss</p>
+              </div>
+            </div>
+
+            <!-- Phase table section -->
+            <section class="wb-section">
+              <div class="wb-section-head">
+                <h4>Fases &amp; Habilidades</h4>
+                <button id="wb-table-toggle" class="wb-toggle-btn" type="button">Modo Habilidades</button>
+              </div>
+              <div class="wb-table-and-preview">
+                <div class="wb-table-outer">
+                  <div id="wb-table-wrap"></div>
+                </div>
+                <div class="wb-skill-preview">
+                  <img id="wb-skill-gif" class="wb-skill-gif" src="sprites/world_bosses/shai_hulud/basic_attack_shai.gif" alt="Habilidade" />
+                  <span id="wb-skill-label" class="wb-skill-label">Ataque Básico</span>
+                  <p id="wb-skill-description" class="wb-skill-description"></p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Characters + Rewards side by side -->
+            <div class="wb-bottom-section">
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4>Personagens Recomendados</h4>
+                </div>
+                <div id="wb-characters"></div>
+              </section>
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4>Recompensas por Dano</h4>
+                </div>
+                <div id="wb-rewards"></div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+
         <div id="links" class="tabPanel" style="display: none">
           <div class="panel links-panel">
             <h3 data-lang="usefulLinksTitle">Links Úteis</h3>
@@ -792,6 +855,7 @@
     <script src="js/boats.js"></script>
     <script src="js/wanted-data.js"></script>
     <script src="js/wanted.js"></script>
+    <script src="js/world_bosses.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/main.js"></script>
   </body>

@@ -770,8 +770,7 @@ body {
   .sidebar-bottom {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     gap: 8px;
     border-top: 1px solid var(--border-soft);
@@ -839,18 +838,39 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .themePreview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .themePreviewChip {
+    height: 22px;
   }
 
   .sidebar-footer {
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     border-top: none;
     margin-top: 0;
     padding-top: 0;
-    gap: 6px;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .sidebar-footer .footer-dev {
+    flex-basis: 100%;
+    text-align: center;
   }
 
   .content {

@@ -83,3 +83,4 @@ xpInit();
 
 // Initialize Wanted tab
 wantedInit();
+worldBossesInit();
