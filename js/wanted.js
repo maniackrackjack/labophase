@@ -1071,7 +1071,7 @@ function wantedFitText(ctx, value, maxWidth) {
 function wantedGetPortraitPath(name) {
   const key = wantedNormalizeKey(name);
   const mapped = WANTED_ICON_ALIASES[key] || key;
-  return `sprites/Characters/${mapped}.png`;
+  return `sprites/characters/${mapped}.png`;
 }
 
 function wantedCleanDisplayName(name) {
