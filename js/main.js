@@ -83,4 +83,4 @@ xpInit();
 
 // Initialize Wanted tab
 wantedInit();
-worldBossesInit();
+if (typeof worldBossesInit === "function") worldBossesInit();

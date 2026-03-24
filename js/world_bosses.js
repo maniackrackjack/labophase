@@ -64,7 +64,7 @@ const WB_SHAI_HULUD_CHARACTERS = {
     { id: "silvers_rayleigh",    label: "Rayleigh" },
     { id: "basil_hawkins",       label: "Basil" },
     { id: "margareth",           label: "Margareth" },
-    { id: "nico_robin",          label: "Robin TS" },
+    { id: "nico_robin_ts",       label: "Robin TS" },
     { id: "van_augur",           label: "Van Augur" },
     { id: "trafalgar_law",       label: "Law" },
   ],

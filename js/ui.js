@@ -53,6 +53,11 @@ function switchTab(tab, btn) {
   if (tab === "chest" && typeof chestLayoutTorches === "function") {
     requestAnimationFrame(chestLayoutTorches);
   }
+
+  // Init World Bosses content when the tab becomes visible
+  if (tab === "shai_hulud" && typeof worldBossesInit === "function") {
+    worldBossesInit();
+  }
 }
 
 function showToast(message, duration = 2500) {
