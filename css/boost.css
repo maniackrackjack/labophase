@@ -1,0 +1,382 @@
+/* ============================================================
+   Boost — boost crystal calculator panel
+   ============================================================ */
+
+.boost-panel {
+  background: var(--bg-panel);
+}
+
+.boost-subtitle {
+  margin-top: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.boost-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.boost-box-items {
+  grid-column: 1 / -1;
+}
+
+.boost-box {
+  background: var(--bg-surface-1);
+  border: 2px solid var(--border-accent);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.boost-box h4 {
+  margin: 0 0 8px;
+  color: var(--text-title);
+  font-size: 14px;
+}
+
+.boost-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 7px 8px;
+  align-items: center;
+}
+
+.boost-price-list,
+.boost-stock-list {
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  gap: 7px 8px;
+  align-items: center;
+  width: 100%;
+}
+
+.boost-price-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.boost-price-item img {
+  width: 18px;
+  height: 18px;
+}
+
+.boost-price-list input[id^="boost-price-"],
+.boost-stock-list input[id^="boost-stock-"] {
+  text-align: left;
+  padding: 5px 7px;
+}
+
+.boost-box-prices h4 + .boost-stock-list,
+.boost-price-list + h4 {
+  margin-top: 10px;
+}
+
+.boost-box input,
+.boost-box select {
+  width: 92px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  color: var(--input-text);
+  padding: 5px 7px;
+  font-size: 13px;
+  text-align: right;
+}
+
+.boost-box input:focus,
+.boost-box select:focus {
+  outline: none;
+  border-color: var(--input-focus);
+}
+
+.boost-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.boost-actions button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9px;
+  color: #fff7dc;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  padding: 8px 11px;
+  cursor: pointer;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.32),
+    0 6px 14px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.14s ease, filter 0.14s ease, box-shadow 0.14s ease;
+}
+
+.boost-actions button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.boost-actions button:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.32),
+    0 4px 8px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.boost-actions button:focus-visible {
+  outline: 2px solid var(--input-focus);
+  outline-offset: 2px;
+}
+
+#boost-add-item-btn::before {
+  content: "➕ ";
+}
+
+#boost-full-set-btn::before {
+  content: "⚡ ";
+}
+
+#boost-import-current-btn::before,
+#boost-import-profile-btn::before {
+  content: "📥 ";
+}
+
+#boost-clear-items-btn::before {
+  content: "🧹 ";
+}
+
+.boost-profile-row {
+  margin-top: 8px;
+}
+
+.boost-profile-row select {
+  width: 100%;
+  text-align: left;
+}
+
+.boost-item-head {
+  display: grid;
+  grid-template-columns: 36px 1.1fr 1.2fr 84px 84px 44px;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.boost-items-list {
+  display: grid;
+  gap: 10px;
+}
+
+.boost-item-row {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-accent);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.boost-item-controls {
+  display: grid;
+  grid-template-columns: 36px 1.1fr 1.2fr 84px 84px 44px;
+  gap: 6px;
+  align-items: center;
+}
+
+.boost-item-controls select,
+.boost-item-controls button {
+  width: 100%;
+}
+
+.boost-item-controls .boost-item-type {
+  text-align: left;
+}
+
+.boost-item-controls .boost-item-variant {
+  text-align: left;
+}
+
+.boost-item-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-accent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--bg-panel) 85%, black 15%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boost-item-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.boost-item-result {
+  margin-top: 8px;
+}
+
+.boost-item-result-title {
+  font-size: 12px;
+  color: var(--text-title);
+  margin-bottom: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.boost-item-result-title img {
+  width: 16px;
+  height: 16px;
+}
+
+.boost-item-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.boost-item-table th,
+.boost-item-table td {
+  border: 1px solid var(--border-accent);
+  padding: 4px 6px;
+  font-size: 11px;
+  text-align: right;
+}
+
+.boost-item-table th:first-child,
+.boost-item-table td:first-child {
+  text-align: left;
+}
+
+.boost-item-table th {
+  background: var(--bg-surface-2);
+  color: var(--text-title);
+}
+
+.boost-item-table td {
+  background: var(--bg-surface-1);
+}
+
+.boost-item-total {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 12px;
+}
+
+.boost-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.boost-result-box {
+  background: var(--bg-surface-1);
+  border: 2px solid var(--border-accent);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.boost-result-box h4 {
+  margin: 0 0 8px;
+  color: var(--text-title);
+  font-size: 14px;
+}
+
+.boost-breakdown {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.boost-breakdown-line {
+  display: flex;
+  justify-content: space-between;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-accent);
+  border-radius: 4px;
+  padding: 4px 7px;
+  font-size: 12px;
+}
+
+.boost-total {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.boost-table-wrap {
+  overflow-x: auto;
+}
+
+.boost-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.boost-table th,
+.boost-table td {
+  border: 1px solid var(--border-accent);
+  padding: 6px 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.boost-table th {
+  background: var(--bg-surface-2);
+  color: var(--text-title);
+}
+
+.boost-table td {
+  background: var(--bg-panel);
+}
+
+.boost-crystal-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.boost-crystal-cell img {
+  width: 16px;
+  height: 16px;
+}
+
+.boost-total-row {
+  background: color-mix(in srgb, var(--text-title) 8%, transparent 92%) !important;
+  border: 2px solid var(--text-title) !important;
+  font-weight: bold;
+}
+
+.boost-total-row td {
+  background: color-mix(in srgb, var(--text-title) 8%, transparent 92%) !important;
+}
+
+.boost-note {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .boost-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .boost-box input,
+  .boost-box select {
+    width: 78px;
+  }
+
+  .boost-item-head,
+  .boost-item-controls {
+    grid-template-columns: 30px 1fr 1fr 68px 68px 36px;
+  }
+
+  .boost-table {
+    min-width: 620px;
+  }
+}

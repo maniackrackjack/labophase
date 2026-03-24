@@ -1,0 +1,166 @@
+/* ============================================================
+   XP Calculator — tier and potion planning
+   ============================================================ */
+
+.xp-panel {
+  background: var(--bg-panel);
+}
+
+.xp-subtitle {
+  margin-top: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.xp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.xp-box {
+  background: var(--bg-surface-1);
+  border: 2px solid var(--border-accent);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.xp-box h4 {
+  margin: 0 0 8px;
+  color: var(--text-title);
+  font-size: 14px;
+}
+
+.xp-tier-stars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.xp-star-btn {
+  border: 1px solid var(--border-accent);
+  background: var(--bg-panel);
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.xp-star-btn.active {
+  border-color: var(--text-title);
+  background: var(--bg-surface-2);
+}
+
+.xp-star-btn img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.xp-row {
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  gap: 7px 8px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.xp-row input {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  color: var(--input-text);
+  padding: 5px 7px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.xp-row input:focus {
+  outline: none;
+  border-color: var(--input-focus);
+}
+
+.xp-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.xp-actions button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9px;
+  color: #fff7dc;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.32),
+    0 6px 14px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 0.14s ease, filter 0.14s ease, box-shadow 0.14s ease;
+}
+
+.xp-actions button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.xp-actions button:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.32),
+    0 4px 8px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.xp-actions button:focus-visible {
+  outline: 2px solid var(--input-focus);
+  outline-offset: 2px;
+}
+
+#xp-clear-btn::before {
+  content: "🧼 ";
+}
+
+.xp-result-list {
+  display: grid;
+  gap: 8px;
+}
+
+.xp-pot-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-accent);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.xp-pot-line img {
+  width: 20px;
+  height: 20px;
+}
+
+.xp-note {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.xp-error {
+  color: #ff8f8f;
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .xp-grid {
+    grid-template-columns: 1fr;
+  }
+}

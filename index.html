@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <title data-lang="title">Tibia Crystal Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="sprites/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="sprites/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="sprites/favicon/favicon-16x16.png" />
+    <link rel="shortcut icon" href="sprites/favicon/favicon.ico" />
+    <link rel="manifest" href="sprites/favicon/site.webmanifest" />
+
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/groups.css" />
+    <link rel="stylesheet" href="css/cards.css" />
+    <link rel="stylesheet" href="css/tables.css" />
+    <link rel="stylesheet" href="css/ui.css" />
+    <link rel="stylesheet" href="css/recipes.css" />
+    <link rel="stylesheet" href="css/chest.css" />
+    <link rel="stylesheet" href="css/boost.css" />
+    <link rel="stylesheet" href="css/xp.css" />
+    <link rel="stylesheet" href="css/characters.css" />
+    <link rel="stylesheet" href="css/boats.css" />
+    <link rel="stylesheet" href="css/wanted.css" />
+    <link rel="stylesheet" href="css/links.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <div class="sidebar-logo">
+            <img class="logo-icon" src="sprites/branding/logo.jpg" alt="logo">
+            <span class="logo-text">Labophase</span>
+          </div>
+          <div class="langSelector">
+            <label data-lang="language">Idioma</label>
+            <div class="langButtons">
+              <button class="langBtn" type="button" data-lang="en" aria-label="English" onclick="setLang('en')">🇬🇧</button>
+              <button class="langBtn" type="button" data-lang="pt" aria-label="Português" onclick="setLang('pt')">🇧🇷</button>
+              <button class="langBtn" type="button" data-lang="es" aria-label="Español" onclick="setLang('es')">🇪🇸</button>
+              <button class="langBtn" type="button" data-lang="pl" aria-label="Polski" onclick="setLang('pl')">🇵🇱</button>
+            </div>
+          </div>
+          <div class="themeSelector">
+            <div id="theme-preview" class="themePreview" aria-label="Preview dos temas"></div>
+          </div>
+          <button class="sidebar-toggle" onclick="toggleSidebar()" title="Recolher/Expandir menu" aria-label="Recolher menu">
+            <span class="sidebar-toggle-arrow">◀</span>
+          </button>
+          <h2 class="sidebar-menu-title" data-lang="menu">Menu</h2>
+          <button class="tabBtn active" onclick="switchTab('calc', this)">
+            <span class="tab-icon"><img src="sprites/icons/divine_crystal.gif" class="tab-icon-img" alt="Cristal Divino"></span><span class="tab-label" data-lang="calculator"></span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('receitas', this)">
+            <span class="tab-icon"><img src="sprites/recipes/shrimp_paella.png" class="tab-icon-img" alt="Paella de Camarão"></span><span class="tab-label" data-lang="recipes"></span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('chest', this)">
+            <span class="tab-icon"><img id="ch-tab-icon" src="sprites/chestpuzzle/closed_relic.png" class="tab-icon-img" alt="Baú"></span><span class="tab-label" data-lang="chest"></span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('boost', this)">
+            <span class="tab-icon"><img src="sprites/icons/radiant_crystal.gif" class="tab-icon-img" alt="Cristal Radiante"></span><span class="tab-label" data-lang="boost">Boost</span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('xp', this)">
+            <span class="tab-icon"><img src="sprites/xp/large_xp_pot.png" class="tab-icon-img" alt="Pot de XP Grande"></span><span class="tab-label" data-lang="xpTab">Calculadora XP</span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('characters', this)">
+            <span class="tab-icon"><img src="sprites/characters/monkey_luffy.png" class="tab-icon-img" alt="Luffy"></span><span class="tab-label" data-lang="charactersTab">Personagens</span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('boats', this)">
+            <span class="tab-icon"><img src="sprites/boats/skins/boat_classic.png" class="tab-icon-img" alt="Barco"></span><span class="tab-label" data-lang="boatsTab">Barcos</span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('wanted', this)">
+            <span class="tab-icon">🏴‍☠️</span><span class="tab-label" data-lang="wantedTab">Wanted Pirates</span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('links', this)">
+            <span class="tab-icon">🔗</span><span class="tab-label" data-lang="usefulLinksTab">Links Úteis</span>
+          </button>
+        </div>
+
+        <div class="sidebar-bottom">
+          <footer class="sidebar-footer">
+            <span class="footer-dev">desenvolvido por maniackrackjack</span>
+            <a href="https://discord.com/users/170132530136088576" target="_blank" rel="noopener noreferrer" class="discord-link" aria-label="Discord">
+              <svg class="discord-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.012.044.027.06a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+            </a>
+            <a href="https://www.twitch.tv/maniackrackjack/" target="_blank" rel="noopener noreferrer" class="twitch-link" aria-label="Twitch">
+              <svg class="twitch-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2h18v12l-5 5h-4l-3 3H6v-3H3V2zm2 2v11h3v3l3-3h5l3-3V4H5zm5 2h2v5h-2V6zm5 0h2v5h-2V6z"/></svg>
+            </a>
+          </footer>
+        </div>
+      </div>
+
+      <div class="content">
+        <div id="calc" class="tabPanel">
+          <div class="panel">
+            <div class="calc-subtabs" role="tablist" aria-label="Divine Crystal views">
+              <button type="button" id="calc-subtab-btn-calculator" class="calc-subtab-btn active" data-subtab="calculator" role="tab" aria-controls="calc-subtab-calculator" aria-selected="true" onclick="switchCalcSubTab('calculator', this)">
+                <img src="sprites/icons/divine_crystal.gif" class="tab-icon-img subtab-icon-img" alt="">
+                <span data-lang="calculator">Crystal Calculator</span>
+              </button>
+              <button type="button" id="calc-subtab-btn-tables" class="calc-subtab-btn" data-subtab="tables" role="tab" aria-controls="calc-subtab-tables" aria-selected="false" onclick="switchCalcSubTab('tables', this)">
+                <img src="sprites/xp/diamond_tier.png" class="tab-icon-img subtab-icon-img" alt="">
+                <span data-lang="tables">Tabelas de Combinação</span>
+              </button>
+            </div>
+
+            <div id="calc-subtab-calculator" class="calc-subtab-panel active" role="tabpanel">
+              <h3 data-lang="calculator">Crystal Calculator</h3>
+
+              <div class="grid">
+              <div class="itemBtn" onclick="addItem('chapeu')">
+                <img src="sprites/icons/head/pirate_explorer_hat.gif" /><br /><span data-lang="hat"
+                  >Chapéu</span
+                >
+              </div>
+
+              <div class="itemBtn" onclick="addItem('camisa')">
+                <img src="sprites/icons/body/pirate_explorer_shirt.gif" /><br /><span data-lang="shirt"
+                  >Camisa</span
+                >
+              </div>
+
+              <div class="itemBtn" onclick="addItem('calca')">
+                <img src="sprites/icons/legs/pirate_explorer_pants.gif" /><br /><span data-lang="pants"
+                  >Calça</span
+                >
+              </div>
+
+              <div class="itemBtn" onclick="addItem('emblema')">
+                <img src="sprites/icons/emblem/pirate_explorer_emblem.gif" /><br /><span data-lang="emblem"
+                  >Emblema</span
+                >
+              </div>
+
+              <div class="itemBtn" onclick="addItem('sabre')">
+                <img src="sprites/icons/weapon/pirate_explorer_saber.gif" /><br /><span data-lang="weapon"
+                  >Arma</span
+                >
+              </div>
+
+              <div class="itemBtn" onclick="addItem('colar')">
+                  <img src="sprites/icons/accessory/pirate_explorer_necklace.gif" class="img1" />
+                  <img src="sprites/icons/accessory/pirate_explorer_ring.gif" class="img2" /><br />
+                  <span data-lang="accessory">Acessório</span>
+                </div>
+              </div>
+
+              <div class="profileControls">
+              <select id="profileSelect" onchange="switchProfile()">
+                <option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>
+              </select>
+
+              <button class="saveBtn" data-lang="saveProfile" onclick="saveProfile()">
+                Salvar perfil
+              </button>
+
+              <button class="saveBtn" data-lang="newProfile" onclick="createProfile()">
+                Novo perfil
+              </button>
+
+              <button class="clearBtn" data-lang="deleteProfile" onclick="deleteProfile()">
+                Excluir perfil
+              </button>
+              </div>
+
+              <div class="buttons">
+              <button class="setBtn" data-lang="fullSet" onclick="addFullSet()">
+                Adicionar Set Completo
+              </button>
+
+              <button class="saveBtn" data-lang="createGroup" onclick="createGroupFromUI()">
+                Criar grupo
+              </button>
+
+              <button class="shareBtn" data-lang="shareBuild" onclick="shareBuild()">
+                Compartilhar
+              </button>
+
+              <button class="clearBtn" data-lang="clear" onclick="clearBuild()">
+                Limpar
+              </button>
+              </div>
+
+              <div id="itemsArea"></div>
+
+              <div id="summary">
+              <span data-lang="totalCrystals">Cristais totais necessários</span
+              >: <span id="totalCrystalsValue">0</span>
+              </div>
+            </div>
+
+            <div id="calc-subtab-tables" class="calc-subtab-panel" role="tabpanel" style="display: none">
+              <h3 data-lang="tables">Tabelas de Combinação</h3>
+              <div id="tablesArea"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="receitas" class="tabPanel" style="display: none">
+          <div id="receitas-inner">
+            <div id="r-recipe-list">
+              <div id="r-recipe-list-container"></div>
+            </div>
+            <div id="r-recipe-details">
+              <h2 id="r-recipe-name" data-lang-recipes="ui.selectRecipe">Select a Recipe</h2>
+              <div id="r-recipe-meta-line">
+                <span id="r-recipe-level" class="r-small-muted"></span>
+                <span id="r-recipe-cooldown" class="r-small-muted"></span>
+              </div>
+              <div id="r-ingredients-list"></div>
+            </div>
+            <div id="r-calc-panel">
+              <div class="r-panel-box">
+                <span data-lang-recipes="ui.qtyLabel">📦 Quantity (1–100)</span>
+                <input type="number" id="r-qty" min="1" max="100" placeholder="1–100" />
+              </div>
+              <div class="r-panel-box">
+                <span data-lang-recipes="ui.unitCostLabel">⚙️ Unit cost</span>
+                <strong id="r-unit-cost">฿ 0</strong>
+              </div>
+              <div class="r-panel-box">
+                <span data-lang-recipes="ui.sellPriceLabel">💰 Sell price</span>
+                <input type="number" id="r-sell-price" min="0" max="999999" value="0" step="1" />
+              </div>
+              <div class="r-panel-box">
+                <span data-lang-recipes="ui.totalCostLabel">🧮 Total cost</span>
+                <strong id="r-total-cost">฿ 0</strong>
+              </div>
+              <div class="r-panel-box">
+                <span>🧾 Taxa (3%)</span>
+                <strong id="r-fee">฿ 0</strong>
+              </div>
+              <div class="r-panel-box">
+                <span data-lang-recipes="ui.profitLabel">🤑 Profit</span>
+                <strong id="r-profit" class="r-profit">฿ 0</strong>
+              </div>
+              <div class="r-panel-box">
+                <span data-lang-recipes="ui.cookTimeLabel">⏱️ Cook time</span>
+                <strong id="r-prod-time">0 min</strong>
+              </div>
+              <div class="r-panel-box">
+                <span data-lang-recipes="ui.bagSlotsLabel">🎒 Bag slots</span>
+                <strong id="r-bag-slots">0</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="chest" class="tabPanel" style="display: none">
+          <div class="panel">
+            <h3 id="ch-title" data-lang="chestTitle">Puzzle das 8 Tochas</h3>
+
+            <div id="ch-sprite-switch" role="group" aria-label="Sistema de sprites">
+              <span class="ch-sprite-label">Sprites:</span>
+              <button id="ch-sprite-drakantos" class="ch-system-btn" type="button">Drakantos</button>
+              <button id="ch-sprite-gla" class="ch-system-btn" type="button">GLA</button>
+            </div>
+
+            <div id="ch-area-wrap">
+              <div id="ch-area">
+                <div id="ch-bau"></div>
+              </div>
+            </div>
+
+            <div id="ch-actions">
+              <button id="ch-mode-btn" class="ch-btn">
+                <span data-lang="chestMode">Modo</span>: <span id="ch-mode-label"></span>
+              </button>
+              <button id="ch-solve-btn" class="ch-btn" data-lang="chestSolve">Resolver</button>
+              <button id="ch-reset-btn" class="ch-btn" data-lang="chestReset">Resetar</button>
+              <button id="ch-random-btn" class="ch-btn" data-lang="chestRandom">Aleatório</button>
+            </div>
+
+            <div id="ch-result"></div>
+            <ol id="ch-steps"></ol>
+          </div>
+        </div>
+
+        <div id="boost" class="tabPanel" style="display: none">
+          <div class="panel boost-panel">
+            <h3 data-lang="boost">Boost</h3>
+            <p class="boost-subtitle" data-lang="boostSubtitle">Calcule cristais de boost e custo em ฿ do +0 ao +16 (com chance e pity).</p>
+
+            <div class="boost-grid">
+              <section class="boost-box boost-box-level">
+                <h4 data-lang="boostLevelTitle">Nivel de Boost</h4>
+                <div class="boost-actions">
+                  <button class="setBtn" type="button" id="boost-add-item-btn" data-lang="addItem">Adicionar item</button>
+                  <button class="setBtn" type="button" id="boost-full-set-btn" data-lang="fullSet" data-lang-title="boostFullSetTitle" title="Preenche 1 item em cada categoria base">Set completo</button>
+                  <button class="setBtn" type="button" id="boost-import-current-btn" data-lang="boostImportCurrent">Importar calculadora</button>
+                </div>
+
+                <div class="boost-row boost-profile-row">
+                  <label for="boost-profile-select" data-lang="selectProfile">Selecione um perfil</label>
+                  <select id="boost-profile-select" data-lang-title="boostProfileSelectTitle" title="Selecione um perfil para importar"></select>
+                </div>
+
+                <div class="boost-actions">
+                  <button class="setBtn" type="button" id="boost-import-profile-btn" data-lang="boostImportProfile">Importar perfil</button>
+                  <button class="clearBtn" type="button" id="boost-clear-items-btn" data-lang="boostClearItems" data-lang-title="boostClearItemsTitle" title="Remove todos os itens da lista">Limpar itens</button>
+                </div>
+              </section>
+
+              <section class="boost-box boost-box-prices">
+                <h4 data-lang="boostCrystalPriceTitle">Cristais de Boost (฿)</h4>
+                <div class="boost-price-list">
+                  <label class="boost-price-item" for="boost-price-sky"><img src="sprites/icons/sky_crystal.gif" alt="Cristal do Ceu" data-lang-alt="boostCrystalSky" /><span data-lang="boostCrystalSky">Cristal do Ceu</span></label>
+                  <input id="boost-price-sky" type="number" min="0" step="1" value="0" data-lang-title="boostPriceSkyTitle" title="Preco unitario do Cristal do Ceu" />
+
+                  <label class="boost-price-item" for="boost-price-sage"><img src="sprites/icons/sage_crystal.gif" alt="Cristal do Sabio" data-lang-alt="boostCrystalSage" /><span data-lang="boostCrystalSage">Cristal do Sabio</span></label>
+                  <input id="boost-price-sage" type="number" min="0" step="1" value="0" data-lang-title="boostPriceSageTitle" title="Preco unitario do Cristal do Sabio" />
+
+                  <label class="boost-price-item" for="boost-price-crimson"><img src="sprites/icons/crimson_crystal.gif" alt="Cristal Carmesim" data-lang-alt="boostCrystalCrimson" /><span data-lang="boostCrystalCrimson">Cristal Carmesim</span></label>
+                  <input id="boost-price-crimson" type="number" min="0" step="1" value="0" data-lang-title="boostPriceCrimsonTitle" title="Preco unitario do Cristal Carmesim" />
+
+                  <label class="boost-price-item" for="boost-price-radiant"><img src="sprites/icons/radiant_crystal.gif" alt="Cristal Radiante" data-lang-alt="boostCrystalRadiant" /><span data-lang="boostCrystalRadiant">Cristal Radiante</span></label>
+                  <input id="boost-price-radiant" type="number" min="0" step="1" value="0" data-lang-title="boostPriceRadiantTitle" title="Preco unitario do Cristal Radiante" />
+                </div>
+
+                <h4 data-lang="boostInventoryTitle">Cristais no inventario (abater)</h4>
+                <div class="boost-stock-list">
+                  <label class="boost-price-item" for="boost-stock-sky"><img src="sprites/icons/sky_crystal.gif" alt="Cristal do Ceu" data-lang-alt="boostCrystalSky" /><span data-lang="boostCrystalSky">Cristal do Ceu</span></label>
+                  <input id="boost-stock-sky" type="number" min="0" step="1" value="0" />
+
+                  <label class="boost-price-item" for="boost-stock-sage"><img src="sprites/icons/sage_crystal.gif" alt="Cristal do Sabio" data-lang-alt="boostCrystalSage" /><span data-lang="boostCrystalSage">Cristal do Sabio</span></label>
+                  <input id="boost-stock-sage" type="number" min="0" step="1" value="0" />
+
+                  <label class="boost-price-item" for="boost-stock-crimson"><img src="sprites/icons/crimson_crystal.gif" alt="Cristal Carmesim" data-lang-alt="boostCrystalCrimson" /><span data-lang="boostCrystalCrimson">Cristal Carmesim</span></label>
+                  <input id="boost-stock-crimson" type="number" min="0" step="1" value="0" />
+
+                  <label class="boost-price-item" for="boost-stock-radiant"><img src="sprites/icons/radiant_crystal.gif" alt="Cristal Radiante" data-lang-alt="boostCrystalRadiant" /><span data-lang="boostCrystalRadiant">Cristal Radiante</span></label>
+                  <input id="boost-stock-radiant" type="number" min="0" step="1" value="0" />
+                </div>
+              </section>
+
+              <section class="boost-box boost-box-items">
+                <h4 data-lang="boostItemsTitle">Itens</h4>
+                <div class="boost-item-head">
+                  <span data-lang="boostItemIcon">Icone</span>
+                  <span data-lang="boostItemType">Item</span>
+                  <span data-lang="boostVariant">Variante</span>
+                  <span data-lang="boostCurrent">Boost atual</span>
+                  <span data-lang="boostTarget">Boost alvo</span>
+                  <span></span>
+                </div>
+                <div id="boost-items-list" class="boost-items-list"></div>
+              </section>
+            </div>
+
+            <div class="boost-results">
+              <div class="boost-result-box">
+                <h4 data-lang="boostPityTitle">Consumo Maximo (pity)</h4>
+                <div id="boost-pity-breakdown" class="boost-breakdown"></div>
+                <div class="boost-total" id="boost-pity-total-berries-line">Custo: <strong id="boost-pity-total-berries">฿ 0</strong></div>
+              </div>
+            </div>
+
+            <div class="boost-table-wrap">
+              <table class="boost-table">
+                <thead>
+                  <tr>
+                    <th data-lang="boostTableLevel">Boost</th>
+                    <th data-lang="boostTableCrystal">Cristal</th>
+                    <th data-lang="boostTableChances">Chances (%)</th>
+                    <th data-lang="boostTableAttempts">Tentativas (pity)</th>
+                    <th data-lang="boostTablePity">Cristais maximos</th>
+                    <th data-lang="boostTableBerriesCost">฿ por tentativa</th>
+                  </tr>
+                </thead>
+                <tbody id="boost-level-rows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="xp" class="tabPanel" style="display: none">
+          <div class="panel xp-panel">
+            <h3 data-lang="xpTab">Calculadora XP</h3>
+            <p class="xp-subtitle" data-lang="xpSubtitle">Calcule quantas poções de XP são necessárias para atingir o nível desejado.</p>
+
+            <div class="xp-grid">
+              <section class="xp-box">
+                <h4 data-lang="xpTierTitle">Tier do Personagem</h4>
+                <div id="xp-tier-stars" class="xp-tier-stars"></div>
+              </section>
+
+              <section class="xp-box">
+                <h4 data-lang="xpInputTitle">Dados Atuais</h4>
+
+                <div class="xp-row">
+                  <label for="xp-level-current" data-lang="xpCurrentLevel">Nível atual</label>
+                  <input id="xp-level-current" type="number" min="1" max="140" step="1" value="1" />
+                </div>
+
+                <div class="xp-row">
+                  <label for="xp-percent-current" data-lang="xpCurrentPercent">XP atual (%)</label>
+                  <input id="xp-percent-current" type="number" min="0" max="100" step="1" value="0" />
+                </div>
+
+                <div class="xp-row">
+                  <label for="xp-level-target" data-lang="xpTargetLevel">Nível desejado</label>
+                  <input id="xp-level-target" type="number" min="2" max="140" step="1" value="2" />
+                </div>
+
+                <div class="xp-actions">
+                  <button class="clearBtn" type="button" id="xp-clear-btn" data-lang="clear">Limpar</button>
+                </div>
+              </section>
+            </div>
+
+            <div class="xp-box" style="margin-top: 10px">
+              <h4 data-lang="xpResultTitle">Poções Necessárias</h4>
+              <div id="xp-result-note" class="xp-note"></div>
+              <div id="xp-result-list" class="xp-result-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="characters" class="tabPanel" style="display: none">
+          <div class="panel characters-panel">
+            <div class="characters-title-row">
+              <div>
+                <h3 data-lang="charactersTab">Personagens</h3>
+                <p class="characters-subtitle" data-lang="charactersSubtitle">Ative personagens, ajuste nível, estrelas e tier, e salve junto do build.</p>
+              </div>
+              <div class="characters-title-actions">
+                <div id="characters-summary" class="characters-summary">0 / 0</div>
+                <button class="shareBtn" onclick="shareBuild()" data-lang="shareBuild">Compartilhar</button>
+              </div>
+            </div>
+
+            <div class="characters-filter-bar">
+              <div class="characters-filter-field characters-filter-search">
+                <label for="characters-search" data-lang="charactersSearchLabel">Pesquisar</label>
+                <input id="characters-search" type="text" />
+              </div>
+
+              <div class="characters-filter-field">
+                <span class="characters-filter-label" data-lang="charactersRoleFilter">Classe</span>
+                <div class="characters-filter-toggles">
+                  <button type="button" class="characters-filter-toggle" data-characters-role-toggle="Melee" title="Melee">
+                    <img src="sprites/icons_classes/icon_fighter.png" alt="Melee" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-role-toggle="Ranged" title="Ranged">
+                    <img src="sprites/icons_classes/icon_shooter.png" alt="Ranged" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-role-toggle="Tank" title="Tank">
+                    <img src="sprites/icons_classes/icon_tank.png" alt="Tank" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-role-toggle="Support" title="Support">
+                    <img src="sprites/icons_classes/icon_support.png" alt="Support" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="characters-filter-field">
+                <span class="characters-filter-label" data-lang="charactersTierFilter">Tier</span>
+                <div class="characters-filter-toggles">
+                  <button type="button" class="characters-filter-toggle" data-characters-tier-toggle="bronze" title="Bronze">
+                    <img src="sprites/xp/bronze_tier.png" alt="Bronze" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-tier-toggle="silver" title="Prata">
+                    <img src="sprites/xp/silver_tier.png" alt="Prata" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-tier-toggle="gold" title="Ouro">
+                    <img src="sprites/xp/gold_tier.png" alt="Ouro" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-tier-toggle="diamond" title="Diamante">
+                    <img src="sprites/xp/diamond_tier.png" alt="Diamante" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="characters-filter-field">
+                <span class="characters-filter-label" data-lang="charactersFactionFilter">Facção</span>
+                <div class="characters-filter-toggles">
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="tank" data-lang-title="charactersGroupTank" title="Tank">
+                    <img src="sprites/icons_classes/icon_tank.png" data-lang-alt="charactersGroupTank" alt="Tank" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="bruiser" data-lang-title="charactersGroupBruiser" title="Bruiser">
+                    <img src="sprites/icons_classes/icon_bruiser.png" data-lang-alt="charactersGroupBruiser" alt="Bruiser" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="dps" data-lang-title="charactersGroupDps" title="DPS">
+                    <img src="sprites/icons_classes/icon_dps.png" data-lang-alt="charactersGroupDps" alt="DPS" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="support" data-lang-title="charactersGroupSupport" title="Support">
+                    <img src="sprites/icons_classes/icon_support.png" data-lang-alt="charactersGroupSupport" alt="Support" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="fighter" data-lang-title="charactersGroupFighter" title="Fighter">
+                    <img src="sprites/icons_classes/icon_fighter.png" data-lang-alt="charactersGroupFighter" alt="Fighter" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="shooter" data-lang-title="charactersGroupShooter" title="Shooter">
+                    <img src="sprites/icons_classes/icon_shooter.png" data-lang-alt="charactersGroupShooter" alt="Shooter" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="slasher" data-lang-title="charactersGroupSlasher" title="Slasher">
+                    <img src="sprites/icons_classes/icon_slasher.png" data-lang-alt="charactersGroupSlasher" alt="Slasher" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="specialist" data-lang-title="charactersGroupSpecialist" title="Specialist">
+                    <img src="sprites/icons_classes/icon_specialist.png" data-lang-alt="charactersGroupSpecialist" alt="Specialist" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="marinheiro" data-lang-title="charactersGroupMarine" title="Marinha">
+                    <img src="sprites/icons_classes/icon_marine.png" data-lang-alt="charactersGroupMarine" alt="Marinha" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="supernova" data-lang-title="charactersGroupSupernova" title="Supernova">
+                    <img src="sprites/icons_classes/icon_supernova.png" data-lang-alt="charactersGroupSupernova" alt="Supernova" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="fruta_do_diabo" data-lang-title="charactersGroupDevilFruit" title="Fruta do Diabo">
+                    <img src="sprites/icons_classes/icon_devil_fruit.png" data-lang-alt="charactersGroupDevilFruit" alt="Fruta do Diabo" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="shichibukai" data-lang-title="charactersGroupShichibukai" title="Shichibukai">
+                    <img src="sprites/icons_classes/icon_shichibukai.png" data-lang-alt="charactersGroupShichibukai" alt="Shichibukai" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="realeza" data-lang-title="charactersGroupRoyalty" title="Realeza">
+                    <img src="sprites/icons_classes/icon_royal.png" data-lang-alt="charactersGroupRoyalty" alt="Realeza" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="chapeu_de_palha" data-lang-title="charactersGroupStrawHat" title="Chapeu de Palha">
+                    <img src="sprites/icons_classes/icon_strawhat.png" data-lang-alt="charactersGroupStrawHat" alt="Chapeu de Palha" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="characters-filter-field">
+                <span class="characters-filter-label" data-lang="charactersMechanicsFilter">Mecanica</span>
+                <div class="characters-filter-toggles">
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="reducao_ataque" data-lang-title="charactersMechanicAttackReduction" title="Reducao de ataque">
+                    <img src="sprites/icons_classes/debuff_attack.png" data-lang-alt="charactersMechanicAttackReduction" alt="Reducao de ataque" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="ataque_invul" data-lang-title="charactersMechanicAttackInvul" title="Ataque com invul">
+                    <img src="sprites/icons_classes/231223.png" data-lang-alt="charactersMechanicAttackInvul" alt="Ataque com invul" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="buff_ataque" data-lang-title="charactersMechanicAttackBuff" title="Buff de ataque">
+                    <img src="sprites/icons_classes/buff_attack.png" data-lang-alt="charactersMechanicAttackBuff" alt="Buff de ataque" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="quebra_def" data-lang-title="charactersMechanicDefenseBreak" title="Quebra def">
+                    <img src="sprites/icons_classes/2.png" data-lang-alt="charactersMechanicDefenseBreak" alt="Quebra def" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="cria_ponte" data-lang-title="charactersMechanicBridgeCreate" title="Cria ponte">
+                    <img src="sprites/icons_classes/Untitled.png" data-lang-alt="charactersMechanicBridgeCreate" alt="Cria ponte" />
+                  </button>
+                  <button type="button" class="characters-filter-toggle" data-characters-group-toggle="quebra_parede" data-lang-title="charactersMechanicWallBreak" title="Quebra parede">
+                    <img src="sprites/icons_classes/wall.png" data-lang-alt="charactersMechanicWallBreak" alt="Quebra parede" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="characters-filter-field characters-filter-stack-mobile">
+                <label for="characters-max-level-filter" data-lang="charactersMaxLevelFilter">Status de nível</label>
+                <select id="characters-max-level-filter">
+                  <option value="all" data-lang="charactersFilterAll">Todas</option>
+                  <option value="maxed" data-lang="charactersOnlyMaxed">Só 140</option>
+                  <option value="not_maxed" data-lang="charactersOnlyNotMaxed">Ainda não 140</option>
+                </select>
+              </div>
+
+              <div class="characters-filter-field characters-filter-stack-mobile">
+                <label for="characters-sort-filter" data-lang="charactersSortFilter">Classificar por</label>
+                <select id="characters-sort-filter">
+                  <option value="name_az" data-lang="charactersSortNameAZ">Nome (A-Z)</option>
+                  <option value="level_desc" data-lang="charactersSortLevelDesc">Nível (maior)</option>
+                  <option value="level_asc" data-lang="charactersSortLevelAsc">Nível (menor)</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="characters-grid" class="characters-grid"></div>
+          </div>
+        </div>
+
+        <div id="wanted" class="tabPanel" style="display: none">
+          <div class="panel wanted-panel">
+            <div class="wanted-title-row">
+              <h3 data-lang="wantedTitle">Wanted Pirates</h3>
+              <div class="wanted-credits">
+                <a href="https://www.twitch.tv/theplayerl0st" target="_blank" rel="noopener noreferrer" class="wanted-social-link" aria-label="Twitch ThePlayerLost" title="Twitch ThePlayerLost">
+                  <svg class="wanted-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2h18v12l-5 5h-4l-3 3H6v-3H3V2zm2 2v11h3v3l3-3h5l3-3V4H5zm5 2h2v5h-2V6zm5 0h2v5h-2V6z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/theplayerlost" target="_blank" rel="noopener noreferrer" class="wanted-social-link" aria-label="YouTube ThePlayerLost" title="YouTube ThePlayerLost">
+                  <svg class="wanted-social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3.1 3.1 0 0 0-2.2-2.2C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.3.5A3.1 3.1 0 0 0 .5 6.2 32.6 32.6 0 0 0 0 12a32.6 32.6 0 0 0 .5 5.8 3.1 3.1 0 0 0 2.2 2.2c2 .5 9.3.5 9.3.5s7.3 0 9.3-.5a3.1 3.1 0 0 0 2.2-2.2A32.6 32.6 0 0 0 24 12a32.6 32.6 0 0 0-.5-5.8zM9.6 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+                </a>
+                <span data-lang="wantedCredits">Creditos ao ThePlayerLost pelas Match-ups</span>
+              </div>
+            </div>
+
+            <div class="wanted-subtabs" role="tablist" aria-label="Wanted views">
+              <button type="button" id="wanted-subtab-btn-matchups" class="wanted-subtab-btn active" data-wanted-subtab="matchups" data-lang="wantedSubtabMatchups" role="tab" aria-controls="wanted-subtab-matchups" aria-selected="true" onclick="switchWantedSubTab('matchups', this)">Match-ups</button>
+              <button type="button" id="wanted-subtab-btn-tierlist" class="wanted-subtab-btn" data-wanted-subtab="tierlist" data-lang="wantedSubtabTierList" role="tab" aria-controls="wanted-subtab-tierlist" aria-selected="false" onclick="switchWantedSubTab('tierlist', this)">Tier List</button>
+              <button type="button" id="wanted-subtab-btn-rows" class="wanted-subtab-btn" data-wanted-subtab="rows" data-lang="wantedSubtabRows" role="tab" aria-controls="wanted-subtab-rows" aria-selected="false" onclick="switchWantedSubTab('rows', this)">Wanted em linhas</button>
+            </div>
+
+            <div id="wanted-subtab-matchups" class="wanted-subtab-panel active" role="tabpanel">
+              <div class="wanted-search-row">
+                <label for="wanted-search-input" data-lang="wantedSearchLabel">Pesquisar Wanted Pirate</label>
+                <input id="wanted-search-input" type="text" />
+                <label for="wanted-sort-select" data-lang="wantedSortLabel">Ordenacao</label>
+                <select id="wanted-sort-select">
+                  <option value="az" data-lang="wantedSortAZ">A-Z</option>
+                  <option value="original" data-lang="wantedSortOriginal">Original</option>
+                </select>
+              </div>
+
+              <div class="wanted-table-wrap">
+                <table class="wanted-table">
+                  <thead id="wanted-table-head"></thead>
+                  <tbody id="wanted-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <div id="wanted-subtab-tierlist" class="wanted-subtab-panel" role="tabpanel" style="display: none">
+              <div class="wanted-tier-toolbar">
+                <label for="wanted-tier-target-select" class="wanted-tier-target-label" data-lang="wantedTierTargetLabel">Wanted</label>
+                <select id="wanted-tier-target-select"></select>
+                <input id="wanted-tier-search-input" type="text" data-lang-title="wantedTierSearchPlaceholder" placeholder="Buscar no pool..." />
+                <button type="button" id="wanted-tier-clear-btn" class="wanted-tier-btn" data-lang="wantedTierClear">Limpar tiers</button>
+                <button type="button" id="wanted-tier-reset-btn" class="wanted-tier-btn" data-lang="wantedTierReset">Resetar lista</button>
+                <button type="button" id="wanted-tier-export-btn" class="wanted-tier-btn is-primary" data-lang="wantedTierExport">Salvar imagem</button>
+              </div>
+
+              <div class="wanted-tier-layout">
+                <div id="wanted-tier-board" class="wanted-tier-board"></div>
+                <aside class="wanted-tier-pool-wrap">
+                  <h4 data-lang="wantedTierPoolTitle">Pool de Wanteds</h4>
+                  <div id="wanted-tier-pool" class="wanted-tier-dropzone" data-tier="pool"></div>
+                </aside>
+              </div>
+            </div>
+
+            <div id="wanted-subtab-rows" class="wanted-subtab-panel" role="tabpanel" style="display: none">
+              <div class="wanted-rows-toolbar">
+                <label for="wanted-rows-target-select" class="wanted-tier-target-label" data-lang="wantedRowsAddWantedLabel">Adicionar Wanted</label>
+                <select id="wanted-rows-target-select"></select>
+                <button type="button" id="wanted-rows-add-btn" class="wanted-tier-btn" data-lang="wantedRowsAddWanted">Adicionar linha</button>
+                <button type="button" id="wanted-rows-clear-btn" class="wanted-tier-btn" data-lang="wantedRowsClear">Limpar linhas</button>
+                <button type="button" id="wanted-rows-reset-btn" class="wanted-tier-btn" data-lang="wantedRowsReset">Resetar linhas</button>
+              </div>
+
+              <div class="wanted-tier-layout wanted-rows-layout">
+                <div id="wanted-rows-board" class="wanted-tier-board"></div>
+                <aside class="wanted-tier-pool-wrap">
+                  <h4 data-lang="wantedTierPoolTitle">Pool de Counters</h4>
+                  <input id="wanted-rows-search-input" type="text" data-lang-title="wantedTierSearchPlaceholder" placeholder="Buscar no pool..." />
+                  <div id="wanted-rows-pool" class="wanted-tier-dropzone"></div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="boats" class="tabPanel" style="display: none">
+          <div class="panel boats-panel">
+            <div>
+              <h3 data-lang="boatsTitle">Planejador de Barcos</h3>
+              <p class="boats-subtitle" data-lang="boatsSubtitle">Marque os equipamentos do arsenal e skins para ver materiais base, refino, construcao e custo em Berries.</p>
+            </div>
+
+            <section class="boats-section">
+              <div class="boats-section-head">
+                <div>
+                  <h4 data-lang="boatsArsenalTitle">Arsenal (Lv 6)</h4>
+                  <p class="boats-hint" data-lang="boatsArsenalHint">Marque o que deseja construir.</p>
+                </div>
+                <div class="boats-actions">
+                  <button type="button" data-boats-action="arsenal-all" data-lang="boatsSelectAll">Selecionar todos</button>
+                  <button type="button" data-boats-action="arsenal-clear" data-lang="boatsClearAll">Limpar</button>
+                </div>
+              </div>
+              <div id="boats-arsenal-grid" class="boats-grid"></div>
+            </section>
+
+            <section class="boats-section">
+              <div class="boats-section-head">
+                <div>
+                  <h4 data-lang="boatsSkinsTitle">Skins do Barco</h4>
+                  <p class="boats-hint" data-lang="boatsSkinsHint">Tintas nao sao compraveis na loja. Esta secao mostra so as quantidades.</p>
+                </div>
+                <div class="boats-actions">
+                  <button type="button" data-boats-action="skins-all" data-lang="boatsSelectAll">Selecionar todos</button>
+                  <button type="button" data-boats-action="skins-clear" data-lang="boatsClearAll">Limpar</button>
+                </div>
+              </div>
+              <div id="boats-skins-grid" class="boats-grid"></div>
+            </section>
+
+            <section>
+              <h4 data-lang="boatsSummaryTitle">Passo a passo</h4>
+              <div id="boats-summary" class="boats-summary"></div>
+            </section>
+          </div>
+        </div>
+
+        <div id="links" class="tabPanel" style="display: none">
+          <div class="panel links-panel">
+            <h3 data-lang="usefulLinksTitle">Links Úteis</h3>
+
+            <section class="links-section">
+              <h4 data-lang="usefulLinksOfficial">Links Oficiais do GLA</h4>
+              <div class="links-list">
+                <a href="https://discord.gg/grandlineadventures" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.012.044.027.06a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg></span>
+                  <span class="links-item-content"><strong>Discord</strong><small>Discord do Grandline Adventures</small></span>
+                </a>
+                <a href="https://grandlineadventures.com/" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm6.93 9h-3.08a15.72 15.72 0 0 0-1.15-4.32A8.03 8.03 0 0 1 18.93 11zM12 4.06A13.73 13.73 0 0 1 13.8 11h-3.6A13.73 13.73 0 0 1 12 4.06zM9.3 6.68A15.72 15.72 0 0 0 8.15 11H5.07A8.03 8.03 0 0 1 9.3 6.68zM5.07 13h3.08a15.72 15.72 0 0 0 1.15 4.32A8.03 8.03 0 0 1 5.07 13zM12 19.94A13.73 13.73 0 0 1 10.2 13h3.6A13.73 13.73 0 0 1 12 19.94zm2.7-2.62A15.72 15.72 0 0 0 15.85 13h3.08a8.03 8.03 0 0 1-4.23 4.32z"/></svg></span>
+                  <span class="links-item-content"><strong>Site Oficial</strong><small>Portal principal do Grandline Adventures</small></span>
+                </a>
+                <a href="https://support.gla.com.br/" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm5.93 9h-2.02a4.97 4.97 0 0 0-2.89-2.89V6.07A6.99 6.99 0 0 1 17.93 11zM11 6.07v2.04A4.97 4.97 0 0 0 8.11 11H6.07A6.99 6.99 0 0 1 11 6.07zM6.07 13h2.04A4.97 4.97 0 0 0 11 15.89v2.04A6.99 6.99 0 0 1 6.07 13zM13 17.93v-2.04A4.97 4.97 0 0 0 15.89 13h2.04A6.99 6.99 0 0 1 13 17.93zM12 14a2 2 0 1 1 2-2 2 2 0 0 1-2 2z"/></svg></span>
+                  <span class="links-item-content"><strong>Suporte</strong><small>Central de suporte oficial</small></span>
+                </a>
+                <a href="https://wiki.gla.com.br/" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 2H8a4 4 0 0 0-4 4v13a1 1 0 0 0 1.45.89A3.94 3.94 0 0 1 7 19.5h11a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm0 15.5H7a5.9 5.9 0 0 0-1 .09V6a2 2 0 0 1 2-2h10z"/></svg></span>
+                  <span class="links-item-content"><strong>Wiki</strong><small>Base de conhecimento oficial do GLA</small></span>
+                </a>
+                <a href="https://trello.com/b/HrEwfx1I/gla-balanceamento" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 3H3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM10 17a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1zm10-6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1z"/></svg></span>
+                  <span class="links-item-content"><strong>Trello</strong><small>Quadro de balanceamento do GLA</small></span>
+                </a>
+                <a href="https://www.facebook.com/grandlineadventures" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 22v-8h3l1-4h-4V8c0-1.03 0-2 2-2h2V2h-3c-3.27 0-5 1.34-5 5v3H6v4h3v8z"/></svg></span>
+                  <span class="links-item-content"><strong>Facebook</strong><small>Página oficial do Grandline Adventures</small></span>
+                </a>
+                <a href="https://www.instagram.com/grandlineadventures" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm11.5 1a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 18.5 5zM12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5zm0 2a3 3 0 1 0 3 3 3 3 0 0 0-3-3z"/></svg></span>
+                  <span class="links-item-content"><strong>Instagram</strong><small>Perfil oficial do Grandline Adventures</small></span>
+                </a>
+                <a href="https://www.youtube.com/@GrandLineAdventures" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3.1 3.1 0 0 0-2.2-2.2C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.3.5A3.1 3.1 0 0 0 .5 6.2 32.6 32.6 0 0 0 0 12a32.6 32.6 0 0 0 .5 5.8 3.1 3.1 0 0 0 2.2 2.2c2 .5 9.3.5 9.3.5s7.3 0 9.3-.5a3.1 3.1 0 0 0 2.2-2.2A32.6 32.6 0 0 0 24 12a32.6 32.6 0 0 0-.5-5.8zM9.6 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg></span>
+                  <span class="links-item-content"><strong>YouTube</strong><small>Canal oficial do Grandline Adventures</small></span>
+                </a>
+              </div>
+            </section>
+
+            <section class="links-section">
+              <h4 data-lang="usefulLinksCommunity">Links da Comunidade</h4>
+              <div class="links-list">
+                <a href="https://discord.gg/YSEGjUQr6b" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon links-item-icon-atios" aria-hidden="true"><img src="sprites/icons/links/atios.webp" alt=""></span>
+                  <span class="links-item-content"><strong>Gaveta do Atios</strong><small>Servidor da comunidade no Discord</small></span>
+                </a>
+                <a href="https://discord.gg/mDqnvVMTRK" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true"><img src="sprites/icons/links/gla_profile_icons_disc.webp" alt=""></span>
+                  <span class="links-item-content"><strong>GLA - Profile Icons</strong><small>Discord para ícones de perfil</small></span>
+                </a>
+                <a href="https://lionheartgla.github.io/Gla-Database/index.html" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true">🧰</span>
+                  <span class="links-item-content"><strong>Lionheart Tools</strong><small>Ferramentas da comunidade para GLA</small></span>
+                </a>
+                  <a href="https://quiz.gour.cc/br/" target="_blank" rel="noopener noreferrer" class="links-item">
+                  <span class="links-item-icon" aria-hidden="true">💬</span>
+                  <span class="links-item-content"><strong>Respostas do Foxy Quiz</strong><small>Site com uma barra de pesquisa para respostas do Foxy Quiz</small></span>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/items.js"></script>
+    <script src="js/lang.js"></script>
+    <script src="js/rarity.js"></script>
+    <script src="js/combos.js"></script>
+    <script src="js/dnd.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/groups.js"></script>
+    <script src="js/profiles.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/tables.js"></script>
+    <script src="js/recipes-data.js"></script>
+    <script src="js/recipes.js"></script>
+    <script src="js/chest.js"></script>
+    <script src="js/boost.js"></script>
+    <script src="js/xp.js"></script>
+    <script src="js/characters-data.js"></script>
+    <script src="js/characters.js"></script>
+    <script src="js/boats-data.js"></script>
+    <script src="js/boats.js"></script>
+    <script src="js/wanted-data.js"></script>
+    <script src="js/wanted.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

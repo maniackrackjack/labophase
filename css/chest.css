@@ -1,0 +1,193 @@
+/* ============================================================
+   Chest puzzle tab styles — scoped to #chest
+   ============================================================ */
+
+#chest .panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#ch-title {
+  margin: 0;
+}
+
+#ch-sprite-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ch-sprite-label {
+  font-weight: 700;
+  color: var(--text-panel);
+}
+
+.ch-system-btn {
+  border: 1px solid var(--border-accent);
+  background: var(--bg-surface-1);
+  color: var(--text-panel);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ch-system-btn.is-active {
+  background: var(--bg-tab-active);
+  border-color: var(--text-title);
+  color: var(--text-tab-active);
+}
+
+#ch-area-wrap {
+  display: grid;
+  place-items: center;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+#ch-area {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 14px;
+  background: radial-gradient(circle at center, var(--bg-surface-1) 0%, color-mix(in srgb, var(--bg-panel) 85%, black 15%) 72%);
+  border: 2px solid var(--border-accent);
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.45);
+}
+
+#ch-bau {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  background-image: url("../sprites/chestpuzzle/closed_relic.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ch-torch-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ch-torch-btn:focus-visible {
+  outline: 2px solid var(--input-focus);
+  border-radius: 999px;
+}
+
+.ch-tocha {
+  width: 64px;
+  height: 64px;
+  transition: transform 0.2s ease;
+}
+
+.ch-torch-btn:hover .ch-tocha {
+  transform: scale(1.07);
+}
+
+.ch-destacada .ch-tocha {
+  outline: 3px solid #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 14px #00ffff;
+}
+
+.ch-numero {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--text-title);
+  text-shadow: 0 0 4px #000;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 8px;
+  padding: 0 3px;
+  line-height: 1.5;
+  pointer-events: none;
+  min-width: 16px;
+  text-align: center;
+}
+
+#ch-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ch-btn {
+  border: 1px solid var(--border-accent);
+  background: var(--bg-surface-2);
+  color: var(--text-panel);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ch-btn:hover {
+  filter: brightness(1.08);
+}
+
+#ch-result {
+  font-weight: bold;
+  min-height: 1.35em;
+  color: var(--text-panel);
+}
+
+#ch-steps {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#ch-steps li {
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  #ch-area {
+    width: 340px;
+    height: 340px;
+  }
+
+  .ch-torch-btn {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ch-tocha,
+  #ch-bau {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 520px) {
+  #ch-area {
+    width: 290px;
+    height: 290px;
+  }
+
+  #ch-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ch-btn {
+    width: 100%;
+  }
+}

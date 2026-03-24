@@ -1,0 +1,188 @@
+[
+  {
+    "id": 1,
+    "labelKey": "item.low-grade_cotton",
+    "value": 5,
+    "sprite": "sprites/items/low-grade_cotton.png"
+  },
+  {
+    "id": 2,
+    "labelKey": "item.wood_log",
+    "value": 10,
+    "sprite": "sprites/items/wood_log.png"
+  },
+  {
+    "id": 3,
+    "labelKey": "item.copper_ore",
+    "value": 15,
+    "sprite": "sprites/items/copper_ore.png"
+  },
+  {
+    "id": 4,
+    "labelKey": "item.gun_powder",
+    "value": 30,
+    "sprite": "sprites/items/gun_powder.png"
+  },
+  {
+    "id": 5,
+    "labelKey": "item.cotton",
+    "value": 75,
+    "sprite": "sprites/items/cotton.png"
+  },
+  {
+    "id": 6,
+    "labelKey": "item.oak_log",
+    "value": 100,
+    "sprite": "sprites/items/oak_log.png"
+  },
+  {
+    "id": 7,
+    "labelKey": "item.iron_ore",
+    "value": 150,
+    "sprite": "sprites/items/iron_ore.png"
+  },
+  {
+    "id": 8,
+    "labelKey": "item.expert_gun_powder",
+    "value": 300,
+    "sprite": "sprites/items/expert_gun_powder.png"
+  },
+  {
+    "id": 9,
+    "labelKey": "item.advanced_cotton",
+    "value": 110,
+    "sprite": "sprites/items/advanced_cotton.png"
+  },
+  {
+    "id": 10,
+    "labelKey": "item.mahogany_log",
+    "value": 150,
+    "sprite": "sprites/items/mahogany_log.png"
+  },
+  {
+    "id": 11,
+    "labelKey": "item.steel_ore",
+    "value": 225,
+    "sprite": "sprites/items/steel_ore.png"
+  },
+  {
+    "id": 12,
+    "labelKey": "item.superior_gun_powder",
+    "value": 450,
+    "sprite": "sprites/items/superior_gun_powder.png"
+  },
+  {
+    "id": 13,
+    "labelKey": "item.professional_cotton",
+    "value": 160,
+    "sprite": "sprites/items/professional_cotton.png"
+  },
+  {
+    "id": 14,
+    "labelKey": "item.adam_log",
+    "value": 200,
+    "sprite": "sprites/items/adam_log.png"
+  },
+  {
+    "id": 15,
+    "labelKey": "item.titanium_ore",
+    "value": 300,
+    "sprite": "sprites/items/titanium_ore.png"
+  },
+  {
+    "id": 16,
+    "labelKey": "item.refined_gun_powder",
+    "value": 650,
+    "sprite": "sprites/items/refined_gun_powder.png"
+  },
+  {
+    "id": 17,
+    "labelKey": "item.cola",
+    "value": 200,
+    "sprite": "sprites/items/cola.png"
+  },
+  {
+    "id": 18,
+    "labelKey": "item.gun_barrel",
+    "value": 350,
+    "sprite": "sprites/items/gun_barrel.png"
+  },
+  {
+    "id": 19,
+    "labelKey": "item.cannon_ball",
+    "value": 750,
+    "sprite": "sprites/items/cannon_ball.png"
+  },
+  {
+    "id": 20,
+    "labelKey": "item.big_cola",
+    "value": 300,
+    "sprite": "sprites/items/big_cola.png"
+  },
+  {
+    "id": 21,
+    "labelKey": "item.steel_cannon_ball",
+    "value": 1125,
+    "sprite": "sprites/items/steel_cannon_ball.png"
+  },
+  {
+    "id": 22,
+    "labelKey": "item.battery",
+    "value": 500,
+    "sprite": "sprites/items/battery.png"
+  },
+  {
+    "id": 23,
+    "labelKey": "item.flammable_liquid",
+    "value": 500,
+    "sprite": "sprites/items/flammable_liquid.png"
+  },
+  {
+    "id": 24,
+    "labelKey": "item.air_tank",
+    "value": 500,
+    "sprite": "sprites/items/air_tank.png"
+  },
+  {
+    "id": 25,
+    "labelKey": "item.oil_can",
+    "value": 500,
+    "sprite": "sprites/items/oil_can.png"
+  },
+  {
+    "id": 26,
+    "labelKey": "item.poison_mushroom",
+    "value": 500,
+    "sprite": "sprites/items/poison_mushroom.png"
+  },
+  {
+    "id": 27,
+    "labelKey": "item.superior_gun_barrel",
+    "value": 525,
+    "sprite": "sprites/items/superior_gun_barrel.png"
+  },
+  {
+    "id": 28,
+    "labelKey": "item.blueprint",
+    "value": 5000,
+    "sprite": "sprites/items/blueprint.png"
+  },
+  {
+    "id": 29,
+    "labelKey": "item.expert_oil_can",
+    "value": 700,
+    "sprite": "sprites/items/expert_oil_can.png"
+  },
+  {
+    "id": 30,
+    "labelKey": "item.expert_gun_barrel",
+    "value": 725,
+    "sprite": "sprites/items/expert_gun_barrel.png"
+  },
+  {
+    "id": 31,
+    "labelKey": "item.alkaline_battery",
+    "value": 700,
+    "sprite": "sprites/items/alkaline_battery.png"
+  }
+]

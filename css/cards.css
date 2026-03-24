@@ -1,0 +1,320 @@
+/* ============================================================
+   Cards — card layout, stats, rarity, variant selector
+   ============================================================ */
+
+/* CARD */
+
+.card {
+  background: var(--card-bg, #ffffff);
+  border: 2px solid var(--card-border, #999999);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.cardHeader b {
+  color: var(--card-title, #000000);
+  font-weight: bold;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cardHeader img {
+  width: 26px;
+}
+
+.remove {
+  background: #8a2a2a;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+.cardActions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.variantSelector {
+  background: #2a1a0e;
+  border: 2px solid #6a4a20;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  max-width: min(460px, calc(100vw - 24px));
+}
+
+.variantGrid {
+  display: grid;
+  gap: 6px;
+}
+
+.variantItem {
+  background: #3a2410;
+  border: 1px solid #6a4a20;
+  border-radius: 6px;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.variantItem img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.variantItem:hover {
+  background: #4a2e14;
+  border-color: #b78d4b;
+  transform: translateY(-1px);
+}
+
+.variantBtn {
+  background: linear-gradient(180deg, #6d4b1e 0%, #4a2e14 100%);
+  border: 1.5px solid #b78d4b;
+  color: #f5dfc8;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  transition: background 0.15s, border-color 0.15s, transform 0.12s;
+}
+
+.variantBtn:hover {
+  background: linear-gradient(180deg, #7a5522 0%, #5a3818 100%);
+  border-color: #d4a96a;
+  transform: translateY(-1px);
+}
+
+/* STAT INPUT & ADJUSTMENT */
+
+.statRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.statLabel {
+  flex: 0 0 60px;
+  font-size: 13px;
+  color: #f0e0b0;
+}
+
+.statBtnGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.statInput {
+  flex: 0 0 82px;
+  width: 82px;
+  max-width: 82px;
+  min-width: 70px;
+  height: 28px;
+  padding: 4px 6px;
+  background: #2a1a0e;
+  border: 1px solid #6a4a20;
+  color: #f5dfc8;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: Verdana;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.card input[type="number"][data-stat]:not(.statInput) {
+  width: 82px;
+  max-width: 82px;
+}
+
+.statInput:focus {
+  outline: none;
+  border-color: #b78d4b;
+  background: #3a2a1e;
+}
+
+.statInput::placeholder {
+  color: #6a4020;
+}
+
+.statInput::-webkit-outer-spin-button,
+.statInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.statInput[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.statAdjustBtn {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 28px;
+  padding: 3px 0;
+  background: #4a2e14;
+  border: 1px solid #6a4a20;
+  color: #f5dfc8;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.statAdjustCrystalBtn {
+  flex-basis: 32px;
+  width: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.crystalMiniIcon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-image: url("../sprites/icons/divine_crystal.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.statAdjustCrystalDec {
+  background: #6a2222;
+  border-color: #a93c3c;
+}
+
+.statAdjustCrystalDec:hover {
+  background: #7f2d2d;
+  border-color: #c65656;
+}
+
+.statAdjustCrystalInc {
+  background: #1f5a33;
+  border-color: #3d8f5f;
+}
+
+.statAdjustCrystalInc:hover {
+  background: #276c3e;
+  border-color: #58b37a;
+}
+
+.statAdjustBtn:hover {
+  background: #5a3818;
+  border-color: #8a6a40;
+}
+
+.statAdjustBtn:active {
+  transform: scale(0.96);
+}
+
+/* CRISTAIS */
+
+.segmentBar {
+  display: flex;
+  gap: 3px;
+  margin: 6px 0 10px 0;
+  flex-wrap: wrap;
+}
+
+.crystal {
+  width: 24px;
+  height: 24px;
+  background-image: url("../sprites/icons/divine_crystal.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  filter: grayscale(100%) brightness(0.6);
+  opacity: 0.8;
+}
+
+.crystal.active {
+  filter: none;
+  opacity: 1;
+}
+
+/* COMBOS */
+
+.comboGood {
+  color: #66ff66;
+}
+.comboBad {
+  color: #ff6666;
+}
+
+/* Card rarity coloring (based on stat average) */
+.card.rarity-common {
+  --card-bg: #4a2e14;
+  --card-border: #d9d9d9;
+  --card-title: #ffffff;
+}
+
+.card.rarity-rare {
+  --card-bg: rgba(108, 180, 255, 0.14);
+  --card-border: #6cb4ff;
+  --card-title: #6cb4ff;
+}
+
+.card.rarity-epic {
+  --card-bg: rgba(201, 135, 255, 0.16);
+  --card-border: #c987ff;
+  --card-title: #c987ff;
+}
+
+.card.rarity-legendary {
+  --card-bg: rgba(255, 215, 0, 0.18);
+  --card-border: #ffd700;
+  --card-title: #ffd700;
+}
+
+@media (max-width: 560px) {
+  .cardHeader {
+    flex-wrap: wrap;
+  }
+
+  .cardActions {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .statLabel {
+    flex-basis: 52px;
+    font-size: 12px;
+  }
+
+  .statInput {
+    flex-basis: 74px;
+    width: 74px;
+    max-width: 74px;
+  }
+
+  .statAdjustCrystalBtn {
+    flex-basis: 30px;
+    width: 30px;
+    font-size: 10px;
+  }
+}

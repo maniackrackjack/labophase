@@ -1,0 +1,241 @@
+/* ============================================================
+   Boats tab styles
+   ============================================================ */
+
+#boats .boats-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.boats-subtitle {
+  margin: 2px 0 0;
+  color: var(--text-muted);
+}
+
+.boats-section {
+  border: 1px solid color-mix(in srgb, var(--text-title) 20%, transparent 80%);
+  border-radius: 12px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-1) 94%, transparent 6%), color-mix(in srgb, var(--bg-panel) 96%, black 4%));
+  padding: 12px;
+}
+
+.boats-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.boats-section h4 {
+  margin: 0;
+  color: var(--text-title);
+}
+
+.boats-hint {
+  margin: 3px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.boats-actions {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.boats-actions button {
+  border: 1px solid color-mix(in srgb, var(--text-title) 28%, transparent 72%);
+  background: color-mix(in srgb, var(--bg-panel) 90%, transparent 10%);
+  color: var(--text-panel);
+  border-radius: 9px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+.boats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.boats-card {
+  border: 1px solid color-mix(in srgb, var(--text-title) 18%, transparent 82%);
+  border-radius: 10px;
+  padding: 8px;
+  background: color-mix(in srgb, var(--bg-panel) 86%, transparent 14%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.boats-card img {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+}
+
+.boats-card-name {
+  min-height: 30px;
+  color: var(--text-panel);
+  font-size: 0.82rem;
+  line-height: 1.2;
+}
+
+.boats-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.boats-card-qty {
+  width: 64px;
+  text-align: center;
+  border: 1px solid color-mix(in srgb, var(--text-title) 28%, transparent 72%);
+  background: var(--input-bg);
+  color: var(--input-text);
+  border-radius: 8px;
+  padding: 4px 6px;
+  font-size: 0.82rem;
+}
+
+.boats-card-qty:focus {
+  outline: none;
+  border-color: var(--input-focus);
+}
+
+.boats-card.is-selected {
+  border-color: color-mix(in srgb, var(--input-focus) 65%, white 35%);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--text-title) 20%, transparent 80%);
+}
+
+.boats-card.is-disabled {
+  opacity: 0.5;
+}
+
+.boats-summary {
+  border: 1px solid color-mix(in srgb, var(--text-title) 20%, transparent 80%);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg-panel) 92%, transparent 8%);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.boats-step-skins {
+  grid-column: 1 / -1;
+}
+
+.boats-step {
+  background: color-mix(in srgb, var(--bg-surface-1) 88%, transparent 12%);
+  border: 1px solid color-mix(in srgb, var(--text-title) 16%, transparent 84%);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.boats-step h4 {
+  margin: 0 0 8px;
+  color: var(--text-title);
+  font-size: 0.95rem;
+}
+
+.boats-plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.boats-plan-row-wrap {
+  border: 1px solid color-mix(in srgb, var(--text-title) 14%, transparent 86%);
+  border-radius: 8px;
+  padding: 6px;
+  background: color-mix(in srgb, var(--bg-panel) 66%, transparent 34%);
+}
+
+.boats-plan-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.boats-plan-row img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.boats-plan-row strong {
+  color: var(--text-panel);
+  font-size: 0.9rem;
+}
+
+.boats-plan-name {
+  color: var(--text-panel);
+  font-size: 0.82rem;
+  line-height: 1.15;
+  flex: 1;
+  min-width: 0;
+}
+
+.boats-plan-meta {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.boats-req-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.boats-req-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid color-mix(in srgb, var(--text-title) 14%, transparent 86%);
+  border-radius: 999px;
+  padding: 3px 6px;
+  background: color-mix(in srgb, var(--bg-surface-1) 85%, transparent 15%);
+}
+
+.boats-req-chip img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.boats-req-chip b {
+  color: var(--text-panel);
+  font-size: 0.74rem;
+}
+
+.boats-total {
+  margin-top: 8px;
+  color: var(--text-panel);
+}
+
+.boats-empty,
+.boats-muted {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 720px) {
+  .boats-grid {
+    grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  }
+
+  .boats-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .boats-card img {
+    width: 70px;
+    height: 70px;
+  }
+}

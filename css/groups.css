@@ -1,0 +1,187 @@
+/* ============================================================
+   Groups — item area layout, groups, drag-and-drop zones
+   ============================================================ */
+
+/* ÁREA DE ITENS */
+
+#itemsArea {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.itemsUngrouped,
+.groupItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+  min-height: 70px;
+}
+
+.groupsArea {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.groupsArea.groupDragOver {
+  outline: 2px dashed var(--text-title);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.itemGroup {
+  border: 2px solid var(--group-color, var(--border-accent));
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--group-bg-color, var(--bg-panel));
+}
+
+.itemGroup.draggingGroup {
+  opacity: 0.55;
+}
+
+.itemGroup.collapsed .groupItems {
+  display: none;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  background: var(--group-header-color, color-mix(in srgb, var(--bg-panel) 78%, black 22%));
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.groupTitle {
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px dashed transparent;
+  color: var(--group-title-color, var(--text-panel));
+}
+
+.groupTitle:focus {
+  border-color: var(--group-color, var(--border-accent));
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.groupCrystalCount {
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.9;
+  color: var(--group-title-color, var(--text-panel));
+  white-space: nowrap;
+}
+
+.groupDragHandle {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: var(--group-title-color, var(--text-panel));
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  cursor: grab;
+  line-height: 1;
+  padding: 0;
+}
+
+.groupDragHandle:active {
+  cursor: grabbing;
+}
+
+.groupColorPickers {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.groupColor {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.minimizeBtn {
+  border: none;
+  background: transparent;
+  color: var(--group-color, var(--text-title));
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 4px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.groupDelete {
+  border: none;
+  background: color-mix(in srgb, var(--bg-panel) 74%, #8a2a2a 26%);
+  color: var(--text-panel);
+  border-radius: 4px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+/* DRAG-AND-DROP */
+
+.dndContainer.dragOver {
+  outline: 2px dashed var(--text-title);
+  outline-offset: 2px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--text-title) 8%, transparent 92%);
+}
+
+.draggableCard {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.draggableCard:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.card.dragging {
+  opacity: 0.55;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+}
+
+.cardPlaceholder {
+  height: 110px;
+  border: 2px dashed var(--text-title);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--text-title) 12%, transparent 88%);
+}
+
+.groupPlaceholder {
+  height: 54px;
+  border: 2px dashed var(--text-title);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--text-title) 12%, transparent 88%);
+}
+
+@media (max-width: 740px) {
+  .itemsUngrouped,
+  .groupItems {
+    grid-template-columns: 1fr;
+  }
+
+  .groupHeader {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .groupColorPickers {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

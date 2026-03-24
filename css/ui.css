@@ -1,0 +1,26 @@
+/* ============================================================
+   UI — toast notification
+   ============================================================ */
+
+.toast {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.92);
+  color: #f0e0b0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 210, 128, 0.5);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 1500;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-8px);
+}
