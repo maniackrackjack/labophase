@@ -4,32 +4,6 @@
 
 let groupCounter = 0;
 
-function groupsEscapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function groupsNormalizeHexColor(value, fallback) {
-  const raw = String(value || "").trim();
-  if (!raw) return fallback;
-
-  if (/^#[0-9a-f]{6}$/i.test(raw)) return raw.toLowerCase();
-  if (/^#[0-9a-f]{3}$/i.test(raw)) {
-    return `#${raw[1]}${raw[1]}${raw[2]}${raw[2]}${raw[3]}${raw[3]}`.toLowerCase();
-  }
-
-  return fallback;
-}
-
-function groupsSanitizeTitle(value) {
-  const txt = String(value || "").replace(/[\r\n\t]/g, " ").trim();
-  return txt.slice(0, 80);
-}
-
 function groupsResolveThemeColor(variableName, fallback) {
   const value = getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
   if (!value) return fallback;
@@ -84,11 +58,11 @@ function createGroup(options = {}) {
 
   const defaults = getDefaultGroupThemeColors();
   const id = options.id || `group_${Date.now()}_${groupCounter++}`;
-  const title = groupsSanitizeTitle(options.title || t("groupDefaultName")) || t("groupDefaultName");
-  const color = groupsNormalizeHexColor(options.color, defaults.color);
-  const bgColor = groupsNormalizeHexColor(options.bgColor, defaults.bgColor);
-  const titleColor = groupsNormalizeHexColor(options.titleColor, defaults.titleColor);
-  const headerColor = groupsNormalizeHexColor(options.headerColor, defaults.headerColor);
+  const title = (options.title || t("groupDefaultName")).trim() || t("groupDefaultName");
+  const color = options.color || defaults.color;
+  const bgColor = options.bgColor || defaults.bgColor;
+  const titleColor = options.titleColor || defaults.titleColor;
+  const headerColor = options.headerColor || defaults.headerColor;
   const collapsed = options.collapsed || false;
 
   const group = document.createElement("section");
@@ -103,7 +77,7 @@ function createGroup(options = {}) {
 <div class="groupHeader">
   <button class="groupDragHandle" type="button" draggable="true" title="${t("dragGroup")}">&#x2630;</button>
   <button class="minimizeBtn" type="button" title="${t("minimizeGroup")}">${collapsed ? "&#9654;" : "&#9660;"}</button>
-  <span class="groupTitle" contenteditable="true">${groupsEscapeHtml(title)}</span>
+  <span class="groupTitle" contenteditable="true">${title}</span>
   <span class="groupCrystalCount">${t("groupCrystals").replace("{n}", 0)}</span>
   <div class="groupColorPickers">
     <input class="groupColor groupColorBorder" type="color" value="${color}" title="${t("groupColorBorder")}">
@@ -133,7 +107,7 @@ function createGroup(options = {}) {
     }
   });
   titleEl.addEventListener("blur", () => {
-    const txt = groupsSanitizeTitle(titleEl.textContent);
+    const txt = titleEl.textContent.trim();
     titleEl.textContent = txt || t("groupDefaultName");
     autoSaveBuild();
   });

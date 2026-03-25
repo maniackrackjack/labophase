@@ -151,14 +151,6 @@ let selectedRoleFilters = new Set();
 let selectedTierFilters = new Set();
 let selectedGroupFilters = new Set();
 
-function charactersDebounce(fn, delay = 120) {
-  let timer = null;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), delay);
-  };
-}
-
 function charactersInit() {
   const panel = document.getElementById("characters");
   if (!panel) return;
@@ -197,15 +189,13 @@ function bindCharactersEvents() {
   const search = document.getElementById("characters-search");
   const maxLevelFilter = document.getElementById("characters-max-level-filter");
   const sortFilter = document.getElementById("characters-sort-filter");
-  const debouncedRender = charactersDebounce(() => charactersRender());
 
   [search, maxLevelFilter, sortFilter].forEach((element) => {
     if (!element || element.dataset.charactersBound === "1") return;
     element.dataset.charactersBound = "1";
     const eventName = element.tagName === "SELECT" ? "change" : "input";
     element.addEventListener(eventName, () => {
-      if (eventName === "input") debouncedRender();
-      else charactersRender();
+      charactersRender();
     });
   });
 
