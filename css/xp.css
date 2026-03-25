@@ -80,7 +80,8 @@
 }
 
 .xp-row input:focus {
-  outline: none;
+  outline: 2px solid var(--input-focus);
+  outline-offset: 1px;
   border-color: var(--input-focus);
 }
 

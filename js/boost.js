@@ -49,6 +49,14 @@ const BOOST_CALC_TYPE_TO_OPTION = {
   anel: "anel"
 };
 
+function boostDebounce(fn, delay = 120) {
+  let timer = null;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+
 function boostInit() {
   const panel = document.getElementById("boost");
   if (!panel) return;
@@ -65,6 +73,8 @@ function boostInit() {
 }
 
 function bindBoostEvents() {
+  const debouncedBoostRecalc = boostDebounce(boostRecalc);
+
   [
     "boost-price-sky",
     "boost-price-sage",
@@ -78,7 +88,7 @@ function bindBoostEvents() {
     const el = document.getElementById(id);
     if (!el || el.dataset.boostBound === "1") return;
     el.dataset.boostBound = "1";
-    el.addEventListener("input", boostRecalc);
+    el.addEventListener("input", debouncedBoostRecalc);
     el.addEventListener("change", boostRecalc);
   });
 

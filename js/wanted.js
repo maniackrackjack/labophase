@@ -93,6 +93,14 @@ let wantedRowsState = {
   rows: []
 };
 
+function wantedDebounce(fn, delay = 120) {
+  let timer = null;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+
 function wantedInit() {
   const input = document.getElementById("wanted-search-input");
   const sortSelect = document.getElementById("wanted-sort-select");
@@ -105,7 +113,9 @@ function wantedInit() {
     input.dataset.wantedBound = "1";
     sortSelect.dataset.wantedBound = "1";
 
-    input.addEventListener("input", () => wantedRenderRows(input.value));
+    const debouncedWantedRowsRender = wantedDebounce((query) => wantedRenderRows(query));
+
+    input.addEventListener("input", () => debouncedWantedRowsRender(input.value));
     sortSelect.addEventListener("change", () => wantedRenderRows(input.value));
 
     const tierTargetSelect = document.getElementById("wanted-tier-target-select");
@@ -118,7 +128,8 @@ function wantedInit() {
       tierTargetSelect.addEventListener("change", () => wantedSelectTierWanted(tierTargetSelect.value));
     }
     if (tierSearchInput) {
-      tierSearchInput.addEventListener("input", () => wantedRenderTierList());
+      const debouncedTierListRender = wantedDebounce(() => wantedRenderTierList());
+      tierSearchInput.addEventListener("input", debouncedTierListRender);
     }
     if (tierClearBtn) {
       tierClearBtn.addEventListener("click", wantedClearTierRows);
@@ -137,7 +148,8 @@ function wantedInit() {
     const rowsResetBtn = document.getElementById("wanted-rows-reset-btn");
 
     if (rowsSearchInput) {
-      rowsSearchInput.addEventListener("input", () => wantedRenderRowsMode());
+      const debouncedRowsModeRender = wantedDebounce(() => wantedRenderRowsMode());
+      rowsSearchInput.addEventListener("input", debouncedRowsModeRender);
     }
     if (rowsAddBtn && rowsTargetSelect) {
       rowsAddBtn.addEventListener("click", () => wantedAddWantedRow(rowsTargetSelect.value));

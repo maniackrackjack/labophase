@@ -74,13 +74,15 @@
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  outline: none;
+  outline: 2px solid transparent;
+  outline-offset: 1px;
 }
 
 .characters-filter-field input:focus,
 .characters-filter-field select:focus,
 .characters-card-menu input:focus,
 .characters-card-menu select:focus {
+  outline-color: var(--input-focus);
   border-color: var(--input-focus);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--input-focus) 22%, transparent 78%);
 }

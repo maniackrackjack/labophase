@@ -4,6 +4,123 @@
 
 let suppressAutoSave = false;
 
+function profilesIsPlainObject(value) {
+  return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+function profilesSanitizeString(value, maxLen = 120) {
+  return String(value || '').replace(/[\r\n\t]/g, ' ').trim().slice(0, maxLen);
+}
+
+function profilesNormalizeHexColor(value, fallback) {
+  const raw = String(value || '').trim();
+  if (!raw) return fallback;
+  if (/^#[0-9a-f]{6}$/i.test(raw)) return raw.toLowerCase();
+  if (/^#[0-9a-f]{3}$/i.test(raw)) {
+    return `#${raw[1]}${raw[1]}${raw[2]}${raw[2]}${raw[3]}${raw[3]}`.toLowerCase();
+  }
+  return fallback;
+}
+
+function profilesSanitizeCardState(item) {
+  if (!profilesIsPlainObject(item)) return null;
+
+  const tipo = profilesSanitizeString(item.tipo, 80);
+  if (!tipo) return null;
+
+  const out = { tipo };
+
+  const variantCategory = profilesSanitizeString(item.variantCategory, 60);
+  const variantId = profilesSanitizeString(item.variantId, 80);
+  if (variantCategory && variantId) {
+    out.variantCategory = variantCategory;
+    out.variantId = variantId;
+  }
+
+  if (profilesIsPlainObject(item.stats)) {
+    const stats = {};
+    Object.entries(item.stats).forEach(([k, v]) => {
+      const key = profilesSanitizeString(k, 40);
+      if (!key) return;
+      const n = Number(v);
+      if (Number.isFinite(n)) {
+        stats[key] = n;
+      }
+    });
+    if (Object.keys(stats).length) out.stats = stats;
+  }
+
+  return out;
+}
+
+function profilesSanitizeBuildState(input) {
+  // Backward compatibility: legacy build was plain cards array.
+  if (Array.isArray(input)) {
+    return input.map(profilesSanitizeCardState).filter(Boolean).slice(0, 500);
+  }
+
+  if (!profilesIsPlainObject(input)) return null;
+
+  const safeBuild = {
+    version: Number.isFinite(Number(input.version)) ? Number(input.version) : 2,
+    ungrouped: [],
+    groups: [],
+  };
+
+  const ungrouped = Array.isArray(input.ungrouped) ? input.ungrouped : [];
+  safeBuild.ungrouped = ungrouped
+    .map(profilesSanitizeCardState)
+    .filter(Boolean)
+    .slice(0, 500);
+
+  const groups = Array.isArray(input.groups) ? input.groups : [];
+  safeBuild.groups = groups
+    .map((group, idx) => {
+      if (!profilesIsPlainObject(group)) return null;
+
+      const items = Array.isArray(group.items) ? group.items.map(profilesSanitizeCardState).filter(Boolean).slice(0, 200) : [];
+      const fallbackId = `group_safe_${idx}`;
+
+      return {
+        id: profilesSanitizeString(group.id, 120) || fallbackId,
+        title: profilesSanitizeString(group.title, 80) || 'Group',
+        color: profilesNormalizeHexColor(group.color, '#6a4a20'),
+        bgColor: profilesNormalizeHexColor(group.bgColor, '#2a1a0e'),
+        titleColor: profilesNormalizeHexColor(group.titleColor, '#f0e0b0'),
+        headerColor: profilesNormalizeHexColor(group.headerColor, '#1a1008'),
+        collapsed: !!group.collapsed,
+        items,
+      };
+    })
+    .filter(Boolean)
+    .slice(0, 80);
+
+  return safeBuild;
+}
+
+function profilesSanitizeAppState(input) {
+  if (!profilesIsPlainObject(input)) {
+    return profilesSanitizeBuildState(input);
+  }
+
+  if (!isCombinedAppState(input)) {
+    return profilesSanitizeBuildState(input);
+  }
+
+  const out = {
+    version: Number.isFinite(Number(input.version)) ? Number(input.version) : 1,
+    build: profilesSanitizeBuildState(input.build),
+    characters: null,
+    boats: null,
+  };
+
+  // Keep characters/boats only when they are plain objects to avoid applying malformed payloads.
+  if (profilesIsPlainObject(input.characters)) out.characters = input.characters;
+  if (profilesIsPlainObject(input.boats)) out.boats = input.boats;
+
+  return out;
+}
+
 function getAppState() {
   return {
     version: 1,
@@ -66,7 +183,9 @@ function loadBuild() {
   }
 
   try {
-    applyAppState(profile.buildState);
+    const safeState = profilesSanitizeAppState(profile.buildState);
+    if (!safeState) throw new Error('Invalid profile state shape');
+    applyAppState(safeState);
   } catch (err) {
     console.error('Failed to load saved build', err);
   }
@@ -96,7 +215,9 @@ function loadBuildFromUrl() {
   try {
     const json = decodeURIComponent(escape(atob(encoded)));
     const state = JSON.parse(json);
-    applyAppState(state);
+    const safeState = profilesSanitizeAppState(state);
+    if (!safeState) throw new Error('Invalid URL build payload');
+    applyAppState(safeState);
     return true;
   } catch (err) {
     console.error('Failed to load build from URL', err);

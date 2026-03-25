@@ -376,12 +376,19 @@ body {
 }
 
 .itemBtn {
+  appearance: none;
+  -webkit-appearance: none;
   background: var(--bg-surface-2);
   border: 2px solid var(--border-accent);
   color: var(--text-panel);
   text-align: center;
   cursor: pointer;
   padding: 8px;
+}
+
+.itemBtn:focus-visible {
+  outline: 2px solid var(--input-focus);
+  outline-offset: 2px;
 }
 
 .itemBtn > img {
@@ -414,11 +421,23 @@ body {
 .tabPanel select:focus,
 .tabPanel textarea:focus {
   border-color: var(--input-focus);
-  outline: none;
+  outline: 2px solid var(--input-focus);
+  outline-offset: 1px;
 }
 
 .tabPanel.tab-entering {
   animation: calcSubTabIn 0.22s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .calc-subtabs {

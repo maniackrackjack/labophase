@@ -4,6 +4,18 @@
 
 let calcSubTabActive = "calculator";
 
+function initTabAriaState() {
+  document.querySelectorAll(".content .tabPanel").forEach((panel) => {
+    const hidden = panel.style.display === "none";
+    panel.setAttribute("aria-hidden", hidden ? "true" : "false");
+  });
+
+  document.querySelectorAll(".calc-subtab-panel").forEach((panel) => {
+    const hidden = panel.style.display === "none";
+    panel.setAttribute("aria-hidden", hidden ? "true" : "false");
+  });
+}
+
 function switchCalcSubTab(subTab, btn) {
   const safeSubTab = subTab === "tables" ? "tables" : "calculator";
   calcSubTabActive = safeSubTab;
@@ -17,6 +29,7 @@ function switchCalcSubTab(subTab, btn) {
     const isActive = panel.id === `calc-subtab-${safeSubTab}`;
     if (isActive) {
       panel.style.display = "block";
+      panel.setAttribute("aria-hidden", "false");
       // Restart animation by removing and re-adding active
       panel.classList.remove("active");
       void panel.offsetWidth; // force reflow
@@ -24,6 +37,7 @@ function switchCalcSubTab(subTab, btn) {
     } else {
       panel.classList.remove("active");
       panel.style.display = "none";
+      panel.setAttribute("aria-hidden", "true");
     }
   });
 }
@@ -37,10 +51,13 @@ function switchTab(tab, btn) {
   document.querySelectorAll(".content .tabPanel").forEach((p) => {
     p.style.display = "none";
     p.classList.remove("tab-entering");
+    p.setAttribute("aria-hidden", "true");
   });
 
   const activePanel = document.getElementById(tab);
+  if (!activePanel) return;
   activePanel.style.display = "block";
+  activePanel.setAttribute("aria-hidden", "false");
   activePanel.classList.remove("tab-entering");
   void activePanel.offsetWidth;
   activePanel.classList.add("tab-entering");
@@ -75,6 +92,8 @@ function showToast(message, duration = 2500) {
     toast.classList.remove('show');
   }, duration);
 }
+
+initTabAriaState();
 
 function clearBuild() {
   ensureItemsLayout(true);

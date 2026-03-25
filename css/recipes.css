@@ -247,7 +247,8 @@
 
 .r-panel-box input[type="number"]:focus {
   border-color: var(--input-focus);
-  outline: none;
+  outline: 2px solid var(--input-focus);
+  outline-offset: 1px;
 }
 
 .r-panel-box input.r-invalid {

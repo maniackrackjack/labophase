@@ -148,7 +148,8 @@
 }
 
 .statInput:focus {
-  outline: none;
+  outline: 2px solid #b78d4b;
+  outline-offset: 1px;
   border-color: #b78d4b;
   background: #3a2a1e;
 }

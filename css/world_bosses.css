@@ -12,6 +12,7 @@
   padding: 10px 14px;
   border: 1px solid var(--border-accent);
   border-radius: 8px;
+  background: linear-gradient(180deg, var(--bg-surface-1) 0%, #22150b 100%);
   background: linear-gradient(180deg, var(--bg-surface-1) 0%, color-mix(in srgb, var(--bg-panel) 88%, black 12%) 100%);
   color: var(--text-panel);
   font-size: 14px;
@@ -128,6 +129,7 @@
 
 .wb-toggle-btn {
   border: 1px solid var(--border-accent);
+  background: linear-gradient(180deg, var(--bg-surface-1) 0%, #22150b 100%);
   background: linear-gradient(180deg, var(--bg-surface-1) 0%, color-mix(in srgb, var(--bg-panel) 88%, black 12%) 100%);
   color: var(--text-panel);
   border-radius: 8px;
@@ -294,6 +296,7 @@
   border: 1px solid var(--border-accent);
   border-radius: 12px;
   padding: 14px 12px;
+  background: linear-gradient(180deg, var(--bg-surface-1) 0%, var(--bg-panel) 100%);
   background: linear-gradient(180deg,
     color-mix(in srgb, var(--bg-surface-1) 94%, transparent 6%) 0%,
     color-mix(in srgb, var(--bg-panel) 97%, black 3%) 100%);
@@ -361,9 +364,12 @@
   display: inline-block;
 }
 
-.wb-role-tank    { background: color-mix(in srgb, #70bde8 20%, transparent 80%); color: #70bde8; }
-.wb-role-dps     { background: color-mix(in srgb, #e07a7a 20%, transparent 80%); color: #e07a7a; }
-.wb-role-suporte { background: color-mix(in srgb, #7fd16d 20%, transparent 80%); color: #7fd16d; }
+.wb-role-tank    { background: rgba(112, 189, 232, 0.2); color: var(--text-title); }
+.wb-role-dps     { background: rgba(224, 122, 122, 0.2); color: var(--text-title); }
+.wb-role-suporte { background: rgba(127, 209, 109, 0.2); color: var(--text-title); }
+.wb-role-tank    { background: color-mix(in srgb, #70bde8 20%, transparent 80%); }
+.wb-role-dps     { background: color-mix(in srgb, #e07a7a 20%, transparent 80%); }
+.wb-role-suporte { background: color-mix(in srgb, #7fd16d 20%, transparent 80%); }
 
 .wb-char-list {
   display: flex;
