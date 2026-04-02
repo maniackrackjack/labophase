@@ -39,6 +39,16 @@
   transform: rotate(90deg);
 }
 
+.sidebar.collapsed .wb-folder-btn {
+  justify-content: center;
+  padding: 10px 0;
+  gap: 0;
+}
+
+.sidebar.collapsed .wb-folder-arrow {
+  display: none;
+}
+
 /* Submenu (child tabs) */
 .wb-folder-submenu {
   display: none;
@@ -71,6 +81,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  position: relative;
+  padding-right: 76px;
 }
 
 .wb-boss-icon {
@@ -82,6 +94,20 @@
   background: color-mix(in srgb, var(--bg-panel) 80%, black 20%);
   padding: 4px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.wb-boss-top1-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid var(--border-accent);
+  background: color-mix(in srgb, var(--bg-panel) 80%, black 20%);
+  padding: 3px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 .wb-boss-title {
@@ -510,7 +536,25 @@
 
 /* ── Responsive ──────────────────────────────────────────────── */
 
+@media (max-width: 980px) {
+  .wb-folder-submenu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 0;
+    gap: 4px;
+  }
+}
+
 @media (max-width: 900px) {
+  .wb-boss-header {
+    padding-right: 62px;
+  }
+
+  .wb-boss-top1-icon {
+    width: 48px;
+    height: 48px;
+  }
+
   .wb-table-and-preview {
     grid-template-columns: 1fr;
   }

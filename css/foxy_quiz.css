@@ -1,0 +1,123 @@
+/* ============================================================
+   Foxy Quiz tab
+   ============================================================ */
+
+.foxy-quiz-panel {
+  padding: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.foxy-quiz-banner {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding-top: 8px;
+}
+
+.foxy-quiz-banner img {
+  max-width: 360px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.foxy-quiz-search-wrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.foxy-quiz-weekly-wrap {
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--bg-surface-1) 86%, black 14%);
+}
+
+.foxy-quiz-weekly-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.foxy-quiz-weekly-label input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
+.foxy-quiz-weekly-hint {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.foxy-quiz-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  color: var(--input-text);
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.foxy-quiz-input:focus {
+  border-color: var(--input-focus);
+}
+
+.foxy-quiz-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.foxy-quiz-sentence {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: opacity 0.1s ease;
+}
+
+.foxy-quiz-sentence.is-true {
+  background: rgba(28, 100, 36, 0.55);
+  border: 1px solid rgba(60, 180, 60, 0.4);
+  color: #c5f0bc;
+}
+
+.foxy-quiz-sentence.is-false {
+  background: rgba(110, 28, 28, 0.55);
+  border: 1px solid rgba(180, 60, 60, 0.4);
+  color: #f0bcbc;
+}
+
+.foxy-quiz-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  image-rendering: auto;
+}
+
+.foxy-quiz-text {
+  flex: 1;
+}
+
+.foxy-quiz-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 28px 0;
+  font-size: 14px;
+}

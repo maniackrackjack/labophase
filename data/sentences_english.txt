@@ -1,0 +1,3378 @@
+[
+  {
+    "name": "[GLA] Marshall D. Teach's Liberation skill has a two second cooldown and 18 power.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Preparation skill increases Luffy's speed for 4 seconds and grants strength bonuses next attack.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Usopp Fear skill grants him speed and defense.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] The weekly rotation changes every Friday.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Ring of the Cross is a recommended item for level 50.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] As a rule, the character's third ability is unlocked at level 12.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] As a rule, emotes are unlocked at level 25.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] In-game bugs should be reported using CTRL+R shortcut.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There are 28 achievements to complete in the Story Mode of the East Blue Special Quests.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There are Bronze Berry, Silver Berry, Gold Berry and Platinum Berry.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There are Cows, Pigs, Chickens and Sheeps in Foosha Village.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There are two chests of gold in Loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Fuyuki is Sora's grandfather.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Gear Third is the strongest skill in the game in terms of power.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Genzo sells Fishman Bandanna, Fishman Pants, Sea Ring and Sea Turban for 5200 berry each.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Golden Hull is the name of a Ship Skin.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There are 8 Henchman in the Black Market.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There is a chest hidden behind Kaya's mansion.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There is a map at Nojiko's house.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There is a pool in Shells Town, inside the Navy Base.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] There is a prisoner named Tina in Arlong Park.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Island of Rare Animals is recommended for players of level 40 to 52 on the game's minimap.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Carmen's disciple Jose is at the library in Loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Jutte Blow, Smoker's ability, only silences Devil Fruit users.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Kumo Island is the only island without a Black Market instance nearby.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Kumo Island is recommended for players level 64 to 72 on the game's minimap.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Loguetown is recommended for players of level 60 to 70 on the game's minimap.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Marshall D. Teach gains 25 attack and loses half armor when his passive activates.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Mohji loses energy while in battle.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Monkey D. Luffy cannot break walls with the Gomu Gomu no Ono skill.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Nami cannot use Fata Morgana while Mirage Tempo is active.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] It is not possible to climb on the second floor of the lppon-Matsu store in Loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Nico Robin can build bridges with the Flower Field skill.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Nico Robin can build bridges with the Delphinium skill.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] The game is translated into the following languages: English, Portuguese, Spanish and Polish.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] The Grand Line Adventures game was released in August 2018.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Repair Kit 1.0 restores your ship 400 health per second.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Repair Kit 2.0 restores 22,500 health to your ship in 30 seconds.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Repair Kit 2.0 restores 750 health to your ship per second.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Repair Kit 3.0 restores your ship's 36,000 health in 30 seconds.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Repair Kit 3.0 restores your ship's 1200 health per second.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] The name of all Capone Gang Bege abilities start with the letter C, except Big Feather.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Bleeding the wild Alligator also reduces the character's movement speed.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Stash VIP has 100 item slots.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Spider's Talisman is an item that can be used by all classes.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Use of the Repair Kit is stopped if you receive any attack from an enemy.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Orange Town is recommended for players of level 23 to 30 on the game's minimap.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] To improve a character from 1 to 5 stars you need to use 840 medals in total.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Pearl is the first boss on the Pirate Armada mission.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Pearl cannot use any abilities while Iron Wall is active.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Diamond characters are 7% stronger than Gold characters.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Characters poisoned by Reiju receive 50% less healing from Supports.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Portgas D. Ace is a Diamond character.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] When a wild Alligator dies, the bleed applied by it loses its effect.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Reiju can use her Pink Tornado skill to get rid of immobilizations.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Samui Island is recommended for players level 20 to 28 on the game's minimap.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Sanji cannot be seduced by women while Diable Jamble is activated.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Sapi is the NPC that sells Tuna in Loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Sayuri, Asuya and Chieri are names of Baratie NPCs.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Ship Skins are only available for ships of level two or higher.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Snowball is the name of a rabbit on Samui Island.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Syrup Village is the island with the most dock entries in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Tamanegi, one of Usopp's pirates, gives some quests in Syrup Village.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Trafalgar Law can break walls with the Injection Shot ability.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Urouge can use the Pray Ability to heal allies and also remove slowing or burning conditions.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You cannot trade your gear in battle.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You can start a daily quest to defeat Slimes on Samui Island.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You can buy two extra Stash tabs. The first costs 150000 berry and the second 300000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You can find 9 Black Market tickets in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You can hear Chouchou barking when talking to him.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You can use the construction table at the docks to turn 10 Medium Experience Potions into 1 Potion Great of Experience.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You can use the construction table on the docks to turn 10 Small Experience Potions into 1 Potion Experience Average.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You can use the shortcut ALT + ENTER to bring the game to full screen.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You need to feed a prisoner in Rika's Quest.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You need to win with a team of specialist to complete the Black Cat achievement.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You must win with a team of fighters to complete the Buggy Pirates achievement.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You need to win with a support team to complete the Arlong Pirates achievement.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You must win with a team of Devil Fruit users to complete the Marine Base achievement.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] You must win with a team of women to complete the Pirate Armada achievement.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Whale Shark is considered a level 3 monster.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Tuna is the best food you can buy from an NPC in terms of healing per second for a character level 70.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Baratie is the first place you can build a tier 3 ship.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Bartholomew Kuma Read your bible during your emote animation.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Boa Hancock can't petrify Monkey D. Luffy.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Boa Hancock can turn enemies to stone for 7 seconds with the Mero Mero Mellow skill.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Cabaji has the lowest base movement speed in the game.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Capone Gang Beige is the only character who can summon two subordinates without waiting for the cooldown.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Chabo is the name of the child Nojiko asks to help in Arlong Park.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Chopper gains bonus defense during Walk Point skill.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Cocoyasi Village is recommended for players of level 50 to 60 on the game's minimap.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Dracule Mihawk slows down his own allies with the Taka no Me ability.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] It is possible to create Dynamic Bronze Medals for 5 Pirate Coins in the Black Market.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] It is possible to create Dynamic Diamond Medals for 50 Pirate Coins in the Black Market.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] It is possible to create Dynamic Gold Medals for 20 Pirate Coins in the Black Market.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] It is possible to create Dynamic Silver Medals for 10 Pirate Coins in the Black Market.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] It is possible to repair your boat equipment at the Docks.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] In Cocoyasi Village, you can buy Orange from the NPC for 42 berries each.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] As a rule, the character's fourth skill is unlocked at level 20.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] As a rule, the character's fifth skill is unlocked at level 30.",
+    "is": "true"
+  },
+  {
+    "name": "Doc Q's nickname, Shinigami or god of death, comes from the fact that he likes to play with people's lives, as well as a shinigami.",
+    "is": "true"
+  },
+  {
+    "name": "Nami's current bounty is 66,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "The current Bepo bounty is 500 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 3's wax is as hard as steel.",
+    "is": "true"
+  },
+  {
+    "name": "Sugar's favorite food is grapes.",
+    "is": "true"
+  },
+  {
+    "name": "Kuro's favorite food is banana.",
+    "is": "true"
+  },
+  {
+    "name": "Doflamingo's favorite food is lobster.",
+    "is": "true"
+  },
+  {
+    "name": "Marco's favorite food is pineapple.",
+    "is": "true"
+  },
+  {
+    "name": "Nezumi's favorite food is cheese.",
+    "is": "true"
+  },
+  {
+    "name": "Nico Robin's mother's hair color and white.",
+    "is": "true"
+  },
+  {
+    "name": "Chopper's voice actress was changed in some episodes.",
+    "is": "true"
+  },
+  {
+    "name": "Shiliew's sword is a Meito called Raiu.",
+    "is": "true"
+  },
+  {
+    "name": "The Gura Gura no Mi is also known as the strongest of the Paramecia, equal to a Logia. Sengoku claimed she is powerful enough to destroy the world.",
+    "is": "true"
+  },
+  {
+    "name": "Monkey D. Luffy's mother has yet to be revealed.",
+    "is": "true"
+  },
+  {
+    "name": "The character Boa Hancock has several references to Greek mythology.",
+    "is": "true"
+  },
+  {
+    "name": "Nico Robin's first bounty was 79,000,000 berry, the same amount as her mother Nico Olivia.",
+    "is": "true"
+  },
+  {
+    "name": "Monkey D. Luffy's first bounty was 30,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Tony Tony Chopper's first bounty was 50 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Monkey D. Luffy's fourth bounty was 400,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Marshall D. Teach's current bounty is 2,247,600,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Dadan's curly bounty is 7,800,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "The Jewelry Bonney bounty is 140,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Miss doublefinger's bounty is 35,000,000 berries.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Goldenweek's bounty is 29,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Miss MerryChristmas bounty is 14,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Valentine's bounty is 750,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Kuroobi's bounty is 9,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Bartholomew Kuma's bounty is 296,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Capone Gang Bege bounty is 300,000,000 berries.",
+    "is": "true"
+  },
+  {
+    "name": "The Chew bounty is 550,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Daz Bones bounty is 75,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Demaro Black's bounty is 26,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "The Diamond bounty was 99,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Donquixote Doflamingo's bounty is 3,400,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Fisher Tiger's bounty was 230,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Foxy's bounty is 24,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Gecko Moria's bounty is 320,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "The Gin bounty is 12,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Gladius' bounty was 31,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Jinbe's bounty was 250,000,000 berry before he became a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Killer's bounty is 200,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Kuro's bounty is 16,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Lao G's bounty was 61,000000 berry before it was frozen due to Doflamingo taking a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Machvise's bounty was 11,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "The Mont Blanc Cricket bounty is 25,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 2's bounty is 32,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 3 bounty is 24,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 4's bounty is 320,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 5's bounty is 10,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Pica's bounty was 99,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Senor Pink's bounty was 58,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "The Rumble Ball lasts for 3 minutes.",
+    "is": "true"
+  },
+  {
+    "name": "Tamago's bounty is 429,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Trebol's bounty was 99,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "The X-Drake bounty is 222,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Zoro's bounty was greater than Sanji's.",
+    "is": "true"
+  },
+  {
+    "name": "The Nyaban Brothers(Sham and Buchi) bounty is 7,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Monkey D. Luffy's second bounty was 100,000,000 berries.",
+    "is": "true"
+  },
+  {
+    "name": "The Yubashiri (one of Zoro's swords) has rusted.",
+    "is": "true"
+  },
+  {
+    "name": "Ace really was born in Baterilla.",
+    "is": "true"
+  },
+  {
+    "name": "Aisa was born with Haki from Advanced Observation.",
+    "is": "true"
+  },
+  {
+    "name": "Akainu has the same voice actor as Krieg.",
+    "is": "true"
+  },
+  {
+    "name": "Aladdin was once a slave.",
+    "is": "true"
+  },
+  {
+    "name": "Alvida is the former captain of the Pirates of Alvida.",
+    "is": "true"
+  },
+  {
+    "name": "Before the events of the war, Doc Q had an impressive 72,000,000 berry bounty.",
+    "is": "true"
+  },
+  {
+    "name": "Before the events of the war, Jesus Burgess had a 20,000,000 berry bounty.",
+    "is": "true"
+  },
+  {
+    "name": "Before the events of the war, Laffltte had a bounty of 42,200,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "Prior to the events of the war, Van Augur had an impressive bounty of 64,000,000 from Berry.",
+    "is": "true"
+  },
+  {
+    "name": "Aokiji has a Logia-type Devil Fruit.",
+    "is": "true"
+  },
+  {
+    "name": "Despite their appearance, Masira and Shoujo are human.",
+    "is": "true"
+  },
+  {
+    "name": "After Whitebeard's death, Brownbeard fled and took control of Foodvalten.",
+    "is": "true"
+  },
+  {
+    "name": "After the events on Punk Hazard, Smoker officially became the leader of the G-5.",
+    "is": "true"
+  },
+  {
+    "name": "After being diagnosed with his illness, Gol D. Roger took three years to find One Piece.",
+    "is": "true"
+  },
+  {
+    "name": "Arlong is the only known individual who has been released from Impel Down.",
+    "is": "true"
+  },
+  {
+    "name": "Arlong was the captain of the Pirates of Arlong and had East Blue's greatest bounty before being defeated by Monkey D. Luffy.",
+    "is": "true"
+  },
+  {
+    "name": "Like Fujitora, Smoker wants to do away with the Shichibukai system.",
+    "is": "true"
+  },
+  {
+    "name": "Currently Moria is the only known Shichibukai (present or former) without a known nickname.",
+    "is": "true"
+  },
+  {
+    "name": "Avalo Pizarro is the captain of the fourth ship, leading Teach's fourth fleet.",
+    "is": "true"
+  },
+  {
+    "name": "Avalo Pizarro was originally king of a country in the North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Baby Five was born in North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Whitebeard was born on Sphinx Island in the New World.",
+    "is": "true"
+  },
+  {
+    "name": "Blackbeard rightfully believes that men's dreams will never die.",
+    "is": "true"
+  },
+  {
+    "name": "Blackbeard is an Admiral of the Blackbeard Pirates and a member of the Yonko.",
+    "is": "true"
+  },
+  {
+    "name": "Blackbeard was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Bartholomew Kuma is known as the Tyrant.",
+    "is": "true"
+  },
+  {
+    "name": "Bartholomew Kuma is a Shichibukai and a former Revolutionary Army officer.",
+    "is": "true"
+  },
+  {
+    "name": "Bartholomew Kuma was a King.",
+    "is": "true"
+  },
+  {
+    "name": "Basil Hawkins is an infamous North Blue pirate known as the Mage and captain of the Hawkins' Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Bellamy officially retired as a pirate and now devotes himself to painting flags.",
+    "is": "true"
+  },
+  {
+    "name": "Bellemere found Nami and Nojiko in the Kingdom of Oykot, in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Benn Beckman is the smartest character to appear in the East Blue saga.",
+    "is": "true"
+  },
+  {
+    "name": "Benn Beckman is the vice-captain of the Red Hair Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Benn Beckman was born in North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Boa Hancock is the captain of the Kuja Pirates and the only female member of the Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Boa Hancock uses the King's Haki.",
+    "is": "true"
+  },
+  {
+    "name": "Boa Marigold and Boa Sandersonia have Observation and Armament Haki.",
+    "is": "true"
+  },
+  {
+    "name": "Brook is taller than Franky after Timeskip.",
+    "is": "true"
+  },
+  {
+    "name": "Brook was the captain of the Rumbar Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Buffalo was born in North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy is captain of the Buggy Pirates and also co-leader of the Buggy and Alvida Alliance.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy was a Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy was the first villain to appear in the series who was a Devil Fruit user. He was also the first user of a devil fruit that Luffy fought.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy has the smallest bounty known among the Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Each of the Shanks' four main crew members are from different oceans.",
+    "is": "true"
+  },
+  {
+    "name": "Caesar released a non-lethal gas on Punk Hazard.",
+    "is": "true"
+  },
+  {
+    "name": "Capone Gang Bege and captain of Fire Tank Pirates and also one of the twelve pirates ranked as the Worst Generation.",
+    "is": "true"
+  },
+  {
+    "name": "Caribou was born in North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Carina was Nami's friend in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Carine was Nami's friend in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "If the World Government knew that Crocodile was the boss of Baroque Works, his bounty would be at least folded to 162,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "If One Piece were set in the real world, Luffy would be from Brazil.",
+    "is": "true"
+  },
+  {
+    "name": "Catarina Devon hunts down any WOMAN she finds attractive and decapitates her head to add to her personal collection.",
+    "is": "true"
+  },
+  {
+    "name": "Catarina Devon is the captain of the sixth ship, leading Teach's sixth fleet.",
+    "is": "true"
+  },
+  {
+    "name": "Ceasar ate the Gasu Gasu no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Chopper first tried cotton candy during Davy Back Fight.",
+    "is": "true"
+  },
+  {
+    "name": "Chopper was the sixth member to join the Straw Hats crew.",
+    "is": "true"
+  },
+  {
+    "name": "Crocodile is the only shichibukai to have a Loguia fruit.",
+    "is": "true"
+  },
+  {
+    "name": "Crocodile was the first opponent to defeat Luffy in battle.",
+    "is": "true"
+  },
+  {
+    "name": "Crocodile was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Crocus was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Daddy Masterson is a non-canon character.",
+    "is": "true"
+  },
+  {
+    "name": "Dalton was born on Drum Island.",
+    "is": "true"
+  },
+  {
+    "name": "Demaro Black was born in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Demaro Black, captain of the Fake Straw Hats, was born in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Demaro Black, Manjaro, Chocolat, Drip, Turkish, Cocoa, Mountblutain and Nora Gitsune are the real names of the fake Straw Hat crew.",
+    "is": "true"
+  },
+  {
+    "name": "Ever since Mr 1 was a kid, he always wanted to be a hero. However, his ideals were distorted a lot, turning him into a relentless killer.",
+    "is": "true"
+  },
+  {
+    "name": "Diamond is a user of the Haki of Observation and Armament.",
+    "is": "true"
+  },
+  {
+    "name": "Diamond Jozu ate the Kira Kira no Mi, causing it to transform into a human diamond with a stamina incomparable.",
+    "is": "true"
+  },
+  {
+    "name": "They say that Yasopp can shoot an ant's antenna from far away.",
+    "is": "true"
+  },
+  {
+    "name": "Doc O is the Blackbeard Pirates' doctor.",
+    "is": "true"
+  },
+  {
+    "name": "Doflamingo is User of the Haki of Observation, Weaponry and the King.",
+    "is": "true"
+  },
+  {
+    "name": "Doflamingo and Viola had a complex love relationship.",
+    "is": "true"
+  },
+  {
+    "name": "Doflamingo was Captain of the Donquixote Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Doflamingo was a Tenryubito.",
+    "is": "true"
+  },
+  {
+    "name": "Edward Newgate is blond.",
+    "is": "true"
+  },
+  {
+    "name": "Eiichiro Oda is the creator of One Piece.",
+    "is": "true"
+  },
+  {
+    "name": "In some fillers, the characters were made by Oda himself.",
+    "is": "true"
+  },
+  {
+    "name": "As a result of his crimes, Sanjuan Wolf was arrested at Impel Down. The way they found to keep him imprisoned was through a giant cell at level 6.",
+    "is": "true"
+  },
+  {
+    "name": "In simple terms, Haki is the ability to sense spiritual energy (kenbunshoku), use life force (busoshoku) and master enemies (Haoshoku).",
+    "is": "true"
+  },
+  {
+    "name": "Emporio Ivankov was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Enel is on the moon.",
+    "is": "true"
+  },
+  {
+    "name": "While Borsalino's Fruit is about speed he is quite slow when it comes to speaking or acting.",
+    "is": "true"
+  },
+  {
+    "name": "Eustass Kid lost his left arm.",
+    "is": "true"
+  },
+  {
+    "name": "There are Devil Fruits that have not yet been cataloged and are therefore unknown.",
+    "is": "true"
+  },
+  {
+    "name": "It has been confirmed that Usopp awakened the Observation Haki during the Dressrosa Arc.",
+    "is": "true"
+  },
+  {
+    "name": "Foxy ate the Noro Noro no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Foxy was born in South Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Franky is the eighth member to join the Straw Hat Band.",
+    "is": "true"
+  },
+  {
+    "name": "Franky was the seventh member to join the Straw Hat crew.",
+    "is": "true"
+  },
+  {
+    "name": "Gedatsu (one of Enel's priests) now manages a hot spring resort in Alabasta.",
+    "is": "true"
+  },
+  {
+    "name": "Ghryphon is the name of Shanks' sword.",
+    "is": "true"
+  },
+  {
+    "name": "Gin is a pirate and member of the Krieg Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Giolla raised Dellinger practically on her own, making him think she was a girl, which is why he became made it so effeminate.",
+    "is": "true"
+  },
+  {
+    "name": "Goal D. Roger was the first Pirate King.",
+    "is": "true"
+  },
+  {
+    "name": "Gol D. Roger was born in Loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "Gum-Gum Fruit is the official name for Luffy's Devil Fruit in English.",
+    "is": "true"
+  },
+  {
+    "name": "There are six Impel Down Levels.",
+    "is": "true"
+  },
+  {
+    "name": "There is a newt in the Donquixote family.",
+    "is": "true"
+  },
+  {
+    "name": "Haki is a mysterious power found within every living thing in the world.",
+    "is": "true"
+  },
+  {
+    "name": "Hancock is the Empress of Amazon Lily, which is why she is called the Pirate Empress.",
+    "is": "true"
+  },
+  {
+    "name": "Hancock is the first female character in the series able to use all three of Haki's forms.",
+    "is": "true"
+  },
+  {
+    "name": "Hatchan is a former officer of the Arlong Pirates and a member of the Sun Pirates before that.",
+    "is": "true"
+  },
+  {
+    "name": "Hody Jones is the Captain of the New Men-Fish Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Hody Jones and his teammates have no bounty.",
+    "is": "true"
+  },
+  {
+    "name": "Impel Down has 6 levels.",
+    "is": "true"
+  },
+  {
+    "name": "Issho is a Navy Admiral.",
+    "is": "true"
+  },
+  {
+    "name": "Issho was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Issho ate the Zushi Zushi no Mi, which allows him to manipulate gravity.",
+    "is": "true"
+  },
+  {
+    "name": "Issho decided to go blind because there were too many things he didn't want to see.",
+    "is": "true"
+  },
+  {
+    "name": "lzo was born in Wario.",
+    "is": "true"
+  },
+  {
+    "name": "Jango is a Marine and Captain Kuro's former mate.",
+    "is": "true"
+  },
+  {
+    "name": "Jesus Burgess is the Blackbeard Pirates Helmsman.",
+    "is": "true"
+  },
+  {
+    "name": "Jinbe is the Straw Hat Pirates Helmsman.",
+    "is": "true"
+  },
+  {
+    "name": "Jinbe is officially the tenth member of the Straw Hat Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Jinbe is a member of the Straw Hat Pirates and ex-Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Joy Boy was mentioned in the Ryugu Poneglyph read by Nico Robin while she was in the Forest of the Sea.",
+    "is": "true"
+  },
+  {
+    "name": "Joy Boy tried to raise Noah with the help of Poseidon, but he broke his promise to Fishman Island.",
+    "is": "true"
+  },
+  {
+    "name": "Kalgara was revealed as a Haki user of Observation.",
+    "is": "true"
+  },
+  {
+    "name": "Kenbushoku no Haki grants the user a sixth sense of the world around them and limited precognitive abilities.",
+    "is": "true"
+  },
+  {
+    "name": "Kid and Killer are childhood friends. Together, they formed the Pirates of the Kid.",
+    "is": "true"
+  },
+  {
+    "name": "Killer is a pirate from South Blue and a member of the Kid Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Kinemon ate the Fuku Fuku no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Kinemon is a Haki user of Observation and Weaponry.",
+    "is": "true"
+  },
+  {
+    "name": "Kinemon can communicate through farts, making them sound like human language.",
+    "is": "true"
+  },
+  {
+    "name": "Kizaru ate the Pika Pika no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Koala is a Human who can use Karate Merfolk.",
+    "is": "true"
+  },
+  {
+    "name": "Koala is an Officer in the Revolutionary Army.",
+    "is": "true"
+  },
+  {
+    "name": "Koala was a member of the Sun Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Koala is fighting in the Revolutionary Army to change the world in a way that the Trots and the Mermaids are treated like normal people.",
+    "is": "true"
+  },
+  {
+    "name": "Kureha was born on Drum Island.",
+    "is": "true"
+  },
+  {
+    "name": "Kuro, also known by his nickname Klahadore, is the captain of the Black Cat Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Kuroobi is an officer of the Arlong Pirates and a former member of the Sun Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Kuzan was born in South Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Laboon is Male.",
+    "is": "true"
+  },
+  {
+    "name": "Laffitte grew up in West Blue, where he became sheriff.",
+    "is": "true"
+  },
+  {
+    "name": "Laffitte was born in West Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky Roo is one of the first members to join the Shanks crew after he formed the Redhead Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky Roo is a member of the Redhead Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky Roo was the one who originally got the Gomu Gomu no Mi from an enemy pirate ship.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky Roo was born in South Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky Roo may look fat and slow, but he's actually a very agile and fast fighter.",
+    "is": "true"
+  },
+  {
+    "name": "Luffy was really born in Foosha.",
+    "is": "true"
+  },
+  {
+    "name": "Luffy has a devil fruit of the Paramecia type.",
+    "is": "true"
+  },
+  {
+    "name": "Machvise ate the Ton Ton no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Magellan was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Marco ate the Tori Tori no Mi, like Phoenix, a Zoan Mitica.",
+    "is": "true"
+  },
+  {
+    "name": "Marco was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Masira and Shoujo have a bounty of 23,000,000 and 36,000,000 berry respectively.",
+    "is": "true"
+  },
+  {
+    "name": "Masira was born in North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Mihawk became famous before the Great Age of Pirates even began.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Doublefinger was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Goldenweek was paired with Mr 3 because of her ability to paint wax creations, making them more realistic.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Goldenweek didn't eat a devil fruit.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Valentine was born in West Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Goldenweek was born in North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Mohji is a pirate and the first mate of the Buggy Pirates, as well as a member of the Buggy Alliance and Alvida.",
+    "is": "true"
+  },
+  {
+    "name": "Momoo is now officially considered a pet of the Caribou Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Momoo developed a trauma about Luffy and Sanji, suffering a panic attack just seeing them.",
+    "is": "true"
+  },
+  {
+    "name": "Momoo is male.",
+    "is": "true"
+  },
+  {
+    "name": "Monet and Sugar are sisters.",
+    "is": "true"
+  },
+  {
+    "name": "Monkey D. Garp was born in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Monkey D. Luffy was born in Foosha Village.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 1 ate the Supa Supa no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 3 is now recognized as a Buggy Pirates executive.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 4 was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 5 was born in South Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 5 can eat explosive things and his favorite food is gunpowder.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 9 was born in West Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Neptune is a character from One Piece.",
+    "is": "true"
+  },
+  {
+    "name": "Nico Robin is known as the Demon Child.",
+    "is": "true"
+  },
+  {
+    "name": "Nico Robin is referred to as the Light of the Revolution by the Revolutionary army.",
+    "is": "true"
+  },
+  {
+    "name": "Nico Robin is also known as Miss Allsunday.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Merry Christmas's birthday is at Christmas, for obvious reasons.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Valentine's birthday is on Valentines Day, for obvious reasons.",
+    "is": "true"
+  },
+  {
+    "name": "Trebol's hair is black.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 4's Cannon ate a Devil Fruit and became a dog.",
+    "is": "true"
+  },
+  {
+    "name": "The dragon Luffy and the others fought in Punk Hazard was artificially created by Vegapunk in a laboratory. on Punk Hazard.",
+    "is": "true"
+  },
+  {
+    "name": "The ship that the Hancock and the Kuja pirates sail is called the Perfume Snake.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 2's ship's name was Swanda Express.",
+    "is": "true"
+  },
+  {
+    "name": "The name of the Ship that Mr 5 and Miss Valentine used in their operations was Pop Rock Candy.",
+    "is": "true"
+  },
+  {
+    "name": "The name of the ship that Mr 1 and Miss Doublefinger used in their operations was Kill Sasssoon.",
+    "is": "true"
+  },
+  {
+    "name": "The name of the ship the Donquixote Pirates used in their days on the North Blue was Numancia Flamingo.",
+    "is": "true"
+  },
+  {
+    "name": "The names of the ships of Masira and Shoujo are Victory Hunter and Utan Sonar, respectively.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Goldenweek's real name is Marianne.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Merry Christmas real name is Drophy.",
+    "is": "true"
+  },
+  {
+    "name": "Brownbeard's real name is Chadros Higelyges.",
+    "is": "true"
+  },
+  {
+    "name": "Hatchan's real name is Hatchan.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 4's real name is Babe, probably in reference to the famous baseball player Babe Ruth.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 5's real name is Gem.",
+    "is": "true"
+  },
+  {
+    "name": "Sanji's first known kiss was with Pudding.",
+    "is": "true"
+  },
+  {
+    "name": "The main ship of the revolutionary army is called the Viento GRANMA.",
+    "is": "true"
+  },
+  {
+    "name": "Crocodile's dream was to become the King of Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Luffy's Red Hawk is a tribute to Ace's Hiken.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Doublefinger's real name is Zala.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 1's real name is Daz Bones.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 2's real name is Bon Clay Bentham.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 3's real name is Galdinho.",
+    "is": "true"
+  },
+  {
+    "name": "Oars is a giant.",
+    "is": "true"
+  },
+  {
+    "name": "Objects can eat Fruits of the Diablo.",
+    "is": "true"
+  },
+  {
+    "name": "The Unluckies were born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "The Yeti Cool Brothers are part of an unknown subspecies of giants.",
+    "is": "true"
+  },
+  {
+    "name": "Otohime had a highly developed Observation Haki, which allowed her to deeply understand the emotions of others.",
+    "is": "true"
+  },
+  {
+    "name": "Pagaya is Conis' father.",
+    "is": "true"
+  },
+  {
+    "name": "Pappag is a starfish that is Camie's mascot and also a teacher. He is the creator of a fashion line.",
+    "is": "true"
+  },
+  {
+    "name": "Pearl is the commander of the second unit of the Krieg Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Pekoms ate the Kame Kame no Mi, which allows him to transform into a turtle, giving him a hard shell like Diamond.",
+    "is": "true"
+  },
+  {
+    "name": "Pekoms have a Zoan-type Devil Fruit.",
+    "is": "true"
+  },
+  {
+    "name": "Pekoms has an impressive 330,000 berry bounty.",
+    "is": "true"
+  },
+  {
+    "name": "Pell was born in Alabama.",
+    "is": "true"
+  },
+  {
+    "name": "Pica has a Paramecia-type Devil Fruit.",
+    "is": "true"
+  },
+  {
+    "name": "Because of his crimes Sanjuan Wolf was imprisoned in a large cell at level 6 of Impel Down.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas D. Ace is the son of Rouge.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas D. Ace was the commander of the Whitebeard Pirates' second division.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas D. Ace was a Haki user of the King.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas D. Ace was born in Baterilla.",
+    "is": "true"
+  },
+  {
+    "name": "Poseidon is one of the ancient weapons.",
+    "is": "true"
+  },
+  {
+    "name": "Rebecca can use Kenbunshoku no Haki.",
+    "is": "true"
+  },
+  {
+    "name": "Rob Lucci faced Sabo after Timeskip.",
+    "is": "true"
+  },
+  {
+    "name": "Rob Lucci was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Robin was the seventh member to join the Straw Hat crew.",
+    "is": "true"
+  },
+  {
+    "name": "Rosinante ate the Nagi Nagi no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Sabo ate the Mera Mera no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Sanji was born in North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Sanji in his childhood has the same voice actor as the chopper.",
+    "is": "true"
+  },
+  {
+    "name": "Salome is a female snake.",
+    "is": "true"
+  },
+  {
+    "name": "Sadi was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Sanjuan Wolf is the captain of the seventh ship, leading Teach's seventh fleet.",
+    "is": "true"
+  },
+  {
+    "name": "Sanjuan Wolf was born in West Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Sanjuan Wolf has a devil fruit that allows him to increase his own size.",
+    "is": "true"
+  },
+  {
+    "name": "Scratchmen Apoo is from the Longarm Tribe, an Infamous pirate themed song and captain of Pirates On Air.",
+    "is": "true"
+  },
+  {
+    "name": "Sengoku was born in South Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Senjuan Wolf was born in West Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Shakky helped house the Gorgon Sisters after they escaped from the World Nobles along with Gloriosa and Rayleigh.",
+    "is": "true"
+  },
+  {
+    "name": "Shanks is a member of the Yonko who rules the New World and captain of the Red Hair Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Shanks was born in West Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Shanks has a scar on his left eye.",
+    "is": "true"
+  },
+  {
+    "name": "Smoker ate the Moku Moku no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Shiryu was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Shiliew is the captain of Teach's second fleet.",
+    "is": "true"
+  },
+  {
+    "name": "Sogeking is actually Usopp.",
+    "is": "true"
+  },
+  {
+    "name": "Stussy was born on the Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Sugar was permanently traumatized by Usopp's face, making it an incurable trauma.",
+    "is": "true"
+  },
+  {
+    "name": "Tamago ate the Tama Tama no Mi, which allows him to cycle between different forms.",
+    "is": "true"
+  },
+  {
+    "name": "Tamago is a member of the Long Legs tribe.",
+    "is": "true"
+  },
+  {
+    "name": "Trafalgar Law ate the Ope Ope no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Tashigi was born in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Tamago lost his left eye to Pedro.",
+    "is": "true"
+  },
+  {
+    "name": "Smoker is a user of the Weapon and Observation Haki.",
+    "is": "true"
+  },
+  {
+    "name": "Silvers Rayleigh has a wife on the Sabaody Archipelago.",
+    "is": "true"
+  },
+  {
+    "name": "Teach was responsible for scarring Shanks' eye with his claw weapon.",
+    "is": "true"
+  },
+  {
+    "name": "Ton Ton no Mi and a superior version of Kilo Kilo no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Trafalgar Law is the captain and doctor of the Heart Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Trafalgar Law named his crew after the Corazón, in honor of his name and because he changed his heart for the better.",
+    "is": "true"
+  },
+  {
+    "name": "Trafalgar Law lost an arm in the Bow of Dressrosa.",
+    "is": "true"
+  },
+  {
+    "name": "Tralfagar Law is known to be the Surgeon of Death.",
+    "is": "true"
+  },
+  {
+    "name": "Trebol is a user of the Observation and Armament Haki.",
+    "is": "true"
+  },
+  {
+    "name": "Urouge is also known as Mad Monk. He is a pirate from a sky island and captain of the Fallen Monk Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Trebol was the first to find Ito lto no Mi when he was a criminal.",
+    "is": "true"
+  },
+  {
+    "name": "Tsuru ate the Woshu Woshu no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Tsuru was born in North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Usopp was the third member to join the Straw Hat crew.",
+    "is": "true"
+  },
+  {
+    "name": "Van Augur was born in East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Van Augur the Supersonic is a Blackbeard Pirates Sniper and an excellent marksman.",
+    "is": "true"
+  },
+  {
+    "name": "Vasco Shot is the captain of the eighth ship, leading Teach's eighth fleet.",
+    "is": "true"
+  },
+  {
+    "name": "Vergo has known Doflamingo since he was a child.",
+    "is": "true"
+  },
+  {
+    "name": "Vergo was the first Corazon.",
+    "is": "true"
+  },
+  {
+    "name": "Vinsmoke Reiju is a Devil Fruit user.",
+    "is": "true"
+  },
+  {
+    "name": "Wapol is the first king shown in the series.",
+    "is": "true"
+  },
+  {
+    "name": "Yasopp was born in East Blue, in Syrup Village.",
+    "is": "true"
+  },
+  {
+    "name": "Zeff lost his right leg to save Sanji.",
+    "is": "true"
+  },
+  {
+    "name": "Zephyr is the only Admiral who has not eaten a Devil Fruit.",
+    "is": "true"
+  },
+  {
+    "name": "Zeus is a character from One Pece.",
+    "is": "true"
+  },
+  {
+    "name": "Zoro wielded more than 8 different swords in the anime.",
+    "is": "true"
+  },
+  {
+    "name": "Zephyr is a non-canon character.",
+    "is": "true"
+  },
+  {
+    "name": "There was a Crossover between One Piece and Dragon Ball Z in the anime.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Marshall D. Teach's Liberation skill has a two second cooldown and 10 power.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Arlong's level 100 skill, Shark on Tank, immobilizes the enemy.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] The weekly rotation changes every Saturday.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] As a rule, the character's third skill is unlocked at level 10.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] As a rule, emotes are unlocked at level 40.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] While on fire, Pearl has the following abilities- Fíre Pearl Shot, Fíre Presente, Fíre Pearl Close And Fire Pearl Daitokuten.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] In-game bugs must be reported on the Discord server.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Dadao Sword is a recommended item for level 10.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] There are 30 achievements to complete in the special missions story mode.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] There are Bronze Berry, Silver Berry, Gold Berry and Diamond Berry.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Fire Pearl is the name of Pearl's passive.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Genzo sells Fishman Bandana, Fishman Pants, Sea Ring and Sea Turban for 5000 berry each.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] There is a Prisoner named Tita in Arlong Park.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Henry Needle, Henry Blazer, Henry Stripe, and Henry Ford are names for some of Niji's abilities.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Hideka is Sora's grandmother.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] lsland of Rare Animals is recommended for players level 38 to 50 on the game's minimap.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Jango is the only Special Mission boss who is also an NPC.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Jinbe is the only Diamond character with the Tank class.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Kumo Island is recommended for level 64 to 70 players on the game's minimap.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Kuro deals 25 more damage when he attacks enemies from behind.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Hidden Blade is an item that can be used by all classes.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Leo, Carmen's disciple, is in the Loguetown library.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Loguetown is recommended for players level 56 to 70 on the game's minimap.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Luffy takes less damage from Vinsmoke Niji's attacks because his body has rubber properties.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Marshall D. Teach gains 30 attack and loses half his armor when his passive activates.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Meito Shigure is an item that can only be used by slashers.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Mellorine is the name of Sanji's passive.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Mes is the strongest skill in the game in terms of power.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Monkey D. Luffy can break walls with the Gomu Gomu no Ono skill.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Monkey D. Luffy has the following classes Bruiser, Fighter and Tank.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Morgan is the only Special Mission boss who is also an NPC.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Muggy Dama is the ability that Buggy unlocks at level 100.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Nami can only create 3 clouds simultaneously.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Can't enter Kaya's mansion.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] There is no Marine Announcer on Conomi Island.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Nefertari Vivi can do a sexy dance to motivate her allies, increasing their attack and defense by 15 seconds.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Nico Robin cannot build bridges with the Delphinium skill.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Ninjin, one of Usopp's Pirates, gives some quests in Syrup Village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] In the in-game tutorial, the NPC who gives you instructions is Woop Slap, the mayor of Foosha Village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] NPC Sora on Samui Island is a girl.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Blackbeard has the following Specialist, Bruiser and Shooter classes. The last one is because he has a gun.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Repair Kit 1.0 restores 450 health to your ship per second.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Repair Kit 2.0 restores 22,000 health to your ship in 30 seconds.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Repair kit 2.0 restores 700 health to your ship per second.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Repair Kit 3.0 restores your ship's 30,000 health in 30 seconds.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Repair Kit 3.0 restores your ship 1000 health per second.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] The level required to do Captain Morgan's Quest is 17.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] NPC Skinny asks for 4 Ears and Wolf on his quest in Foosha Village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] PvP on the Grand Line will be optional.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Killer Bleed can stack up to 4 times using more Bloody Cuts or Kira Nokogiri.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Orange Town is recommended for level 20-30 players on the game's minimap.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] To start Ripper's Quest in Shells Town, you must first complete Helmeppo's Quest.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Mining Pick is an item for slashers and tanks.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Piiman, one of Usopp's pirates, gives some quests in Syrup Village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Pufferfish and Sharks are considered level 3 monsters.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] When Bonney uses her Unbridled Power ability, she turns all of hers into babies and is invulnerable for 9 seconds.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] When Sanji heals a woman, he gets motivated and gets speed and attack bonuses for 10 seconds.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Sabo is the name of the child Nojiko asks to help in Arlong Park.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] San Zen Se Kai is the strongest skill in the game in terms of power.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Sanji can heal with the Master Cook skill.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Sapi is the NPC that sells Tuna in Cocoyasi Village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Sayuri, Asuya and Cherry are names of Baratie NPCs.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Shanks immobilizes enemies around him with Busoshoku Haki Waves.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Shanks Kill weak enemies instantly with the Kenbushoku Haki skill.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Slime is an enemy unique to Loguetown.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Snowflakes is the name of Sora's pet.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Spider and Giant Spider are the only enemies on Kumo Island.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Syrup Wllage is the only island with two dock entrances in East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] All Straw Hats have a Strong World Skin.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Trafalgar Law cannot break walls with the Injection Shot skill.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Trafalgar Law cannot use any abilities when outside the Room.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] A Diamond character needs more medals to get his stars improved than a character Gold.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can buy two extra Stash tabs. The first costs 150000 berry and the second 200000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You cannot trade your equipment page in a Safe Zone.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can buy two extra Stash tabs. The first costs 100,000 berry and the second 200,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can get Sam's Necklace item from any East Blue Hard Quest.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can craft a Music Box in the Black Market.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can craft a music box for 200 pirated coins on the black market.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can find 8 entries for the Black Market in east Blue.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can use the construction table at the docks to turn 5 Medium Experience Potions into 1 Potion Great of Experience.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can use the construction table on the docks to turn 10 Small Experience Potions into 2 Potion Experience Average.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You need to feed a prisoner in Ririka's Quest.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You need to defeat 50 snakes in Coby's quest.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You must win with a team of shooters to complete the Buggy Pirates achievement.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You need to win with a team of specialist to complete the Pirates of Alvida achievement.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You need to win with a team of specialist to complete the Pirates of Arlong achievement.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You must win with a team of tanks to complete the Marine Base conquest.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You must win with a team of men to complete the Pirate Armada achievement.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You can only trade your equipment in a Safe Zone.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Uchimizu is an ability that can be used by jinbe, chew and arlong.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] There are currently only 10 Bronze characters available.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Currently Pearl is the only character with three classes- Tank, Specialist and Fighter.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Backflips and evasion abilities grant immunity to damage and immobilizations.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Baratie is recommended for level 42 to 50 players on the game's minimap.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Monkey King Staff is an item that can only be used by fighters.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Buchi can use the Take the lead ability to call Sham to fight alongside him.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Capone Gang Beige and his allies are immune inside Big Father.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Capone Gang Beige doesn't unlock any skills at level 100.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Pork Goumet is Baratie's most time-consuming food to cook. It takes 8 minutes.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Strong Beer is the best food you can buy from an NPC in terms of healing per second for one level 70 character.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Cocoyasi Village is recommended for players of level 48 to 60 on the game's minimap.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Daddy MCShooty is an enemy in Loguetown.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] It is mandatory to defeat Jango in Black Cat's mission in story mode.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] It is possible to create Dynamic Diamond Medals for 40 Pirate Coins in the Black Market.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] It is possible to create Dynamic Gold Medals for 15 Pirate Coins in the Black Market.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] It is possible to create Dynamic Silver Medals for 8 Pirate Coins in the Black Market.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] It is possible to create Medium EXP Potion, Large EXP Potion and Small EXP Potion in the Black Market.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] It is possible to create Small EXP Potion in the Black Market.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] It is possible to do Fishman daily quests in cocoyasi Village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] It is possible to prepare some food at Nojiko's house.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] You must complete with a team of specialist to earn the Arlong achievement.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] As a rule, the character's fourth skill is unlocked at level 18.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] As a rule, the character's fifth skill is unlocked at level 25.",
+    "is": "false"
+  },
+  {
+    "name": "Laffitte's nickname, Shinigami or god of death, comes from the fact that he likes to play with people's lives, as well as a shinigami.",
+    "is": "false"
+  },
+  {
+    "name": "Boa Hancock's current bounty is 79,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Bartolomeo's barrier broke only once during the anime.",
+    "is": "false"
+  },
+  {
+    "name": "Sugar's favorite food is orange.",
+    "is": "false"
+  },
+  {
+    "name": "Marco's favorite food is grapes.",
+    "is": "false"
+  },
+  {
+    "name": "Teach's favorite food is apple pie.",
+    "is": "false"
+  },
+  {
+    "name": "Shilliew's sword is a Meito called Rain.",
+    "is": "false"
+  },
+  {
+    "name": "Usopp's mother was born in South Blue.",
+    "is": "false"
+  },
+  {
+    "name": "The biggest known bounty is 1,500,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "The highest known bounty is 2,257,600,000.",
+    "is": "false"
+  },
+  {
+    "name": "Nico Robin's first bounty was 78,000,000 berry, the same amount as her mother Nico Olivia.",
+    "is": "false"
+  },
+  {
+    "name": "The Baby Five bounty is 17,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "The Baby Five bounty is 23,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Boa Hancock's bounty is 79,000,000 berries.",
+    "is": "false"
+  },
+  {
+    "name": "Miss Valentine's bounty is 7,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Olivia's bounty was 79,000,000 berry, the same as her daughter Nami later received.",
+    "is": "false"
+  },
+  {
+    "name": "Hathan's bounty is 7,000,000.",
+    "is": "false"
+  },
+  {
+    "name": "A pirate's bounty reflects his strength.",
+    "is": "false"
+  },
+  {
+    "name": "Buffalo's bounty is 13,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Buffalo's bounty is 15,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Dellinger's bounty was 12,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Demaro Black's bounty is 26,300,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Diamond's bounty was 100,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Fisher Tiger's bounty was 200,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Foxy's bounty is 25,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "The Gin bounty is 10,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Hatchan's bounty is 7,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Jinbe's bounty is 439,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Jinbe's bounty was 200,000,000 berry before he became a Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Kuro's bounty is 6,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Kuroobi's bounty is 8,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Lao G bounty was 6,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Machvise's bounty was 10,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 2's bounty is 30,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 4's bounty is 3,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 5's bounty is 900,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 3's bounty is 23,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Pica's bounty was 100,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Tamago's bounty is 42,950,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Trebol's bounty was 100,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Urouge's bounty is 100,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "The X-Drake bounty is 220,200,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Zeff's bounty is 47,600,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Zoro's bounty is greater than Sanji's.",
+    "is": "false"
+  },
+  {
+    "name": "Shichibukai bounty may increase.",
+    "is": "false"
+  },
+  {
+    "name": "Senor Pink's bounty was 56,000,000 berry before it was frozen due to Doflamingo becoming a Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Sniper Island is located on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Luffy's third bounty was 400,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Ace ate the Mira Mira no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Aisa was born with an Advanced Weapon Haki.",
+    "is": "false"
+  },
+  {
+    "name": "Akainu was born on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Akira Toriyama is the creator of One Piece.",
+    "is": "false"
+  },
+  {
+    "name": "Alvida is the former captain of the Buggy Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Before the events of the war, Jesus Burgess had a bounty of 200,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Before the events of the war, Laffitte had a bounty of 42,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Before the events of the war, Van Augur had an impressive 6,000,000 berry bounty.",
+    "is": "false"
+  },
+  {
+    "name": "Aokiji ate the Yuki Yuki no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "After the events in Punk Hazard, Smoker officially became the G-4 Leader.",
+    "is": "false"
+  },
+  {
+    "name": "After being diagnosed with his illness, Gol D. Roger took two years to find One Piece.",
+    "is": "false"
+  },
+  {
+    "name": "Arlong was captain of the Sun Pirates and had East Blue's greatest bounty before being defeated by Monkey D. Luffy.",
+    "is": "false"
+  },
+  {
+    "name": "Arlong was once a slave.",
+    "is": "false"
+  },
+  {
+    "name": "Like Kuzan, Smoker wants to wipe out the Shichibukai system.",
+    "is": "false"
+  },
+  {
+    "name": "Arlong's hair is currently purple.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Luffy currently has the greatest bounty known.",
+    "is": "false"
+  },
+  {
+    "name": "Avalo Pizarro is the captain of the third ship, leading the Teach's third fleet.",
+    "is": "false"
+  },
+  {
+    "name": "Avalo Pizarro was originally king of a country in the West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Baby Five ate the Boku Boku no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Baby Five was born on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Bacura is a Zoan-type Devil Fruit user.",
+    "is": "false"
+  },
+  {
+    "name": "Whitebeard ate the Goro Goro no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Whitebeard was responsible for healing the eye and Shanks with his claw weapon.",
+    "is": "false"
+  },
+  {
+    "name": "Whitebeard was born on Sphinx Island in the North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Blackbeard is an Admiral of the Blackbeard Pirates and a member of the Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Blackbeard was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Bartholomew Kuma was known as a Pacifist.",
+    "is": "false"
+  },
+  {
+    "name": "Bartolomeo has the Devil Fruit Nikyu Nikyu no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Basil Hawkins is an infamous North Blue pirate known as the Mage and captain of the Mage Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Bellemere found Nami and Nojiko in the Kingdom of Oykot, in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Benn Beckman is the vice-captain of the Pirates of the Shanks.",
+    "is": "false"
+  },
+  {
+    "name": "Benn Beckman is not the smartest character to appear in the East Blue saga.",
+    "is": "false"
+  },
+  {
+    "name": "Benn Beckman doesn't have a bounty.",
+    "is": "false"
+  },
+  {
+    "name": "Benn Beckman was born in East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Bepo is not a Mink.",
+    "is": "false"
+  },
+  {
+    "name": "Boa Hancock is the captain of the Kuja Pirates and the second female member of the Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Boa Hancock was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Boa Hancock has the same voice actress as Reiju.",
+    "is": "false"
+  },
+  {
+    "name": "Boa Marigold and Boa Sandersonia only have Haki's weaponry.",
+    "is": "false"
+  },
+  {
+    "name": "Boodle is the mayor of Syrup Village.",
+    "is": "false"
+  },
+  {
+    "name": "Brook has been dead for 50 years.",
+    "is": "false"
+  },
+  {
+    "name": "Brook was the last member to join the Straw Hat crew.",
+    "is": "false"
+  },
+  {
+    "name": "Buffalo was born on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Buggy is captain of the Clown Pirates and also co-leader of the Buggy and Alvida Alliance.",
+    "is": "false"
+  },
+  {
+    "name": "Buggy and Shanks are on the same crew.",
+    "is": "false"
+  },
+  {
+    "name": "Busoshoku no Haki grants the user a sixth sense of the world around them and limited precognitive abilities.",
+    "is": "false"
+  },
+  {
+    "name": "Caesar ate the Shiro Shiro no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Capone Gang Bege is Captain of Castle Tank Pirates and also one of the twelve pirates ranked as the Worst Generation.",
+    "is": "false"
+  },
+  {
+    "name": "Caribou was born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Catarina Devon hunts down any men she finds attractive and decapitates their heads to add them to her collection.",
+    "is": "false"
+  },
+  {
+    "name": "Catarina Devon is the captain of the fifth ship, leading Teach's fifth fleet.",
+    "is": "false"
+  },
+  {
+    "name": "Catarina Devon was born on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Charlotte Linlin is one of Big Mom's daughters.",
+    "is": "false"
+  },
+  {
+    "name": "Charlotte Shujan is one of Big Mom's children.",
+    "is": "false"
+  },
+  {
+    "name": "Chess was born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Chopper is a Raccoon who ate the Human-Human Fruit.",
+    "is": "false"
+  },
+  {
+    "name": "As one of the top members of the Revolutionary Army, Koala has a bounty of 32,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Crocodile was behind Uranus, one of the ancient weapons.",
+    "is": "false"
+  },
+  {
+    "name": "Crocodile was the second opponent to defeat Luffy in battle.",
+    "is": "false"
+  },
+  {
+    "name": "Crocodile was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Damaro Black, Manjaro, Chocolat, Drip, Turkish, Cocoa, MountMOUNTAlN and Nora Gitsune are the real names of the fake crew of the straw hats.",
+    "is": "false"
+  },
+  {
+    "name": "Demaro Black, captain of the Fake Straw Hats, was born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Among the Straw Hat Crew, Luffy is Eiichiro Oda's favorite member.",
+    "is": "false"
+  },
+  {
+    "name": "After the Timeskip Franky is the tallest of the Straw Hat Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Diamante was the first to meet Ito Ito no Mi when he was a criminal.",
+    "is": "false"
+  },
+  {
+    "name": "Diamond Jozu ate the Mira Mira no Mi, causing it to transform into a human diamond with a stamina incomparable.",
+    "is": "false"
+  },
+  {
+    "name": "Diamond Jozu was born on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Doc Q carries a large spear as a weapon.",
+    "is": "false"
+  },
+  {
+    "name": "Doc O is the Whitebeard Pirates' doctor.",
+    "is": "false"
+  },
+  {
+    "name": "Doflamingo and Baby Five had a complex love relationship.",
+    "is": "false"
+  },
+  {
+    "name": "Doflamingo is an Armament and King Haki user only.",
+    "is": "false"
+  },
+  {
+    "name": "Doflamingo was the first character to awaken his Devil Fruit.",
+    "is": "false"
+  },
+  {
+    "name": "Doflamingo killed Gekko Moria.",
+    "is": "false"
+  },
+  {
+    "name": "Donquixote Doflamingo is the captain of the Donquixote Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Dororo is a character from One Piece.",
+    "is": "false"
+  },
+  {
+    "name": "Doctor Hiriluk was born on Drum Island.",
+    "is": "false"
+  },
+  {
+    "name": "Dracule Mihawk is a member of the Redhead Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Dracule Mihawk is a Shichibukai and member of the Redhead Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Dracule Mihawk had only one voice actor throughout the anime.",
+    "is": "false"
+  },
+  {
+    "name": "In simple terms, Haki is the ability to sense spiritual energy (Busoshoku), use life force (Haoshoku) and master enemies (Kenbunshoku).",
+    "is": "false"
+  },
+  {
+    "name": "Emporio Ivankov was born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Enel ate the Gura Gura no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Enel and his priests conquered the Moon.",
+    "is": "false"
+  },
+  {
+    "name": "Enel is on Mars.",
+    "is": "false"
+  },
+  {
+    "name": "Eric is a non-canon Pirate that was featured in the anime.",
+    "is": "false"
+  },
+  {
+    "name": "Erik is a non-canon character from One Piece.",
+    "is": "false"
+  },
+  {
+    "name": "Eustass Kid lost his right arm.",
+    "is": "false"
+  },
+  {
+    "name": "There are three types of Haki available to everyone.",
+    "is": "false"
+  },
+  {
+    "name": "It has been confirmed that Usopp awakened the Observation Haki during the Punk Hazard Arc.",
+    "is": "false"
+  },
+  {
+    "name": "Foxy ate the Soro Soro no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Foxy was born in East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Franky destroyed the Uranus project.",
+    "is": "false"
+  },
+  {
+    "name": "Franky is a robot.",
+    "is": "false"
+  },
+  {
+    "name": "Franky was the former leader of the Franky Family and current Captain of the Cyborg Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Franky was originally leader of the Franky Family and is now captain of the Cyborg Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Franky was the first cyborg to appear on the series.",
+    "is": "false"
+  },
+  {
+    "name": "Frost is a character from One Piece.",
+    "is": "false"
+  },
+  {
+    "name": "Funkfreed is the name of the Spandam Elephant.",
+    "is": "false"
+  },
+  {
+    "name": "Genzo was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Genzo is also a Doctor.",
+    "is": "false"
+  },
+  {
+    "name": "Gin is captain of the Gin Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Gin has the same voice actor as Kuro.",
+    "is": "false"
+  },
+  {
+    "name": "Gin has a bounty of 10,000,000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "Gol D. Roger wore a hat similar to Luffy's.",
+    "is": "false"
+  },
+  {
+    "name": "Golden Lion Shiki is a non-canon character.",
+    "is": "false"
+  },
+  {
+    "name": "Gura Gura no Mi and a Logia-type Devil Fruit.",
+    "is": "false"
+  },
+  {
+    "name": "Hancock is the Empress of Amazon Lily, which is why she is called Empress Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Haoshoku no Haki grants the user a sixth sense of the world around them and limited precognitive abilities.",
+    "is": "false"
+  },
+  {
+    "name": "Hatchan is a former Sun Pirates officer and member of the Arlong Pirates before that.",
+    "is": "false"
+  },
+  {
+    "name": "Hatchan has 8 arms.",
+    "is": "false"
+  },
+  {
+    "name": "Impel Down has 7 levels.",
+    "is": "false"
+  },
+  {
+    "name": "Inazuma was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Issho was born in South Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Issho ate the Fuji Fuji no Mi, which allows him to manipulate gravity.",
+    "is": "false"
+  },
+  {
+    "name": "Jango is a Marine and former captain of the Black Cack Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Jesus Burgess is the Blackbeard Pirates Navigator.",
+    "is": "false"
+  },
+  {
+    "name": "Jinbe is the Straw Hat Pirates Navigator.",
+    "is": "false"
+  },
+  {
+    "name": "Jinbe was the ninth member to join the Straw Hats crew.",
+    "is": "false"
+  },
+  {
+    "name": "Johnny and Yosaku were born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Kalgara was revealed as a Haki Weapon user.",
+    "is": "false"
+  },
+  {
+    "name": "Kanjuro ate the Draw Draw no Mi, which allows him to bring everything he draws to life.",
+    "is": "false"
+  },
+  {
+    "name": "Katakuri can see 5 minutes in the future.",
+    "is": "false"
+  },
+  {
+    "name": "Kid and Killer are childhood friends. Together they formed the Pirates of the Killer.",
+    "is": "false"
+  },
+  {
+    "name": "Kid and Killer are brothers. Together, they formed the Pirates of the Kid.",
+    "is": "false"
+  },
+  {
+    "name": "Killer is a North Blue Pirate and a member of Kid Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Killer lost an arm on Timeskip.",
+    "is": "false"
+  },
+  {
+    "name": "Kinemon ate the Tuku Tuku no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Kinemon is Weapon Haki user only.",
+    "is": "false"
+  },
+  {
+    "name": "Kizaru was born on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Kuro, also known by his nickname Klahadore, is the captain of the Neko Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Kuro, captain of the Black Cat Pirates, was also known by his nickname Klahadore.",
+    "is": "false"
+  },
+  {
+    "name": "Kuroobi is an officer of the Sun Pirates and former members of the Arlong Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Kuzan decided to go blind because there were too many things he didn't want to see.",
+    "is": "false"
+  },
+  {
+    "name": "Kuzan was born on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Laboon is female.",
+    "is": "false"
+  },
+  {
+    "name": "Laffitte grew up in West Blue, where he became a Marine.",
+    "is": "false"
+  },
+  {
+    "name": "Laffitte the Supersonic is an extremely skilled sniper of the Blackbeard Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Lucky Roo was one of the last members to join the Shanks crew after he formed the Redhead Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Lucky Roo was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Luffy defeated Sabo in a childhood duel.",
+    "is": "false"
+  },
+  {
+    "name": "Luffy got his scar from a tiger in Foosha Village.",
+    "is": "false"
+  },
+  {
+    "name": "Luffy has a Logia-type Devil Fruit that has turned his body rubber.",
+    "is": "false"
+  },
+  {
+    "name": "Machvise ate the Hon Hon no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Madame Shyarly is Hatchan's sister.",
+    "is": "false"
+  },
+  {
+    "name": "Madame Shyarly is one of Arlong's sisters.",
+    "is": "false"
+  },
+  {
+    "name": "Magellan ate the Moku Moku no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Marco ate the Pori Pori no Mi, like Phoenix, a Zoan Mitica.",
+    "is": "false"
+  },
+  {
+    "name": "Marco was the commander of the Second Division and Whitebeard's right hand.",
+    "is": "false"
+  },
+  {
+    "name": "Masashi Kishimoto is the creator of One Piece.",
+    "is": "false"
+  },
+  {
+    "name": "Masira and Shoujo are brothers.",
+    "is": "false"
+  },
+  {
+    "name": "Masira and Shoujo have a bounty of 23,000,000 and 26,000,000 berry respectively.",
+    "is": "false"
+  },
+  {
+    "name": "Mihawk is not the only one with an unknown bounty among the Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Miss Doublefinger was born in South Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Miss Goldenweek was paired with Mr 2 because of her ability to paint wax creations, making them more realistic.",
+    "is": "false"
+  },
+  {
+    "name": "Miss Goldenweek was born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Miss Valentine was born on the Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Mohji is a pirate and captain of the Lion Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Momoo is now officially considered a pet of the Pirates of Arlong.",
+    "is": "false"
+  },
+  {
+    "name": "Momoo developed a trauma about Luffy and Zoro, suffering a panic attack just seeing them.",
+    "is": "false"
+  },
+  {
+    "name": "Monet ate the Hie Hie no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Monet had a Paramecia-type Devil Fruit.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Garp is Luffy's real father.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Garp was born in South Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Luffy was the first person to escape Impel Down.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Luffy was the only person to escape Impel Down in history.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Luffy was born in Nanko Village.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 3 wanted to betray Crocodile from the beginning of the arc.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 4 was born in East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 5 was born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 4 was born in East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Nami got the weather-tact on Drum Island.",
+    "is": "false"
+  },
+  {
+    "name": "Nami was the third member to join the Straw Hat crew.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Nanashaku Jitte is a level 70 item that can be used by all classes.",
+    "is": "false"
+  },
+  {
+    "name": "Nefertati Vivi is a member of the Straw Hat Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Nico Robin is referred to as the Demon of the Revolution by the Revolutionary Army.",
+    "is": "false"
+  },
+  {
+    "name": "Charlotte Cracker's hair is green.",
+    "is": "false"
+  },
+  {
+    "name": "The dragon Luffy and the others fought in Punk Hazard was artificially created by Caesar in a laboratory in Punk Hazard.",
+    "is": "false"
+  },
+  {
+    "name": "The Revolutionary Army was founded after Luffy's birth.",
+    "is": "false"
+  },
+  {
+    "name": "The genus of surume is female.",
+    "is": "false"
+  },
+  {
+    "name": "The ship that the Hancock and the Kuja Pirates sail is called the Aroma Snake.",
+    "is": "false"
+  },
+  {
+    "name": "The name of the ship that Mr 1 and Miss Doublefinger used in their operations was Kill Season.",
+    "is": "false"
+  },
+  {
+    "name": "The name of the ship that Mr 5 and Miss Valentine used in their operations was Bomb Rock Candy.",
+    "is": "false"
+  },
+  {
+    "name": "The name of the ship the Donquixote Pirates used in their days on the North Blue was Flamingo Family.",
+    "is": "false"
+  },
+  {
+    "name": "The names of the ships of the Masira and the Shoujo are Utan Sonar and Victory Hunter, respectively.",
+    "is": "false"
+  },
+  {
+    "name": "Baby Five's real name is Babi.",
+    "is": "false"
+  },
+  {
+    "name": "Miss Goldenweek's real name is Drophy.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 4's real name is Derek, probably in reference to the famous baseball player Derek Jeter.",
+    "is": "false"
+  },
+  {
+    "name": "Trebol's real name is John Trebol.",
+    "is": "false"
+  },
+  {
+    "name": "Sanji's first known kiss was with Violet.",
+    "is": "false"
+  },
+  {
+    "name": "The main ship of the revolutionary army is called the Viento GRANMAR.",
+    "is": "false"
+  },
+  {
+    "name": "Pluton's project has yet to be discovered.",
+    "is": "false"
+  },
+  {
+    "name": "Yonkou Shanks is known for being the Captain of the Pirates of the Shanks.",
+    "is": "false"
+  },
+  {
+    "name": "Oars is a half giant.",
+    "is": "false"
+  },
+  {
+    "name": "Smiles were made by Donquixote Doflamingo.",
+    "is": "false"
+  },
+  {
+    "name": "The Yeti Cool Brothers are part of a subspecies of humans.",
+    "is": "false"
+  },
+  {
+    "name": "Otohime was known by the nickname Reincarnation of Love due to her incredible kindness and quest for peace between different species.",
+    "is": "false"
+  },
+  {
+    "name": "Otohime had a highly developed Observation and Weaponry Haki, which allowed her to deeply understand the emotion of others.",
+    "is": "false"
+  },
+  {
+    "name": "Pagaya is a starfish that is Camie's mascot and also a teacher. He is the creator of a fashion line.",
+    "is": "false"
+  },
+  {
+    "name": "Pandaman is from Law's crew.",
+    "is": "false"
+  },
+  {
+    "name": "Pandaman is on the crew of Trafalgar Law.",
+    "is": "false"
+  },
+  {
+    "name": "Pearl is the commander of the second unit of the Pirates of the Pirate Armada.",
+    "is": "false"
+  },
+  {
+    "name": "Pekoms ate the Tame Tame no Mi, which allows him to transform into a turtle, giving him a hard shell like Diamond.",
+    "is": "false"
+  },
+  {
+    "name": "Pekoms has an impressive 300,000,000 berry bounty.",
+    "is": "false"
+  },
+  {
+    "name": "Perona has the same voice actor as Koala.",
+    "is": "false"
+  },
+  {
+    "name": "Pica is a Weapon Haki user only.",
+    "is": "false"
+  },
+  {
+    "name": "Potgas D. Ace was the commander of the second division of the Spade Pirates",
+    "is": "false"
+  },
+  {
+    "name": "Punk Hazard can be found with a Log Pose.",
+    "is": "false"
+  },
+  {
+    "name": "Python is the name of Shanks' sword.",
+    "is": "false"
+  },
+  {
+    "name": "Rosinante ate Shiu Shiu no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Ryuma had the shadow of a legendary Wario samurai.",
+    "is": "false"
+  },
+  {
+    "name": "Sandai Kitetsu (one of the zero swords) has rusted.",
+    "is": "false"
+  },
+  {
+    "name": "Sanji was the fifth member to join the Straw Hat crew.",
+    "is": "false"
+  },
+  {
+    "name": "Sanji was born in South Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Sanjuan Wolf is captain of Blackbeard's 5th ship.",
+    "is": "false"
+  },
+  {
+    "name": "Sanjuan Wolf is the captain of the fifth ship, leading the Teach's fifth fleet.",
+    "is": "false"
+  },
+  {
+    "name": "Scratchmen Apoo is from the Longarm tribe, an infamous music-themed pirate and captain of Pirates On Music.",
+    "is": "false"
+  },
+  {
+    "name": "Sengoku was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Shanks is a member of the Yonko who rule the New World and is the captain of the Shanks Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Shanks was the first owner of the Straw Hats.",
+    "is": "false"
+  },
+  {
+    "name": "Shanks was born in East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Shanks has a scar on his right eye.",
+    "is": "false"
+  },
+  {
+    "name": "Shiliew is the captain of Teach's third fleet.",
+    "is": "false"
+  },
+  {
+    "name": "Shojo is a member of the Rumbar Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Smoker ate the Doku Doku no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Smoker is known as the Gray Hunter.",
+    "is": "false"
+  },
+  {
+    "name": "Smoker is Weapon Haki user only.",
+    "is": "false"
+  },
+  {
+    "name": "Smoker was born in East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Square was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Stussy was born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Sugar was permanently traumatized by Zoro's face, making it an incurable trauma.",
+    "is": "false"
+  },
+  {
+    "name": "Tamago ate the cuma no mi, which allows him to cycle in different ways.",
+    "is": "false"
+  },
+  {
+    "name": "All four main crew members of Shanks are from the same ocean.",
+    "is": "false"
+  },
+  {
+    "name": "Tamago lost his right eye to Pedro.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar Law was once a slave.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar Law is a member of the Straw Hat Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar Law lost an arm during the Timeskip.",
+    "is": "false"
+  },
+  {
+    "name": "Trebol had Logia-type Devil Fruit.",
+    "is": "false"
+  },
+  {
+    "name": "Tsuru ate the Washe Washe no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Tsuru was born in East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Urouge is also known as Mad Monk. He is a pirate from a sky island and captain of the Mad Monk Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Van Augur was born in West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Vergo can cover almost his entire body with Haki.",
+    "is": "false"
+  },
+  {
+    "name": "Wapol was born in North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Woop Slap is the mayor of Orange Town.",
+    "is": "false"
+  },
+  {
+    "name": "Vasco Shot is the captain of the seventh ship, leading Teach's seventh fleet.",
+    "is": "false"
+  },
+  {
+    "name": "Zeff lost his left leg to save Sanji.",
+    "is": "false"
+  },
+  {
+    "name": "Zoro wielded less than 8 different swords in the anime.",
+    "is": "false"
+  },
+  {
+    "name": "Kinemon has taku taku no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Vista was born in grand line.",
+    "is": "false"
+  }
+]

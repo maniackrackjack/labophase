@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="css/wanted.css" />
     <link rel="stylesheet" href="css/links.css" />
     <link rel="stylesheet" href="css/world_bosses.css" />
+    <link rel="stylesheet" href="css/foxy_quiz.css" />
+    <link rel="stylesheet" href="css/island_chests.css" />
   </head>
 
   <body>
@@ -42,11 +44,10 @@
       <div class="sidebar" id="sidebar">
         <div class="sidebar-top">
           <div class="sidebar-logo">
-            <img class="logo-icon" src="sprites/branding/logo.jpg" alt="logo">
+            <img class="logo-icon" src="sprites/branding/logo_0.png" alt="logo">
             <span class="logo-text">Labophase</span>
           </div>
           <div class="langSelector">
-            <label data-lang="language">Idioma</label>
             <div class="langButtons">
               <button class="langBtn" type="button" data-lang="en" aria-label="English" onclick="setLang('en')">🇬🇧</button>
               <button class="langBtn" type="button" data-lang="pt" aria-label="Português" onclick="setLang('pt')">🇧🇷</button>
@@ -60,7 +61,7 @@
           <button class="sidebar-toggle" onclick="toggleSidebar()" title="Recolher/Expandir menu" aria-label="Recolher menu">
             <span class="sidebar-toggle-arrow">◀</span>
           </button>
-          <h2 class="sidebar-menu-title" data-lang="menu">Menu</h2>
+
           <button class="tabBtn active" onclick="switchTab('calc', this)">
             <span class="tab-icon"><img src="sprites/icons/divine_crystal.gif" class="tab-icon-img" alt="Cristal Divino"></span><span class="tab-label" data-lang="calculator"></span>
           </button>
@@ -79,6 +80,12 @@
           <button class="tabBtn" onclick="switchTab('characters', this)">
             <span class="tab-icon"><img src="sprites/characters/monkey_luffy.png" class="tab-icon-img" alt="Luffy"></span><span class="tab-label" data-lang="charactersTab">Personagens</span>
           </button>
+          <button class="tabBtn" onclick="switchTab('foxy_quiz', this)">
+            <span class="tab-icon"><img src="sprites/ui/foxy_quiz/foxy_quiz_icon.png" class="tab-icon-img" alt="Foxy Quiz"></span><span class="tab-label" data-lang="foxyQuizTab">Foxy Quiz</span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('island_chests', this)">
+            <span class="tab-icon">🗺️</span><span class="tab-label" data-lang="islandChestsTab">Island Chests</span>
+          </button>
           <button class="tabBtn" onclick="switchTab('boats', this)">
             <span class="tab-icon"><img src="sprites/boats/skins/boat_classic.png" class="tab-icon-img" alt="Barco"></span><span class="tab-label" data-lang="boatsTab">Barcos</span>
           </button>
@@ -92,13 +99,37 @@
           <!-- World Bosses folder -->
           <button class="wb-folder-btn" type="button" onclick="wbToggleFolder(this)" aria-expanded="false" aria-controls="wb-folder-submenu">
             <span class="tab-icon">🌍</span>
-            <span class="tab-label">World Bosses</span>
+            <span class="tab-label" data-lang="worldBossesFolder">World Bosses</span>
             <span class="wb-folder-arrow">▶</span>
           </button>
           <div id="wb-folder-submenu" class="wb-folder-submenu">
             <button class="tabBtn wb-child-tab" onclick="switchTab('shai_hulud', this)">
-              <span class="tab-icon"><img src="sprites/world_bosses/shai_hulud/shai_icon.png" class="tab-icon-img" alt="Shai-Hulud"></span>
-              <span class="tab-label">Shai-Hulud</span>
+              <span class="tab-icon"><img src="sprites/world_bosses/shai_hulud/top_1_icon.gif" class="tab-icon-img" alt="Shai-Hulud"></span>
+              <span class="tab-label" data-lang="wbBossTitleShai">Shai-Hulud</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mihawk', this)">
+              <span class="tab-icon"><img src="sprites/world_bosses/mihawk/top_1_icon.gif" class="tab-icon-img" alt="Mihawk"></span>
+              <span class="tab-label" data-lang="wbBossTitleMihawk">Mihawk</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('hiking_bear', this)">
+              <span class="tab-icon"><img src="sprites/world_bosses/hiking_bear/top_1_icon.gif" class="tab-icon-img" alt="Hiking Bear"></span>
+              <span class="tab-label" data-lang="wbBossTitleHikingBear">Hiking Bear</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('byakko', this)">
+              <span class="tab-icon"><img src="sprites/world_bosses/byakko/top_1_icon.gif" class="tab-icon-img" alt="Byakko"></span>
+              <span class="tab-label" data-lang="wbBossTitleByakko">Byakko</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('bananawani', this)">
+              <span class="tab-icon"><img src="sprites/world_bosses/bananawani/top_1_icon.gif" class="tab-icon-img" alt="Bananawani"></span>
+              <span class="tab-label" data-lang="wbBossTitleBananawani">Bananawani</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('plesiosaur', this)">
+              <span class="tab-icon"><img src="sprites/world_bosses/plesiosaur/top_1_icon.gif" class="tab-icon-img" alt="Plesiosaur"></span>
+              <span class="tab-label" data-lang="wbBossTitlePlesiosaur">Plesiosaur</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('aokiji', this)">
+              <span class="tab-icon"><img src="sprites/world_bosses/aokiji/top_1_icon_aokiji.gif" class="tab-icon-img" alt="Aokiji"></span>
+              <span class="tab-label" data-lang="wbBossTitleAokiji">Aokiji</span>
             </button>
           </div>
         </div>
@@ -672,6 +703,43 @@
           </div>
         </div>
 
+        <div id="island_chests" class="tabPanel" style="display: none">
+          <div class="ic-layout">
+            <nav class="ic-sidebar" id="ic-island-list" aria-label="Island list"></nav>
+            <div class="ic-main">
+              <div id="ic-header"></div>
+              <div id="ic-chests-container">
+                <p class="ic-empty-msg" data-lang="islandChestsNoIslandSelected">Select an island to view its chests.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="foxy_quiz" class="tabPanel" style="display: none">
+          <div class="panel foxy-quiz-panel">
+            <div class="foxy-quiz-banner">
+            <img src="sprites/ui/foxy_quiz/foxy_quiz.png" alt="Foxy Quiz">
+            </div>
+            <div class="foxy-quiz-weekly-wrap">
+              <label class="foxy-quiz-weekly-label" for="foxy-quiz-weekly-checkbox">
+                <input type="checkbox" id="foxy-quiz-weekly-checkbox">
+                <span data-lang="foxyQuizWeeklyLabel">Atividade semanal concluída</span>
+              </label>
+              <small class="foxy-quiz-weekly-hint" data-lang="foxyQuizWeeklyHint">Reinicia toda sexta às 00:01 (horário local)</small>
+            </div>
+            <div class="foxy-quiz-search-wrap">
+              <input
+                type="text"
+                id="foxy-quiz-input"
+                class="foxy-quiz-input"
+                autocomplete="off"
+                spellcheck="false"
+              >
+            </div>
+            <div id="foxy-quiz-results" class="foxy-quiz-results"></div>
+          </div>
+        </div>
+
         <div id="boats" class="tabPanel" style="display: none">
           <div class="panel boats-panel">
             <div>
@@ -721,16 +789,16 @@
             <div class="wb-boss-header">
               <img src="sprites/world_bosses/shai_hulud/shai_icon.png" class="wb-boss-icon" alt="Shai-Hulud" />
               <div>
-                <h3 class="wb-boss-title">Shai-Hulud</h3>
-                <p class="wb-boss-subtitle">World Boss</p>
+                <h3 class="wb-boss-title" data-lang="wbBossTitleShai">Shai-Hulud</h3>
+                <p class="wb-boss-subtitle" data-lang="wbBossSubtitle">World Boss</p>
               </div>
             </div>
 
             <!-- Phase table section -->
             <section class="wb-section">
               <div class="wb-section-head">
-                <h4>Fases &amp; Habilidades</h4>
-                <button id="wb-table-toggle" class="wb-toggle-btn" type="button">Modo Habilidades</button>
+                <h4 data-lang="wbPhasesSkills">Fases &amp; Habilidades</h4>
+                <button id="wb-table-toggle" class="wb-toggle-btn" type="button" data-lang="wbModeSkills">Modo Habilidades</button>
               </div>
               <div class="wb-table-and-preview">
                 <div class="wb-table-outer">
@@ -748,15 +816,291 @@
             <div class="wb-bottom-section">
               <section class="wb-section">
                 <div class="wb-section-head">
-                  <h4>Personagens Recomendados</h4>
+                  <h4 data-lang="wbRecommendedCharacters">Personagens Recomendados</h4>
                 </div>
                 <div id="wb-characters"></div>
               </section>
               <section class="wb-section">
                 <div class="wb-section-head">
-                  <h4>Recompensas por Dano</h4>
+                  <h4 data-lang="wbRewardsByDamage">Recompensas por Dano</h4>
                 </div>
                 <div id="wb-rewards"></div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="mihawk" class="tabPanel" style="display: none">
+          <div class="panel wb-panel">
+
+            <div class="wb-boss-header">
+              <img src="sprites/world_bosses/mihawk/mihawk_icon.png" class="wb-boss-icon" alt="Mihawk" />
+              <div>
+                <h3 class="wb-boss-title" data-lang="wbBossTitleMihawk">Mihawk</h3>
+                <p class="wb-boss-subtitle" data-lang="wbBossSubtitle">World Boss</p>
+              </div>
+            </div>
+
+            <section class="wb-section">
+              <div class="wb-section-head">
+                <h4 data-lang="wbPhasesSkills">Fases &amp; Habilidades</h4>
+                <button id="wb-table-toggle-mh" class="wb-toggle-btn" type="button" data-lang="wbModeSkills">Modo Habilidades</button>
+              </div>
+              <div class="wb-table-and-preview">
+                <div class="wb-table-outer">
+                  <div id="wb-table-wrap-mh"></div>
+                </div>
+                <div class="wb-skill-preview">
+                  <img id="wb-skill-gif-mh" class="wb-skill-gif" src="sprites/world_bosses/mihawk/mihawk_icon.png" alt="Habilidade" />
+                  <span id="wb-skill-label-mh" class="wb-skill-label">Teleporte</span>
+                  <p id="wb-skill-description-mh" class="wb-skill-description"></p>
+                </div>
+              </div>
+            </section>
+
+            <div class="wb-bottom-section">
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRecommendedCharacters">Personagens Recomendados</h4>
+                </div>
+                <div id="wb-characters-mh"></div>
+              </section>
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRewardsByDamage">Recompensas por Dano</h4>
+                </div>
+                <div id="wb-rewards-mh"></div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="hiking_bear" class="tabPanel" style="display: none">
+          <div class="panel wb-panel">
+
+            <div class="wb-boss-header">
+              <img src="sprites/world_bosses/hiking_bear/bear_icon.png" class="wb-boss-icon" alt="Hiking Bear" />
+              <div>
+                <h3 class="wb-boss-title" data-lang="wbBossTitleHikingBear">Hiking Bear</h3>
+                <p class="wb-boss-subtitle" data-lang="wbBossSubtitle">World Boss</p>
+              </div>
+            </div>
+
+            <section class="wb-section">
+              <div class="wb-section-head">
+                <h4 data-lang="wbPhasesSkills">Fases &amp; Habilidades</h4>
+                <button id="hb-table-toggle" class="wb-toggle-btn" type="button" data-lang="wbModeSkills">Modo Habilidades</button>
+              </div>
+              <div class="wb-table-and-preview">
+                <div class="wb-table-outer">
+                  <div id="hb-table-wrap"></div>
+                </div>
+                <div class="wb-skill-preview">
+                  <img id="hb-skill-gif" class="wb-skill-gif" src="sprites/world_bosses/hiking_bear/top_1_icon.gif" alt="Habilidade" />
+                  <span id="hb-skill-label" class="wb-skill-label">Ataque Básico</span>
+                  <p id="hb-skill-description" class="wb-skill-description"></p>
+                </div>
+              </div>
+            </section>
+
+            <div class="wb-bottom-section">
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRecommendedCharacters">Personagens Recomendados</h4>
+                </div>
+                <div id="hb-characters"></div>
+              </section>
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRewardsByDamage">Recompensas por Dano</h4>
+                </div>
+                <div id="hb-rewards"></div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="byakko" class="tabPanel" style="display: none">
+          <div class="panel wb-panel">
+
+            <div class="wb-boss-header">
+              <img src="sprites/world_bosses/byakko/byakko_icon.png" class="wb-boss-icon" alt="Byakko" />
+              <div>
+                <h3 class="wb-boss-title" data-lang="wbBossTitleByakko">Byakko</h3>
+                <p class="wb-boss-subtitle" data-lang="wbBossSubtitle">World Boss</p>
+              </div>
+            </div>
+
+            <section class="wb-section">
+              <div class="wb-section-head">
+                <h4 data-lang="wbPhasesSkills">Fases &amp; Habilidades</h4>
+                <button id="bk-table-toggle" class="wb-toggle-btn" type="button" data-lang="wbModeSkills">Modo Habilidades</button>
+              </div>
+              <div class="wb-table-and-preview">
+                <div class="wb-table-outer">
+                  <div id="bk-table-wrap"></div>
+                </div>
+                <div class="wb-skill-preview">
+                  <img id="bk-skill-gif" class="wb-skill-gif" src="sprites/world_bosses/byakko/top_1_icon.gif" alt="Habilidade" />
+                  <span id="bk-skill-label" class="wb-skill-label">Garra Básica</span>
+                  <p id="bk-skill-description" class="wb-skill-description"></p>
+                </div>
+              </div>
+            </section>
+
+            <div class="wb-bottom-section">
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRecommendedCharacters">Personagens Recomendados</h4>
+                </div>
+                <div id="bk-characters"></div>
+              </section>
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRewardsByDamage">Recompensas por Dano</h4>
+                </div>
+                <div id="bk-rewards"></div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="bananawani" class="tabPanel" style="display: none">
+          <div class="panel wb-panel">
+
+            <div class="wb-boss-header">
+              <img src="sprites/world_bosses/bananawani/banana_icon.png" class="wb-boss-icon" alt="Bananawani" />
+              <div>
+                <h3 class="wb-boss-title" data-lang="wbBossTitleBananawani">Bananawani</h3>
+                <p class="wb-boss-subtitle" data-lang="wbBossSubtitle">World Boss</p>
+              </div>
+            </div>
+
+            <section class="wb-section">
+              <div class="wb-section-head">
+                <h4 data-lang="wbPhasesSkills">Fases &amp; Habilidades</h4>
+                <button id="bw-table-toggle" class="wb-toggle-btn" type="button" data-lang="wbModeSkills">Modo Habilidades</button>
+              </div>
+              <div class="wb-table-and-preview">
+                <div class="wb-table-outer">
+                  <div id="bw-table-wrap"></div>
+                </div>
+                <div class="wb-skill-preview">
+                  <img id="bw-skill-gif" class="wb-skill-gif" src="sprites/world_bosses/bananawani/top_1_icon.gif" alt="Habilidade" />
+                  <span id="bw-skill-label" class="wb-skill-label">Mordida</span>
+                  <p id="bw-skill-description" class="wb-skill-description"></p>
+                </div>
+              </div>
+            </section>
+
+            <div class="wb-bottom-section">
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRecommendedCharacters">Personagens Recomendados</h4>
+                </div>
+                <div id="bw-characters"></div>
+              </section>
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRewardsByDamage">Recompensas por Dano</h4>
+                </div>
+                <div id="bw-rewards"></div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="plesiosaur" class="tabPanel" style="display: none">
+          <div class="panel wb-panel">
+
+            <div class="wb-boss-header">
+              <img src="sprites/world_bosses/plesiosaur/plesio_icon.png" class="wb-boss-icon" alt="Plesiosaur" />
+              <div>
+                <h3 class="wb-boss-title" data-lang="wbBossTitlePlesiosaur">Plesiosaur</h3>
+                <p class="wb-boss-subtitle" data-lang="wbBossSubtitle">World Boss</p>
+              </div>
+            </div>
+
+            <section class="wb-section">
+              <div class="wb-section-head">
+                <h4 data-lang="wbPhasesSkills">Fases &amp; Habilidades</h4>
+                <button id="pl-table-toggle" class="wb-toggle-btn" type="button" data-lang="wbModeSkills">Modo Habilidades</button>
+              </div>
+              <div class="wb-table-and-preview">
+                <div class="wb-table-outer">
+                  <div id="pl-table-wrap"></div>
+                </div>
+                <div class="wb-skill-preview">
+                  <img id="pl-skill-gif" class="wb-skill-gif" src="sprites/world_bosses/plesiosaur/top_1_icon.gif" alt="Habilidade" />
+                  <span id="pl-skill-label" class="wb-skill-label">Ataque Básico</span>
+                  <p id="pl-skill-description" class="wb-skill-description"></p>
+                </div>
+              </div>
+            </section>
+
+            <div class="wb-bottom-section">
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRecommendedCharacters">Personagens Recomendados</h4>
+                </div>
+                <div id="pl-characters"></div>
+              </section>
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRewardsByDamage">Recompensas por Dano</h4>
+                </div>
+                <div id="pl-rewards"></div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+
+        <div id="aokiji" class="tabPanel" style="display: none">
+          <div class="panel wb-panel">
+
+            <div class="wb-boss-header">
+              <img src="sprites/world_bosses/aokiji/aokiji_icon.png" class="wb-boss-icon" alt="Aokiji" />
+              <div>
+                <h3 class="wb-boss-title" data-lang="wbBossTitleAokiji">Aokiji</h3>
+                <p class="wb-boss-subtitle" data-lang="wbBossSubtitle">World Boss</p>
+              </div>
+            </div>
+
+            <section class="wb-section">
+              <div class="wb-section-head">
+                <h4 data-lang="wbPhasesSkills">Fases &amp; Habilidades</h4>
+                <button id="ao-table-toggle" class="wb-toggle-btn" type="button" data-lang="wbModeSkills">Modo Habilidades</button>
+              </div>
+              <div class="wb-table-and-preview">
+                <div class="wb-table-outer">
+                  <div id="ao-table-wrap"></div>
+                </div>
+                <div class="wb-skill-preview">
+                  <img id="ao-skill-gif" class="wb-skill-gif" src="sprites/world_bosses/aokiji/ice_saber.gif" alt="Habilidade" />
+                  <span id="ao-skill-label" class="wb-skill-label">Ice Saber</span>
+                  <p id="ao-skill-description" class="wb-skill-description"></p>
+                </div>
+              </div>
+            </section>
+
+            <div class="wb-bottom-section">
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRecommendedCharacters">Personagens Recomendados</h4>
+                </div>
+                <div id="ao-characters"></div>
+              </section>
+              <section class="wb-section">
+                <div class="wb-section-head">
+                  <h4 data-lang="wbRewardsByDamage">Recompensas por Dano</h4>
+                </div>
+                <div id="ao-rewards"></div>
               </section>
             </div>
 
@@ -851,11 +1195,13 @@
     <script src="js/xp.js"></script>
     <script src="js/characters-data.js"></script>
     <script src="js/characters.js"></script>
+    <script src="js/foxy_quiz.js"></script>
     <script src="js/boats-data.js"></script>
     <script src="js/boats.js"></script>
     <script src="js/wanted-data.js"></script>
     <script src="js/wanted.js"></script>
     <script src="js/world_bosses.js"></script>
+    <script src="js/island_chests.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/main.js"></script>
   </body>

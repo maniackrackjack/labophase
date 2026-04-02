@@ -1,0 +1,3741 @@
+[
+  {
+    "name": "[GLA] A habilidade Liberation, do Marshall D. Teach, tem dois segundos de tempo de recarga e 18 de poder.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] A habilidade preparation aumenta a velocidade do luffy por 4 segundos e concede bonus de força no proximo ataque.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] A habilidade usopp fear concede velocidade e defesa pra ele.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] A rotação semanal muda toda sexta-feira.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Baratie é o primeiro local em que você pode construir um navio nível 3.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Baratie é recomendado para jogadores do level 42 a 52 no minimapa do jogo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Bartholomew Kuma lê sua bíblia durante a animação do seu emote.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Boa hancock NAO PODE petrificar Monkey D luffy.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Boa hancock pode transformar os inimigos em pedra por 7 segundos com a habilidade mero mero mellow.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Cabaji tem a menor velocidade de movimento base do jogo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Camisa de Tritão é o item mais caro que o Genzo Vende e custa 10000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Capone gang bege é o unico personagem que pode convocar dois subordinados sem esperar o tempo de recarga.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Carne de porco gourmet é a camida mais demorada para cozinhar no baratie. Demora 9 minutos.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Chabo é o nome da criança que a nojiko pede para ajudar no arlong park.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Chopper ganha defesa bonus durante a habilidade walk point.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Cocoyasi village é recomendada para jogadores do level 50 a 60 no minimapa do jogo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] É possivel criar medalhas dinamicas de bronze por 5 moedas piratas no mercado negro.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] É possível criar Medalhas Dinâmicas de Diamante por 50 Moedas Piratas no Mercado Negro",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] É possivel criar Medalhas Dinâmicas de Ouro por 20 Moedas Piratas no Mercado Negro.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] É possivel criar Medalhas Dinâmicas de Prata por 10 Moedas Piratas no Mercado Negro",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] É possivel fazer missões diarias de tritão em cocoyasi village.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] É possível preparar algumas comidas na casa da Nojiko.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] É possivel reparar os equipamentos do seu barco nas docas.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Em Cocoyasi Village você pode comprar laranja do NPC pelo valor de 42 berry cada.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Em conomi island voce pode encontrar os seguintes inimigos moles, wolves e baby moles.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Em regra, a quarta habilidade do personagem é desbloqueada no nível 20.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Em regra, a quinta habilidade do personagem é desbloqueada no nível 30.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Em regra, a terceira habilidade do personagem é desbloqueada no nivel 12.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Em regra, emotes sao desbloqueados no nivel 25.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Erros no jogo devem ser reportados usando o atalho CTRL + R.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Eustass kid pode construir pontes com a habilidade magnetic pull.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Existem 28 conquistas para completar no Modo história das missões especias do East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Existem 35 conquistas para completar no modo história das missoes especiais.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Existem bronze berry, silver berry, gold berry e platinum berry.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Existem cows, pigs, chickens e sheeps em foosha village.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Existem dois baus de ouro em loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Fuyuki é o avô do sora.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Game bugs shall be reported using the hotkey ctrl + R.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Gear Third é a habilidade mais forte do jogo em termos de poder.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Genzo vende bandana de tritão, calça de tritão, anel o mar e turbante do mar por 5200 berry cada.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Golden hull é o nome de uma skin de navio.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Há 8 Henchman no Mercado Negro",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Há um bau escondido atras da mansão da kaya.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Ha um mapa na casa da nojiko.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Há uma piscina em shells town, dentro da base da marinha.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Há uma Prisioneira chamada Tina no Arlong Park.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Island of rare animals e recomendada para jogadores do level 40 a 52 no minimapa do jogo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Jose, discípulo de Carmen, está na biblioteca em Loguetown",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Jutte blow, a habilidade do smoker, silencia somente usuarios de fruta do diabo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Kit de reparo 3.0 restaura 1800 pontos de vida do seu navio por segundo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Kumo Island é a única ilha sem uma instância do Black Market por perto.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Kumo Island é recomendada para jogadores do level 64 a 72 no minimapa do jogo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Kuro causa 20% a mais de dano quando ataca inimigos pelas costas.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Loguetown é recomendada para jogadores do level 60 a 70 no minimapa do jogo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Marshall d teach ganha 25% de ataque e perde metade da armadura quando sua passiva é ativada.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Mohji perde energia enquanto está em batalha.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Monkey D. Luffy não pode quebrar paredes com a habilidade Gomu Gomu no Ono.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Nami nào pode usar a habilidade Fata Morgana enquanto Mirage Tempo estiver ativa",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Não é possivel subir no segundo andar da loja do ippon-matsu em loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Nico robin pode construir pontes com a habilidade campo de flores.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Nico robin pode construir pontes com a habilidade delphinium.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Ninjin, um dos piratas do usopp, dá uma missão em Syrup Village.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O jogo esta traduzido para os seguintes idiomas ingles, portugues, espanhol e polones.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O jogo Grand Line Adventures foi lançado em AGOSTO DE 2018.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O kit de reparo 1.0 restaura 600 pontos de vida do seu navio por segundo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O kit de reparo 2.0 restaura 1125 pontos de vida do seu navio por segundo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O kit de reparo 2.0 restaura 22.500 pontos de vida do seu navio em 20 segundos.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O kit de reparo 3.0 restaura 36.000 pontos de vida do seu navio em 20 segundos.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O nome de todas as habilidades do capone gang bege começam com a letra C, exceto o big father.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O sangramento do alligator selvagem também reduz a velocidade de movimento do personagem.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O stash vip tem 100 espaços para itens.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O talisma da aranha é um item que pode ser usado por todas as classes.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O uso do kit de reparo é interrompido se voce receber qualquer ataque de um inimigo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] O uso do kit de reparo interrompido se voce receber qualquer ataque de um inimigo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Orange town é recomendada para jogadores do lvl 23 a 30 no minimapa do jogo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Para melhorar um personagem de 1 pra 5 estrelas voce precisa usar 840 medalhas no total.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Pearl é o primeiro boss na missao da armada pirata.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Pearl nao pode usar nenhuma habilidade enquanto iron wall estiver ativo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Personagens diamante sao 7% mais fortes que personagens ouro.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Personagens Diamante são 7% mais fortes que personagens Ouro.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Personagens envenenados pela reiju recebem 50% a menos de cura de suportes.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Personagens envenenados pela reiju recebem 50% menos cura de suportes.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Portgas d ace é um personagem diamante.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Quando o alligator selvagem morre, o sangramento aplicado por ele perde o efeito.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Quando sanji cura uma mulher, ele fica motivado e recebe bonus de velocidade e ataque por 15 segundos.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Reiju pode usar sua habilidade pink tornado para se livrar de imobilizações.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Samui Island é recomendada para jogadores do level 20 a 28 no minimapa do jogo.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Sapi é o NPC que vende Atum em Loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] SAYURI, ASUYA e CHIERI são nomes de NPC do BARATIE.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Skins de navio estao disponiveis somente para navios de nivel dois ou maior.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Snowball é o nome de um coelho em samui island.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Syrup Village é a ilha com o maior número de entradas de doca no East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Tamanegi, um dos piratas do usopp, da algumas missoes em syrup village.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Trafalgar law pode quebrar paredes com a habilidade injection shot.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Urouge pode usar a Habilidade Pray para curar aliados e também remover condições de lentidão ou queimadura.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você nao pode trocar seus equipamentos em batalha.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você pode comprar duas abas extras do stash, a primeira custa 150000 berry e a segunda 300000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você pode encontrar 9 entradas para o mercado negro no east blue.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você pode encontrar 9 instâncias do Mercado Negro no east Blue.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você pode ouvir o chouchou latindo ao falar com ele.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você pode usar a mesa de construção nas docas para transformar 10 poções pequenas de experiencia em 1 poção media de experiencia.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você pode usar o atalho alt+ enter para colocar o jogo em tela cheia.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você precisa alimentar um prisioneiro na quest da rika.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de cortantes para completar a conquista dos piratas da alvida.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de especialistas para completar a conquista dos black cats.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de lutadores para completar a conquista dos Piratas do Buggy.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de usuários de Fruta do Diabo para completar a conquista da Base da Marinha.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com uma equipe de mulheres para completar a conquista da Armada Pirata.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Whale shark é considerado um monstro nivel 3.",
+    "is": "true"
+  },
+  {
+    "name": "A alcunha do DOC Q 'shinigami' ou deus da morte, vem do fato dele gostar de brincar com a vida das pessoas, assim como um shinigami.",
+    "is": "true"
+  },
+  {
+    "name": "A atual recompensa da Nami é de 66,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A atual recompensa de Marshal D. Teach é de 2.247.600 de berries.",
+    "is": "true"
+  },
+  {
+    "name": "A atual recompensa do Bepo é de 500 berry.",
+    "is": "true"
+  },
+  {
+    "name": "A cera do mr 3 é tao dura quanto o aço.",
+    "is": "true"
+  },
+  {
+    "name": "A cera do mr3 é tao dura quanto o aço.",
+    "is": "true"
+  },
+  {
+    "name": "A comida favorita da sugar é uva.",
+    "is": "true"
+  },
+  {
+    "name": "A comida favorita de Kuro é banana.",
+    "is": "true"
+  },
+  {
+    "name": "A comida favorita do DOFLAMINGO é LAGOSTA.",
+    "is": "true"
+  },
+  {
+    "name": "A comida favorita do Marco é abacaxi.",
+    "is": "true"
+  },
+  {
+    "name": "A comida favorita do nezumi é queijo.",
+    "is": "true"
+  },
+  {
+    "name": "A comida favorita do teach é torta de CEREJA.",
+    "is": "true"
+  },
+  {
+    "name": "A cor do cabelo da mae da nico robin é branco.",
+    "is": "true"
+  },
+  {
+    "name": "A dubladora do chopper foi alterada em alguns episodios.",
+    "is": "true"
+  },
+  {
+    "name": "A espada de Shiliew é uma Meito chamada \"Raiu",
+    "is": "true"
+  },
+  {
+    "name": "A espada do Shiryu é uma meito chamada Raiu.",
+    "is": "true"
+  },
+  {
+    "name": "A gura gura no mi é também conhecida como a mais forte das paramecia, igual a uma logia. sengoku afirmou que ela é poderosa o suficiente para destruir o mundo.",
+    "is": "true"
+  },
+  {
+    "name": "A irma do arlong é conhecida.",
+    "is": "true"
+  },
+  {
+    "name": "A mãe do Monkey D. Luffy ainda não foi revelada.",
+    "is": "true"
+  },
+  {
+    "name": "A nome do navio do mr2 era 'swanda express'.",
+    "is": "true"
+  },
+  {
+    "name": "A ope ope no mi e também chamada da fruto do diabo suprema, devido a sua habilidade de conceder a vida eterna.",
+    "is": "true"
+  },
+  {
+    "name": "A personagem Boa Hancock possui várias referências a mitologia Grega.",
+    "is": "true"
+  },
+  {
+    "name": "A primeira recompensa da nico robin foi de 79,000,000 de berry, a mesma quantia que sua mae nico olivia.",
+    "is": "true"
+  },
+  {
+    "name": "A primeira recompensa do Chopper foi de 50 berries.",
+    "is": "true"
+  },
+  {
+    "name": "A primeira recompensa do monkey d luffy foi de 30,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A primeira recompensa do tony tony chopper foi de 50 berry.",
+    "is": "true"
+  },
+  {
+    "name": "A quarta recompensa do Monkey D. Luffy foi de 400,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa atual do marshal d. teach e de 2,247,600,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa da curly Dadan é de 7,800,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa da Jewelry Bonney é de 140,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa da miss doublefinger é de 35,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa da Miss doublefinger é de 35.000.000 berries.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa da miss goldenweek é de 29,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa da miss merrychristimas é de 14,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa de bartholomew kuma é de 296,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa de daz bones é de 75,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa de fisher tiger era de 230,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa de foxy é de 24,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa de miss valentine e de 7,500,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa de MONT BLANC CRICKET é de 25,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do Capone Gang Bege é de 300.000.000 berries.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do chew e de 5,500,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do dellinger era de 15,000,000 de berry antes de ser congelada em razão do doflamingo ter se tornado um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do DEMARO black é de 26,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do diamante era de 99,000,000 de berry antes de ser congelada em razao do doflamingo ter se tornado um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do donquixote doflamingo é de 340,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do gecko moria é de 320,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do gin é de 12,000,000 de berries.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do gladius era de 31,000,000 de berry antes de ser congelada em razão do doflamingo ter se tornado um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do jinbe era de 250,000,000 de berry antes dele se tornar um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do Killer é de 200,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do kuroobi é de 9,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do Lao G era de 61,000,000 de berry antes de ser congelado em razão do Doflamingo ter se tomado um Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do machvise era de 11,000,000 de berry antes de ser congelada em razão do doflamingo ter se tornado um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do mr 3 é de 24,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do mr 4 é de 3,2000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do mr 5 é de 10,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do Mr.2 é de 32,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do MR4 é de 3,200,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do Mr4 é de 3,200,000.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do PICA era de 99,000,000 de berry antes de ser congelada em razão do doflamingo ter se tornado um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do senor pink era de 58,000,000 de berry antes de ser congelada em razao do doflamingo ter se tornado um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do tamago é de 429,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do trebol era de 99,000,000 de berry antes de ser congelada em razao do doflamingo ter se tornado um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do x drake é de 220,000,000.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa do Zoro ....ERA.... maior que a do Sanji.",
+    "is": "true"
+  },
+  {
+    "name": "A recompensa dos Irmãos Nyaban é de 7,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "A Rumble Ball dura 3 minutos.",
+    "is": "true"
+  },
+  {
+    "name": "A segunda recompensa de Monkey D. Luffy foi de 100.000.000 de berries.",
+    "is": "true"
+  },
+  {
+    "name": "A segunda recompensa do capone gang bege foi 300,000,000.",
+    "is": "true"
+  },
+  {
+    "name": "A yubashiri (uma das espadas do zoro) enferrujou.",
+    "is": "true"
+  },
+  {
+    "name": "Ace realmente nasceu em Baterilla.",
+    "is": "true"
+  },
+  {
+    "name": "Aisa nasceu com um haki da observação avançado.",
+    "is": "true"
+  },
+  {
+    "name": "Akainu tem o mesmo dublador do Krieg.",
+    "is": "true"
+  },
+  {
+    "name": "Aladdin já foi um escravo.",
+    "is": "true"
+  },
+  {
+    "name": "Alvida é a antiga capitã dos Piratas da Alvida.",
+    "is": "true"
+  },
+  {
+    "name": "Antes dos eventos da guerra, doc q tinha uma impressionante recompensa de 72,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "Antes dos eventos da guerra, jesus burgess tinha uma recompensa de 20,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "Antes dos eventos da guerra, laffitte tinha uma recompensa de 42,200,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "Antes dos eventos de guerra, jesus burguess tinha uma recompensa de 20,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "Antes dos eventos de guerra, van augur tinha uma impressionante recompensa de 64,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "Aokiji tem uma fruta do diabo do tipo logia.",
+    "is": "true"
+  },
+  {
+    "name": "Apesar da aparencia deles, masira e shoujo são humanos.",
+    "is": "true"
+  },
+  {
+    "name": "Apos a morte do barba branca, barba marrom fugiu e assumiu o controle de foodvalten.",
+    "is": "true"
+  },
+  {
+    "name": "Após os eventos em punk hazard, smoker se tornou oficialmente o lider da G-5.",
+    "is": "true"
+  },
+  {
+    "name": "Após ser diagnosticado com sua doença, gol d roger levou TRES anos para encontrar o one piece.",
+    "is": "true"
+  },
+  {
+    "name": "Arlong e o unico individuo conhecido que foi libertado de impel down.",
+    "is": "true"
+  },
+  {
+    "name": "Arlong era o capitão dos piratas do ARLONG e tinha a maior recompensa do east blue antes de ser derrotado pelo monkey d luffy.",
+    "is": "true"
+  },
+  {
+    "name": "Assim como fujitora, smoker deseja acabar com o sistema de shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Atualmente MORIA é o unico shichibukai conhecido (atual ou antigo) sem uma alcunha conhecida.",
+    "is": "true"
+  },
+  {
+    "name": "Avalo pizarro é o capitão do quarto navio, liderando a quarta frota do teach.",
+    "is": "true"
+  },
+  {
+    "name": "Avalo pizarro era originalmente rei de um pais no north blue.",
+    "is": "true"
+  },
+  {
+    "name": "Baby five nasceu no north blue.",
+    "is": "true"
+  },
+  {
+    "name": "Barba Branca nasceu na Sphinx Island no Novo Mundo.",
+    "is": "true"
+  },
+  {
+    "name": "Barba Negra acredita legitimamente que os sonhos dos homens nunca morrerão.",
+    "is": "true"
+  },
+  {
+    "name": "Barba Negra é um almirante dos piratas do Barba Negra e membro dos yonko.",
+    "is": "true"
+  },
+  {
+    "name": "Barba Negra nasceu na GRAND LINE.",
+    "is": "true"
+  },
+  {
+    "name": "Bartholomew Kuma é conhecido como o Tirano.",
+    "is": "true"
+  },
+  {
+    "name": "Bartholomew Kuma e um Shichibukai e um ex-oficial do Exercito Revolucionario.",
+    "is": "true"
+  },
+  {
+    "name": "Bartholomew kuma ja foi rei.",
+    "is": "true"
+  },
+  {
+    "name": "Basil Hawkins é um pirata infâme do North Blue conhecido como o Mago e capitão dos Piratas do Hawkins.",
+    "is": "true"
+  },
+  {
+    "name": "Bellamy se retirou oficialmente como um pirata e agora se dedica a pintura de bandeiras.",
+    "is": "true"
+  },
+  {
+    "name": "Bellemere encontrou a nami e a nojiko no reino de OYKOT, no east blue.",
+    "is": "true"
+  },
+  {
+    "name": "Benn beckman é o personagem mais inteligente que apareceu na saga do east blue.",
+    "is": "true"
+  },
+  {
+    "name": "Benn beckman é o vice-capitão dos PIRATAS DO RUIVO.",
+    "is": "true"
+  },
+  {
+    "name": "Benn beckman nasceu no north blue.",
+    "is": "true"
+  },
+  {
+    "name": "BOA HANCOCK é a capitã das piratas kuja e a unica mulher membro dos shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Boa Hancock usa Haki do Rei",
+    "is": "true"
+  },
+  {
+    "name": "Boa Marigold e Boa Sandersonia têm Haki da Observação e do Armamento.",
+    "is": "true"
+  },
+  {
+    "name": "Brook é mais alto que o Franky depois do Timeskip",
+    "is": "true"
+  },
+  {
+    "name": "Brook era o capitão dos Rumbar Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Buffalo nasceu no north blue.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy é o capitão dos piratas do buggy e também colider da aliança do buggy e alvida.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy é um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy era um shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy foi o primeiro vilao a aparecer na série que era usuario de uma fruta do diabo. ele foi também o primeiro usuario de uma fruta do diabo com quem luffy lutou.",
+    "is": "true"
+  },
+  {
+    "name": "Buggy tem a menor recompensa conhecida entre os shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Cada um dos quatro principais membros da tripulação do shanks são de diferentes oceanos.",
+    "is": "true"
+  },
+  {
+    "name": "Caesar comeu a gasu gasu no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Caesar liberou um gas nao letal em punk hazard.",
+    "is": "true"
+  },
+  {
+    "name": "Capone gag bege's second known bounty was 300,000,000.",
+    "is": "true"
+  },
+  {
+    "name": "Capone Gang Bege é capitão do Fire Tank Pirates e também um dos doze piratas classificados como a Pior Geração.",
+    "is": "true"
+  },
+  {
+    "name": "Caribou nasceu em North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Carina era amiga da nami no east blue.",
+    "is": "true"
+  },
+  {
+    "name": "Caso o governo mundial soubesse que o crocodile era o chefe da baroque works, a recompensa dele seria no minimo dobrada para 162,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "Caso one piece fosse ambientado no mundo real, luffy seria do brasil.",
+    "is": "true"
+  },
+  {
+    "name": "Catarina devon caça qualquer mulher que ela acha atraente e decapita a cabeça delas para adiciona-las a sua coleção pessoal.",
+    "is": "true"
+  },
+  {
+    "name": "Catarina devon é a capita do sexto navio, liderando a sexta frota do teach.",
+    "is": "true"
+  },
+  {
+    "name": "Ceasar comeu a gasu gasu no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Ceasar liberou um gas nao letal em punk hazard.",
+    "is": "true"
+  },
+  {
+    "name": "Chopper experimentou algodão doce pela primeira vez durante o davy black fight.",
+    "is": "true"
+  },
+  {
+    "name": "Chopper foi o sexto membro a entrar na tripulação dos chapeu de palha.",
+    "is": "true"
+  },
+  {
+    "name": "CROCODILE é o UNICO dos SHICHIBUKAI originais a possuir uma fruta do diabo do tipo LOGIA.",
+    "is": "true"
+  },
+  {
+    "name": "Crocodile foi o PRIMEIRO oponente a derrotar luffy em uma batalha.",
+    "is": "true"
+  },
+  {
+    "name": "Crocodile nasceu na Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Crocus nasceu na Grand Line  .",
+    "is": "true"
+  },
+  {
+    "name": "Daddy masterson é um personagem non-canon.",
+    "is": "true"
+  },
+  {
+    "name": "Dalton nasceu em Drum Island.",
+    "is": "true"
+  },
+  {
+    "name": "Demaro black, capitão dos falsos chapeu de palha, nasceu no east blue.",
+    "is": "true"
+  },
+  {
+    "name": "Demaro black, manjaro, chocolat, drip, turco, cocoa, MOUNTBLUTAIN e nora gitsune sao os nomes verdadeiros da falsa tripulação dos chapeu de palha.",
+    "is": "true"
+  },
+  {
+    "name": "Demaro black, nasceu no east blue.",
+    "is": "true"
+  },
+  {
+    "name": "Desde quando mr 1 era uma criança, ele sempre quis ser um heroi. Todavia, os ideais dele se distorcem bastante, transformando-o em um assassino implacavel.",
+    "is": "true"
+  },
+  {
+    "name": "Desde quando mr1 era uma criança, ele sempre quis ser um heroi. Todavia, os ideais dele se distorcem bastante, transformando-o em um assassino implacavel.",
+    "is": "true"
+  },
+  {
+    "name": "Diamante é usuario do haki da observação e do armamento.",
+    "is": "true"
+  },
+  {
+    "name": "Diamond jozu comeu a KIRA KIRA NO MI, fazendo com que ele se transforme em um diamante humano com uma resistencia incomparavel.",
+    "is": "true"
+  },
+  {
+    "name": "Dizem que Yasopp pode atirar na antena de uma formiga de muito longe.",
+    "is": "true"
+  },
+  {
+    "name": "DOC Q é o medico dos piratas do barba NEGRA.",
+    "is": "true"
+  },
+  {
+    "name": "Doflamingo é usuario do haki da observação, armamento e do rei.",
+    "is": "true"
+  },
+  {
+    "name": "Doflamingo e viola tiveram uma complexa relação amorosa.",
+    "is": "true"
+  },
+  {
+    "name": "Doflamingo era um tenryubito.",
+    "is": "true"
+  },
+  {
+    "name": "Donquixote Doflamingo era capitão dos Piratas Donquixote.",
+    "is": "true"
+  },
+  {
+    "name": "Dorry nasceu em elbaf.",
+    "is": "true"
+  },
+  {
+    "name": "Edward newgate é loiro.",
+    "is": "true"
+  },
+  {
+    "name": "Eiichiro Oda é o criador do One Piece.",
+    "is": "true"
+  },
+  {
+    "name": "Em alguns fillers, os personagens foram feitos pelo próprio Oda.",
+    "is": "true"
+  },
+  {
+    "name": "Em razao dos seus crimes, sanjuan wolf foi preso em impel down. o modo que eles encontraram para mante-lo preso foi através de uma cela gigante no LEVEL 6.",
+    "is": "true"
+  },
+  {
+    "name": "Em termos simples, haki é a habilidade de sentir energia espiritual (kenbunshoku), usar força vital (busoshoku) e dominar o inimigo (haoshoku).",
+    "is": "true"
+  },
+  {
+    "name": "Emporio ivankov nasceu na grand line.",
+    "is": "true"
+  },
+  {
+    "name": "Enel está na lua.",
+    "is": "true"
+  },
+  {
+    "name": "Enquanto a fruta do diabo do borsalino é sobre velocidade, ele é bastante lento quando se trata de falar ou agir.",
+    "is": "true"
+  },
+  {
+    "name": "Eustass kid perdeu seu braço esquerdo.",
+    "is": "true"
+  },
+  {
+    "name": "Existem frutas do daibo que ainda nao foram catalogadas e, portanto, desconhecidas.",
+    "is": "true"
+  },
+  {
+    "name": "Foi confirmado que usopp despertou o haki da observação durante o arco de dressrosa.",
+    "is": "true"
+  },
+  {
+    "name": "Foxy comeu a noro noro no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Foxy nasceu no South Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Franky é o oitavo membro da tripulação dos chapeu de palha.",
+    "is": "true"
+  },
+  {
+    "name": "Gedatsu (um dos sacerdotes de Enel) agora gerencia um Resort de águas termais em Alabasta.",
+    "is": "true"
+  },
+  {
+    "name": "Ghryphon é o nome da espada do Shanks",
+    "is": "true"
+  },
+  {
+    "name": "Gin é um pirata e membro dos piratas do krieg.",
+    "is": "true"
+  },
+  {
+    "name": "Giolla criou dellinger praticamente sozinha, fazendo com que ele pensasse que era uma menina, razao pela qual ele se tornou tao afeminado.",
+    "is": "true"
+  },
+  {
+    "name": "Giolla criou Dellinger praticamente sozinha, fazendo com que ele pensasse que era uma menina, razão pela qual ele se tornou tão feminino",
+    "is": "true"
+  },
+  {
+    "name": "Gol d roger foi o primeiro rei dos piratas.",
+    "is": "true"
+  },
+  {
+    "name": "Gol d roger nasceu em loguetown.",
+    "is": "true"
+  },
+  {
+    "name": "Gryphon é o nome da espada do shanks.",
+    "is": "true"
+  },
+  {
+    "name": "Gum-gum fruit é o nome oficial da fruta do diabo do luffy em ingles.",
+    "is": "true"
+  },
+  {
+    "name": "Há 8 henchman no black market.",
+    "is": "true"
+  },
+  {
+    "name": "Há seis Níveis em impel down",
+    "is": "true"
+  },
+  {
+    "name": "Há um Tritão na Família Donquixote.",
+    "is": "true"
+  },
+  {
+    "name": "Haki é um misterioso poder que se encontra dentro de todos os seres vivos do mundo.",
+    "is": "true"
+  },
+  {
+    "name": "Hancock é a imperatriz do amazon lily, motivo pelo qual ela é chamada de imperatriz pirata.",
+    "is": "true"
+  },
+  {
+    "name": "Hancock é a primeira personagem mulher da série capaz de usar todas as tres formas de haki.",
+    "is": "true"
+  },
+  {
+    "name": "Hatchan é um ex-oficial dos piratas do Arlong e membro dos Piratas do Sol antes disso.",
+    "is": "true"
+  },
+  {
+    "name": "Hody Jones é o Capitão dos Novos Piratas Homens-Peixe.",
+    "is": "true"
+  },
+  {
+    "name": "Hody Jones e seus companheiros não possuem recompensa.",
+    "is": "true"
+  },
+  {
+    "name": "Houve um crossover entre one piece e dragon ball z no anime.",
+    "is": "true"
+  },
+  {
+    "name": "Impel down tem 6 niveis.",
+    "is": "true"
+  },
+  {
+    "name": "Issho comeu a zushi zushi no mi, que o permite manipular a gravidade.",
+    "is": "true"
+  },
+  {
+    "name": "Issho decidiu se cegar porque havia muitas coisas que ele nao queria ver.",
+    "is": "true"
+  },
+  {
+    "name": "Issho é um almirante da marinha.",
+    "is": "true"
+  },
+  {
+    "name": "Issho nasceu na GRAND LINE.",
+    "is": "true"
+  },
+  {
+    "name": "Izo nasceu em wano.",
+    "is": "true"
+  },
+  {
+    "name": "JANGO é um marinheiro e EX imediato do capitao KURO.",
+    "is": "true"
+  },
+  {
+    "name": "Jeff perdeu sua perna direita para salvar sanji.",
+    "is": "true"
+  },
+  {
+    "name": "Jesus burgess é o timoneiro dos piratas do Barba Negra.",
+    "is": "true"
+  },
+  {
+    "name": "Jinbe é o timoneiro dos piratas do chapéu de palha.",
+    "is": "true"
+  },
+  {
+    "name": "Jinbe é oficialmente o DÉCIMO membro dos piratas do chapeu de palha.",
+    "is": "true"
+  },
+  {
+    "name": "Jinbe é um membro dos Piratas do Chapéu de Palha e ex-Shichibukai.",
+    "is": "true"
+  },
+  {
+    "name": "Joy Boy foi mencionado no Ryugu Poneglyph lido por Nico Robin enquanto ela estava na Floresta do Mar.",
+    "is": "true"
+  },
+  {
+    "name": "JOY BOY tentou levantar a NOAH com a ajuda de poseidon mas ele quebrou sua promessa com a ilha dos tritoes.",
+    "is": "true"
+  },
+  {
+    "name": "Kalgara foi revelado como um usuario de haki da observação.",
+    "is": "true"
+  },
+  {
+    "name": "Kenbunshoku no haki garante ao usuario o sexto sentido do mundo ao seu redor e habilidades precognitivas limitadas.",
+    "is": "true"
+  },
+  {
+    "name": "Kid e killer sao amigos de infancia, kuntos formaram os piratas do KID.",
+    "is": "true"
+  },
+  {
+    "name": "Killer é um pirata do south blue e membro do kid pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Kin'emon comeu a fuku fuku no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Kin'emon é usuario de haki da observação e do armamento.",
+    "is": "true"
+  },
+  {
+    "name": "Kin'emon pode se comunicar atraves de peidos, fazendo eles soarem como a linguagem humana.",
+    "is": "true"
+  },
+  {
+    "name": "Kizaru comeu a Pika Pika no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Koala é uma Humana que pode usar o Karate Tritão.",
+    "is": "true"
+  },
+  {
+    "name": "Koala é uma OFICIAL do EXERCITO REVOLUCIONÁRIO.",
+    "is": "true"
+  },
+  {
+    "name": "Koala era um membro dos piratas do sol.",
+    "is": "true"
+  },
+  {
+    "name": "Koala esta lutando no exercito revolucionario para mudar o mundo de uma forma que os tritoes e as sereias sejam tratados como pessoas normais.",
+    "is": "true"
+  },
+  {
+    "name": "Kureha nasceu em Drum Island.",
+    "is": "true"
+  },
+  {
+    "name": "Kuro, também conhecido pelo seu apelido klahadore, é o capitão dos piratas black cat.",
+    "is": "true"
+  },
+  {
+    "name": "Kuroobi é um oficial dos piratas do arlong e ex membro dos piratas do SOL.",
+    "is": "true"
+  },
+  {
+    "name": "Kuzan nasceu no south blue.",
+    "is": "true"
+  },
+  {
+    "name": "Laboon é macho.",
+    "is": "true"
+  },
+  {
+    "name": "Laffitte cresceu no west blue, onde se tornou xerife.",
+    "is": "true"
+  },
+  {
+    "name": "Laffitte nasceu no west blue.",
+    "is": "true"
+  },
+  {
+    "name": "Laffitte tinha uma recompensa de 42,200,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky Roo é um membro dos Piratas do Ruivo.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky roo foi quem originalmente conseguiu a gomu gomu no mi de um navio pirata inimigo.",
+    "is": "true"
+  },
+  {
+    "name": "LUCKY ROO foi um dos PRIMEIROS membros a entrar na tripulação do SHANKS após ele formar os piratas do ruivo.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky roo nasceu no south blue.",
+    "is": "true"
+  },
+  {
+    "name": "Lucky roo pode parecer gordo e lento, mas na verdade ele é um lutador muito ágil e rápido.",
+    "is": "true"
+  },
+  {
+    "name": "Luffy realmente nasceu em Foosha.",
+    "is": "true"
+  },
+  {
+    "name": "LUFFY tem uma fruta do diabo do tipo PARAMECIA.",
+    "is": "true"
+  },
+  {
+    "name": "Machvise comeu a ton ton no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Magellan nasceu na Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Marco comeu a tori tori no mi, tipo felix, uma zoan mitica.",
+    "is": "true"
+  },
+  {
+    "name": "Marco nasceu na Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Masira e shoujo tem uma recompensa de 23,000,000 e 36,000,000 de berry, respectivamente.",
+    "is": "true"
+  },
+  {
+    "name": "Masira nasceu no North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Mihawk tornou-se famoso antes da grande era dos piratas sequer começar.",
+    "is": "true"
+  },
+  {
+    "name": "Miss doublefinger nasceu na grand line.",
+    "is": "true"
+  },
+  {
+    "name": "Miss Goldenweek fez dupla com o Mr.3 em razão das habilidades dela de pintar as criações de cera,tornando-as mais realistas.",
+    "is": "true"
+  },
+  {
+    "name": "Miss goldenweek nao comeu uma fruta do diabo.",
+    "is": "true"
+  },
+  {
+    "name": "Miss goldenweek nasceu no NORTH BLUE.",
+    "is": "true"
+  },
+  {
+    "name": "Miss valentine nasceu no west blue.",
+    "is": "true"
+  },
+  {
+    "name": "Mohji é um pirata e o imediato dos Piratas do Buggy,bem como um membro da Aliança do Buggy e Alvida.",
+    "is": "true"
+  },
+  {
+    "name": "Momoo agora é oficialmente considerado um animal de estimação dos piratas do caribou.",
+    "is": "true"
+  },
+  {
+    "name": "Momoo desenvolveu um trauma a respeito do luffy e do sanji, sofrendo um ataque de panico só de ve-los.",
+    "is": "true"
+  },
+  {
+    "name": "Momoo é macho.",
+    "is": "true"
+  },
+  {
+    "name": "MONET e SUGAR são IRMÃS.",
+    "is": "true"
+  },
+  {
+    "name": "Monkey d garp nasceu no east blue.",
+    "is": "true"
+  },
+  {
+    "name": "Monkey d luffy nasceu em foosha village.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 2 tem o mesmo dublador de franky e do jango.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 3 agora é reconhecido como um executivo dos piratas do buggy.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 5 nasceu no south blue.",
+    "is": "true"
+  },
+  {
+    "name": "Mr 5 pode comer coisas explosivas e sua comida favorita é polvora.",
+    "is": "true"
+  },
+  {
+    "name": "Mr.1 comeu a supa supa no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Mr.4 nasceu na Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Mr.5 nasceu no south blue.",
+    "is": "true"
+  },
+  {
+    "name": "Mr.9 nasceu no west Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Mr1 comeu a supa supa no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Mr5 pode comer coisas explosivas e sua comida favorita é polvora.",
+    "is": "true"
+  },
+  {
+    "name": "Neptune é um personagem do one piece.",
+    "is": "true"
+  },
+  {
+    "name": "Nico robin é conhecida como a criança demonio.",
+    "is": "true"
+  },
+  {
+    "name": "Nico robin é referida como a luz da revolução pelo exercito revolucionário.",
+    "is": "true"
+  },
+  {
+    "name": "Nico robin também é conhecida como miss all sunday.",
+    "is": "true"
+  },
+  {
+    "name": "O aniversario da Miss Merry Christmas é no NATAL, por razões obvias.",
+    "is": "true"
+  },
+  {
+    "name": "O aniversario da miss valentine é no valentine's day, por razoes obvias.",
+    "is": "true"
+  },
+  {
+    "name": "O cabelo do charlotte cracker é roxo.",
+    "is": "true"
+  },
+  {
+    "name": "O cabelo do trebol é preto.",
+    "is": "true"
+  },
+  {
+    "name": "O Canhão do Mr.4 comeu uma Fruta do Diabo e tornou-se um cachorro.",
+    "is": "true"
+  },
+  {
+    "name": "O Dragão contra qual Luffy e os outros lutaram em Punk Hazard foi criado artificialmente por Vegapunk em um laboratorio em Punk Hazard.",
+    "is": "true"
+  },
+  {
+    "name": "O exercito revolucionario foi fundado em algum momento entre a morte de roger e o nascimento de luffy.",
+    "is": "true"
+  },
+  {
+    "name": "O navio que a Hancock e as piratas Kuja navegam é chamado de \"Perfume Yuda",
+    "is": "true"
+  },
+  {
+    "name": "O nome do navio  que o mr 5 e a miss valentine usaram em suas operações era pop rock candy.",
+    "is": "true"
+  },
+  {
+    "name": "O nome do navio do mr 2 era 'swanda express'.",
+    "is": "true"
+  },
+  {
+    "name": "O nome do navio do mr.2 era ' swanda express'.",
+    "is": "true"
+  },
+  {
+    "name": "O nome do navio que o mr1 e a miss doublefinger usavam em suas operações era kill sassoon.",
+    "is": "true"
+  },
+  {
+    "name": "O nome do navio que o mr5 e a miss valentine usaram em suas operações era pop rock candy.",
+    "is": "true"
+  },
+  {
+    "name": "O nome do navio que os piratas donquixote usaram nos dias deles no north blue era 'numancia flamingo'.",
+    "is": "true"
+  },
+  {
+    "name": "O nome dos navios do masira e do shoujo é VICTORY HUNTER e UTAN SONAR, respectvamente.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro da miss GOLDENWEEK é marianne.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro da miss merrychristmas é drophy.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro do Barba Marrom é Chadros Higelyges.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro do Hatchan é Hatchan.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro do mr 4 é BABE, provavelmente em referencia ao famoso jogador de basebol BABE RUTH.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro do mr 5 é GEM.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro do mr. 4 é BABE, provavelmente em referencia ao famoso jogador de basebol BABE RUTH.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro do mr.4 é BABE, provavelmente em referencia ao famoso jogador de basebol BABE RUTH.",
+    "is": "true"
+  },
+  {
+    "name": "O nome verdadeiro do mr4 é BABE, provavelmente em referencia ao famoso jogador de basebol BABE RUTH.",
+    "is": "true"
+  },
+  {
+    "name": "O primeiro beijo conhecido de Sanji foi com a Pudding.",
+    "is": "true"
+  },
+  {
+    "name": "O principal navio do exercito revolucionario e chamado de viento granma.",
+    "is": "true"
+  },
+  {
+    "name": "O red hawk do luffy é uma homenagem ao 'hiken' do ace.",
+    "is": "true"
+  },
+  {
+    "name": "O sonho do CROCODILE era se tornar o REI DOS PIRATAS.",
+    "is": "true"
+  },
+  {
+    "name": "O verdadeiro nome da miss doublefinger é zala.",
+    "is": "true"
+  },
+  {
+    "name": "O verdadeiro nome de miss valentine é mikita.",
+    "is": "true"
+  },
+  {
+    "name": "O verdadeiro nome do mr 2 é bentham.",
+    "is": "true"
+  },
+  {
+    "name": "O verdadeiro nome do mr 3 é galdino.",
+    "is": "true"
+  },
+  {
+    "name": "O verdadeiro nome do Mr.1 é Daz Bones.",
+    "is": "true"
+  },
+  {
+    "name": "O verdadeiro nome do mr2 é bentham.",
+    "is": "true"
+  },
+  {
+    "name": "Oars é um gigante.",
+    "is": "true"
+  },
+  {
+    "name": "Objetos podem comer frutas do diabo.",
+    "is": "true"
+  },
+  {
+    "name": "Os unluckies nasceram na grand line.",
+    "is": "true"
+  },
+  {
+    "name": "Os yeti cool brothers são partes de uma subespecie desconhecida de GIGANTES.",
+    "is": "true"
+  },
+  {
+    "name": "Otohime era conhecida pela alcunha 'ENCARNAÇÃO DO AMOR, devido a sua incrivel bondade e busca pela paz entre diferentes espécies.",
+    "is": "true"
+  },
+  {
+    "name": "Otohime tinha um haki da observação muito desenvolvido, o que permitia entender profundamente a emoção dos outros.",
+    "is": "true"
+  },
+  {
+    "name": "Pagaya é pai da Conis.",
+    "is": "true"
+  },
+  {
+    "name": "PAPPAG é uma estrela do mar que é mascote da Camie e também professor. ele é o criador de uma linha de moda.",
+    "is": "true"
+  },
+  {
+    "name": "Pearl é o comandante da segunda unidade dos piratas do krieg.",
+    "is": "true"
+  },
+  {
+    "name": "PEKOMS comeu a KAME KAME no Mi que o permite se transformar em uma TARTARUGA, dando a ele um casco DURO como DIAMANTE.",
+    "is": "true"
+  },
+  {
+    "name": "Pekoms tem uma Fruta do Diabo do tipo Zoan.",
+    "is": "true"
+  },
+  {
+    "name": "Pekoms tem uma impressionante recompensa de 330,000,000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "Pell nasceu em alabasta.",
+    "is": "true"
+  },
+  {
+    "name": "Pica tem uma Fruta do Diabo do tipo Paramecia.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas d ace é filho da rouge.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas d ace era o comandante da segunda divisão dos piratas do BARBA BRANCA.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas d ace era um usuario de haki do rei.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas d ace nasceu em BATERILLA.",
+    "is": "true"
+  },
+  {
+    "name": "Portgas d. ace é filho do gold roger.",
+    "is": "true"
+  },
+  {
+    "name": "Poseidon é uma das armas antigas.",
+    "is": "true"
+  },
+  {
+    "name": "Rebecca pode usar o kenbunshoku no haki.",
+    "is": "true"
+  },
+  {
+    "name": "Recompensa do kuro é de 16,000,000.",
+    "is": "true"
+  },
+  {
+    "name": "Rob Lucci enfrentou Sabo depois do timeskip.",
+    "is": "true"
+  },
+  {
+    "name": "Rob Lucci nasceu na grand line.",
+    "is": "true"
+  },
+  {
+    "name": "Robin foi o setimo membro a entrar na tripulação dos chepeu de malha.",
+    "is": "true"
+  },
+  {
+    "name": "Rosinante comeu a nagi nagi no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Sabo comeu a mera mera no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Sadi nasceu na Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Salome é uma serpente fêmea.",
+    "is": "true"
+  },
+  {
+    "name": "Sanji em sua infância tem a mesma dubladora que o chopper.",
+    "is": "true"
+  },
+  {
+    "name": "Sanji nao pode ser seduzido pelas mulheres enquanto o diable jamble estiver ativado.",
+    "is": "true"
+  },
+  {
+    "name": "Sanji nasceu no North Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Sanjuan wolf é o capitão do sétimo navio, liderando a sétima frota do teach.",
+    "is": "true"
+  },
+  {
+    "name": "Sanjuan wolf nasceu no west blue.",
+    "is": "true"
+  },
+  {
+    "name": "Sanjuan wolf tem uma fruta do diabo que o permite aumentar o proprio tamanho.",
+    "is": "true"
+  },
+  {
+    "name": "Scratchmen Apoo é da Tribo Longarm , Um Infâme pirata com tema de música e capitão dos Piratas On Air.",
+    "is": "true"
+  },
+  {
+    "name": "Scratchmen Apoo é um infâme pirata com tema de música, membro da tribo Braço-Longo e capitão dos Piratas On Air",
+    "is": "true"
+  },
+  {
+    "name": "Sengoku nasceu no south blue.",
+    "is": "true"
+  },
+  {
+    "name": "Senjuan Wolf nasceu no West Blue.",
+    "is": "true"
+  },
+  {
+    "name": "Shakky ajudou a abrigar as gorgon sisters depois que elas escaparam dos nobres mundiais junto com GLORIOSA e rayleight.",
+    "is": "true"
+  },
+  {
+    "name": "Shanks é um membro dos yonko que governa o novo mundo e capitão dos piratas do ruivo.",
+    "is": "true"
+  },
+  {
+    "name": "Shanks nasceu no west blue.",
+    "is": "true"
+  },
+  {
+    "name": "Shanks tem uma cicatriz no olho esquerdo.",
+    "is": "true"
+  },
+  {
+    "name": "Shiliew é o capitão da segunda frota do Teach",
+    "is": "true"
+  },
+  {
+    "name": "Shiryu e o capitao da segunda frota do teach.",
+    "is": "true"
+  },
+  {
+    "name": "Shiryu nasceu na grand line.",
+    "is": "true"
+  },
+  {
+    "name": "Silvers rayleight tem uma esposa no arquipelago sabaody.",
+    "is": "true"
+  },
+  {
+    "name": "Smoker comeu a moku moku no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Smoker é conhecido como CAÇADOR BRANCO.",
+    "is": "true"
+  },
+  {
+    "name": "Smoker é usuario do haki do armamento e da observação.",
+    "is": "true"
+  },
+  {
+    "name": "Sogeking na verdade é o Usopp.",
+    "is": "true"
+  },
+  {
+    "name": "Stussy nasceu na Grand Line.",
+    "is": "true"
+  },
+  {
+    "name": "Sugar ficou permanentemente traumatizada com o rosto do USOPP, tornando-se um trauma incurável.",
+    "is": "true"
+  },
+  {
+    "name": "Tamago comeu a tama tama no mi que o permite a ciclar entre diferentes formas.",
+    "is": "true"
+  },
+  {
+    "name": "Tamago é membro da tribo dos pernas longas.",
+    "is": "true"
+  },
+  {
+    "name": "Tamago perdeu o olho esquerdo para o pedro.",
+    "is": "true"
+  },
+  {
+    "name": "Tashigi nasceu no East Blue .",
+    "is": "true"
+  },
+  {
+    "name": "Tashigi nasceu no East Blue.",
+    "is": "true"
+  },
+  {
+    "name": "TEACH foi o responsavel por cicatrizar o olho de SHANKS com sua arma de garras.",
+    "is": "true"
+  },
+  {
+    "name": "Ton ton no mi é uma versao superior da kilo kilo no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Trafalgar Law comeu a Ope Ope no Mi.",
+    "is": "true"
+  },
+  {
+    "name": "Trafalgar law é o capitão e doutor dos Heart Pirates.",
+    "is": "true"
+  },
+  {
+    "name": "Trafalgar law nomeou sua tripulação por causa do corazón, como homenagem ao seu nome e porque ele 'mudou seu coração' para melhor.",
+    "is": "true"
+  },
+  {
+    "name": "Trafalgar Law perdeu um braço no Arco de Dressrosa.",
+    "is": "true"
+  },
+  {
+    "name": "Tralfagar Law é conhecido por ser o \"Cirurgião da Morte",
+    "is": "true"
+  },
+  {
+    "name": "Trebol é usuario do haki da observação e do armamento.",
+    "is": "true"
+  },
+  {
+    "name": "Trebol foi o primeiro a encontrar a ito ito no mi quando era um criminoso.",
+    "is": "true"
+  },
+  {
+    "name": "Tsuru comeu a woshu woshu no mi.",
+    "is": "true"
+  },
+  {
+    "name": "Tsuru nasceu no north blue.",
+    "is": "true"
+  },
+  {
+    "name": "Urouge é também conhecido como MAD MONK. ele é um pirata de uma ilha do ceu e capitão dos PIRATAS FALLEN MONK.",
+    "is": "true"
+  },
+  {
+    "name": "Usopp foi o terceiro membro a entrar na tripulação dos chapeu de palha.",
+    "is": "true"
+  },
+  {
+    "name": "Van augur nasceu no east blue.",
+    "is": "true"
+  },
+  {
+    "name": "Van augur, o supersonico, é um sniper dos piratas do Barba Negra e um excelente atirador.",
+    "is": "true"
+  },
+  {
+    "name": "Vasco shot e o capitao da oitavo navio, liderando a oitava frota do teach.",
+    "is": "true"
+  },
+  {
+    "name": "Vergo conhece o Doflamingo des de quando ele era uma criança.",
+    "is": "true"
+  },
+  {
+    "name": "Vergo foi o primeiro a ver corazon.",
+    "is": "true"
+  },
+  {
+    "name": "Vergo foi o primeiro corazon.",
+    "is": "true"
+  },
+  {
+    "name": "Vinsmoke Reiju é usuária de Akuma no mi",
+    "is": "true"
+  },
+  {
+    "name": "Wapol é o primeiro rei mostrado na série.",
+    "is": "true"
+  },
+  {
+    "name": "Yasopp nasceu no east blue, em syrup village.",
+    "is": "true"
+  },
+  {
+    "name": "Zeff perdeu sua perna direita para salvar sanji.",
+    "is": "true"
+  },
+  {
+    "name": "Zephyr é o unico almirante que nao comeu uma fruta do diabo.",
+    "is": "true"
+  },
+  {
+    "name": "Zephyr é um personagem non-canon.",
+    "is": "true"
+  },
+  {
+    "name": "Zeus é um personagem do one piece.",
+    "is": "true"
+  },
+  {
+    "name": "Zoro empunhou MAIS de 8 espadas diferentes no anime.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] A habilidade da robin, spider net, pode ser destruida por alguns ataques.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] A habilidade de nivel 100 do arlong, shark on tank imobiliza o inimigo.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] A habilidade liberation, do marshall d teach, tem DOIS segundos de tempo de recarga e 10 de poder.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] A habilidade motivation aumenta a velocidade do luffy por 4 segundos e concede bonus de força no proximo ataque.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] A rotação semanal muda todo sábado.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Alvida pirates é a unica missao especial do modo historia sem uma versao no modo DIFICIL.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Alvida, don krieg, gin e pearl sao os unicos boss de missao especial que nao aparecem nos spawns das ilhas.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Anel da cruz é um item recomendado para o nível 50.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Atualmente existem somente 10 personagens bronze disponiveis.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Atualmente PEARL é o ÚNICO personagem com TRÊS classes TANQUE, ESPECIALISTA E LUTADOR.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Atualmente Pearl é o único personagem com três classes-Tanque,Especialista e Lutador.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Atum e a melhor comida que você pode comprar de um NPC em termos de cura por segundo para um personagem lvl 70.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Backflips e habilidades de evasão concedem imunidade a dano e imobilizações.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Baratie e recomendado para jogadores do level 42 a 50 no minimapa do jogo.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Basil hawkins pode usar sua passiva chamada the magician para trocar de lugar com seus fantoches.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Bastao do rei macaco é um item que pode ser usado apenas por lutadores.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Buchi pode usar a habilidade Take the lead para chamar Sham para lutar ao lado dele.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Calça de Tritao é o item mais caro que o Genzo vende e custa 10000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] CALÇA DE TRITAO é o item MAIS CARO que o GENZO vende e custa 10000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Capone Gang Bege e seus aliados ficam imunes dentro do Big Father.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Capone gang bege nao libera nenhuma habilidade no nivel 100.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Carne de Porco Goumet é a comida mais demorada para cozinhar do Barati. Demora 8 minutos.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Cerveja forte é a melhor comida que voce pode comprar de um npc em termos de cura por segundo para um persoangem lvl 70.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Daddy MCShooty é um inimigo em Loguetown.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Dracule Mihawk desacelera seus proprios aliados com a habilidade Taka no Me.",
+    "is": "false"
+  },  
+  {
+    "name": "[GLA] É obrigatório derrotar o Jango na missão do Black Cat no modo história.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] É possivel criar medalhas dinamicas de bronze por 6 moedas piratas no mercado negro.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] É possivel criar medalhas dinamicas de diamante por 40 moedas piratas no mercado negro.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] É possível criar Medalhas Dinâmicas de Ouro por 15 Moedas Piratas no Mercado Negro.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] É possivel criar medalhas dinamicas de prata por 8 moedas piratas no mercado negro.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] É possivel criar Poção Média de EXP, Poção Grande de EXP e Poção Pequena de EXP no Mercado Negro.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] É possivel criar poção PEQUENA de exp no mercado negro.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Em conomi island voce pode encontrar os seguintes inimigos moles, wolves e smal moles.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Em regra a quarta habilidade do personagem é desbloqueada no nivel 18.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Em regra, a terceira habilidade do personagem é desbloqueada no nivel 10.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Em regra, emotes sao desbloqueados no nivel 40.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Enquanto está em chamas, Pearl tem as seguintes habilidades- Fíre Pearl Shot, Fíre Presente, Fíre Pearl Close And Fíre Pearl Daítokuten.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Erros no jogo devem ser reportados no servidor do discord.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Espada Dadao é um item recomendado para o nível 10.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Existem 30 CONQUISTAS para completar no modo história das missoes especiais.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Existem Bronze Berry. Silver Berry, Gold Berry e Diamond Berry.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] fire pearl é o nome da passiva do pearl.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Genzo vende Bandana de Tritão, Calça de Tritão, Anel do Mar e Turbante do Mar por 5000 berry cada.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Há uma Prisioneira chamada Tita no Arlong Park.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Helmeppo está localizado no mesmo predio que seu pai morgan.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Henry Needle, Henry Blazer,Henry Stripe e Henry Ford são nomes de algumas habilidades do Niji.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Hideka é a avó do Sora.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Jango é o unico boss de missao especial que também é um npc.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Jinbe é o unico personagem diamante com classe tanque.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Kiribachi é um item que pode ser usado por todas as classes, exceto especialista.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Kumo Island é recomendada para jogadores do level 64 a 70 no minimapa do jogo.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Kuro causa 25% a mais de dano quando ataca inimigos pelas costas.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Lamina escondida é um item que pode ser usado por todas as classes.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Leo, discipulo de carmen, esta na biblioteca de loguetown.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Leo, discípulo de Carmen,está na biblioteca de Loguetown.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Loguetown é recomendada para jogadores do level 56 a 70 no minimapa do jogo.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Luffy recebe menos dano dos ataques do vinsmoke niji porque seu corpo tem propriedades de borracha.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Marshall d teach ganha 30% de ataque e perde metade da armadura quando sua passiva é ativada.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Meito shigure é um item que pode ser usado somente por cortantes.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Mellorine é o nome da passiva do sanji.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Mes é a habilidade mais forte do jogo em termos de poder.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Monkey d luffy pode quebrar paredes com a habilidade gomu gomu no ono.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Monkey D. Luffy têm as seguintes classes Bruiser, Lutador e Tanquer",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Morgan é o unico boss de missao especial que também é um NPC.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Muggy dama é a habilidade que o buggy libera no nivel 100.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Nami pode criar somente 3 nuvens simultaneamente.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Nanashaku Jitte é um item de nível 70 que pode ser usado por todas as classes",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Não é possivel entrar na mansão da Kaya.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Não ha um marine announcer em conomi island.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Nefertari vivi pode fazer uma dança sexy para motivar seus aliados, aumentando o ataque e a defesa deles por 15 segundos.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Nico robin nao pode construir pontes com a habilidade delphinium.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Ninjin, um dos piratas do usopp, dá algumas missões em syrup village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] No tutorial do jogo, o NPC que passa instruções para você é o Woop Slap, o prefeito de Foosha Village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] NPC Sora em Samui Island é uma menina.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O Barba Negra tem as seguintes classes ESPECIALISTA, BRUISER E ATIRADOR. a ultima é porque ele tem um revolver.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O kit de reparo 1.0 restaura 450 pontos de vida do seu navio por segundo.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O Kit de Reparo 2.0 restaura 22.000 pontos de vida do seu navio em 20 segundos",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O kit de Reparo 2.0 restaura 700 pontos de vida do seu navio por segundo",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O kit de reparo 3 restaura 1000 pontos de vida do seu navio por segundo.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O Kit de Reparo 3.0 restaura 30.000 pontos de vida do seu navio em 20 segundos.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O level necessario para fazer a quest do capitão morgan é 17.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O npc magra pede por 4 orelhas de lobo na missao dele em foosha village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O pvp na grand line será opcional.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] O sangramento de killer pode acumular até 4 vezes usando mais bloody cuts ou kira nokogiri.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Orange Town é recomendada para jogadores do level 20 a 30 no minimapa do jogo.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Os kits de reparo 1.0 2.0 e 3.0 sao vendidos na loka do mercado negro pelos respectivos valores 30, 90 , 180.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Para iniciar a quest do ripper em shells town, voce precisa primeiro completar a quest do helmeppo.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Pearl é o primeiro inimigo na missao da armada pirata.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Picareta de mineiração é um item para cortantes e tanques.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Picareta de Mineração é um item para cortantes e tanques.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Piiman, um dos piratas do Usopp, dá algumas missões em Syrup Village.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Pufferfish e sharks sao considerados monstros nível 3.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Quando bonney usa sua habilidade unbridled power, ela transforma todos a sua volta em bebes e fica invulneravel por 9 segundos.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Quando sanji cura uma mulher, ele fica motivado e recebe bonus de velocidade e ataque por 10 segundos.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Sabo é o nome da criança que a nojiko pede para ajudar no arlong park.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] San zen se kai é a habilidade mais forte do jogo em termos de poder.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Sanji pode se curar com a habilidade master cook.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Sanzen Sekai é a habilidade mais forte do jogo em termos de poder.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Sapi é o NPC que vende Atum em Cocoyasi Village",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] SAYURI, ASUYA e CHERRY sao nomes de NPC do BARATIE.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Shanks imobiliza inimigos em volta dele com a habilidade busoshoku haki waves.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Shanks Mata inimigos fracos instantaneamente com a habilidade Kenbushoku Haki.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Slime é um inimigo exclusivo de loguetown.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Snowflakes é o nome do animal de estimação do Sora.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Spider e giant spider sao os unicos inimigos em kumo island.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Spider e Giant Spider são os únicos inimigos em Kumo Island.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Syrup village é a unica ilha com duas entradas de doca no east blue.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Todos os chapeu de palha possuem uma skin do strong world.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Trafalgar law NAO pode quebrar paredes com a habilidade injection shot.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Trafalgar law nao pode usar nenhuma habilidade quando está fora da room.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] um personagem diamante precisa de mais medalhas para ter suas estrelas melhoradas do que um personagem ouro.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você nao pode trocar sua pagina de equipamentos em uma zona segura.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode começar uma missão diária de derrotar Slimes na Samui Island.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode comprar duas abas extras do stash. a primeira custa 100000 berry e a segund 200000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode comprar duas abas extras do stash. a primeira custa 150k berry e a segunda 200k.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode comprar duas abas extras no stash. a primeira custa 150000 berry e a segunda 200000 berry.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode conseguir o item colar do saru em qualquer missao dificil do east blue.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode construir uma caixa de musica por 200 moedas pirata no mercado negro.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode encontrar 8 instâncias do Mercado Negro no east Blue.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode usar a mesa de construção nas docas para transforma 5 Poções Médias de Experiência em 1 Poção Grande de Experiência.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você pode usar a mesa de construção nas docas para transformar 10 poções pequenas de experiencia em 2 poções média de experiencia.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você precis vencer com um time de especialistas para completar a conquista dos piratas da alvida.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de suportes para completar a conquista dos piratas do arlong.",
+    "is": "false"
+  },  
+  {
+    "name": "[GLA] Você precisa alimentar um prisioneiro na quest da ririka.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você precisa derrotar 50 cobras na missao do coby.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de atiradores para completar a conquista dos piratas do buggy.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de especialistas para completar a conquista dos piratas do arlong.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de mulheres para completar a conquista dos Black Cat",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com um time de tanques para completar a conquista da base da marinha.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você precisa vencer com uma equipe de homens para completar a conquista da Armada Pirata",
+    "is": "false"
+  },
+  {
+    "name": "[GLA] Você só pode trocar seus equipamentos em uma Zona Segura.",
+    "is": "false"
+  },
+  {
+    "name": "[GLA]Uchimizu é uma habilidade que pode ser usada por jinbe,chew e Arlong.",
+    "is": "false"
+  },
+  {
+    "name": "A alcunha do laffitte, shinigami ou deus da morte, vem do fato dele gostar de brincar com a vida das pessoas, assim como um shinigami.",
+    "is": "false"
+  },
+  {
+    "name": "A atual recompensa da boa hancock é 79,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A barreira de bartolomeo quebrou somente uma vez durante o anime.",
+    "is": "false"
+  },
+  {
+    "name": "A comida favorita da sugar é laranja.",
+    "is": "false"
+  },
+  {
+    "name": "A comida favorita do Marco é uva.",
+    "is": "false"
+  },
+  {
+    "name": "A comida favorita do teach é torta de MAÇA.",
+    "is": "false"
+  },
+  {
+    "name": "A cor do cabelo da miss valentine é verde.",
+    "is": "false"
+  },
+  {
+    "name": "A espada do Shiryu é uma meito chamada Rain.",
+    "is": "false"
+  },
+  {
+    "name": "A mãe do Usopp nasceu no South Blue.",
+    "is": "false"
+  },
+  {
+    "name": "A maior recompensa conhecida é de 1,500,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A maior recompensa conhecida é de 2,257,600,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A primeira recompensa da nico robin foi de 78,000,000 de berry, a mesma quantia de sua mae Nico Olivia.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa atual de monkey D luffy é de 1.500.000 milhoes de berryes.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa atual do monkey d. luffy é de 1,500,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa da baby five é de 17,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa da baby five é de 23,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa da Boa Hancock é de 79.000.000 de berries.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa da olivia era de 79,000,000 de berry, o mesmo que sua filha nami recebeu depois.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa de demaro black é de 26,300,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa de Foxy é de 25,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa de Hathan é de 7.000.000.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa de um pirata reflete a força dele.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do buffalo é de 13.000.000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do buffalo é de 15,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do dellinger era de 12,000,000 de berry antes de ser congelada em razão do doflamingo ter se tornado um shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do Diamante era de 100,000,000 de berry antes de ser congelada em razão do Doflamingo ter se tornado um Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do gin é de 10,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do Jinbe é de 439,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do jinbe é de 439,000,000.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do kuro é de 6,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do MACHVISE era de 10,000,000 de berry antes de ser congelada em razão do doflamingo ter se tornado um shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do mont blanc cricket é desconhecida.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do mr 5 é de 9,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do SENOR PINK era de 56,000,000 de berry antes de ser congelada em razão do doflamingo ter se tornado um shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do trebol era de 100,000,000 de berry antes de ser congelada em razão do doflamingo ter se tornado um shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do Urouge é de 100,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do x drake é de 220,200,000.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do xdrake é de 220,200,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do zeff é de 47,600 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa do zoro é maior que a do sanji.",
+    "is": "false"
+  },
+  {
+    "name": "A recompensa dos Shichibukai pode aumentar.",
+    "is": "false"
+  },
+  {
+    "name": "A Sniper Island está localizada na Grand Line .",
+    "is": "false"
+  },
+  {
+    "name": "A terceira recompensa do monkey d luffy foi de 400,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "Ace comeu a Mira Mira no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Akainu nasceu na grand line.",
+    "is": "false"
+  },
+  {
+    "name": "Akira Toriyama é o criador de One Piece.",
+    "is": "false"
+  },
+  {
+    "name": "Alvida é a antiga capitã dos Piratas do Buggy",
+    "is": "false"
+  },
+  {
+    "name": "Antes dos eventos da guerra DOC Q tinha uma impressionante recompensa de 72,500,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "Antes dos eventos da guerra, jesus burgess tinha uma recompensa de 200,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "Antes dos eventos da guerra, laffitte tinha uma recompensa de 42,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "Antes dos eventos de guerra, van augur tinha uma impressionante recompensa de 60,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "Aokiji comeu a Yuki Yuki no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Apos os eventos em PUNK HAZARD, SMOKER se tornou oficialmente lider da G-4.",
+    "is": "false"
+  },
+  {
+    "name": "Apos ser diagnosticado com sua doença, gol d roger levou DOIS anos para encontrar o one piece.",
+    "is": "false"
+  },
+  {
+    "name": "Arlong era o capitao dos PIRATAS DO SOL e tinha a maior recompensa do east blue antes de ser derrotado pelo monkey d luffy.",
+    "is": "false"
+  },
+  {
+    "name": "ARLONG ja foi um escravo.",
+    "is": "false"
+  },
+  {
+    "name": "Assim como kuzan, smoker deseja acabar com o sistema de shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Atualmente o cabelo do arlong é roxo.",
+    "is": "false"
+  },
+  {
+    "name": "Atualmente o MONKEY D. LUFFY tem a MAIOR recompensa conhecida.",
+    "is": "false"
+  },
+  {
+    "name": "Avalo pizarro é o capitão do terceiro navio, liderando a terceira frota do teach.",
+    "is": "false"
+  },
+  {
+    "name": "Avalo pizarro era originalmente rei de um pais no west blue.",
+    "is": "false"
+  },
+  {
+    "name": "Baby 5 comeu a Boku Boku no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Bacura é um usuario da fruta do tipo zoan.",
+    "is": "false"
+  },
+  {
+    "name": "Barba Branca comeu a Goro Goro no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Barba branca foi o responsavel por cicatrizar o olho de shanks com sua arma de garras.",
+    "is": "false"
+  },
+  {
+    "name": "Barba branca nasceu na sphinx island no north blue.",
+    "is": "false"
+  },
+  {
+    "name": "Barba Negra e um Almirante dos Piratas do Barba Negra e membro dos Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Barba Negra nasceu no north blue.",
+    "is": "false"
+  },
+  {
+    "name": "Bartholomew Kuma era conhecido como um Pacifista.",
+    "is": "false"
+  },
+  {
+    "name": "Bartholomew kuma tinha a fruta do diabo do espelho.",
+    "is": "false"
+  },
+  {
+    "name": "Bartolomeo tem a fruta do diabo nikyu nikyu no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Basil Hawkins é um pirata infâme do North Blue conhecido como o Mago e capitão dos Piratas do Mago",
+    "is": "false"
+  },
+  {
+    "name": "Bellemere encontrou a nami e a nojiko no reino de oykot, no WEST BLUE.",
+    "is": "false"
+  },
+  {
+    "name": "Benn beckman é o vice-capitão dos PIRATAS DO SHANKS.",
+    "is": "false"
+  },
+  {
+    "name": "Benn beckman nao é o personagem mais inteligente que apareceu na saga do east blue.",
+    "is": "false"
+  },
+  {
+    "name": "Benn beckman nao tem uma recompensa.",
+    "is": "false"
+  },
+  {
+    "name": "Benn beckman nasceu no east blue.",
+    "is": "false"
+  },
+  {
+    "name": "Bepo nao é um mink.",
+    "is": "false"
+  },
+  {
+    "name": "Boa hancock é a capitã das piratas kuja e a segunda mulher membro dos shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Boa hancock nasceu no north blue.",
+    "is": "false"
+  },
+  {
+    "name": "Boa hancock tem a mesma dubladora da reiju.",
+    "is": "false"
+  },
+  {
+    "name": "Boa marigold e boa sandersonia tem somente haki do armamento.",
+    "is": "false"
+  },
+  {
+    "name": "Boodle é o prefeito de syrup village.",
+    "is": "false"
+  },
+  {
+    "name": "Brook está morto ha 50 anos.",
+    "is": "false"
+  },
+  {
+    "name": "Brook foi o ultimo membro a entrar na tripulação dos chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Buffalo nasceu na grand line.",
+    "is": "false"
+  },
+  {
+    "name": "Buggy é capitão dos Clown Pirates e também colider da aliança do Buggy e Alvida.",
+    "is": "false"
+  },
+  {
+    "name": "BUGGY e SHANKS estão na MESMA TRIPULAÇÃO.",
+    "is": "false"
+  },
+  {
+    "name": "Busoshoku no Haki garante ao usuário um sexto sentido do mundo ao seu redor e habilidades precognitivas limitadas.",
+    "is": "false"
+  },
+  {
+    "name": "Cada um dos principais membros da tripulaçao do shanks são do mesmo oceano.",
+    "is": "false"
+  },
+  {
+    "name": "Caesar comeu a shiro shiro no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Capone Gang Bege é capitão do Castle Tank Pirates e Também um dos doze piratas classificados como a Pior Geração",
+    "is": "false"
+  },
+  {
+    "name": "Caribou nasceu no west blue.",
+    "is": "false"
+  },
+  {
+    "name": "Catarina Devon caça qualquer homem que ela acha atraente e decapita a cabeça deles para adicioná-las na sua coleção pessoal.",
+    "is": "false"
+  },
+  {
+    "name": "Catarina devon é a capitã do quinto navio, liderando a quinta frota do teach.",
+    "is": "false"
+  },
+  {
+    "name": "Catarina Devon nasceu na Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Ceasar comeu a shiro shiro no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Charlotte linlin é uma das filhas da big mom.",
+    "is": "false"
+  },
+  {
+    "name": "Charlotte shujan é um dos filhos da big mom.",
+    "is": "false"
+  },
+  {
+    "name": "Chess nasceu no west blue.",
+    "is": "false"
+  },
+  {
+    "name": "Chopper é um guaxinim que comeu a fruta human-human.",
+    "is": "false"
+  },
+  {
+    "name": "Como uma dos principais do exercito revolucionario, koala tem uma recompensa de 320,000,000 de berry.",
+    "is": "false"
+  },
+  {
+    "name": "Crocodile nasceu no North Blue.",
+    "is": "false"
+  },  
+  {
+    "name": "Crocodile estava atrás da Uranus, uma das armas antigas.",
+    "is": "false"
+  },
+  {
+    "name": "Crocodile foi o segundo oponente a derrotar luffy em uma batalha.",
+    "is": "false"
+  },
+  {
+    "name": "Demaro black, capitão dos falsos chapeu de palha, nasceu no west blue.",
+    "is": "false"
+  },
+  {
+    "name": "Demaro Black, Manjaro, Chocolat, Drip, Turco, Cocoa, MountMOUNTAIN e Nora Gitsune são os nomes verdadeiros da falsa tripulação dos chapeus de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Dentre a tripulação dos chapeu de palha. luffy é o membro favorito de eiichiro oda.",
+    "is": "false"
+  },
+  {
+    "name": "Depois do timeskip o franky é o mais alto dos piratas do chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Diamante foi o primeiro a encontrar a ito ito no mi quando era um criminoso.",
+    "is": "false"
+  },
+  {
+    "name": "Diamond jozu comeu a mira mira no mi, fazendo com que ele se transforme em um diamante humano com uma resistencia incomparavel.",
+    "is": "false"
+  },
+  {
+    "name": "Diamond Jozu nasceu na Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Doc q carrega uma grande lança como arma.",
+    "is": "false"
+  },
+  {
+    "name": "Doc q é o medico dos piratas barba BRANCA.",
+    "is": "false"
+  },
+  {
+    "name": "Doflamingo e baby five tiveram uma 'complexa' relação amorosa.",
+    "is": "false"
+  },
+  {
+    "name": "Doflamingo é usuario de haki do armamento e do rei apenas.",
+    "is": "false"
+  },
+  {
+    "name": "Doflamingo foi o primeiro personagem a desperta sua Fruta do Diabo.",
+    "is": "false"
+  },
+  {
+    "name": "Doflamingo matou gecko moria.",
+    "is": "false"
+  },
+  {
+    "name": "Donquixote Doflamingo é o capitão dos Piratas Donquixote.",
+    "is": "false"
+  },
+  {
+    "name": "DORORO é um personagem do One Piece.",
+    "is": "false"
+  },
+  {
+    "name": "Doutor hiriluk nasceu em drum island.",
+    "is": "false"
+  },
+  {
+    "name": "Dracule Mihawk é um membro dos Piratas do Ruivo.",
+    "is": "false"
+  },
+  {
+    "name": "Dracule Mihawk é um Shichibukai e membro dos Piratas do Ruivo.",
+    "is": "false"
+  },
+  {
+    "name": "Dracule mihawk teve apenas um dublador durante todo o anime.",
+    "is": "false"
+  },
+  {
+    "name": "Duval é irmão do sanji.",
+    "is": "false"
+  },
+  {
+    "name": "Em razao dos seus crimes, sanjuan wolf foi preso em impel down. o modo que eles encontraram para mente-lo preso foi através de uma cela gigante no lvl  7.",
+    "is": "false"
+  },
+  {
+    "name": "Em termos simples, haki é a habilidade de sentir energia espiritual (busoshoku), usar força vital (kenbunshoku) e dominar inimigos (haoshoku).",
+    "is": "false"
+  },
+  {
+    "name": "Em termos simples, haki é a habilidade de sentir energia espritual (busoshoku), usar força vital (haoshoku) e dominar inimigos (kenbushoku).",
+    "is": "false"
+  },
+  {
+    "name": "Emporio ivankov nasceu no west blue.",
+    "is": "false"
+  },
+  {
+    "name": "Enel comeu a Gura Gura no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Enel e seus sacerdotes conquistaram a lua.",
+    "is": "false"
+  },
+  {
+    "name": "Enel está em marte.",
+    "is": "false"
+  },
+  {
+    "name": "Eric e um personagem non-canon de One Piece",
+    "is": "false"
+  },
+  {
+    "name": "Eric é um pirata non-canon que foi mostrado no anime.",
+    "is": "false"
+  },
+  {
+    "name": "Eustass kid perdeu seu braço direito.",
+    "is": "false"
+  },
+  {
+    "name": "Existem tres tipos de haki disponiveis para todo mundo.",
+    "is": "false"
+  },
+  {
+    "name": "Foi confirmado que Usopp despertou o Haki da Observação durante o Arco de Punk Hazard.",
+    "is": "false"
+  },
+  {
+    "name": "Foxy comeu a Soro Soro no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Fraky destruiu o projeto da Uranus.",
+    "is": "false"
+  },
+  {
+    "name": "Franky destruiu o projeto da uranus.",
+    "is": "false"
+  },
+  {
+    "name": "Franky é um robo.",
+    "is": "false"
+  },
+  {
+    "name": "Franky era o antigo líder da Família Franky e atual Capitão dos Piratas Ciborgues",
+    "is": "false"
+  },
+  {
+    "name": "Franky era originalmente lider da familia franky e agora é capitao dos cyborg pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Franky foi o primeiro ciborgue a aparecer na série.",
+    "is": "false"
+  },
+  {
+    "name": "Franky foi o sétimo membro a entrar na tripulação dos Chapéu de Palha.",
+    "is": "false"
+  },
+  {
+    "name": "Frost é um personagem de one piece.",
+    "is": "false"
+  },
+  {
+    "name": "FUNKFREED é o nome do elefante do spandam.",
+    "is": "false"
+  },
+  {
+    "name": "Genzo nasceu no North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Genzo também é um medico.",
+    "is": "false"
+  },
+  {
+    "name": "Gin é CAPITAO dos piratas do GIN.",
+    "is": "false"
+  },
+  {
+    "name": "Gin é o capitao dos piratas do gin.",
+    "is": "false"
+  },
+  {
+    "name": "Gin tem o mesmo dublador do Kuro.",
+    "is": "false"
+  },
+  {
+    "name": "Gold d roger usava um chapeu similar ao do luffy.",
+    "is": "false"
+  },
+  {
+    "name": "Golden Lion Shiki é um personagem non-canon.",
+    "is": "false"
+  },
+  {
+    "name": "Gura gura no mi é uma fruta do diabo do tipo logia.",
+    "is": "false"
+  },
+  {
+    "name": "Hancock é a imperatriz do amazon lily, motivo pelo qual ela é chamada de imperatriz shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Haoshoku no haki garante ao usuario um sexto sentido no mundo ao seu redor e habilidades precognitivas ilimitadas.",
+    "is": "false"
+  },
+  {
+    "name": "Hatchan é um ex-oficial dos piratas do sol e membro dos piratas do arlong ANTES disso.",
+    "is": "false"
+  },
+  {
+    "name": "Hatchan tem 8 braços.",
+    "is": "false"
+  },
+  {
+    "name": "Hody Jones é o Capitão dos Piratas Homens-Peixe",
+    "is": "false"
+  },
+  {
+    "name": "Impel Down tem 7 níveis.",
+    "is": "false"
+  },
+  {
+    "name": "Inazuma nasceu no North Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Issho comeu a fuji fuji no mi, que permite manipular a GRAVIDADE.",
+    "is": "false"
+  },
+  {
+    "name": "Issho nasceu no south blue.",
+    "is": "false"
+  },
+  {
+    "name": "Jango é um Marinheiro e ex-capitâo dos Piratas Black Cack.",
+    "is": "false"
+  },
+  {
+    "name": "Jesus burgess é o navegador dos piratas do Barba Negra.",
+    "is": "false"
+  },
+  {
+    "name": "Jinbe é o Navegador dos Piratas do Chapéu de Palha",
+    "is": "false"
+  },
+  {
+    "name": "Jinbe foi o nono membro a entrar na tripulação dos chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Johnny e Yosaku nasceram no West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Kalgara foi revelado como um usuario de haki de armamento.",
+    "is": "false"
+  },
+  {
+    "name": "Kanjuro comeu a draw draw no mi, que o permite trazer a vida tudo o que ele desenha.",
+    "is": "false"
+  },
+  {
+    "name": "Katakuri pode ver 5 minutos no futuro.",
+    "is": "false"
+  },
+  {
+    "name": "Kid e killer sao amigos de infancia, juntos,formaram os piratas do KILLER.",
+    "is": "false"
+  },
+  {
+    "name": "Kid e killer são IRMAOS. juntos, formaram os piratas do kid.",
+    "is": "false"
+  },
+  {
+    "name": "Killer é um Pirata do North Blue e membro do Kid Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "KILLER perdeu um BRAÇO no Timeskip.",
+    "is": "false"
+  },
+  {
+    "name": "Kin'emon comeu a toku toku no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Kin'emon comeu a tuku tuku no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Kin'emon é usuário de Haki do Armamento apenas",
+    "is": "false"
+  },
+  {
+    "name": "Kizaru nasceu na Grand Line.",
+    "is": "false"
+  },
+  {
+    "name": "Kuro também conhecido pelo seu apelido klahadore, é o capitao dos piratas neko.",
+    "is": "false"
+  },
+  {
+    "name": "Kuroobi é um oficial dos Piratas do Sol e ex-membros dos Piratas do Arlong.",
+    "is": "false"
+  },
+  {
+    "name": "Kuzan decidiu se cegar porque havia muitas coisas que ele não queria ver.",
+    "is": "false"
+  },
+  {
+    "name": "Kuzan nasceu na grand line.",
+    "is": "false"
+  },
+  {
+    "name": "Laboon é femea.",
+    "is": "false"
+  },
+  {
+    "name": "Laffitte cresceu no west blue, onde se tornou marinheiro.",
+    "is": "false"
+  },
+  {
+    "name": "Laffitte, o supersonico, é um atirador extremamente habilidoso dos piratas do Barba Negra.",
+    "is": "false"
+  },
+  {
+    "name": "Lucky Roo foi um dos últimos membros a entrar na tripulação do Shanks após ele formar os Piratas do Ruivo.",
+    "is": "false"
+  },
+  {
+    "name": "Lucky roo nasceu no north blue.",
+    "is": "false"
+  },
+  {
+    "name": "LUFFY derrotou SABO em um duelo durante a INFANCIA.",
+    "is": "false"
+  },
+  {
+    "name": "Luffy ganhou sua cicatriz por causa de um TIGRE em Foosha Village.",
+    "is": "false"
+  },
+  {
+    "name": "Luffy tem uma fruta do diabo do tipo LOGIA que tornou seu corpo de borracha.",
+    "is": "false"
+  },
+  {
+    "name": "Machvise comeu a Hon Hon no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Madame Shyarly é a irmã do Hatchan.",
+    "is": "false"
+  },
+  {
+    "name": "Madame shyarly é uma das irmas do arlong.",
+    "is": "false"
+  },
+  {
+    "name": "Magellan comeu a moku moku no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Marco comeu a pori pori no mi, tipo fenix, uma zoan mitica.",
+    "is": "false"
+  },
+  {
+    "name": "Marco era o comandante da segunda divisao e mao direita do barba branca.",
+    "is": "false"
+  },
+  {
+    "name": "Masashi kishimoto é o criador do one piece.",
+    "is": "false"
+  },
+  {
+    "name": "Masira e shoujo sao irmaos.",
+    "is": "false"
+  },
+  {
+    "name": "Masira e shoujo tem uma recompensa de 23,000,000 e 26,000,000 de berry, respectivamente.",
+    "is": "false"
+  },
+  {
+    "name": "Masira e shoujo tem uma recompensa de 36,000,000 e 23,000,000 de berry, respectivamente.",
+    "is": "false"
+  },
+  {
+    "name": "Mihawk não é o único com uma recompensa desconhecida entre os Shichibukai.",
+    "is": "false"
+  },
+  {
+    "name": "Miss doublefinger nasceu no south blue.",
+    "is": "false"
+  },
+  {
+    "name": "Miss goldenweek fez dupla com o mr 2 em razao das habilidades dela de pintar as criações de cera tornando-as mais realistas.",
+    "is": "false"
+  },
+  {
+    "name": "Miss valentine nasceu na GRAND LINE.",
+    "is": "false"
+  },
+  {
+    "name": "Miss valentine nasceu no east blue.",
+    "is": "false"
+  },
+  {
+    "name": "Mohji é um pirata e capitão dos piratas leões.",
+    "is": "false"
+  },
+  {
+    "name": "Momoo agora é oficialmente considerado um animal de estimação dos piratas do arlong.",
+    "is": "false"
+  },
+  {
+    "name": "Momoo desenvolveu um trauma a respeito do luffy e do zoro, sofrendo um ataque de panico só de ve-los.",
+    "is": "false"
+  },
+  {
+    "name": "Momoo é femea.",
+    "is": "false"
+  },
+  {
+    "name": "Monet comeu a hie hie no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Monet tinha uma fruta do diabo do tipo paramecia.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey d garp nasceu no south blue.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey d luffy foi a unica pessoa a escapar de impel down na historia.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. GARP é o verdadeiro PAI de luffy.",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Luffy foi a primeira pessoa a escapar de Impel Down",
+    "is": "false"
+  },
+  {
+    "name": "Monkey D. Luffy nasceu em Nanko Village.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 3 queria trair o crocodile desde o inicio do arco.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 4 nasceu no east blue.",
+    "is": "false"
+  },
+  {
+    "name": "Mr 5 nasceu no WEST BLUE.",
+    "is": "false"
+  },
+  {
+    "name": "Nami conseguiu o clima-tact em drum island.",
+    "is": "false"
+  },
+  {
+    "name": "Nami foi o terceiro membro a entrar na tripulação dos chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Nefertari vivi é um membro dos piratas do chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Nico robin é referida como DEMONIO DA REVOLUÇÃO pelo exercito revolucionario.",
+    "is": "false"
+  },
+  {
+    "name": "O anime one piece é o maior ja feito.",
+    "is": "false"
+  },
+  {
+    "name": "O cabelo do charlotte cracker é verde.",
+    "is": "false"
+  },
+  {
+    "name": "O Dragão contra qual Luffy e os outros lutaram em Punk Hazard foi criado artificialmente por Caesar em um laboratorio em Punk Hazard.",
+    "is": "false"
+  },
+  {
+    "name": "O exercito revolucionario foi fundado após o nascimento do luffy.",
+    "is": "false"
+  },
+  {
+    "name": "O gênero de surume é feminino.",
+    "is": "false"
+  },
+  {
+    "name": "O Kit de Reparo 2.0 restaura 30.000 pontos de vida do seu navio.",
+    "is": "false"
+  },
+  {
+    "name": "O navio que a hancock e as pirata kuja navegam é chamado de AROMA SNAKE.",
+    "is": "false"
+  },
+  {
+    "name": "O nome da espada do Shanks é Python",
+    "is": "false"
+  },
+  {
+    "name": "O nome do navio que o mr 1 e a miss doublefinger usavam em suas operações era 'kill season'.",
+    "is": "false"
+  },
+  {
+    "name": "O nome do navio que o mr 5 e a miss valentine usaram em suas operações era BOMB ROCK CANDY.",
+    "is": "false"
+  },
+  {
+    "name": "O nome do navio que os piratas donquixote usaram nos dias deles no north blue era flamingo family.",
+    "is": "false"
+  },
+  {
+    "name": "O nome dos navios do Masira e do Shoujo é UTAN SONAR  e  VICTORY HUNTER, respectivamente.",
+    "is": "false"
+  },
+  {
+    "name": "O nome verdadeiro da Baby Five é Babi.",
+    "is": "false"
+  },
+  {
+    "name": "O nome verdadeiro da miss goldenweek é drophy.",
+    "is": "false"
+  },
+  {
+    "name": "O nome verdadeiro da miss MERRYCHRISTMAS é MARIANNE.",
+    "is": "false"
+  },
+  {
+    "name": "O nome verdadeiro do mr 5 é REM.",
+    "is": "false"
+  },
+  {
+    "name": "O nome verdadeiro do Mr.4 é Derek, provavelmente em referência ao famoso jogador de basebol Derek Jeter.",
+    "is": "false"
+  },
+  {
+    "name": "O nome verdadeiro do trebol é john trebol.",
+    "is": "false"
+  },
+  {
+    "name": "O primeiro beijo conhecido de SANJI foi com a VIOLET.",
+    "is": "false"
+  },
+  {
+    "name": "O principal navio do exercito revolucionario é chamado de \"Viento GRANMAR",
+    "is": "false"
+  },
+  {
+    "name": "O projeto da Pluton ainda não foi descoberto.",
+    "is": "false"
+  },
+  {
+    "name": "O verdadeiro nome da Miss Double finger é Paula.",
+    "is": "false"
+  },
+  {
+    "name": "O Yonkou Shanks é conhecido por ser o Capitão dos Piratas do Shanks",
+    "is": "false"
+  },
+  {
+    "name": "Oars é um meio-gigante.",
+    "is": "false"
+  },
+  {
+    "name": "Os slimes eram feitos pelo donquixote doflamingo.",
+    "is": "false"
+  },
+  {
+    "name": "Os Smiles eram feitos pelo Donquixote Doflamingo.",
+    "is": "false"
+  },
+  {
+    "name": "Os yeti cool brothers são partes de uma subespecie desconhecida de HUMANOS.",
+    "is": "false"
+  },
+  {
+    "name": "Otohime era conhecida pela alcunha 'REENCARNAÇÃO DO AMOR' devido a sua incrivel bondade e busca pela paz entre diferentes especies.",
+    "is": "false"
+  },
+  {
+    "name": "Otohime tinha um haki da observação e do armamento muito desenvolvido, o que a permitia entender profundamento a emoção dos outros.",
+    "is": "false"
+  },
+  {
+    "name": "Pagaya é uma estrela do mar que é mascote de Camie e Também professor. Ele é o criador de uma linha de moda.",
+    "is": "false"
+  },
+  {
+    "name": "Pandaman é da tripulação do law.",
+    "is": "false"
+  },
+  {
+    "name": "Pappag é um caçador de recompensas que apareceu no Arquipélago Sabaody.",
+    "is": "false"
+  },
+  {
+    "name": "Pearl é o comandante da segunda unidade dos piratas da armada pirata.",
+    "is": "false"
+  },
+  {
+    "name": "Pekoms comeu a TAME TAME no mi, que o permite se transformar em uma tartaruga, dando a ele um casco duro como diamante.",
+    "is": "false"
+  },
+  {
+    "name": "Perona tem o mesmo dublador da Koala.",
+    "is": "false"
+  },
+  {
+    "name": "Phyton é o nome da espada do shanks.",
+    "is": "false"
+  },
+  {
+    "name": "Pica é usuario do haki do armamento APENAS.",
+    "is": "false"
+  },
+  {
+    "name": "Portgas d ace era o comandante da segunda divisão dos spade pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Punk hazard pode ser encontrado com um log pose.",
+    "is": "false"
+  },
+  {
+    "name": "Python é o nome da espada do shanks.",
+    "is": "false"
+  },
+  {
+    "name": "Recompensa do HATCHAN é de 7,000,000.",
+    "is": "false"
+  },
+  {
+    "name": "Recompensa do Mr4 é de 3,000,000.",
+    "is": "false"
+  },
+  {
+    "name": "Recompensa do X-Drake é de 220.20.207 berries.",
+    "is": "false"
+  },
+  {
+    "name": "Rob Lucci nasceu no West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Rosinante comeu a shiu shiu no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Rosinante foi o primeiro corazon.",
+    "is": "false"
+  },
+  {
+    "name": "Ryuma tinha a sombra de um lendário samurai de Wano.",
+    "is": "false"
+  },
+  {
+    "name": "Sandai kitetsu (uma das espadas de zoro) enferrujou.",
+    "is": "false"
+  },
+  {
+    "name": "Sanjaun wolf é o capitão do quinto navio, liderando a quinta frota do teach.",
+    "is": "false"
+  },
+  {
+    "name": "Sanji foi o quinto membro a entrar na tripulação dos chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Sanji nasceu no south blue.",
+    "is": "false"
+  },
+  {
+    "name": "Scratchmen Apoo é da tribo Longarm, um infâme pirata com tema de música e capitâo dos Piratas On Music.",
+    "is": "false"
+  },
+  {
+    "name": "Sengoku comeu a bito bito no mi, uma fruta zoan mitica.",
+    "is": "false"
+  },
+  {
+    "name": "Sengoku nasceu no north blue.",
+    "is": "false"
+  },
+  {
+    "name": "Shanks é membro dos Yonko que governam o novo mundo e é o capitão dos piratas do Shanks",
+    "is": "false"
+  },
+  {
+    "name": "Shanks foi o primeiro dono do chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Shanks nasceu no East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Shiliew é o capitão da terceira frota do Teach",
+    "is": "false"
+  },
+  {
+    "name": "Shiryu é o capitao da terceira frota do teach.",
+    "is": "false"
+  },
+  {
+    "name": "Shojo e um membro dos Rumbar Pirates.",
+    "is": "false"
+  },
+  {
+    "name": "Smoker comeu a Doku Doku no Mi.",
+    "is": "false"
+  },
+  {
+    "name": "Smoker é conhecido como CAÇADOR CINZA.",
+    "is": "false"
+  },
+  {
+    "name": "Smoker é usuario do haki do armamento apenas.",
+    "is": "false"
+  },
+  {
+    "name": "Smoker nasceu no East Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Squard nasceu em North blue.",
+    "is": "false"
+  },
+  {
+    "name": "Stussy nasceu no west blue.",
+    "is": "false"
+  },
+  {
+    "name": "Sugar ficou permanentemente traumatizada com o rosto do ZORO, tornando-se um trauma incurável.",
+    "is": "false"
+  },
+  {
+    "name": "Tamago comeu a cuma cuma no mi, que o permite ciclar entre diferentes formas.",
+    "is": "false"
+  },
+  {
+    "name": "Tamago perdeu o olho direito para Pedro",
+    "is": "false"
+  },
+  {
+    "name": "Todos os quatro principais membros da tripulação do shanks sao do mesmo oceano.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar law comeu a pika pika no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar Law é conhecido como o Cirurgião Mortal.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar law é membro dos piratas do chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar Law é membro dos Piratas do Chapéu de Palha.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar law é um membro dos piratas do chapeu de palha.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar law ja foi um escravo.",
+    "is": "false"
+  },
+  {
+    "name": "Trafalgar Law perdeu um braço durante o Timeskip",
+    "is": "false"
+  },
+  {
+    "name": "Trebol tinha a fruta do diabo do tipo logia.",
+    "is": "false"
+  },
+  {
+    "name": "Tsuru comeu a washe washe no mi.",
+    "is": "false"
+  },
+  {
+    "name": "Tsuru nasceu no east blue.",
+    "is": "false"
+  },
+  {
+    "name": "Urouge é também conhecido como Mad Monk. Ele é um pirata de uma ilha do céu e capitãp dos Piratas Mad Monk.",
+    "is": "false"
+  },
+  {
+    "name": "Vab Augur nasceu no West Blue.",
+    "is": "false"
+  },
+  {
+    "name": "Van augur nasceu no west blue.",
+    "is": "false"
+  },
+  {
+    "name": "Vasco shot é o capitão do sétimo navio, liderando a sétima frota do teach.",
+    "is": "false"
+  },
+  {
+    "name": "Vergo pode cobrir QUASE seu corpo inteiro com haki.",
+    "is": "false"
+  },
+  {
+    "name": "Vista nasceu na grand line.",
+    "is": "false"
+  },
+  {
+    "name": "Walpol nasceu no north blue.",
+    "is": "false"
+  },
+  {
+    "name": "Wapol nasceu no north blue.",
+    "is": "false"
+  },
+  {
+    "name": "Woop Slap é o prefeito de Orange Town.",
+    "is": "false"
+  },
+  {
+    "name": "Zeff perdeu sua perna esquerda para salvar Sanji.",
+    "is": "false"
+  },
+  {
+    "name": "Zoro empunhou MENOS de 8 espadas diferentes no anime.",
+    "is": "false"
+  },

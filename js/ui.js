@@ -19,8 +19,9 @@ function switchCalcSubTab(subTab, btn) {
       panel.style.display = "block";
       // Restart animation by removing and re-adding active
       panel.classList.remove("active");
-      void panel.offsetWidth; // force reflow
-      panel.classList.add("active");
+      requestAnimationFrame(() => {
+        panel.classList.add("active");
+      });
     } else {
       panel.classList.remove("active");
       panel.style.display = "none";
@@ -42,8 +43,9 @@ function switchTab(tab, btn) {
   const activePanel = document.getElementById(tab);
   activePanel.style.display = "block";
   activePanel.classList.remove("tab-entering");
-  void activePanel.offsetWidth;
-  activePanel.classList.add("tab-entering");
+  requestAnimationFrame(() => {
+    activePanel.classList.add("tab-entering");
+  });
 
   if (tab === "calc") {
     switchCalcSubTab(calcSubTabActive, document.getElementById(`calc-subtab-btn-${calcSubTabActive}`));
@@ -55,8 +57,18 @@ function switchTab(tab, btn) {
   }
 
   // Init World Bosses content when the tab becomes visible
-  if (tab === "shai_hulud" && typeof worldBossesInit === "function") {
-    worldBossesInit();
+  if (["shai_hulud","mihawk","hiking_bear","byakko","bananawani","plesiosaur","aokiji"].includes(tab) && typeof worldBossesInit === "function") {
+    worldBossesInit(tab);
+  }
+
+  // Init Foxy Quiz when the tab becomes visible
+  if (tab === "foxy_quiz" && typeof foxyQuizInit === "function") {
+    foxyQuizInit();
+  }
+
+  // Init Island Chests when the tab becomes visible
+  if (tab === "island_chests" && typeof islandChestsInit === "function") {
+    islandChestsInit();
   }
 }
 

@@ -267,8 +267,9 @@ function switchWantedSubTab(subTab, btn) {
     if (isActive) {
       panel.style.display = "block";
       panel.classList.remove("active");
-      void panel.offsetWidth;
-      panel.classList.add("active");
+      requestAnimationFrame(() => {
+        panel.classList.add("active");
+      });
     } else {
       panel.classList.remove("active");
       panel.style.display = "none";
@@ -382,7 +383,7 @@ function wantedBuildPersonCell(rawName, isWantedPirate = false) {
 
   return `
     <span class="wanted-person${sizeClass}">
-      <img src="${iconPath}" alt="${escapedName}" onerror="this.onerror=null;this.src='sprites/branding/logo.jpg';" />
+      <img src="${iconPath}" alt="${escapedName}" onerror="this.onerror=null;this.src='sprites/branding/logo_0.png';" />
       <span>${escapedName}</span>
     </span>
   `;
@@ -537,7 +538,7 @@ function wantedBuildCounterPoolCard(name, contextClass) {
 
   return `
     <article class="wanted-tier-card${compactClass}${tierClass}" draggable="true" data-counter-context="pool" data-pool-context="${contextClass}" data-counter-name="${encodedName}">
-      <img src="${iconPath}" alt="${escapedName}" onerror="this.onerror=null;this.src='sprites/branding/logo.jpg';" />
+      <img src="${iconPath}" alt="${escapedName}" onerror="this.onerror=null;this.src='sprites/branding/logo_0.png';" />
       <span>${escapedName}</span>
     </article>
   `;
@@ -551,7 +552,7 @@ function wantedBuildCounterEntryCard(entry, context, extraData = "") {
 
   return `
     <article class="wanted-tier-card${compactClass}${tierClass}" draggable="true" data-counter-context="${context}" data-entry-id="${wantedEscapeHtml(entry.id)}" ${extraData}>
-      <img src="${iconPath}" alt="${escapedName}" onerror="this.onerror=null;this.src='sprites/branding/logo.jpg';" />
+      <img src="${iconPath}" alt="${escapedName}" onerror="this.onerror=null;this.src='sprites/branding/logo_0.png';" />
       <span>${escapedName}</span>
       <button type="button" class="wanted-counter-remove" data-remove-entry="${wantedEscapeHtml(entry.id)}">×</button>
     </article>
@@ -588,7 +589,7 @@ function wantedRenderTierList() {
 
   board.innerHTML = `
     <div class="wanted-tier-category-banner">
-      <img src="${currentWantedIcon}" alt="${wantedEscapeHtml(currentWanted)}" onerror="this.onerror=null;this.src='sprites/branding/logo.jpg';" />
+      <img src="${currentWantedIcon}" alt="${wantedEscapeHtml(currentWanted)}" onerror="this.onerror=null;this.src='sprites/branding/logo_0.png';" />
       <strong>${wantedEscapeHtml(currentWanted)}</strong>
     </div>
     ${tierRowsHtml}
@@ -636,7 +637,7 @@ function wantedRenderRowsMode() {
         <section class="wanted-tier-row wanted-row-line" data-row-line="${wantedEscapeHtml(row.id)}">
           <div class="wanted-row-wanted-box">
             <div class="wanted-row-title">
-              <img src="${wantedGetPortraitPath(row.wantedName)}" alt="${wantedEscapeHtml(row.wantedName)}" onerror="this.onerror=null;this.src='sprites/branding/logo.jpg';" />
+              <img src="${wantedGetPortraitPath(row.wantedName)}" alt="${wantedEscapeHtml(row.wantedName)}" onerror="this.onerror=null;this.src='sprites/branding/logo_0.png';" />
             </div>
           </div>
           <div class="wanted-tier-dropzone wanted-row-dropzone" data-row-target="${wantedEscapeHtml(row.id)}">
@@ -1037,7 +1038,7 @@ function wantedLoadTierImages(rows) {
       const fallback = new Image();
       fallback.onload = () => resolve([name, fallback]);
       fallback.onerror = () => resolve([name, null]);
-      fallback.src = "sprites/branding/logo.jpg";
+      fallback.src = "sprites/branding/logo_0.png";
     };
     img.src = wantedGetPortraitPath(name);
   }));
