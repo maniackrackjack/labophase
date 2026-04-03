@@ -636,6 +636,90 @@
   padding: 16px 0;
 }
 
+/* ---- Island-specific stats row ---- */
+.ic-island-stats-row {
+  border-top: 1px dashed var(--border-accent);
+  padding-top: 8px;
+  margin-top: 0;
+}
+
+.ic-island-label-prefix {
+  font-style: italic;
+}
+
+/* ---- Stamina mode: fixed table viewport with horizontal scrollbar ---- */
+.ic-stamina-mode .ic-main {
+  overflow: hidden;
+}
+
+.ic-stamina-mode #ic-chests-container {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ic-stamina-mode .ic-stamina-all-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ic-stamina-mode .ic-stamina-all-wrap > .ic-section:last-child {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ic-stamina-mode .ic-char-table-wrap {
+  flex: 1;
+  min-height: 0;
+  max-width: none;
+  overflow-x: scroll;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  padding-bottom: 0;
+  cursor: grab;
+}
+
+.ic-stamina-mode .ic-char-table-wrap.ic-dragging {
+  cursor: grabbing;
+}
+
+.ic-stamina-mode .ic-char-table-wrap.ic-dragging * {
+  user-select: none;
+  pointer-events: none;
+}
+
+.ic-stamina-mode .ic-char-table,
+.ic-stamina-mode .ic-stamina-table {
+  width: max-content;
+  min-width: 100%;
+}
+
+/* Force always-visible track (defeats macOS overlay/hidden scrollbars) */
+.ic-stamina-mode .ic-char-table-wrap::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
+}
+
+.ic-stamina-mode .ic-char-table-wrap::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--text-title) 55%, transparent 45%);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.ic-stamina-mode .ic-char-table-wrap::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--bg-surface-1) 75%, transparent 25%);
+  border-radius: 999px;
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 640px) {
   .ic-sidebar {

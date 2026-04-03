@@ -597,6 +597,51 @@ function icCalcTotalRemainingBerries() {
   return total;
 }
 
+// ---- Berry total remaining for a single island ----
+function icCalcIslandRemainingBerries(islandName) {
+  const island = ISLAND_CHEST_DATA.find(i => i.nome === islandName);
+  if (!island) return 0;
+  let total = 0;
+  for (const bau of island.baus) {
+    if (!icChestMatchesFilter(bau)) continue;
+    const berries = icCalcChestBerries(icParseLoot(bau.loot));
+    if (berries === 0) continue;
+    if (bau.global) {
+      if (!icIsGlobalChecked(island.nome, bau.id)) total += berries;
+    } else {
+      for (const char of CHARACTERS_DATA) {
+        if (!icIsCharChecked(char.id, island.nome, bau.id)) total += berries;
+      }
+    }
+  }
+  return total;
+}
+
+// ---- Stamina progress for a single island ----
+function icCalcIslandStaminaProgress(islandName) {
+  const island = ISLAND_CHEST_DATA.find(i => i.nome === islandName);
+  if (!island) return { ebTotal: 0, ebDone: 0, glTotal: 0, glDone: 0 };
+  let ebTotal = 0, ebDone = 0, glTotal = 0, glDone = 0;
+  for (const bau of island.baus) {
+    if (!bau.stamina) continue;
+    const items = icParseLoot(bau.loot);
+    const hasEB = items.some(i => i.name === "eb_stamina_potion");
+    const hasGL = items.some(i => i.name === "gl_stamina_potion");
+    if (bau.global) {
+      const checked = icIsGlobalChecked(island.nome, bau.id);
+      if (hasEB) { ebTotal += 1; if (checked) ebDone += 1; }
+      if (hasGL) { glTotal += 1; if (checked) glDone += 1; }
+    } else {
+      for (const char of CHARACTERS_DATA) {
+        const checked = icIsCharChecked(char.id, island.nome, bau.id);
+        if (hasEB) { ebTotal += 1; if (checked) ebDone += 1; }
+        if (hasGL) { glTotal += 1; if (checked) glDone += 1; }
+      }
+    }
+  }
+  return { ebTotal, ebDone, glTotal, glDone };
+}
+
 // ---- Stamina progress ----
 function icCalcStaminaProgress() {
   let ebTotal = 0, ebDone = 0;
@@ -710,6 +755,29 @@ function icUpdateStats() {
   const glLabel = document.getElementById("ic-gl-progress-label");
   if (glBar) glBar.style.width = glTotal > 0 ? `${(glDone / glTotal) * 100}%` : "0%";
   if (glLabel) glLabel.textContent = `${glDone} ${t("islandChestsOf")} ${glTotal}`;
+
+  // Island-specific stats row
+  const islandStatsRow = document.getElementById("ic-island-stats-row");
+  if (islandStatsRow) {
+    const showIslandStats = !icStaminaOnly && !!icSelectedIsland;
+    islandStatsRow.style.display = showIslandStats ? "flex" : "none";
+    if (showIslandStats) {
+      const islandBerries = icCalcIslandRemainingBerries(icSelectedIsland);
+      const islandBerriesEl = document.getElementById("ic-island-berries");
+      if (islandBerriesEl) islandBerriesEl.textContent = `฿${icFormatBerries(islandBerries)}`;
+
+      const { ebTotal: iebTotal, ebDone: iebDone, glTotal: iglTotal, glDone: iglDone } = icCalcIslandStaminaProgress(icSelectedIsland);
+      const iEbBar = document.getElementById("ic-island-eb-bar");
+      const iEbLabel = document.getElementById("ic-island-eb-label");
+      if (iEbBar) iEbBar.style.width = iebTotal > 0 ? `${(iebDone / iebTotal) * 100}%` : "0%";
+      if (iEbLabel) iEbLabel.textContent = `${iebDone} ${t("islandChestsOf")} ${iebTotal}`;
+
+      const iGlBar = document.getElementById("ic-island-gl-bar");
+      const iGlLabel = document.getElementById("ic-island-gl-label");
+      if (iGlBar) iGlBar.style.width = iglTotal > 0 ? `${(iglDone / iglTotal) * 100}%` : "0%";
+      if (iGlLabel) iGlLabel.textContent = `${iglDone} ${t("islandChestsOf")} ${iglTotal}`;
+    }
+  }
 }
 
 // ---- Render all stamina chests across all islands (stamina-only mode) ----
@@ -761,7 +829,7 @@ function icRenderAllStaminaChests() {
   if (withPerChar.length > 0) {
     html += `<div class="ic-section">
       <h3 class="ic-section-title">${t("islandChestsPerChar")}</h3>
-      <div class="ic-char-table-wrap">
+      <div class="ic-char-table-wrap ic-drag-scroll">
         <table class="ic-char-table ic-stamina-table">
           <thead>
             <tr class="ic-stamina-island-row">
@@ -934,6 +1002,7 @@ function icRenderIslandChests() {
 }
 
 function icAttachChestEvents(container) {
+  icAttachDragScroll(container);
   container.querySelectorAll("[data-chest-id]").forEach(el => {
     el.addEventListener("click", icHandleChestToggle);
     el.addEventListener("keydown", (e) => {
@@ -942,6 +1011,66 @@ function icAttachChestEvents(container) {
         icHandleChestToggle.call(el, e);
       }
     });
+  });
+}
+
+function icAttachDragScroll(container) {
+  container.querySelectorAll(".ic-drag-scroll").forEach((wrap) => {
+    if (wrap.dataset.dragReady === "1") return;
+    wrap.dataset.dragReady = "1";
+
+    // Threshold in px before we commit to a drag (avoids eating normal clicks)
+    const DRAG_THRESHOLD = 8;
+
+    let active = false;   // pointerdown in progress
+    let dragging = false; // threshold exceeded — real drag
+    let startX = 0, startY = 0, startLeft = 0, startTop = 0;
+
+    wrap.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0) return;
+      active = true;
+      dragging = false;
+      startX = e.clientX;
+      startY = e.clientY;
+      startLeft = wrap.scrollLeft;
+      startTop  = wrap.scrollTop;
+      // No setPointerCapture — pointer events must still reach chest children
+    });
+
+    wrap.addEventListener("pointermove", (e) => {
+      if (!active) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      if (!dragging && (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD)) {
+        dragging = true;
+        wrap.classList.add("ic-dragging");
+      }
+      if (dragging) {
+        wrap.scrollLeft = startLeft - dx;
+        wrap.scrollTop  = startTop  - dy;
+        e.preventDefault();
+      }
+    });
+
+    function endDrag() {
+      if (!active) return;
+      active = false;
+      if (dragging) {
+        wrap.classList.remove("ic-dragging");
+        // Suppress exactly the one synthetic click that fires after a drag
+        wrap.addEventListener("click", stopOneClick, { capture: true, once: true });
+      }
+      dragging = false;
+    }
+
+    function stopOneClick(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    wrap.addEventListener("pointerup",     endDrag);
+    wrap.addEventListener("pointercancel", endDrag);
+    wrap.addEventListener("pointerleave",  endDrag);
   });
 }
 
@@ -1201,6 +1330,30 @@ function islandChestsInit() {
               <div id="ic-gl-progress-bar" class="ic-progress-fill"></div>
             </div>
             <span id="ic-gl-progress-label" class="ic-progress-label">0 ${t("islandChestsOf")} 0</span>
+          </div>
+        </div>
+      </div>
+      <div id="ic-island-stats-row" class="ic-stats-row ic-island-stats-row" style="display:${!icStaminaOnly && !!icSelectedIsland ? 'flex' : 'none'}">
+        <div class="ic-stat-block">
+          <span class="ic-stat-label ic-island-label-prefix"><span data-lang="islandChestsIslandLabel">${t("islandChestsIslandLabel")}</span> — <span data-lang="islandChestsTotalBerries">${t("islandChestsTotalBerries")}</span>:</span>
+          <span id="ic-island-berries" class="ic-stat-value">฿0</span>
+        </div>
+        <div class="ic-progress-block">
+          <span class="ic-stat-label"><span data-lang="islandChestsEbStamina">${t("islandChestsEbStamina")}</span>:</span>
+          <div class="ic-progress-bar-wrap">
+            <div class="ic-progress-bar ic-eb-bar">
+              <div id="ic-island-eb-bar" class="ic-progress-fill"></div>
+            </div>
+            <span id="ic-island-eb-label" class="ic-progress-label">0 ${t("islandChestsOf")} 0</span>
+          </div>
+        </div>
+        <div class="ic-progress-block">
+          <span class="ic-stat-label"><span data-lang="islandChestsGlStamina">${t("islandChestsGlStamina")}</span>:</span>
+          <div class="ic-progress-bar-wrap">
+            <div class="ic-progress-bar ic-gl-bar">
+              <div id="ic-island-gl-bar" class="ic-progress-fill"></div>
+            </div>
+            <span id="ic-island-gl-label" class="ic-progress-label">0 ${t("islandChestsOf")} 0</span>
           </div>
         </div>
       </div>`;

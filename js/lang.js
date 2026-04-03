@@ -450,7 +450,8 @@ const COMMON_LANG = {
     islandChestsResetIsland: "Limpar ilha",
     islandChestsResetAll: "Limpar tudo",
     islandChestsSearchChars: "Procurar personagem...",
-    islandChestsSearchCharsHint: "Digite o nome do personagem. Use separado por vírgula para varios. Ex: Akainu, Ace"
+    islandChestsSearchCharsHint: "Digite o nome do personagem. Use separado por vírgula para varios. Ex: Akainu, Ace",
+    islandChestsIslandLabel: "Esta ilha"
   },
 
   en: {
@@ -904,7 +905,8 @@ const COMMON_LANG = {
     islandChestsResetIsland: "Reset island",
     islandChestsResetAll: "Reset all",
     islandChestsSearchChars: "Search characters...",
-    islandChestsSearchCharsHint: "Type character name. Use comma-separated for multiple. E.g: Akainu, Ace"
+    islandChestsSearchCharsHint: "Type character name. Use comma-separated for multiple. E.g: Akainu, Ace",
+    islandChestsIslandLabel: "This island"
   },
 
   es: {
@@ -1358,7 +1360,8 @@ const COMMON_LANG = {
     islandChestsResetIsland: "Reiniciar isla",
     islandChestsResetAll: "Reiniciar todo",
     islandChestsSearchChars: "Buscar personaje...",
-    islandChestsSearchCharsHint: "Escribe el nombre del personaje. Usa separado por coma para múltiples. Ej: Akainu, Ace"
+    islandChestsSearchCharsHint: "Escribe el nombre del personaje. Usa separado por coma para múltiples. Ej: Akainu, Ace",
+    islandChestsIslandLabel: "Esta isla"
   },
 
   pl: {
@@ -1812,7 +1815,8 @@ const COMMON_LANG = {
     islandChestsResetIsland: "Resetuj wyspę",
     islandChestsResetAll: "Resetuj wszystko",
     islandChestsSearchChars: "Szukaj postaci...",
-    islandChestsSearchCharsHint: "Wpisz nazwę postaci. Użyj przecinka dla wielu. Np: Akainu, Ace"
+    islandChestsSearchCharsHint: "Wpisz nazwę postaci. Użyj przecinka dla wielu. Np: Akainu, Ace",
+    islandChestsIslandLabel: "Ta wyspa"
   }
 };
 
