@@ -829,6 +829,11 @@ function icRenderAllStaminaChests() {
   if (withPerChar.length > 0) {
     html += `<div class="ic-section">
       <h3 class="ic-section-title">${t("islandChestsPerChar")}</h3>
+      <div class="ic-top-scrollbar-wrap">
+        <div class="ic-top-scrollbar" aria-hidden="true">
+          <div class="ic-top-scrollbar-spacer"></div>
+        </div>
+      </div>
       <div class="ic-char-table-wrap ic-drag-scroll">
         <table class="ic-char-table ic-stamina-table">
           <thead>
@@ -1003,6 +1008,7 @@ function icRenderIslandChests() {
 
 function icAttachChestEvents(container) {
   icAttachDragScroll(container);
+  icAttachTopScrollbar(container);
   container.querySelectorAll("[data-chest-id]").forEach(el => {
     el.addEventListener("click", icHandleChestToggle);
     el.addEventListener("keydown", (e) => {
@@ -1011,6 +1017,49 @@ function icAttachChestEvents(container) {
         icHandleChestToggle.call(el, e);
       }
     });
+  });
+}
+
+function icAttachTopScrollbar(container) {
+  const sections = container.querySelectorAll(".ic-section");
+  sections.forEach((section) => {
+    const topBar = section.querySelector(".ic-top-scrollbar");
+    const spacer = section.querySelector(".ic-top-scrollbar-spacer");
+    const tableWrap = section.querySelector(".ic-char-table-wrap");
+    const table = section.querySelector(".ic-char-table");
+    if (!topBar || !spacer || !tableWrap || !table) return;
+    if (topBar.dataset.syncReady === "1") return;
+    topBar.dataset.syncReady = "1";
+
+    let syncing = false;
+
+    function updateWidth() {
+      spacer.style.width = `${table.scrollWidth}px`;
+    }
+
+    topBar.addEventListener("scroll", () => {
+      if (syncing) return;
+      syncing = true;
+      tableWrap.scrollLeft = topBar.scrollLeft;
+      syncing = false;
+    });
+
+    tableWrap.addEventListener("scroll", () => {
+      if (syncing) return;
+      syncing = true;
+      topBar.scrollLeft = tableWrap.scrollLeft;
+      syncing = false;
+    });
+
+    updateWidth();
+
+    if (typeof ResizeObserver !== "undefined") {
+      const ro = new ResizeObserver(updateWidth);
+      ro.observe(table);
+      ro.observe(tableWrap);
+    }
+
+    window.addEventListener("resize", updateWidth);
   });
 }
 
@@ -1277,10 +1326,20 @@ function islandChestsInit() {
     icBindUiControls();
     icRenderIslandChests();
     icUpdateStats();
+    icProfileUpdateDropdown();
     return;
   }
   icInitialized = true;
   icLoadState();
+
+  // Load saved profile if exists
+  const currentProfileName = icGetCurrentProfile();
+  const profiles = icGetProfiles();
+  if (currentProfileName !== "default" && profiles[currentProfileName]) {
+    applyIslandChestsState(profiles[currentProfileName]);
+  }
+
+  icProfileUpdateDropdown();
 
   // Build the header section (title + controls + stats)
   // Auto-select an island with per-character chests so the table is visible immediately
@@ -1305,6 +1364,7 @@ function islandChestsInit() {
           </div>
         </div>
         <div class="ic-actions">
+          <button class="shareBtn" onclick="shareBuild()" data-lang="shareBuild">Compartilhar</button>
           <button id="ic-reset-island-btn" class="ic-action-btn" data-lang="islandChestsResetIsland">${t("islandChestsResetIsland")}</button>
           <button id="ic-reset-all-btn" class="ic-action-btn ic-action-btn-danger" data-lang="islandChestsResetAll">${t("islandChestsResetAll")}</button>
         </div>
@@ -1363,4 +1423,163 @@ function islandChestsInit() {
   icBindUiControls();
   icRenderIslandChests();
   icUpdateStats();
+}
+
+// ---- Share/Load state functions ----
+function getIslandChestsState() {
+  return JSON.parse(JSON.stringify(icState));
+}
+
+function applyIslandChestsState(state) {
+  if (!state) {
+    icState = { checked: {}, globalChecked: {} };
+  } else {
+    icState = {
+      checked: state.checked || {},
+      globalChecked: state.globalChecked || {}
+    };
+  }
+  icSaveState();
+  if (icInitialized) {
+    icRenderIslandChests();
+    icUpdateStats();
+  }
+}
+
+// ---- Island Chests-specific profile management ----
+const IC_PROFILES_LS_KEY = "labophase.island_chests.profiles";
+const IC_CURRENT_PROFILE_KEY = "labophase.island_chests.currentProfile";
+
+function icGetProfiles() {
+  if (!storage) return {};
+  try {
+    const raw = storage.getItem(IC_PROFILES_LS_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (_) {
+    return {};
+  }
+}
+
+function icSetProfiles(profiles) {
+  if (!storage) return;
+  try {
+    storage.setItem(IC_PROFILES_LS_KEY, JSON.stringify(profiles));
+  } catch (_) {}
+}
+
+function icGetCurrentProfile() {
+  if (!storage) return "default";
+  return storage.getItem(IC_CURRENT_PROFILE_KEY) || "default";
+}
+
+function icSetCurrentProfile(name) {
+  if (!storage) return;
+  storage.setItem(IC_CURRENT_PROFILE_KEY, name);
+}
+
+function icProfileUpdateDropdown() {
+  const select = document.getElementById("ic-profile-select");
+  const controls = document.getElementById("ic-profile-controls");
+  if (!select || !controls) return;
+
+  const profiles = icGetProfiles();
+  const names = Object.keys(profiles).sort();
+
+  select.innerHTML = '<option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>';
+
+  if (names.length === 0) {
+    const opt = document.createElement("option");
+    opt.value = "default";
+    opt.textContent = "default";
+    select.appendChild(opt);
+  } else {
+    names.forEach((name) => {
+      const opt = document.createElement("option");
+      opt.value = name;
+      opt.textContent = name;
+      select.appendChild(opt);
+    });
+  }
+
+  const current = icGetCurrentProfile();
+  if (select.querySelector(`option[value="${current}"]`)) {
+    select.value = current;
+  } else {
+    select.value = names.length > 0 ? names[0] : "default";
+  }
+
+  // Show controls only if there are profiles
+  controls.style.display = names.length > 0 ? "flex" : "none";
+}
+
+function icProfileSave() {
+  const profiles = icGetProfiles();
+  const current = icGetCurrentProfile();
+  profiles[current] = getIslandChestsState();
+  icSetProfiles(profiles);
+  showToast(t("saveProfileSuccess"));
+}
+
+function icProfileCreate() {
+  const name = prompt(t("profileNamePrompt"))?.trim();
+  if (!name) return;
+
+  const profiles = icGetProfiles();
+  if (profiles[name]) {
+    const overwrite = confirm(t("profileExistsConfirm").replace("{name}", name));
+    if (!overwrite) return;
+  }
+
+  profiles[name] = getIslandChestsState();
+  icSetProfiles(profiles);
+  icSetCurrentProfile(name);
+  icProfileUpdateDropdown();
+  showToast(t("profileCreated"));
+}
+
+function icProfileDelete() {
+  const current = icGetCurrentProfile();
+  if (!current || current === "default") return;
+
+  const confirm_delete = confirm(t("profileDeleteConfirm").replace("{name}", current));
+  if (!confirm_delete) return;
+
+  const profiles = icGetProfiles();
+  delete profiles[current];
+  icSetProfiles(profiles);
+
+  const remaining = Object.keys(profiles).sort();
+  const next = remaining.length > 0 ? remaining[0] : "default";
+  icSetCurrentProfile(next);
+  icProfileUpdateDropdown();
+
+  if (next === "default") {
+    applyIslandChestsState(null);
+  } else {
+    applyIslandChestsState(profiles[next]);
+  }
+
+  showToast(t("profileDeleted"));
+}
+
+function icProfileSwitch() {
+  const select = document.getElementById("ic-profile-select");
+  if (!select) return;
+
+  const name = select.value;
+  if (!name) return;
+
+  // Save current state before switching
+  const profiles = icGetProfiles();
+  const current = icGetCurrentProfile();
+  profiles[current] = getIslandChestsState();
+  icSetProfiles(profiles);
+
+  icSetCurrentProfile(name);
+
+  if (name === "default") {
+    applyIslandChestsState(null);
+  } else {
+    applyIslandChestsState(profiles[name]);
+  }
 }

@@ -676,6 +676,29 @@
   gap: 10px;
 }
 
+.ic-stamina-mode .ic-top-scrollbar-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg-panel);
+  padding-bottom: 2px;
+}
+
+.ic-stamina-mode .ic-top-scrollbar {
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 14px;
+  scrollbar-gutter: stable;
+  border: 1px solid var(--border-accent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-surface-1) 85%, transparent 15%);
+}
+
+.ic-stamina-mode .ic-top-scrollbar-spacer {
+  height: 1px;
+  min-width: 100%;
+}
+
 .ic-stamina-mode .ic-char-table-wrap {
   flex: 1;
   min-height: 0;
@@ -716,6 +739,22 @@
 }
 
 .ic-stamina-mode .ic-char-table-wrap::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--bg-surface-1) 75%, transparent 25%);
+  border-radius: 999px;
+}
+
+.ic-stamina-mode .ic-top-scrollbar::-webkit-scrollbar {
+  height: 12px;
+}
+
+.ic-stamina-mode .ic-top-scrollbar::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--text-title) 55%, transparent 45%);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.ic-stamina-mode .ic-top-scrollbar::-webkit-scrollbar-track {
   background: color-mix(in srgb, var(--bg-surface-1) 75%, transparent 25%);
   border-radius: 999px;
 }

@@ -156,6 +156,15 @@ function charactersInit() {
   if (!panel) return;
 
   characterCollectionState = buildDefaultCharacterCollectionState();
+
+  // Load saved profile if exists
+  const currentProfileName = getCharactersCurrentProfile();
+  const profiles = getCharactersProfiles();
+  if (currentProfileName !== "default" && profiles[currentProfileName]) {
+    characterCollectionState = JSON.parse(JSON.stringify(profiles[currentProfileName]));
+  }
+
+  charactersProfileUpdateDropdown();
   bindCharactersEvents();
   charactersApplyTranslations();
   charactersRender();
@@ -787,4 +796,142 @@ function resetCharactersState() {
   characterCollectionState = buildDefaultCharacterCollectionState();
   characterMenuOpenId = "";
   charactersRender();
+}
+
+// ---- Characters-specific profile management ----
+const CHARACTERS_LS_KEY = "labophase.characters.profiles";
+const CHARACTERS_CURRENT_PROFILE_KEY = "labophase.characters.currentProfile";
+
+function getCharactersProfiles() {
+  if (!storage) return {};
+  try {
+    const raw = storage.getItem(CHARACTERS_LS_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (_) {
+    return {};
+  }
+}
+
+function setCharactersProfiles(profiles) {
+  if (!storage) return;
+  try {
+    storage.setItem(CHARACTERS_LS_KEY, JSON.stringify(profiles));
+  } catch (_) {}
+}
+
+function getCharactersCurrentProfile() {
+  if (!storage) return "default";
+  return storage.getItem(CHARACTERS_CURRENT_PROFILE_KEY) || "default";
+}
+
+function setCharactersCurrentProfile(name) {
+  if (!storage) return;
+  storage.setItem(CHARACTERS_CURRENT_PROFILE_KEY, name);
+}
+
+function charactersProfileUpdateDropdown() {
+  const select = document.getElementById("characters-profile-select");
+  const controls = document.getElementById("characters-profile-controls");
+  if (!select || !controls) return;
+
+  const profiles = getCharactersProfiles();
+  const names = Object.keys(profiles).sort();
+
+  select.innerHTML = '<option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>';
+
+  if (names.length === 0) {
+    const opt = document.createElement("option");
+    opt.value = "default";
+    opt.textContent = "default";
+    select.appendChild(opt);
+  } else {
+    names.forEach((name) => {
+      const opt = document.createElement("option");
+      opt.value = name;
+      opt.textContent = name;
+      select.appendChild(opt);
+    });
+  }
+
+  const current = getCharactersCurrentProfile();
+  if (select.querySelector(`option[value="${current}"]`)) {
+    select.value = current;
+  } else {
+    select.value = names.length > 0 ? names[0] : "default";
+  }
+
+  // Show controls only if there are profiles
+  controls.style.display = names.length > 0 ? "flex" : "none";
+}
+
+function charactersProfileSave() {
+  const profiles = getCharactersProfiles();
+  const current = getCharactersCurrentProfile();
+  profiles[current] = JSON.parse(JSON.stringify(characterCollectionState));
+  setCharactersProfiles(profiles);
+  showToast(t("saveProfileSuccess"));
+}
+
+function charactersProfileCreate() {
+  const name = prompt(t("profileNamePrompt"))?.trim();
+  if (!name) return;
+
+  const profiles = getCharactersProfiles();
+  if (profiles[name]) {
+    const overwrite = confirm(t("profileExistsConfirm").replace("{name}", name));
+    if (!overwrite) return;
+  }
+
+  profiles[name] = JSON.parse(JSON.stringify(characterCollectionState));
+  setCharactersProfiles(profiles);
+  setCharactersCurrentProfile(name);
+  charactersProfileUpdateDropdown();
+  showToast(t("profileCreated"));
+}
+
+function charactersProfileDelete() {
+  const current = getCharactersCurrentProfile();
+  if (!current || current === "default") return;
+
+  const confirm_delete = confirm(t("profileDeleteConfirm").replace("{name}", current));
+  if (!confirm_delete) return;
+
+  const profiles = getCharactersProfiles();
+  delete profiles[current];
+  setCharactersProfiles(profiles);
+
+  const remaining = Object.keys(profiles).sort();
+  const next = remaining.length > 0 ? remaining[0] : "default";
+  setCharactersCurrentProfile(next);
+  charactersProfileUpdateDropdown();
+
+  if (next === "default") {
+    resetCharactersState();
+  } else {
+    applyCharactersState(profiles[next]);
+  }
+
+  showToast(t("profileDeleted"));
+}
+
+function charactersProfileSwitch() {
+  const select = document.getElementById("characters-profile-select");
+  if (!select) return;
+
+  const name = select.value;
+  if (!name) return;
+
+  // Save current state before switching
+  const profiles = getCharactersProfiles();
+  const current = getCharactersCurrentProfile();
+  profiles[current] = JSON.parse(JSON.stringify(characterCollectionState));
+  setCharactersProfiles(profiles);
+
+  setCharactersCurrentProfile(name);
+
+  if (name === "default") {
+    resetCharactersState();
+  } else {
+    applyCharactersState(profiles[name]);
+  }
 }

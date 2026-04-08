@@ -141,11 +141,20 @@ function foxyQuizEscapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+// Normalize string by removing accents (é->e, á->a, etc)
+function foxyQuizNormalizeString(str) {
+  return String(str)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
 function foxyQuizFilter(query) {
   if (!query || !query.trim()) return null;
-  const terms = query.trim().toLowerCase().split(/\s+/);
+  const normalizedQuery = foxyQuizNormalizeString(query);
+  const terms = normalizedQuery.split(/\s+/);
   return foxyQuizSentences.filter((s) =>
-    terms.every((term) => s.name.toLowerCase().includes(term))
+    terms.every((term) => foxyQuizNormalizeString(s.name).includes(term))
   );
 }
 

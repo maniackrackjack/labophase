@@ -486,6 +486,15 @@
               </div>
             </div>
 
+            <div class="profileControls" id="characters-profile-controls" style="display: none;">
+              <select id="characters-profile-select" onchange="charactersProfileSwitch()" data-lang-title="selectProfile" title="Selecione um perfil">
+                <option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>
+              </select>
+              <button class="saveBtn" data-lang="saveProfile" onclick="charactersProfileSave()">Salvar perfil</button>
+              <button class="saveBtn" data-lang="newProfile" onclick="charactersProfileCreate()">Novo perfil</button>
+              <button class="clearBtn" data-lang="deleteProfile" onclick="charactersProfileDelete()">Excluir perfil</button>
+            </div>
+
             <div class="characters-filter-bar">
               <div class="characters-filter-field characters-filter-search">
                 <label for="characters-search" data-lang="charactersSearchLabel">Pesquisar</label>
@@ -708,6 +717,14 @@
             <nav class="ic-sidebar" id="ic-island-list" aria-label="Island list"></nav>
             <div class="ic-main">
               <div id="ic-header"></div>
+              <div class="profileControls" id="ic-profile-controls" style="display: none;">
+                <select id="ic-profile-select" onchange="icProfileSwitch()" data-lang-title="selectProfile" title="Selecione um perfil">
+                  <option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>
+                </select>
+                <button class="saveBtn" data-lang="saveProfile" onclick="icProfileSave()">Salvar perfil</button>
+                <button class="saveBtn" data-lang="newProfile" onclick="icProfileCreate()">Novo perfil</button>
+                <button class="clearBtn" data-lang="deleteProfile" onclick="icProfileDelete()">Excluir perfil</button>
+              </div>
               <div id="ic-chests-container">
                 <p class="ic-empty-msg" data-lang="islandChestsNoIslandSelected">Select an island to view its chests.</p>
               </div>
