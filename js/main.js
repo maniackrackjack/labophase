@@ -213,8 +213,11 @@ charactersInit();
 // Initialize boats tab before loading saved state
 boatsInit();
 
-// Load profiles
-updateProfileDropdown();
+// Initialize global profile modal
+initProfileModal();
+
+// Load profile from URL when present
+_checkProfileInUrl();
 
 // Load saved build (URL has priority)
 if (!loadBuildFromUrl()) {

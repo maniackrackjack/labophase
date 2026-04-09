@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="css/world_bosses.css" />
     <link rel="stylesheet" href="css/foxy_quiz.css" />
     <link rel="stylesheet" href="css/island_chests.css" />
+    <link rel="stylesheet" href="css/profiles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
   </head>
 
   <body>
@@ -47,6 +49,14 @@
             <img class="logo-icon" src="sprites/branding/logo_0.png" alt="logo">
             <span class="logo-text">Labophase</span>
           </div>
+          <button id="profile-sidebar-btn" class="profile-sidebar-btn" type="button" onclick="openProfileModal()">
+            <span id="profile-btn-icon" class="profile-btn-icon">👤</span>
+            <span class="profile-btn-meta">
+              <span id="profile-btn-title" class="profile-btn-title" data-lang="profileBtn">Perfil</span>
+              <span id="profile-btn-name" class="profile-btn-name">default</span>
+            </span>
+            <span id="profile-btn-color" class="profile-btn-color" aria-hidden="true"></span>
+          </button>
           <div class="langSelector">
             <div class="langButtons">
               <button class="langBtn" type="button" data-lang="en" aria-label="English" onclick="setLang('en')">🇬🇧</button>
@@ -202,24 +212,6 @@
                 </div>
               </div>
 
-              <div class="profileControls">
-              <select id="profileSelect" onchange="switchProfile()">
-                <option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>
-              </select>
-
-              <button class="saveBtn" data-lang="saveProfile" onclick="saveProfile()">
-                Salvar perfil
-              </button>
-
-              <button class="saveBtn" data-lang="newProfile" onclick="createProfile()">
-                Novo perfil
-              </button>
-
-              <button class="clearBtn" data-lang="deleteProfile" onclick="deleteProfile()">
-                Excluir perfil
-              </button>
-              </div>
-
               <div class="buttons">
               <button class="setBtn" data-lang="fullSet" onclick="addFullSet()">
                 Adicionar Set Completo
@@ -347,13 +339,7 @@
                   <button class="setBtn" type="button" id="boost-import-current-btn" data-lang="boostImportCurrent">Importar calculadora</button>
                 </div>
 
-                <div class="boost-row boost-profile-row">
-                  <label for="boost-profile-select" data-lang="selectProfile">Selecione um perfil</label>
-                  <select id="boost-profile-select" data-lang-title="boostProfileSelectTitle" title="Selecione um perfil para importar"></select>
-                </div>
-
                 <div class="boost-actions">
-                  <button class="setBtn" type="button" id="boost-import-profile-btn" data-lang="boostImportProfile">Importar perfil</button>
                   <button class="clearBtn" type="button" id="boost-clear-items-btn" data-lang="boostClearItems" data-lang-title="boostClearItemsTitle" title="Remove todos os itens da lista">Limpar itens</button>
                 </div>
               </section>
@@ -484,15 +470,6 @@
                 <div id="characters-summary" class="characters-summary">0 / 0</div>
                 <button class="shareBtn" onclick="shareBuild()" data-lang="shareBuild">Compartilhar</button>
               </div>
-            </div>
-
-            <div class="profileControls" id="characters-profile-controls" style="display: none;">
-              <select id="characters-profile-select" onchange="charactersProfileSwitch()" data-lang-title="selectProfile" title="Selecione um perfil">
-                <option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>
-              </select>
-              <button class="saveBtn" data-lang="saveProfile" onclick="charactersProfileSave()">Salvar perfil</button>
-              <button class="saveBtn" data-lang="newProfile" onclick="charactersProfileCreate()">Novo perfil</button>
-              <button class="clearBtn" data-lang="deleteProfile" onclick="charactersProfileDelete()">Excluir perfil</button>
             </div>
 
             <div class="characters-filter-bar">
@@ -717,14 +694,6 @@
             <nav class="ic-sidebar" id="ic-island-list" aria-label="Island list"></nav>
             <div class="ic-main">
               <div id="ic-header"></div>
-              <div class="profileControls" id="ic-profile-controls" style="display: none;">
-                <select id="ic-profile-select" onchange="icProfileSwitch()" data-lang-title="selectProfile" title="Selecione um perfil">
-                  <option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>
-                </select>
-                <button class="saveBtn" data-lang="saveProfile" onclick="icProfileSave()">Salvar perfil</button>
-                <button class="saveBtn" data-lang="newProfile" onclick="icProfileCreate()">Novo perfil</button>
-                <button class="clearBtn" data-lang="deleteProfile" onclick="icProfileDelete()">Excluir perfil</button>
-              </div>
               <div id="ic-chests-container">
                 <p class="ic-empty-msg" data-lang="islandChestsNoIslandSelected">Select an island to view its chests.</p>
               </div>
@@ -1191,6 +1160,78 @@
         </div>
       </div>
 
+      <div id="profile-modal-overlay" class="profile-modal-overlay" aria-hidden="true">
+        <div class="profile-modal" role="dialog" aria-modal="true" aria-label="Profiles">
+          <div class="profile-modal-header">
+            <h4 class="profile-modal-title" data-lang="profileModalTitle">Perfis</h4>
+            <button type="button" class="profile-modal-close" data-profile-close aria-label="Close">✕</button>
+          </div>
+
+          <div class="profile-modal-actions">
+            <button type="button" class="profile-action-btn" data-profile-action="create"><span class="btn-icon">➕</span> <span class="btn-label" data-lang="profileCreate">Criar</span></button>
+            <button type="button" class="profile-action-btn is-danger" data-profile-action="delete"><span class="btn-icon">❌</span> <span class="btn-label" data-lang="deleteProfile">Deletar</span></button>
+            <button type="button" class="profile-action-btn" data-profile-action="edit"><span class="btn-icon">✏️</span> <span class="btn-label" data-lang="profileEdit">Editar Perfil</span></button>
+            <button type="button" class="profile-action-btn" data-profile-action="export"><span class="btn-icon">📤</span> <span class="btn-label" data-lang="exportBuild">Exportar</span></button>
+            <button type="button" class="profile-action-btn" data-profile-action="import"><span class="btn-icon">📥</span> <span class="btn-label" data-lang="importBuild">Importar</span></button>
+            <button type="button" class="profile-action-btn" data-profile-action="share"><span class="btn-icon">🔗</span> <span class="btn-label" data-lang="profileShareLink">Compartilhar link</span></button>
+            <button type="button" class="profile-action-btn" data-profile-action="paste"><span class="btn-icon">🔗</span> <span class="btn-label" data-lang="profilePasteLink">Colar link</span></button>
+          </div>
+
+          <div class="profile-list-wrap">
+            <div id="profile-empty-msg" class="profile-empty-msg" data-lang="profileNoProfiles">Nenhum perfil. Clique em ➕ para criar.</div>
+            <div id="profile-card-list" class="profile-list"></div>
+          </div>
+
+          <div id="profile-subform" class="profile-subform" style="display:none;">
+            <h5 class="profile-subform-title" data-lang="profileCreateTitle">Criar Perfil</h5>
+            <div class="profile-subform-fields">
+              <div class="profile-subform-field profile-form-row-name">
+                <label data-profile-label="name" data-lang="profileNameLabel">Nome</label>
+                <input id="profile-form-name" type="text" data-lang-title="profileNamePlaceholder" />
+              </div>
+              <div class="profile-subform-field profile-form-row-emoji">
+                <label data-profile-label="emoji" data-lang="profileEmojiLabel">Emoji</label>
+                <div class="profile-emoji-selector">
+                  <button id="profile-emoji-trigger" class="profile-emoji-trigger" type="button" aria-haspopup="dialog" aria-expanded="false">👤</button>
+                  <div id="profile-emoji-popover" class="profile-emoji-popover" style="display:none;">
+                    <emoji-picker id="profile-emoji-picker" class="profile-emoji-picker" locale="en"></emoji-picker>
+                  </div>
+                  <input id="profile-form-emoji" class="profile-emoji-hidden-input" type="text" maxlength="10" value="👤" />
+                </div>
+              </div>
+              <div class="profile-subform-field profile-form-row-color">
+                <label data-profile-label="color" data-lang="profileColorLabel">Cor</label>
+                <div class="profile-color-modern">
+                  <div id="profile-color-pickr" class="profile-color-pickr"></div>
+                  <input id="profile-form-color" class="profile-color-hidden-input" type="text" value="#8b6a30" />
+                  <div class="profile-color-inputs">
+                    <input id="profile-color-hex" class="profile-color-input" type="text" value="#8b6a30" maxlength="9" aria-label="HEX" />
+                    <div class="profile-color-rgb-wrap">
+                      <input id="profile-color-r" class="profile-color-input rgb" type="number" min="0" max="255" value="139" aria-label="Red" />
+                      <input id="profile-color-g" class="profile-color-input rgb" type="number" min="0" max="255" value="106" aria-label="Green" />
+                      <input id="profile-color-b" class="profile-color-input rgb" type="number" min="0" max="255" value="48" aria-label="Blue" />
+                    </div>
+                  </div>
+                  <div id="profile-color-preview" class="profile-color-preview" style="background:#8b6a30;"></div>
+                </div>
+              </div>
+              <div id="profile-live-preview" class="profile-live-preview">
+                <div id="profile-live-preview-emoji" class="profile-live-preview-emoji">👤</div>
+                <div class="profile-live-preview-info">
+                  <div id="profile-live-preview-name" class="profile-live-preview-name">Perfil</div>
+                  <div class="profile-live-preview-sub">preview</div>
+                </div>
+                <div id="profile-live-preview-color" class="profile-live-preview-color" style="background:#8b6a30;"></div>
+              </div>
+            </div>
+            <div class="profile-subform-actions">
+              <button id="profile-form-cancel" type="button" class="profile-action-btn" data-lang="profileCancel">Cancelar</button>
+              <button id="profile-form-confirm" type="button" class="profile-action-btn" data-lang="profileConfirm">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
     </div>
 
@@ -1201,6 +1242,7 @@
     <script src="js/combos.js"></script>
     <script src="js/dnd.js"></script>
     <script src="js/cards.js"></script>
+    <script src="js/color_picker_factory.js"></script>
     <script src="js/groups.js"></script>
     <script src="js/profiles.js"></script>
     <script src="js/ui.js"></script>
@@ -1220,6 +1262,8 @@
     <script src="js/world_bosses.js"></script>
     <script src="js/island_chests.js"></script>
     <script src="js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

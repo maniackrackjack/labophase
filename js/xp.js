@@ -8,7 +8,7 @@ const XP_TIERS = {
   bronze: { multiplier: 3, icon: "sprites/xp/bronze_tier.png", nameKey: "xpTierBronze" },
   silver: { multiplier: 2, icon: "sprites/xp/silver_tier.png", nameKey: "xpTierSilver" },
   gold: { multiplier: 1, icon: "sprites/xp/gold_tier.png", nameKey: "xpTierGold" },
-  diamond: { multiplier: 0.5, icon: "sprites/xp/diamond_tier.png", nameKey: "xpTierDiamond" }
+  diamond: { multiplier: 1, icon: "sprites/xp/diamond_tier.png", nameKey: "xpTierDiamond" }
 };
 
 const XP_POTS = {

@@ -5,26 +5,34 @@
 /* ── Sidebar folder ──────────────────────────────────────────── */
 
 .wb-folder-btn {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
   padding: 10px 14px;
+  min-height: 42px;
   border: 1px solid var(--border-accent);
-  border-radius: 8px;
+  border-radius: 10px;
   background: linear-gradient(180deg, var(--bg-surface-1) 0%, color-mix(in srgb, var(--bg-panel) 88%, black 12%) 100%);
   color: var(--text-panel);
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
   text-align: left;
-  transition: border-color 0.15s ease, background 0.15s ease;
-  margin-top: 2px;
+  transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+  margin-top: 0;
 }
 
 .wb-folder-btn:hover {
   border-color: var(--input-focus);
   background: linear-gradient(180deg, var(--bg-surface-2, var(--bg-surface-1)) 0%, var(--bg-surface-1) 100%);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.24);
+  transform: translateY(-1px);
+}
+
+.wb-folder-btn:active {
+  transform: translateY(0);
 }
 
 .wb-folder-arrow {
@@ -43,6 +51,7 @@
   justify-content: center;
   padding: 10px 0;
   gap: 0;
+  min-height: 44px;
 }
 
 .sidebar.collapsed .wb-folder-arrow {
@@ -53,9 +62,9 @@
 .wb-folder-submenu {
   display: none;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
   padding-left: 14px;
-  margin-top: 2px;
+  margin-top: 0;
 }
 
 .wb-folder-submenu.wb-submenu-open {
@@ -64,6 +73,15 @@
 
 .wb-child-tab {
   font-size: 13px !important;
+}
+
+.wb-folder-submenu .tabBtn {
+  margin-bottom: 0;
+  min-height: 42px;
+}
+
+.sidebar.collapsed .wb-folder-submenu .tabBtn {
+  min-height: 44px;
 }
 
 /* ── Panel ───────────────────────────────────────────────────── */

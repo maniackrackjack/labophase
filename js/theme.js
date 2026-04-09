@@ -380,6 +380,10 @@ function renderThemePreview(activePreset) {
   const pickerAriaLabel = getThemePickerAriaLabel();
 
   mount.innerHTML = `<div class="themePickerCompact"><button type="button" class="themePickerToggle" data-theme-toggle aria-label="${themeEscape(pickerAriaLabel)}" aria-haspopup="dialog"><span class="themePresetOptionSwatch" aria-hidden="true" style="background:${themeEscape(activeSwatch)};"></span><span class="themePickerActiveName">${themeEscape(activeLabel)}</span></button></div>`;
+
+  if (typeof refreshSidebarCompactTooltips === "function") {
+    refreshSidebarCompactTooltips();
+  }
 }
 
 function refreshThemePickerSelection() {

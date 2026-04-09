@@ -156,15 +156,6 @@ function charactersInit() {
   if (!panel) return;
 
   characterCollectionState = buildDefaultCharacterCollectionState();
-
-  // Load saved profile if exists
-  const currentProfileName = getCharactersCurrentProfile();
-  const profiles = getCharactersProfiles();
-  if (currentProfileName !== "default" && profiles[currentProfileName]) {
-    characterCollectionState = JSON.parse(JSON.stringify(profiles[currentProfileName]));
-  }
-
-  charactersProfileUpdateDropdown();
   bindCharactersEvents();
   charactersApplyTranslations();
   charactersRender();

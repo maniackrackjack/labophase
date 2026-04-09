@@ -3,6 +3,7 @@
 // ============================================================
 
 let groupCounter = 0;
+const _groupColorFactory = window.ColorPickerFactory;
 
 function groupsResolveThemeColor(variableName, fallback) {
   const value = getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
@@ -32,6 +33,57 @@ function getDefaultGroupThemeColors() {
     titleColor: groupsResolveThemeColor("--text-panel", "#f0e0b0"),
     headerColor: groupsResolveThemeColor("--bg-surface-1", "#1a1008")
   };
+}
+
+function groupsDestroyColorPickers(group) {
+  if (!group || !Array.isArray(group._groupPickrs)) return;
+  group._groupPickrs.forEach((pickr) => {
+    _groupColorFactory.destroy(pickr);
+  });
+  group._groupPickrs = [];
+}
+
+function groupsInitColorPickers(group) {
+  if (!group) return;
+  groupsDestroyColorPickers(group);
+
+  const controls = [
+    { input: ".groupColorBorder", mount: ".groupColorBorderPickr", cssVar: "--group-color", fallback: "#6a4a20" },
+    { input: ".groupColorBg", mount: ".groupColorBgPickr", cssVar: "--group-bg-color", fallback: "#2a1a0e" },
+    { input: ".groupColorTitle", mount: ".groupColorTitlePickr", cssVar: "--group-title-color", fallback: "#f0e0b0" },
+    { input: ".groupColorHeader", mount: ".groupColorHeaderPickr", cssVar: "--group-header-color", fallback: "#1a1008" },
+  ];
+
+  controls.forEach((control) => {
+    const input = group.querySelector(control.input);
+    const mount = group.querySelector(control.mount);
+    if (!input || !mount) return;
+
+    const applyColor = (rawColor, shouldSave = true) => {
+      const color = _groupColorFactory.normalizeHexColor(rawColor, control.fallback);
+      input.value = color;
+      mount.style.background = color;
+      group.style.setProperty(control.cssVar, color);
+      if (shouldSave) autoSaveBuild();
+    };
+
+    applyColor(input.value, false);
+
+    const pickr = _groupColorFactory.create({
+      el: mount,
+      theme: "nano",
+      defaultColor: input.value,
+      inline: false,
+      showAlways: false,
+      swatches: ["#6a4a20", "#2a1a0e", "#f0e0b0", "#1a1008", "#c97a27", "#bf3b2b", "#2f5fb8", "#1f8a70"],
+      onChange: (color) => applyColor(color, true),
+    });
+
+    if (!pickr) return;
+
+    group._groupPickrs = group._groupPickrs || [];
+    group._groupPickrs.push(pickr);
+  });
 }
 
 function updateGroupCrystalCounts() {
@@ -80,10 +132,22 @@ function createGroup(options = {}) {
   <span class="groupTitle" contenteditable="true">${title}</span>
   <span class="groupCrystalCount">${t("groupCrystals").replace("{n}", 0)}</span>
   <div class="groupColorPickers">
-    <input class="groupColor groupColorBorder" type="color" value="${color}" title="${t("groupColorBorder")}">
-    <input class="groupColor groupColorBg" type="color" value="${bgColor}" title="${t("groupColorBg")}">
-    <input class="groupColor groupColorTitle" type="color" value="${titleColor}" title="${t("groupColorTitle")}">
-    <input class="groupColor groupColorHeader" type="color" value="${headerColor}" title="${t("groupColorHeader")}">
+    <div class="groupColorControl" title="${t("groupColorBorder")}">
+      <button class="groupColorPickr groupColorBorderPickr" type="button" aria-label="${t("groupColorBorder")}"></button>
+      <input class="groupColor groupColorBorder" type="text" value="${color}">
+    </div>
+    <div class="groupColorControl" title="${t("groupColorBg")}">
+      <button class="groupColorPickr groupColorBgPickr" type="button" aria-label="${t("groupColorBg")}"></button>
+      <input class="groupColor groupColorBg" type="text" value="${bgColor}">
+    </div>
+    <div class="groupColorControl" title="${t("groupColorTitle")}">
+      <button class="groupColorPickr groupColorTitlePickr" type="button" aria-label="${t("groupColorTitle")}"></button>
+      <input class="groupColor groupColorTitle" type="text" value="${titleColor}">
+    </div>
+    <div class="groupColorControl" title="${t("groupColorHeader")}">
+      <button class="groupColorPickr groupColorHeaderPickr" type="button" aria-label="${t("groupColorHeader")}"></button>
+      <input class="groupColor groupColorHeader" type="text" value="${headerColor}">
+    </div>
   </div>
   <button class="groupDelete" type="button" title="${t("deleteGroup")}">X</button>
 </div>
@@ -112,29 +176,7 @@ function createGroup(options = {}) {
     autoSaveBuild();
   });
 
-  const borderColorInput = group.querySelector(".groupColorBorder");
-  borderColorInput.addEventListener("input", () => {
-    group.style.setProperty("--group-color", borderColorInput.value);
-    autoSaveBuild();
-  });
-
-  const bgColorInput = group.querySelector(".groupColorBg");
-  bgColorInput.addEventListener("input", () => {
-    group.style.setProperty("--group-bg-color", bgColorInput.value);
-    autoSaveBuild();
-  });
-
-  const titleColorInput = group.querySelector(".groupColorTitle");
-  titleColorInput.addEventListener("input", () => {
-    group.style.setProperty("--group-title-color", titleColorInput.value);
-    autoSaveBuild();
-  });
-
-  const headerColorInput = group.querySelector(".groupColorHeader");
-  headerColorInput.addEventListener("input", () => {
-    group.style.setProperty("--group-header-color", headerColorInput.value);
-    autoSaveBuild();
-  });
+  groupsInitColorPickers(group);
 
   const minimizeBtn = group.querySelector(".minimizeBtn");
   minimizeBtn.addEventListener("click", () => {
@@ -145,6 +187,7 @@ function createGroup(options = {}) {
 
   const deleteBtn = group.querySelector(".groupDelete");
   deleteBtn.addEventListener("click", () => {
+    groupsDestroyColorPickers(group);
     itemsContainer.querySelectorAll(":scope > .card").forEach((card) => {
       ungrouped.appendChild(card);
     });

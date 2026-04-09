@@ -1326,20 +1326,10 @@ function islandChestsInit() {
     icBindUiControls();
     icRenderIslandChests();
     icUpdateStats();
-    icProfileUpdateDropdown();
     return;
   }
   icInitialized = true;
   icLoadState();
-
-  // Load saved profile if exists
-  const currentProfileName = icGetCurrentProfile();
-  const profiles = icGetProfiles();
-  if (currentProfileName !== "default" && profiles[currentProfileName]) {
-    applyIslandChestsState(profiles[currentProfileName]);
-  }
-
-  icProfileUpdateDropdown();
 
   // Build the header section (title + controls + stats)
   // Auto-select an island with per-character chests so the table is visible immediately

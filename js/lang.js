@@ -452,7 +452,30 @@ const COMMON_LANG = {
     islandChestsResetAll: "Limpar tudo",
     islandChestsSearchChars: "Procurar personagem...",
     islandChestsSearchCharsHint: "Digite o nome do personagem. Use separado por vírgula para varios. Ex: Akainu, Ace",
-    islandChestsIslandLabel: "Esta ilha"
+    islandChestsIslandLabel: "Esta ilha",
+    profileBtn: "Perfil",
+    profileModalTitle: "Perfis",
+    profileCreate: "Criar",
+    profileEdit: "Editar Perfil",
+    profileShareLink: "Compartilhar link",
+    profilePasteLink: "Colar link",
+    profileNameLabel: "Nome",
+    profileEmojiLabel: "Emoji",
+    profileColorLabel: "Cor",
+    profileConfirm: "Confirmar",
+    profileSaveChanges: "Salvar alterações",
+    profileCancel: "Cancelar",
+    profileNamePlaceholder: "Nome do perfil",
+    profileCreateTitle: "Criar Perfil",
+    profileEditTitle: "Editar Perfil",
+    profileNoProfiles: "Nenhum perfil. Clique em ➕ para criar.",
+    profileActiveLabel: "Ativo",
+    profileSavedSuccess: "Perfil salvo!",
+    profileSelected: "Perfil '{name}' ativado!",
+    profileImportSuccess: "Perfil importado!",
+    profileImportError: "Falha ao importar perfil",
+    profileShareCopied: "Link do perfil copiado!",
+    profileSharePrompt: "Copie este link:"
   },
 
   en: {
@@ -908,7 +931,30 @@ const COMMON_LANG = {
     islandChestsResetAll: "Reset all",
     islandChestsSearchChars: "Search characters...",
     islandChestsSearchCharsHint: "Type character name. Use comma-separated for multiple. E.g: Akainu, Ace",
-    islandChestsIslandLabel: "This island"
+    islandChestsIslandLabel: "This island",
+    profileBtn: "Profile",
+    profileModalTitle: "Profiles",
+    profileCreate: "Create",
+    profileEdit: "Edit Profile",
+    profileShareLink: "Share link",
+    profilePasteLink: "Paste link",
+    profileNameLabel: "Name",
+    profileEmojiLabel: "Emoji",
+    profileColorLabel: "Color",
+    profileConfirm: "Confirm",
+    profileSaveChanges: "Save changes",
+    profileCancel: "Cancel",
+    profileNamePlaceholder: "Profile name",
+    profileCreateTitle: "Create Profile",
+    profileEditTitle: "Edit Profile",
+    profileNoProfiles: "No profiles. Click ➕ to create.",
+    profileActiveLabel: "Active",
+    profileSavedSuccess: "Profile saved!",
+    profileSelected: "Profile '{name}' activated!",
+    profileImportSuccess: "Profile imported!",
+    profileImportError: "Failed to import profile",
+    profileShareCopied: "Profile link copied!",
+    profileSharePrompt: "Copy this link:"
   },
 
   es: {
@@ -1364,7 +1410,30 @@ const COMMON_LANG = {
     islandChestsResetAll: "Reiniciar todo",
     islandChestsSearchChars: "Buscar personaje...",
     islandChestsSearchCharsHint: "Escribe el nombre del personaje. Usa separado por coma para múltiples. Ej: Akainu, Ace",
-    islandChestsIslandLabel: "Esta isla"
+    islandChestsIslandLabel: "Esta isla",
+    profileBtn: "Perfil",
+    profileModalTitle: "Perfiles",
+    profileCreate: "Crear",
+    profileEdit: "Editar Perfil",
+    profileShareLink: "Compartir enlace",
+    profilePasteLink: "Pegar enlace",
+    profileNameLabel: "Nombre",
+    profileEmojiLabel: "Emoji",
+    profileColorLabel: "Color",
+    profileConfirm: "Confirmar",
+    profileSaveChanges: "Guardar cambios",
+    profileCancel: "Cancelar",
+    profileNamePlaceholder: "Nombre del perfil",
+    profileCreateTitle: "Crear Perfil",
+    profileEditTitle: "Editar Perfil",
+    profileNoProfiles: "Sin perfiles. Haz clic en ➕ para crear.",
+    profileActiveLabel: "Activo",
+    profileSavedSuccess: "Perfil guardado!",
+    profileSelected: "Perfil '{name}' activado!",
+    profileImportSuccess: "Perfil importado!",
+    profileImportError: "Error al importar perfil",
+    profileShareCopied: "Enlace del perfil copiado!",
+    profileSharePrompt: "Copia este enlace:"
   },
 
   pl: {
@@ -1820,7 +1889,30 @@ const COMMON_LANG = {
     islandChestsResetAll: "Resetuj wszystko",
     islandChestsSearchChars: "Szukaj postaci...",
     islandChestsSearchCharsHint: "Wpisz nazwę postaci. Użyj przecinka dla wielu. Np: Akainu, Ace",
-    islandChestsIslandLabel: "Ta wyspa"
+    islandChestsIslandLabel: "Ta wyspa",
+    profileBtn: "Profil",
+    profileModalTitle: "Profile",
+    profileCreate: "Utwórz",
+    profileEdit: "Edytuj Profil",
+    profileShareLink: "Udostępnij link",
+    profilePasteLink: "Wklej link",
+    profileNameLabel: "Nazwa",
+    profileEmojiLabel: "Emoji",
+    profileColorLabel: "Kolor",
+    profileConfirm: "Potwierdź",
+    profileSaveChanges: "Zapisz zmiany",
+    profileCancel: "Anuluj",
+    profileNamePlaceholder: "Nazwa profilu",
+    profileCreateTitle: "Utwórz Profil",
+    profileEditTitle: "Edytuj Profil",
+    profileNoProfiles: "Brak profili. Kliknij ➕ aby utworzyć.",
+    profileActiveLabel: "Aktywny",
+    profileSavedSuccess: "Profil zapisany!",
+    profileSelected: "Profil '{name}' aktywowany!",
+    profileImportSuccess: "Profil zaimportowany!",
+    profileImportError: "Błąd importu profilu",
+    profileShareCopied: "Link do profilu skopiowany!",
+    profileSharePrompt: "Skopiuj ten link:"
   }
 };
 
@@ -2340,6 +2432,14 @@ function applyTranslations() {
     el.setAttribute("title", t(key));
   });
 
+  if (typeof _applyModalTranslations === 'function') {
+    _applyModalTranslations();
+  }
+
+  if (typeof renderProfileList === 'function') {
+    renderProfileList();
+  }
+
   // Update variant names in card headers
   document.querySelectorAll(".card").forEach((card) => {
     const variantCategory = card.getAttribute('data-variant-category');
@@ -2372,6 +2472,7 @@ function applyTranslations() {
   if (typeof themeApplyTranslations === "function") themeApplyTranslations();
   if (typeof foxyQuizApplyTranslations === "function") foxyQuizApplyTranslations();
   if (typeof islandChestsApplyTranslations === "function") islandChestsApplyTranslations();
+  if (typeof refreshSidebarCompactTooltips === "function") refreshSidebarCompactTooltips();
 }
 
 function updateLangButtons() {

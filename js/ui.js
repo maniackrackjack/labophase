@@ -206,21 +206,61 @@ function recalc() {
 // Sidebar retract toggle
 // ============================================================
 
+function refreshSidebarCompactTooltips() {
+  const sidebar = document.getElementById('sidebar');
+  if (!sidebar) return;
+
+  const isCompact = window.innerWidth > 980 && sidebar.classList.contains('collapsed');
+  const buttons = sidebar.querySelectorAll('.tabBtn, .wb-folder-btn, .profile-sidebar-btn, .themePickerToggle');
+
+  buttons.forEach((button) => {
+    const labelEl = button.querySelector('.tab-label, .profile-btn-label, .themePickerActiveName');
+    let label = labelEl ? labelEl.textContent.trim() : '';
+
+    if (!label) {
+      label = button.getAttribute('aria-label') || button.getAttribute('title') || '';
+    }
+
+    if (isCompact && label) {
+      button.setAttribute('data-compact-tooltip', label);
+      button.setAttribute('title', label);
+      if (!button.getAttribute('aria-label')) {
+        button.setAttribute('aria-label', label);
+      }
+    } else {
+      button.removeAttribute('data-compact-tooltip');
+      button.removeAttribute('title');
+    }
+  });
+}
+
+function initSidebarCompactTooltips() {
+  if (document.body.dataset.sidebarCompactTipsBound === '1') return;
+  document.body.dataset.sidebarCompactTipsBound = '1';
+
+  window.addEventListener('resize', () => {
+    refreshSidebarCompactTooltips();
+  });
+}
+
 function toggleSidebar() {
   if (window.innerWidth <= 980) return; // only collapse on desktop
   var sidebar = document.getElementById('sidebar');
   if (!sidebar) return;
   sidebar.classList.toggle('collapsed');
+  refreshSidebarCompactTooltips();
   try {
     localStorage.setItem('glac_sidebar_collapsed', sidebar.classList.contains('collapsed') ? '1' : '0');
   } catch (e) {}
 }
 
 function initSidebarState() {
+  initSidebarCompactTooltips();
   try {
     if (localStorage.getItem('glac_sidebar_collapsed') === '1' && window.innerWidth > 980) {
       var sidebar = document.getElementById('sidebar');
       if (sidebar) sidebar.classList.add('collapsed');
     }
   } catch (e) {}
+  refreshSidebarCompactTooltips();
 }

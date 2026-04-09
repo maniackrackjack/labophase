@@ -54,7 +54,6 @@ function boostInit() {
   if (!panel) return;
 
   bindBoostEvents();
-  boostPopulateProfileSelect();
 
   const list = document.getElementById("boost-items-list");
   if (list && !list.children.length) {
@@ -89,7 +88,6 @@ function bindBoostEvents() {
   bindOnce("boost-full-set-btn", "click", boostAddFullSet);
 
   bindOnce("boost-import-current-btn", "click", boostImportCurrentBuild);
-  bindOnce("boost-import-profile-btn", "click", boostImportSelectedProfile);
   bindOnce("boost-clear-items-btn", "click", boostClearItems);
 }
 
@@ -98,32 +96,6 @@ function bindOnce(id, eventName, handler) {
   if (!el || el.dataset.boostBound === "1") return;
   el.dataset.boostBound = "1";
   el.addEventListener(eventName, handler);
-}
-
-function boostPopulateProfileSelect() {
-  const select = document.getElementById("boost-profile-select");
-  if (!select) return;
-
-  const previous = select.value;
-  const profiles = typeof getProfilesStorage === "function" ? getProfilesStorage() : {};
-  const names = Object.keys(profiles);
-  const current = typeof getCurrentProfileName === "function" ? getCurrentProfileName() : "";
-
-  select.innerHTML = "";
-  const placeholder = document.createElement("option");
-  placeholder.value = "";
-  placeholder.textContent = bt("boostSelectProfilePlaceholder");
-  select.appendChild(placeholder);
-
-  names.forEach((name) => {
-    const opt = document.createElement("option");
-    opt.value = name;
-    opt.textContent = name;
-    select.appendChild(opt);
-  });
-
-  if (previous && names.includes(previous)) select.value = previous;
-  else if (current && names.includes(current)) select.value = current;
 }
 
 function boostCreateItemRow(initial = {}) {
@@ -360,25 +332,6 @@ function boostImportCurrentBuild() {
     if (typeof showToast === "function") showToast(bt("boostNoItemsToImport"));
     return;
   }
-  boostLoadItems(entries);
-  boostRecalc();
-}
-
-function boostImportSelectedProfile() {
-  const select = document.getElementById("boost-profile-select");
-  if (!select || !select.value) {
-    if (typeof showToast === "function") showToast(bt("boostNoProfileSelected"));
-    return;
-  }
-
-  const profiles = typeof getProfilesStorage === "function" ? getProfilesStorage() : {};
-  const profile = profiles[select.value];
-  const entries = boostExtractEntriesFromBuildState(profile?.buildState);
-  if (!entries.length) {
-    if (typeof showToast === "function") showToast(bt("boostNoItemsToImport"));
-    return;
-  }
-
   boostLoadItems(entries);
   boostRecalc();
 }
