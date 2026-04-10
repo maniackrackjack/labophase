@@ -151,6 +151,12 @@ let selectedRoleFilters = new Set();
 let selectedTierFilters = new Set();
 let selectedGroupFilters = new Set();
 
+function notifyIslandChestsCharacterChange() {
+  if (typeof renderIslandChests === "function") {
+    renderIslandChests();
+  }
+}
+
 function charactersInit() {
   const panel = document.getElementById("characters");
   if (!panel) return;
@@ -198,6 +204,19 @@ function bindCharactersEvents() {
       charactersRender();
     });
   });
+
+  const unlockAllBtn = document.getElementById("characters-unlock-all-btn");
+  if (unlockAllBtn && !unlockAllBtn.dataset.charactersBound) {
+    unlockAllBtn.dataset.charactersBound = "1";
+    unlockAllBtn.addEventListener("click", () => {
+      CHARACTERS_DATA.forEach((character) => {
+        getCharacterState(character.id, character).active = true;
+      });
+      autoSaveBuild();
+      notifyIslandChestsCharacterChange();
+      charactersRender();
+    });
+  }
 
   if (!document.body.dataset.charactersFilterTogglesBound) {
     document.body.dataset.charactersFilterTogglesBound = "1";
@@ -636,6 +655,7 @@ function bindCharacterCardEvents() {
       if (!state) return;
       state.active = !state.active;
       autoSaveBuild();
+      notifyIslandChestsCharacterChange();
       charactersRender();
     });
   });
@@ -665,6 +685,7 @@ function bindCharacterCardEvents() {
       if (!state) return;
       state.level = clampCharacterNumber(input.value, 1, CHARACTER_LEVEL_CAP);
       autoSaveBuild();
+      notifyIslandChestsCharacterChange();
       charactersRender();
     });
   });
@@ -677,6 +698,7 @@ function bindCharacterCardEvents() {
       if (!state) return;
       state.stars = clampCharacterNumber(button.getAttribute("data-stars-value"), 1, CHARACTER_STAR_CAP);
       autoSaveBuild();
+      notifyIslandChestsCharacterChange();
       charactersRender();
     });
   });
@@ -690,6 +712,7 @@ function bindCharacterCardEvents() {
       if (!state || !character) return;
       state.tier = clampCharacterTier(select.value, character);
       autoSaveBuild();
+      notifyIslandChestsCharacterChange();
       charactersRender();
     });
   });
@@ -709,6 +732,7 @@ function bindCharacterCardEvents() {
       normalized[skinId] = !normalized[skinId];
       state.skinsUnlocked = normalized;
       autoSaveBuild();
+      notifyIslandChestsCharacterChange();
       charactersRender();
     });
   });
@@ -780,12 +804,14 @@ function applyCharactersState(state) {
   });
 
   characterMenuOpenId = "";
+  notifyIslandChestsCharacterChange();
   charactersRender();
 }
 
 function resetCharactersState() {
   characterCollectionState = buildDefaultCharacterCollectionState();
   characterMenuOpenId = "";
+  notifyIslandChestsCharacterChange();
   charactersRender();
 }
 

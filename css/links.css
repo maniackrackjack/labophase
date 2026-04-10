@@ -17,7 +17,7 @@
   border: 1px solid var(--border-accent);
   border-radius: 10px;
   padding: 12px;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-1) 72%, transparent 28%) 0%, color-mix(in srgb, var(--bg-panel) 84%, transparent 16%) 100%);
+  background: linear-gradient(180deg, var(--bg-surface-1) 0%, var(--bg-panel) 100%);
 }
 
 .links-section h4 {
@@ -37,8 +37,8 @@
   text-decoration: none;
   font-size: 14px;
   line-height: 1.3;
-  border: 1px solid color-mix(in srgb, var(--text-title) 25%, transparent 75%);
-  background: color-mix(in srgb, var(--bg-surface-1) 62%, transparent 38%);
+  border: 1px solid var(--text-title);
+  background: var(--bg-surface-1);
   border-radius: 8px;
   padding: 8px 10px;
   word-break: break-word;
@@ -55,8 +55,8 @@
   height: 28px;
   flex-shrink: 0;
   border-radius: 7px;
-  border: 1px solid color-mix(in srgb, var(--text-title) 32%, transparent 68%);
-  background: color-mix(in srgb, var(--bg-panel) 70%, transparent 30%);
+  border: 1px solid var(--text-title);
+  background: var(--bg-panel);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -103,8 +103,8 @@
 
 .links-list a:hover {
   color: var(--text-panel);
-  border-color: color-mix(in srgb, var(--text-title) 55%, transparent 45%);
-  background: color-mix(in srgb, var(--bg-surface-2) 68%, transparent 32%);
+  border-color: var(--text-title);
+  background: var(--bg-surface-2);
 }
 
 @media (max-width: 760px) {

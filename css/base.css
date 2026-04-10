@@ -190,7 +190,7 @@ body {
   width: 100%;
   padding: 10px 8px;
   margin-bottom: 0;
-  border: 1px solid color-mix(in srgb, var(--border-accent) 75%, transparent);
+  border: 1px solid var(--border-accent);
   background: var(--bg-tab);
   color: var(--text-tab);
   cursor: pointer;
@@ -210,7 +210,7 @@ body {
 .tabBtn.active {
   background: var(--bg-tab-active);
   color: var(--text-tab-active);
-  border-color: color-mix(in srgb, var(--text-title) 60%, var(--border-accent) 40%);
+  border-color: var(--text-title);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
@@ -313,9 +313,9 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 50;
-  background: color-mix(in srgb, var(--bg-panel) 88%, black 12%);
+  background: var(--bg-panel);
   color: var(--text-main);
-  border: 1px solid color-mix(in srgb, var(--input-focus) 60%, transparent);
+  border: 1px solid var(--input-focus);
   border-radius: 8px;
   padding: 6px 10px;
   font-size: 12px;
@@ -540,7 +540,7 @@ body {
   bottom: 6px;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, color-mix(in srgb, var(--text-title) 75%, white 25%) 0%, var(--text-title) 100%);
+  background: linear-gradient(90deg, var(--text-title) 0%, var(--text-title) 100%);
   transform: scaleX(0.15);
   transform-origin: center;
   opacity: 0;
@@ -563,7 +563,7 @@ body {
 
 .calc-subtab-btn.active {
   border-color: var(--text-title);
-  background: linear-gradient(180deg, var(--bg-tab-active) 0%, color-mix(in srgb, var(--bg-tab-active) 72%, black 28%) 100%);
+  background: linear-gradient(180deg, var(--bg-tab-active) 0%, var(--bg-tab-active) 100%);
   color: var(--text-tab-active);
   box-shadow:
     0 2px 0 rgba(0, 0, 0, 0.35),
@@ -836,7 +836,7 @@ body {
   align-items: flex-start;
   gap: 2px;
   border: 1px solid var(--border-soft);
-  background: color-mix(in srgb, var(--bg-surface-1) 90%, transparent 10%);
+  background: var(--bg-surface-1);
   color: var(--text-panel);
   border-radius: 10px;
   padding: 10px 12px;
@@ -900,7 +900,7 @@ body {
 .logo-picker-item.is-selected,
 .logo-picker-random.is-selected {
   border-color: var(--input-focus);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus) 22%, transparent 78%);
+  box-shadow: 0 0 0 2px var(--input-focus);
 }
 
 /* THEME SELECTOR */
@@ -949,7 +949,7 @@ body {
   width: 100%;
   border: 1px solid var(--border-soft);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--bg-surface-1) 82%, transparent);
+  background: var(--bg-surface-1);
   color: var(--text-main);
   padding: 5px 9px;
   font-size: 12px;
@@ -967,7 +967,7 @@ body {
 .themePickerToggle:focus {
   outline: none;
   border-color: var(--input-focus);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus) 35%, transparent);
+  box-shadow: 0 0 0 2px var(--input-focus);
 }
 
 .themePickerActiveName {
@@ -1014,7 +1014,7 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--text-main) 35%, transparent);
+  border: 1px solid var(--text-main);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.26) inset;
 }
 
@@ -1291,7 +1291,7 @@ body {
   width: 100%;
   border: 1px solid var(--border-soft);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--input-bg) 65%, transparent);
+  background: var(--input-bg);
   color: var(--text-main);
   padding: 8px 10px;
   font-size: 12px;
@@ -1302,13 +1302,13 @@ body {
 }
 
 .theme-picker-item:hover {
-  background: color-mix(in srgb, var(--input-bg) 75%, transparent);
+  background: var(--input-bg);
   transform: translateY(-1px);
 }
 
 .theme-picker-item.is-selected {
   border-color: var(--input-focus);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus) 22%, transparent 78%);
+  box-shadow: 0 0 0 2px var(--input-focus);
 }
 
 .theme-picker-swatch {
@@ -1419,5 +1419,4 @@ body {
 .modal-close:hover {
   background: var(--bg-surface-1);
   border-color: var(--border-accent);
-}
 }

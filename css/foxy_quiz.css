@@ -32,7 +32,7 @@
   padding: 8px 10px;
   border: 1px solid var(--border-soft);
   border-radius: 8px;
-  background: color-mix(in srgb, var(--bg-surface-1) 86%, black 14%);
+  background: var(--bg-surface-1);
 }
 
 .foxy-quiz-weekly-label {

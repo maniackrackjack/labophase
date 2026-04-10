@@ -2,7 +2,7 @@
    World Bosses tab
    ============================================================ */
 
-/* ── Sidebar folder ──────────────────────────────────────────── */
+/* Section */
 
 .wb-folder-btn {
   position: relative;
@@ -14,7 +14,7 @@
   min-height: 42px;
   border: 1px solid var(--border-accent);
   border-radius: 10px;
-  background: linear-gradient(180deg, var(--bg-surface-1) 0%, color-mix(in srgb, var(--bg-panel) 88%, black 12%) 100%);
+  background: linear-gradient(180deg, var(--bg-surface-1) 0%, var(--bg-panel) 100%);
   color: var(--text-panel);
   font-size: 14px;
   font-weight: 700;
@@ -84,7 +84,7 @@
   min-height: 44px;
 }
 
-/* ── Panel ───────────────────────────────────────────────────── */
+/* Section */
 
 .wb-panel {
   padding: 16px;
@@ -93,7 +93,7 @@
   gap: 20px;
 }
 
-/* ── Boss header ─────────────────────────────────────────────── */
+/* Section */
 
 .wb-boss-header {
   display: flex;
@@ -109,7 +109,7 @@
   object-fit: contain;
   border-radius: 14px;
   border: 2px solid var(--border-accent);
-  background: color-mix(in srgb, var(--bg-panel) 80%, black 20%);
+  background: var(--bg-panel);
   padding: 4px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
@@ -123,7 +123,7 @@
   object-fit: contain;
   border-radius: 10px;
   border: 2px solid var(--border-accent);
-  background: color-mix(in srgb, var(--bg-panel) 80%, black 20%);
+  background: var(--bg-panel);
   padding: 3px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
@@ -145,7 +145,7 @@
   text-transform: uppercase;
 }
 
-/* ── Section ─────────────────────────────────────────────────── */
+/* Section */
 
 .wb-section {
   display: flex;
@@ -168,11 +168,11 @@
   color: var(--text-title);
 }
 
-/* ── Toggle button ───────────────────────────────────────────── */
+/* Section */
 
 .wb-toggle-btn {
   border: 1px solid var(--border-accent);
-  background: linear-gradient(180deg, var(--bg-surface-1) 0%, color-mix(in srgb, var(--bg-panel) 88%, black 12%) 100%);
+  background: linear-gradient(180deg, var(--bg-surface-1) 0%, var(--bg-panel) 100%);
   color: var(--text-panel);
   border-radius: 8px;
   padding: 8px 14px;
@@ -187,7 +187,7 @@
   filter: brightness(1.08);
 }
 
-/* ── Table + skill preview layout ────────────────────────────── */
+/* Section */
 
 .wb-table-and-preview {
   display: grid;
@@ -202,7 +202,7 @@
   border-radius: 8px;
 }
 
-/* ── Phase table ─────────────────────────────────────────────── */
+/* Section */
 
 .wb-table {
   width: 100%;
@@ -238,7 +238,7 @@
 
 .wb-table tbody tr:nth-child(odd)  { background: rgba(255, 255, 255, 0.03); }
 .wb-table tbody tr:nth-child(even) { background: rgba(0, 0, 0, 0.08); }
-.wb-table tbody tr:hover           { background: color-mix(in srgb, var(--text-title) 10%, transparent 90%); }
+.wb-table tbody tr:hover           { background: rgba(255, 255, 255, 0.09); }
 
 .wb-phase-cell  { font-weight: 700; color: var(--text-title); min-width: 70px; }
 .wb-damage-cell { color: var(--text-muted); min-width: 110px; }
@@ -248,7 +248,7 @@
 .wb-note {
   font-size: 11px;
   font-weight: 700;
-  color: color-mix(in srgb, #f5bf3b 85%, var(--text-panel) 15%);
+  color: #f5bf3b;
   letter-spacing: 0.03em;
 }
 
@@ -262,15 +262,15 @@
 }
 
 .wb-skill-link:hover {
-  background: color-mix(in srgb, var(--input-focus) 18%, transparent 82%);
+  background: var(--input-focus);
   color: var(--text-title);
 }
 
 .wb-skill-link.wb-skill-active {
-  background: color-mix(in srgb, var(--input-focus) 28%, transparent 72%);
+  background: var(--input-focus);
   color: var(--text-title);
   font-weight: 700;
-  outline: 1px solid color-mix(in srgb, var(--input-focus) 55%, transparent 45%);
+  outline: 1px solid var(--input-focus);
 }
 
 /* Fix: th elements with wb-skill-link must stay as table cells */
@@ -293,11 +293,11 @@
 }
 
 .wb-skill-col-header:hover {
-  background: color-mix(in srgb, var(--input-focus) 18%, var(--bg-surface-1) 82%) !important;
+  background: var(--input-focus) !important;
 }
 
 .wb-skill-col-header.wb-skill-active {
-  background: color-mix(in srgb, var(--input-focus) 30%, var(--bg-surface-1) 70%) !important;
+  background: var(--input-focus) !important;
   color: var(--text-title) !important;
 }
 
@@ -328,7 +328,7 @@
   color: #e07a7a;
 }
 
-/* ── Skill preview card ──────────────────────────────────────── */
+/* Section */
 
 .wb-skill-preview {
   display: flex;
@@ -339,8 +339,8 @@
   border-radius: 12px;
   padding: 14px 12px;
   background: linear-gradient(180deg,
-    color-mix(in srgb, var(--bg-surface-1) 94%, transparent 6%) 0%,
-    color-mix(in srgb, var(--bg-panel) 97%, black 3%) 100%);
+    var(--bg-surface-1) 0%,
+    var(--bg-panel) 100%);
   position: sticky;
   top: 10px;
 }
@@ -351,7 +351,7 @@
   object-fit: contain;
   border-radius: 10px;
   border: 1px solid var(--border-accent);
-  background: color-mix(in srgb, var(--bg-panel) 75%, black 25%);
+  background: var(--bg-panel);
   image-rendering: auto;
 }
 
@@ -375,7 +375,7 @@
   padding-right: 2px;
 }
 
-/* ── Bottom section (chars + rewards side by side) ───────────── */
+/* Section */
 
 .wb-bottom-section {
   display: grid;
@@ -384,7 +384,7 @@
   align-items: start;
 }
 
-/* ── Character recommendations ───────────────────────────────── */
+/* Section */
 
 .wb-char-group {
   margin-bottom: 12px;
@@ -405,9 +405,9 @@
   display: inline-block;
 }
 
-.wb-role-tank    { background: color-mix(in srgb, #70bde8 20%, transparent 80%); color: #70bde8; }
-.wb-role-dps     { background: color-mix(in srgb, #e07a7a 20%, transparent 80%); color: #e07a7a; }
-.wb-role-suporte { background: color-mix(in srgb, #7fd16d 20%, transparent 80%); color: #7fd16d; }
+.wb-role-tank    { background: rgba(112, 189, 232, 0.2); color: #70bde8; }
+.wb-role-dps     { background: rgba(224, 122, 122, 0.2); color: #e07a7a; }
+.wb-role-suporte { background: rgba(127, 209, 109, 0.2); color: #7fd16d; }
 
 .wb-char-list {
   display: flex;
@@ -429,7 +429,7 @@
   object-fit: contain;
   border-radius: 10px;
   border: 1px solid var(--border-accent);
-  background: color-mix(in srgb, var(--bg-panel) 80%, black 20%);
+  background: var(--bg-panel);
   transition: transform 0.15s ease, border-color 0.15s ease;
 }
 
@@ -446,7 +446,7 @@
   line-height: 1.2;
 }
 
-/* ── Rewards ─────────────────────────────────────────────────── */
+/* Section */
 
 .wb-rewards-wrap {
   display: flex;
@@ -474,7 +474,7 @@
   align-items: center;
   gap: 10px;
   padding: 8px 12px;
-  background: color-mix(in srgb, var(--bg-surface-1) 80%, black 20%);
+  background: var(--bg-surface-1);
   border-bottom: 1px solid var(--border-accent);
 }
 
@@ -493,8 +493,8 @@
 .wb-tier-badge-tier3  { background: linear-gradient(135deg, #7fd16d, #b0e8a0); color: #0a1a0a; }
 .wb-tier-badge-tier4  { background: linear-gradient(135deg, #b08be8, #d0b8f0); color: #100a24; }
 .wb-tier-badge-tier5  { background: linear-gradient(135deg, #e8b070, #f0d0a0); color: #241008; }
-.wb-tier-badge-tier6  { background: color-mix(in srgb, var(--bg-surface-1) 90%, white 10%);   color: var(--text-muted); border: 1px solid var(--border-accent); }
-.wb-tier-badge-tier7  { background: color-mix(in srgb, var(--bg-panel) 80%, black 20%);       color: var(--text-muted); border: 1px solid var(--border-accent); }
+.wb-tier-badge-tier6  { background: var(--bg-surface-1);   color: var(--text-muted); border: 1px solid var(--border-accent); }
+.wb-tier-badge-tier7  { background: var(--bg-panel);       color: var(--text-muted); border: 1px solid var(--border-accent); }
 
 .wb-damage-req {
   font-size: 12px;
@@ -517,7 +517,7 @@
   font-size: 12px;
   font-weight: 600;
   color: var(--text-panel);
-  background: color-mix(in srgb, var(--bg-panel) 60%, transparent 40%);
+  background: var(--bg-panel);
   border: 1px solid var(--border-accent);
   border-radius: 6px;
   padding: 4px 8px;
@@ -533,7 +533,7 @@
 
 .wb-reward-item-count {
   font-weight: 800;
-  color: color-mix(in srgb, #f5bf3b 85%, var(--text-panel) 15%);
+  color: #f5bf3b;
 }
 
 .wb-reward-item-name {
@@ -542,17 +542,17 @@
 
 /* Top 1 row highlight */
 .wb-reward-top1 {
-  border-color: color-mix(in srgb, #d4af37 50%, var(--border-accent) 50%);
-  box-shadow: 0 0 0 1px color-mix(in srgb, #d4af37 15%, transparent 85%);
+  border-color: #d4af37;
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.25);
 }
 
 .wb-reward-top1 .wb-reward-header {
   background: linear-gradient(90deg,
-    color-mix(in srgb, #d4af37 18%, var(--bg-surface-1) 82%) 0%,
+    #d4af37 0%,
     var(--bg-surface-1) 100%);
 }
 
-/* ── Responsive ──────────────────────────────────────────────── */
+/* Section */
 
 @media (max-width: 980px) {
   .wb-folder-submenu {
@@ -589,3 +589,4 @@
     grid-template-columns: 1fr;
   }
 }
+

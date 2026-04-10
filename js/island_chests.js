@@ -463,18 +463,91 @@ const IC_ISLAND_BANNER_SLUG = {
   "Sabaody Archipelago":    "sabaody"
 };
 
+const IC_ISLAND_BY_NAME = Object.fromEntries(
+  ISLAND_CHEST_DATA.map((island) => [island.nome, island])
+);
+
 // ---- State ----
 const IC_LS_KEY = "labophase.island_chests";
 
 // state.checked[charId][islandName][chestId] = true
 // state.globalChecked[islandName][chestId] = true
 let icState = { checked: {}, globalChecked: {} };
-let icSelectedIsland = null;
+let icSelectedIslands = new Set();
 let icStaminaOnly = false;
 let icStaminaFilter = "both"; // "both" | "eb" | "gl"
 let icCharacterFilter = []; // array of character IDs to show, empty = show all
 let icCharacterFilterActive = false;
+let icHideCompletedCharacters = false;
 let icInitialized = false;
+let icCompletionMemoVersion = 0;
+const icCompletionMemo = new Map();
+let icUnlockedCharactersCache = {
+  signature: "",
+  list: CHARACTERS_DATA
+};
+
+function icBumpCompletionMemoVersion() {
+  icCompletionMemoVersion += 1;
+  icCompletionMemo.clear();
+}
+
+function icEnsureStateShape() {
+  if (!icState || typeof icState !== "object") {
+    icState = { checked: {}, globalChecked: {} };
+    return;
+  }
+  if (!icState.checked || typeof icState.checked !== "object") icState.checked = {};
+  if (!icState.globalChecked || typeof icState.globalChecked !== "object") icState.globalChecked = {};
+}
+
+function icGetOrderedSelectedIslands() {
+  return ISLAND_CHEST_DATA
+    .map((island) => island.nome)
+    .filter((islandName) => icSelectedIslands.has(islandName));
+}
+
+function icEnsureSelectedIslands() {
+  const validIslandNames = new Set(ISLAND_CHEST_DATA.map((island) => island.nome));
+  icSelectedIslands = new Set(
+    [...icSelectedIslands].filter((islandName) => validIslandNames.has(islandName))
+  );
+}
+
+function icGetCharactersStateMap() {
+  if (typeof getCharactersState !== "function") return null;
+  const charactersState = getCharactersState();
+  if (!charactersState || typeof charactersState !== "object") return null;
+  return charactersState.characters || charactersState;
+}
+
+function icBuildActiveCharactersSignature(charactersMap) {
+  if (!charactersMap) return "all";
+  return CHARACTERS_DATA.map((character) => (
+    charactersMap[character.id] && charactersMap[character.id].active ? "1" : "0"
+  )).join("");
+}
+
+function icGetUnlockedCharacters() {
+  const charactersMap = icGetCharactersStateMap();
+  if (!charactersMap) return CHARACTERS_DATA;
+
+  const activeSignature = icBuildActiveCharactersSignature(charactersMap);
+  if (icUnlockedCharactersCache.signature === activeSignature) {
+    return icUnlockedCharactersCache.list;
+  }
+
+  const unlockedCharacters = CHARACTERS_DATA.filter((character) => (
+    !!(charactersMap[character.id] && charactersMap[character.id].active)
+  ));
+
+  icUnlockedCharactersCache = {
+    signature: activeSignature,
+    list: unlockedCharacters
+  };
+
+  return unlockedCharacters;
+}
 
 function icLoadState() {
   try {
@@ -485,15 +558,36 @@ function icLoadState() {
         checked: parsed.checked || {},
         globalChecked: parsed.globalChecked || {}
       };
+      const selectedIslands = Array.isArray(parsed.selectedIslands) ? parsed.selectedIslands : [];
+      icSelectedIslands = new Set(selectedIslands);
+      icStaminaOnly = !!parsed.staminaOnly;
+      icStaminaFilter = parsed.staminaFilter || "both";
+      icHideCompletedCharacters = !!parsed.hideCompletedCharacters;
     }
   } catch (_) {
     icState = { checked: {}, globalChecked: {} };
+    icSelectedIslands = new Set();
+    icStaminaOnly = false;
+    icStaminaFilter = "both";
+    icHideCompletedCharacters = false;
   }
+  icEnsureStateShape();
+  icEnsureSelectedIslands();
+  icBumpCompletionMemoVersion();
 }
 
 function icSaveState() {
   try {
-    localStorage.setItem(IC_LS_KEY, JSON.stringify(icState));
+    icEnsureStateShape();
+    icEnsureSelectedIslands();
+    localStorage.setItem(IC_LS_KEY, JSON.stringify({
+      checked: icState.checked,
+      globalChecked: icState.globalChecked,
+      selectedIslands: icGetOrderedSelectedIslands(),
+      staminaOnly: icStaminaOnly,
+      staminaFilter: icStaminaFilter,
+      hideCompletedCharacters: icHideCompletedCharacters
+    }));
   } catch (_) {}
 }
 
@@ -548,6 +642,7 @@ function icIsCharChecked(charId, islandName, chestId) {
 }
 
 function icSetCharChecked(charId, islandName, chestId, value) {
+  const wasChecked = icIsCharChecked(charId, islandName, chestId);
   if (!icState.checked[charId]) icState.checked[charId] = {};
   if (!icState.checked[charId][islandName]) icState.checked[charId][islandName] = {};
   if (value) {
@@ -555,6 +650,7 @@ function icSetCharChecked(charId, islandName, chestId, value) {
   } else {
     delete icState.checked[charId][islandName][chestId];
   }
+  if (wasChecked !== !!value) icBumpCompletionMemoVersion();
 }
 
 function icIsGlobalChecked(islandName, chestId) {
@@ -563,16 +659,19 @@ function icIsGlobalChecked(islandName, chestId) {
 }
 
 function icSetGlobalChecked(islandName, chestId, value) {
+  const wasChecked = icIsGlobalChecked(islandName, chestId);
   if (!icState.globalChecked[islandName]) icState.globalChecked[islandName] = {};
   if (value) {
     icState.globalChecked[islandName][chestId] = true;
   } else {
     delete icState.globalChecked[islandName][chestId];
   }
+  if (wasChecked !== !!value) icBumpCompletionMemoVersion();
 }
 
 // ---- Berry total remaining ----
 function icCalcTotalRemainingBerries() {
+  const unlockedChars = icGetUnlockedCharacters();
   let total = 0;
   for (const island of ISLAND_CHEST_DATA) {
     for (const bau of island.baus) {
@@ -586,7 +685,7 @@ function icCalcTotalRemainingBerries() {
         }
       } else {
         // Count per-character
-        for (const char of CHARACTERS_DATA) {
+        for (const char of unlockedChars) {
           if (!icIsCharChecked(char.id, island.nome, bau.id)) {
             total += berries;
           }
@@ -599,7 +698,8 @@ function icCalcTotalRemainingBerries() {
 
 // ---- Berry total remaining for a single island ----
 function icCalcIslandRemainingBerries(islandName) {
-  const island = ISLAND_CHEST_DATA.find(i => i.nome === islandName);
+  const unlockedChars = icGetUnlockedCharacters();
+  const island = IC_ISLAND_BY_NAME[islandName];
   if (!island) return 0;
   let total = 0;
   for (const bau of island.baus) {
@@ -609,7 +709,7 @@ function icCalcIslandRemainingBerries(islandName) {
     if (bau.global) {
       if (!icIsGlobalChecked(island.nome, bau.id)) total += berries;
     } else {
-      for (const char of CHARACTERS_DATA) {
+      for (const char of unlockedChars) {
         if (!icIsCharChecked(char.id, island.nome, bau.id)) total += berries;
       }
     }
@@ -619,7 +719,8 @@ function icCalcIslandRemainingBerries(islandName) {
 
 // ---- Stamina progress for a single island ----
 function icCalcIslandStaminaProgress(islandName) {
-  const island = ISLAND_CHEST_DATA.find(i => i.nome === islandName);
+  const unlockedChars = icGetUnlockedCharacters();
+  const island = IC_ISLAND_BY_NAME[islandName];
   if (!island) return { ebTotal: 0, ebDone: 0, glTotal: 0, glDone: 0 };
   let ebTotal = 0, ebDone = 0, glTotal = 0, glDone = 0;
   for (const bau of island.baus) {
@@ -632,7 +733,7 @@ function icCalcIslandStaminaProgress(islandName) {
       if (hasEB) { ebTotal += 1; if (checked) ebDone += 1; }
       if (hasGL) { glTotal += 1; if (checked) glDone += 1; }
     } else {
-      for (const char of CHARACTERS_DATA) {
+      for (const char of unlockedChars) {
         const checked = icIsCharChecked(char.id, island.nome, bau.id);
         if (hasEB) { ebTotal += 1; if (checked) ebDone += 1; }
         if (hasGL) { glTotal += 1; if (checked) glDone += 1; }
@@ -644,6 +745,7 @@ function icCalcIslandStaminaProgress(islandName) {
 
 // ---- Stamina progress ----
 function icCalcStaminaProgress() {
+  const unlockedChars = icGetUnlockedCharacters();
   let ebTotal = 0, ebDone = 0;
   let glTotal = 0, glDone = 0;
 
@@ -659,7 +761,7 @@ function icCalcStaminaProgress() {
         if (hasEB) { ebTotal += 1; if (checked) ebDone += 1; }
         if (hasGL) { glTotal += 1; if (checked) glDone += 1; }
       } else {
-        for (const char of CHARACTERS_DATA) {
+        for (const char of unlockedChars) {
           const checked = icIsCharChecked(char.id, island.nome, bau.id);
           if (hasEB) { ebTotal += 1; if (checked) ebDone += 1; }
           if (hasGL) { glTotal += 1; if (checked) glDone += 1; }
@@ -759,14 +861,25 @@ function icUpdateStats() {
   // Island-specific stats row
   const islandStatsRow = document.getElementById("ic-island-stats-row");
   if (islandStatsRow) {
-    const showIslandStats = !icStaminaOnly && !!icSelectedIsland;
+    const selectedIslands = icGetOrderedSelectedIslands();
+    const showIslandStats = !icStaminaOnly && selectedIslands.length > 0;
     islandStatsRow.style.display = showIslandStats ? "flex" : "none";
     if (showIslandStats) {
-      const islandBerries = icCalcIslandRemainingBerries(icSelectedIsland);
+      let islandBerries = 0;
+      let iebTotal = 0;
+      let iebDone = 0;
+      let iglTotal = 0;
+      let iglDone = 0;
+      for (const islandName of selectedIslands) {
+        islandBerries += icCalcIslandRemainingBerries(islandName);
+        const islandProgress = icCalcIslandStaminaProgress(islandName);
+        iebTotal += islandProgress.ebTotal;
+        iebDone += islandProgress.ebDone;
+        iglTotal += islandProgress.glTotal;
+        iglDone += islandProgress.glDone;
+      }
       const islandBerriesEl = document.getElementById("ic-island-berries");
       if (islandBerriesEl) islandBerriesEl.textContent = `฿${icFormatBerries(islandBerries)}`;
-
-      const { ebTotal: iebTotal, ebDone: iebDone, glTotal: iglTotal, glDone: iglDone } = icCalcIslandStaminaProgress(icSelectedIsland);
       const iEbBar = document.getElementById("ic-island-eb-bar");
       const iEbLabel = document.getElementById("ic-island-eb-label");
       if (iEbBar) iEbBar.style.width = iebTotal > 0 ? `${(iebDone / iebTotal) * 100}%` : "0%";
@@ -875,9 +988,12 @@ function icRenderAllStaminaChests() {
     html += `</tr></thead><tbody>`;
 
     // Filter characters based on icCharacterFilter
-    const displayedChars = icCharacterFilterActive
-      ? CHARACTERS_DATA.filter(c => icCharacterFilter.includes(c.id))
-      : CHARACTERS_DATA;
+    const staminaIslandNames = withPerChar.map(({ island }) => island.nome);
+    const staminaPerCharBausMap = {};
+    withPerChar.forEach(({ island, perCharBaus }) => {
+      staminaPerCharBausMap[island.nome] = perCharBaus;
+    });
+    const displayedChars = icGetDisplayedCharactersForSelection(staminaIslandNames, staminaPerCharBausMap);
 
     for (const char of displayedChars) {
       html += `<tr>
@@ -912,102 +1028,238 @@ function icRenderAllStaminaChests() {
 }
 
 // ---- Render the chests area ----
+function icBuildSelectionSignature(selectedIslandNames, perCharBausMap) {
+  return selectedIslandNames.map((islandName) => {
+    const chestIds = (perCharBausMap[islandName] || []).map((chest) => chest.id).join(".");
+    return `${islandName}:${chestIds}`;
+  }).join("|");
+}
+
+function icIsCharacterCompleteInSelection(characterId, selectedIslandNames, perCharBausMap, selectionSignature) {
+  const memoKey = `${icCompletionMemoVersion}|${selectionSignature}|${characterId}`;
+  if (icCompletionMemo.has(memoKey)) {
+    return icCompletionMemo.get(memoKey);
+  }
+
+  let hasRelevantChest = false;
+  for (const islandName of selectedIslandNames) {
+    const islandPerCharBaus = perCharBausMap[islandName] || [];
+    for (const chest of islandPerCharBaus) {
+      hasRelevantChest = true;
+      if (!icIsCharChecked(characterId, islandName, chest.id)) {
+        icCompletionMemo.set(memoKey, false);
+        return false;
+      }
+    }
+  }
+  icCompletionMemo.set(memoKey, hasRelevantChest);
+  return hasRelevantChest;
+}
+
+function icGetDisplayedCharactersForSelection(selectedIslandNames, perCharBausMap) {
+  const selectionSignature = icBuildSelectionSignature(selectedIslandNames, perCharBausMap);
+  let displayedChars = icGetUnlockedCharacters();
+
+  if (icCharacterFilterActive) {
+    const allowed = new Set(icCharacterFilter);
+    displayedChars = displayedChars.filter((character) => allowed.has(character.id));
+  }
+
+  if (icHideCompletedCharacters) {
+    displayedChars = displayedChars.filter((character) => (
+      !icIsCharacterCompleteInSelection(character.id, selectedIslandNames, perCharBausMap, selectionSignature)
+    ));
+  }
+
+  return displayedChars;
+}
+
 function icRenderIslandChests() {
   if (icStaminaOnly) {
     icRenderAllStaminaChests();
     return;
   }
+
   const container = document.getElementById("ic-chests-container");
-  if (!container || !icSelectedIsland) return;
+  if (!container) return;
 
-  const island = ISLAND_CHEST_DATA.find(i => i.nome === icSelectedIsland);
-  if (!island) { container.innerHTML = ""; return; }
-
-  const globalBaus = island.baus.filter(b => b.global && icChestMatchesFilter(b));
-  const perCharBaus = island.baus.filter(b => !b.global && icChestMatchesFilter(b));
-
-  let html = "";
-
-  // Global chests section
-  if (globalBaus.length > 0) {
-    html += `<div class="ic-section">
-      <h3 class="ic-section-title">${t("islandChestsGlobal")}</h3>
-      <div class="ic-global-row">`;
-    for (const bau of globalBaus) {
-      html += icBuildChestCard(bau, island.nome, true, null);
-    }
-    html += `</div></div>`;
+  const selectedIslandNames = icGetOrderedSelectedIslands();
+  if (!selectedIslandNames.length) {
+    container.innerHTML = `<p class="ic-empty-msg">${t("islandChestsPickAtLeastOneIsland")}</p>`;
+    return;
   }
 
-  // Per-character section
-  if (perCharBaus.length > 0) {
-    html += `<div class="ic-section">
-      <h3 class="ic-section-title">${t("islandChestsPerChar")}</h3>
-      <div class="ic-char-table-wrap">
-        <table class="ic-char-table">
-          <thead>
-            <tr>
-              <th class="ic-char-col-header"></th>`;
-    for (const bau of perCharBaus) {
-      const lootItems = icParseLoot(bau.loot);
-      const berries = icCalcChestBerries(lootItems);
-      const berriesStr = berries > 0 ? `฿${icFormatBerries(berries)}` : "";
-      html += `<th class="ic-chest-col-header">
-        <div class="ic-header-chest-items">`;
-      for (const { name, qty } of lootItems) {
-        const tooltip = icGetItemTooltip(name, qty);
-        html += `<div class="ic-loot-item ic-loot-item-sm" title="${tooltip}">
-          <img src="${icGetItemSpritePath(name)}" alt="${name}" loading="lazy" onerror="this.style.display='none'">
-          <div class="ic-item-header-info">
-            <span class="ic-loot-qty">${qty}</span>
-          </div>
-        </div>`;
+  const globalBausByIsland = {};
+  const perCharBausByIsland = {};
+
+  for (const islandName of selectedIslandNames) {
+    const island = IC_ISLAND_BY_NAME[islandName];
+    if (!island) {
+      globalBausByIsland[islandName] = [];
+      perCharBausByIsland[islandName] = [];
+      continue;
+    }
+    const matchedBaus = island.baus.filter((bau) => icChestMatchesFilter(bau));
+    globalBausByIsland[islandName] = matchedBaus.filter((bau) => bau.global);
+    perCharBausByIsland[islandName] = matchedBaus.filter((bau) => !bau.global);
+  }
+
+  const displayedChars = icGetDisplayedCharactersForSelection(selectedIslandNames, perCharBausByIsland);
+  const hasAnyPerCharacterChest = selectedIslandNames.some((islandName) => (perCharBausByIsland[islandName] || []).length > 0);
+
+  let html = `<div class="ic-scroll-top-wrap">
+    <div class="ic-scroll-top" aria-label="Island horizontal scrollbar">
+      <div class="ic-scroll-top-inner"></div>
+    </div>
+  </div>
+  <div class="ic-multi-island-scroll ic-drag-scroll"><div class="ic-multi-island-grid">`;
+
+  for (const islandName of selectedIslandNames) {
+    const island = IC_ISLAND_BY_NAME[islandName];
+    if (!island) continue;
+
+    const globalBaus = globalBausByIsland[islandName] || [];
+    const perCharBaus = perCharBausByIsland[islandName] || [];
+    const slug = IC_ISLAND_BANNER_SLUG[islandName] || islandName.toLowerCase().replace(/ /g, "_");
+
+    html += `<section class="ic-island-panel">
+      <div class="ic-island-panel-banner-wrap">
+        <img class="ic-island-panel-banner" src="${IC_ISLAND_BANNERS_PATH}/${slug}.png" alt="${islandName}" loading="lazy">
+      </div>`;
+
+    if (globalBaus.length > 0) {
+      html += `<div class="ic-section">
+        <h3 class="ic-section-title">${t("islandChestsGlobal")}</h3>
+        <div class="ic-global-row">`;
+      for (const bau of globalBaus) {
+        html += icBuildChestCard(bau, islandName, true, null);
       }
+      html += `</div></div>`;
+    }
+
+    if (perCharBaus.length > 0) {
+      html += `<div class="ic-section">
+        <h3 class="ic-section-title">${t("islandChestsPerChar")}</h3>`;
+
+      if (!displayedChars.length) {
+        html += `<p class="ic-empty-msg">${t("islandChestsNoUnlockedCharacters")}</p>`;
+      } else {
+        html += `<div class="ic-char-table-wrap">
+          <table class="ic-char-table">
+            <thead>
+              <tr>
+                <th class="ic-char-col-header"></th>`;
+
+        for (const bau of perCharBaus) {
+          const lootItems = icParseLoot(bau.loot);
+          const berries = icCalcChestBerries(lootItems);
+          const berriesStr = berries > 0 ? `฿${icFormatBerries(berries)}` : "";
+          html += `<th class="ic-chest-col-header">
+            <div class="ic-header-chest-items">`;
+          for (const { name, qty } of lootItems) {
+            const tooltip = icGetItemTooltip(name, qty);
+            html += `<div class="ic-loot-item ic-loot-item-sm" title="${tooltip}">
+              <img src="${icGetItemSpritePath(name)}" alt="${name}" loading="lazy" onerror="this.style.display='none'">
+              <div class="ic-item-header-info">
+                <span class="ic-loot-qty">${qty}</span>
+              </div>
+            </div>`;
+          }
+          html += `</div>`;
+          if (berriesStr) html += `<div class="ic-header-berries" title="Berries: ${berries}">${berriesStr}</div>`;
+          html += `</th>`;
+        }
+
+        html += `</tr></thead><tbody>`;
+
+        for (const char of displayedChars) {
+          html += `<tr>
+            <td class="ic-char-name-cell">
+              <div class="ic-char-avatar">
+                <img src="${char.sprite}" alt="${char.name}" loading="lazy" onerror="this.src='sprites/characters/monkey_luffy.png'">
+                <span class="ic-char-label">${char.name}</span>
+              </div>
+            </td>`;
+          for (const bau of perCharBaus) {
+            const isChecked = icIsCharChecked(char.id, islandName, bau.id);
+            const chestSrc = isChecked ? IC_CHEST_SPRITE_CHECKED : IC_CHEST_SPRITE_DEFAULT;
+            const dataAttrs = `data-global="false" data-island="${encodeURIComponent(islandName)}" data-chest-id="${bau.id}" data-char-id="${char.id}"`;
+            html += `<td class="ic-chest-cell">
+              <div class="ic-chest-card-sm${isChecked ? " ic-chest-card-checked" : ""}" ${dataAttrs} role="checkbox" aria-checked="${isChecked}" tabindex="0">
+                <img class="ic-chest-sprite-sm${isChecked ? " ic-chest-checked" : ""}" src="${chestSrc}" alt="chest" loading="lazy">
+              </div>
+            </td>`;
+          }
+          html += `</tr>`;
+        }
+
+        html += `</tbody></table></div>`;
+      }
+
       html += `</div>`;
-      if (berriesStr) html += `<div class="ic-header-berries" title="Berries: ${berries}">${berriesStr}</div>`;
-      html += `</th>`;
-    }
-    html += `</tr></thead><tbody>`;
-
-    // Filter characters based on icCharacterFilter
-    const displayedChars = icCharacterFilterActive
-      ? CHARACTERS_DATA.filter(c => icCharacterFilter.includes(c.id))
-      : CHARACTERS_DATA;
-
-    for (const char of displayedChars) {
-      html += `<tr>
-        <td class="ic-char-name-cell">
-          <div class="ic-char-avatar">
-            <img src="${char.sprite}" alt="${char.name}" loading="lazy" onerror="this.src='sprites/characters/monkey_luffy.png'">
-            <span class="ic-char-label">${char.name}</span>
-          </div>
-        </td>`;
-      for (const bau of perCharBaus) {
-        const isChecked = icIsCharChecked(char.id, island.nome, bau.id);
-        const chestSrc = isChecked ? IC_CHEST_SPRITE_CHECKED : IC_CHEST_SPRITE_DEFAULT;
-        const dataAttrs = `data-global="false" data-island="${encodeURIComponent(island.nome)}" data-chest-id="${bau.id}" data-char-id="${char.id}"`;
-        html += `<td class="ic-chest-cell">
-          <div class="ic-chest-card-sm${isChecked ? " ic-chest-card-checked" : ""}" ${dataAttrs} role="checkbox" aria-checked="${isChecked}" tabindex="0">
-            <img class="ic-chest-sprite-sm${isChecked ? " ic-chest-checked" : ""}" src="${chestSrc}" alt="chest" loading="lazy">
-          </div>
-        </td>`;
-      }
-      html += `</tr>`;
     }
 
-    html += `</tbody></table></div></div>`;
+    if (!globalBaus.length && !perCharBaus.length) {
+      html += `<p class="ic-empty-msg">${t("islandChestsNoIslandSelected")}</p>`;
+    }
+
+    html += `</section>`;
   }
 
-  if (html === "") {
-    html = `<p class="ic-empty-msg">${t("islandChestsNoIslandSelected")}</p>`;
+  html += `</div></div>`;
+
+  if (hasAnyPerCharacterChest && !displayedChars.length) {
+    html += `<p class="ic-empty-msg">${t("islandChestsNoUnlockedCharacters")}</p>`;
   }
 
   container.innerHTML = html;
+  icSyncIslandPanelBannerWidths(container);
   icAttachChestEvents(container);
+}
+
+function icSyncIslandPanelBannerWidths(container) {
+  if (!container) return;
+  const panels = Array.from(container.querySelectorAll(".ic-island-panel"));
+  if (!panels.length) return;
+
+  const globalBannerMaxWidth = 860;
+  const isMobile = window.matchMedia("(max-width: 640px)").matches;
+  const desktopViewportLimit = Math.max(360, window.innerWidth - 320);
+
+  panels.forEach((panel) => {
+    const table = panel.querySelector(".ic-char-table");
+    const tableWidth = Math.ceil(table?.scrollWidth || table?.getBoundingClientRect().width || 0);
+
+    if (isMobile || tableWidth <= 0) {
+      panel.style.removeProperty("width");
+      panel.style.removeProperty("min-width");
+    } else {
+      const panelTargetWidth = Math.min(desktopViewportLimit, Math.max(360, tableWidth + 24));
+      panel.style.width = `${panelTargetWidth}px`;
+      panel.style.minWidth = `${panelTargetWidth}px`;
+    }
+
+    const bannerWrap = panel.querySelector(".ic-island-panel-banner-wrap");
+    if (!bannerWrap) return;
+
+    if (!table) {
+      bannerWrap.style.maxWidth = `${globalBannerMaxWidth}px`;
+      return;
+    }
+
+    if (tableWidth <= 0) {
+      bannerWrap.style.maxWidth = `${globalBannerMaxWidth}px`;
+      return;
+    }
+
+    // Keep a global cap, but for small tables the banner cap follows table width.
+    bannerWrap.style.maxWidth = `${Math.min(globalBannerMaxWidth, tableWidth)}px`;
+  });
 }
 
 function icAttachChestEvents(container) {
   icAttachDragScroll(container);
+  icAttachMultiIslandTopScrollbar(container);
   icAttachTopScrollbar(container);
   container.querySelectorAll("[data-chest-id]").forEach(el => {
     el.addEventListener("click", icHandleChestToggle);
@@ -1018,6 +1270,47 @@ function icAttachChestEvents(container) {
       }
     });
   });
+}
+
+function icAttachMultiIslandTopScrollbar(container) {
+  if (!container) return;
+
+  const topScroll = container.querySelector(".ic-scroll-top");
+  const topInner = container.querySelector(".ic-scroll-top-inner");
+  const contentScroll = container.querySelector(".ic-multi-island-scroll");
+  const contentGrid = container.querySelector(".ic-multi-island-grid");
+
+  if (!topScroll || !topInner || !contentScroll || !contentGrid) return;
+  if (topScroll.dataset.syncReady === "1") return;
+  topScroll.dataset.syncReady = "1";
+
+  let syncing = false;
+
+  function updateTopScrollbarWidth() {
+    topInner.style.width = `${contentScroll.scrollWidth}px`;
+  }
+
+  topScroll.addEventListener("scroll", () => {
+    if (syncing) return;
+    syncing = true;
+    contentScroll.scrollLeft = topScroll.scrollLeft;
+    syncing = false;
+  });
+
+  contentScroll.addEventListener("scroll", () => {
+    if (syncing) return;
+    syncing = true;
+    topScroll.scrollLeft = contentScroll.scrollLeft;
+    syncing = false;
+  });
+
+  updateTopScrollbarWidth();
+
+  if (typeof ResizeObserver !== "undefined") {
+    const ro = new ResizeObserver(updateTopScrollbarWidth);
+    ro.observe(contentGrid);
+    ro.observe(contentScroll);
+  }
 }
 
 function icAttachTopScrollbar(container) {
@@ -1139,36 +1432,62 @@ function icHandleChestToggle(e) {
   }
 
   icSaveState();
-
-  // Update just this element's visual state
-  const newChecked = isGlobal
-    ? icIsGlobalChecked(islandName, chestId)
-    : icIsCharChecked(charId, islandName, chestId);
-
-  el.setAttribute("aria-checked", newChecked);
-  el.classList.toggle("ic-chest-card-checked", newChecked);
-  el.classList.toggle("ic-chest-card-sm-checked", newChecked);
-
-  const img = el.querySelector("img.ic-chest-sprite, img.ic-chest-sprite-sm");
-  if (img) {
-    img.src = newChecked ? IC_CHEST_SPRITE_CHECKED : IC_CHEST_SPRITE_DEFAULT;
-    img.classList.toggle("ic-chest-checked", newChecked);
-  }
-
-  icUpdateStats();
+  renderIslandChests();
 }
 
 // ---- Render island list sidebar ----
-// ---- Click handler for island buttons ----
-function icSelectIsland(islandNameEncoded) {
+// ---- Click handler for island toggle buttons ----
+function icToggleIslandSelection(islandNameEncoded) {
   if (!islandNameEncoded) return;
-  icSelectedIsland = decodeURIComponent(islandNameEncoded);
-  // Clear character filter when selecting an island
-  icCharacterFilter = [];
-  icCharacterFilterActive = false;
-  const searchInput = document.getElementById("ic-char-search");
-  if (searchInput) searchInput.value = "";
-  // Render everything
+  const islandName = decodeURIComponent(islandNameEncoded);
+  if (icSelectedIslands.has(islandName)) {
+    icSelectedIslands.delete(islandName);
+  } else {
+    icSelectedIslands.add(islandName);
+  }
+  renderIslandChests();
+  icSaveState();
+}
+
+function icSelectAllIslands() {
+  icSelectedIslands = new Set(ISLAND_CHEST_DATA.map((island) => island.nome));
+  renderIslandChests();
+  icSaveState();
+}
+
+function icClearSelectedIslands() {
+  icSelectedIslands = new Set();
+  renderIslandChests();
+  icSaveState();
+}
+
+function icSetHideCompletedCharacters(value) {
+  icHideCompletedCharacters = !!value;
+  const toggle = document.getElementById("ic-hide-complete-toggle");
+  if (toggle) toggle.classList.toggle("active", icHideCompletedCharacters);
+  renderIslandChests();
+  icSaveState();
+}
+
+function icUnlockAllCharactersFromIslandChests() {
+  if (typeof getCharactersState !== "function" || typeof applyCharactersState !== "function") return;
+  const charactersState = getCharactersState();
+  if (!charactersState || !charactersState.characters) return;
+
+  for (const character of CHARACTERS_DATA) {
+    if (!charactersState.characters[character.id]) {
+      charactersState.characters[character.id] = {};
+    }
+    charactersState.characters[character.id].active = true;
+  }
+
+  applyCharactersState(charactersState);
+  autoSaveBuild();
+  renderIslandChests();
+}
+
+function renderIslandChests() {
+  icEnsureSelectedIslands();
   icRenderIslandList();
   icRenderIslandChests();
   icUpdateStats();
@@ -1178,17 +1497,27 @@ function icRenderIslandList() {
   const list = document.getElementById("ic-island-list");
   if (!list) return;
 
-  list.innerHTML = ISLAND_CHEST_DATA.map(island => {
+  list.innerHTML = `<div class="ic-sidebar-actions">
+    <button class="ic-sidebar-action-btn" data-ic-select-all="1">${t("islandChestsSelectAll")}</button>
+    <button class="ic-sidebar-action-btn" data-ic-clear-selection="1">${t("islandChestsClearSelection")}</button>
+  </div>
+  ${ISLAND_CHEST_DATA.map(island => {
     const slug = IC_ISLAND_BANNER_SLUG[island.nome] || island.nome.toLowerCase().replace(/ /g, "_");
-    const isActive = island.nome === icSelectedIsland;
-    return `<button class="ic-island-btn${isActive ? " active" : ""}" data-island="${encodeURIComponent(island.nome)}" title="${island.nome}">
+    const isActive = icSelectedIslands.has(island.nome);
+    return `<button class="ic-island-btn${isActive ? " active" : ""}" data-island="${encodeURIComponent(island.nome)}" title="${island.nome}" aria-pressed="${isActive ? "true" : "false"}">
       <img class="ic-island-banner" src="${IC_ISLAND_BANNERS_PATH}/${slug}.png" alt="${island.nome}" loading="lazy">
     </button>`;
-  }).join("");
+  }).join("")}`;
 
   list.querySelectorAll(".ic-island-btn").forEach((btn) => {
-    btn.onclick = () => icSelectIsland(btn.dataset.island || "");
+    btn.onclick = () => icToggleIslandSelection(btn.dataset.island || "");
   });
+
+  const selectAllBtn = list.querySelector("[data-ic-select-all]");
+  if (selectAllBtn) selectAllBtn.onclick = icSelectAllIslands;
+
+  const clearSelectionBtn = list.querySelector("[data-ic-clear-selection]");
+  if (clearSelectionBtn) clearSelectionBtn.onclick = icClearSelectedIslands;
 }
 
 function icBindUiControls() {
@@ -1220,6 +1549,16 @@ function icBindUiControls() {
     resetIslandBtn.onclick = icResetIsland;
   }
 
+  const unlockAllCharactersBtn = document.getElementById("ic-unlock-all-characters-btn");
+  if (unlockAllCharactersBtn) {
+    unlockAllCharactersBtn.onclick = icUnlockAllCharactersFromIslandChests;
+  }
+
+  const hideCompleteToggle = document.getElementById("ic-hide-complete-toggle");
+  if (hideCompleteToggle) {
+    hideCompleteToggle.onclick = () => icSetHideCompletedCharacters(!icHideCompletedCharacters);
+  }
+
   const resetAllBtn = document.getElementById("ic-reset-all-btn");
   if (resetAllBtn) {
     resetAllBtn.onclick = icResetAll;
@@ -1243,9 +1582,9 @@ function icSetStaminaOnly(val) {
   
   const layout = document.querySelector(".ic-layout");
   if (layout) layout.classList.toggle("ic-stamina-mode", val);
-  
-  icRenderIslandChests();
-  icUpdateStats();
+
+  renderIslandChests();
+  icSaveState();
 }
 
 function icSetStaminaFilter(val) {
@@ -1253,36 +1592,35 @@ function icSetStaminaFilter(val) {
   document.querySelectorAll(".ic-filter-btn").forEach(b => {
     b.classList.toggle("active", b.dataset.filter === val);
   });
-  icRenderIslandChests();
-  icUpdateStats();
+  renderIslandChests();
+  icSaveState();
 }
 
 // ---- Reset ----
 function icResetIsland() {
-  if (!icSelectedIsland) return;
-  const island = ISLAND_CHEST_DATA.find(i => i.nome === icSelectedIsland);
-  if (!island) return;
+  const selectedIslands = icGetOrderedSelectedIslands();
+  if (!selectedIslands.length) return;
 
-  // Clear global
-  if (icState.globalChecked[icSelectedIsland]) {
-    delete icState.globalChecked[icSelectedIsland];
-  }
-  // Clear per-char
-  for (const charId of Object.keys(icState.checked)) {
-    if (icState.checked[charId][icSelectedIsland]) {
-      delete icState.checked[charId][icSelectedIsland];
+  for (const islandName of selectedIslands) {
+    if (icState.globalChecked[islandName]) {
+      delete icState.globalChecked[islandName];
+    }
+    for (const charId of Object.keys(icState.checked)) {
+      if (icState.checked[charId][islandName]) {
+        delete icState.checked[charId][islandName];
+      }
     }
   }
+  icBumpCompletionMemoVersion();
   icSaveState();
-  icRenderIslandChests();
-  icUpdateStats();
+  renderIslandChests();
 }
 
 function icResetAll() {
   icState = { checked: {}, globalChecked: {} };
+  icBumpCompletionMemoVersion();
   icSaveState();
-  icRenderIslandChests();
-  icUpdateStats();
+  renderIslandChests();
 }
 
 // ---- Set character filter from search input ----
@@ -1307,35 +1645,29 @@ function icSetCharacterFilter(searchStr) {
     }
   }
   
-  icRenderIslandChests();
-  icUpdateStats();
+  renderIslandChests();
 }
 
 // ---- Language change hook ----
 function islandChestsApplyTranslations() {
   if (!icInitialized) return;
-  icRenderIslandList();
-  icRenderIslandChests();
-  icUpdateStats();
+  renderIslandChests();
 }
 
 // ---- Main init ----
 function islandChestsInit() {
   if (icInitialized) {
-    icRenderIslandList();
     icBindUiControls();
-    icRenderIslandChests();
-    icUpdateStats();
+    renderIslandChests();
     return;
   }
   icInitialized = true;
   icLoadState();
 
   // Build the header section (title + controls + stats)
-  // Auto-select an island with per-character chests so the table is visible immediately
-  if (!icSelectedIsland && ISLAND_CHEST_DATA.length > 0) {
+  if (!icSelectedIslands.size && ISLAND_CHEST_DATA.length > 0) {
     const defaultIsland = ISLAND_CHEST_DATA.find((island) => island.baus.some((b) => !b.global));
-    icSelectedIsland = (defaultIsland || ISLAND_CHEST_DATA[0]).nome;
+    icSelectedIslands.add((defaultIsland || ISLAND_CHEST_DATA[0]).nome);
   }
 
   const header = document.getElementById("ic-header");
@@ -1344,6 +1676,9 @@ function islandChestsInit() {
       <div class="ic-header-row">
         <div class="ic-controls">
           <input type="text" id="ic-char-search" class="ic-char-search" placeholder="${t("islandChestsSearchChars")}" title="${t("islandChestsSearchCharsHint")}" value="">
+          <button id="ic-hide-complete-toggle" class="ic-filter-toggle-btn${icHideCompletedCharacters ? " active" : ""}">
+            <span data-lang="islandChestsHideComplete">${t("islandChestsHideComplete")}</span>
+          </button>
           <button id="ic-stamina-only-toggle" class="ic-filter-toggle-btn${icStaminaOnly ? " active" : ""}">
             <span data-lang="islandChestsStaminaOnly">${t("islandChestsStaminaOnly")}</span>
           </button>
@@ -1355,6 +1690,7 @@ function islandChestsInit() {
         </div>
         <div class="ic-actions">
           <button class="shareBtn" onclick="shareBuild()" data-lang="shareBuild">Compartilhar</button>
+          <button id="ic-unlock-all-characters-btn" class="ic-action-btn" data-lang="islandChestsUnlockAllCharacters">${t("islandChestsUnlockAllCharacters")}</button>
           <button id="ic-reset-island-btn" class="ic-action-btn" data-lang="islandChestsResetIsland">${t("islandChestsResetIsland")}</button>
           <button id="ic-reset-all-btn" class="ic-action-btn ic-action-btn-danger" data-lang="islandChestsResetAll">${t("islandChestsResetAll")}</button>
         </div>
@@ -1383,9 +1719,9 @@ function islandChestsInit() {
           </div>
         </div>
       </div>
-      <div id="ic-island-stats-row" class="ic-stats-row ic-island-stats-row" style="display:${!icStaminaOnly && !!icSelectedIsland ? 'flex' : 'none'}">
+      <div id="ic-island-stats-row" class="ic-stats-row ic-island-stats-row" style="display:${!icStaminaOnly && icGetOrderedSelectedIslands().length > 0 ? 'flex' : 'none'}">
         <div class="ic-stat-block">
-          <span class="ic-stat-label ic-island-label-prefix"><span data-lang="islandChestsIslandLabel">${t("islandChestsIslandLabel")}</span> — <span data-lang="islandChestsTotalBerries">${t("islandChestsTotalBerries")}</span>:</span>
+          <span class="ic-stat-label ic-island-label-prefix"><span data-lang="islandChestsSelectedIslandsLabel">${t("islandChestsSelectedIslandsLabel")}</span> — <span data-lang="islandChestsTotalBerries">${t("islandChestsTotalBerries")}</span>:</span>
           <span id="ic-island-berries" class="ic-stat-value">฿0</span>
         </div>
         <div class="ic-progress-block">
@@ -1409,30 +1745,62 @@ function islandChestsInit() {
       </div>`;
   }
 
-  icRenderIslandList();
   icBindUiControls();
-  icRenderIslandChests();
-  icUpdateStats();
+  renderIslandChests();
 }
 
 // ---- Share/Load state functions ----
 function getIslandChestsState() {
-  return JSON.parse(JSON.stringify(icState));
+  icEnsureStateShape();
+  return {
+    checked: JSON.parse(JSON.stringify(icState.checked)),
+    globalChecked: JSON.parse(JSON.stringify(icState.globalChecked)),
+    selectedIslands: icGetOrderedSelectedIslands(),
+    staminaOnly: !!icStaminaOnly,
+    staminaFilter: icStaminaFilter || "both",
+    hideCompletedCharacters: !!icHideCompletedCharacters
+  };
 }
 
 function applyIslandChestsState(state) {
   if (!state) {
     icState = { checked: {}, globalChecked: {} };
+    icSelectedIslands = new Set();
+    icStaminaOnly = false;
+    icStaminaFilter = "both";
+    icHideCompletedCharacters = false;
   } else {
     icState = {
       checked: state.checked || {},
       globalChecked: state.globalChecked || {}
     };
+    icSelectedIslands = new Set(Array.isArray(state.selectedIslands) ? state.selectedIslands : []);
+    icStaminaOnly = !!state.staminaOnly;
+    icStaminaFilter = state.staminaFilter || "both";
+    icHideCompletedCharacters = !!state.hideCompletedCharacters;
   }
+  icEnsureStateShape();
+  icEnsureSelectedIslands();
+  icBumpCompletionMemoVersion();
   icSaveState();
   if (icInitialized) {
-    icRenderIslandChests();
-    icUpdateStats();
+    const toggle = document.getElementById("ic-stamina-only-toggle");
+    if (toggle) toggle.classList.toggle("active", icStaminaOnly);
+
+    const hideToggle = document.getElementById("ic-hide-complete-toggle");
+    if (hideToggle) hideToggle.classList.toggle("active", icHideCompletedCharacters);
+
+    const filterGroup = document.getElementById("ic-stamina-filter-group");
+    if (filterGroup) filterGroup.style.display = icStaminaOnly ? "flex" : "none";
+
+    const layout = document.querySelector(".ic-layout");
+    if (layout) layout.classList.toggle("ic-stamina-mode", icStaminaOnly);
+
+    document.querySelectorAll(".ic-filter-btn").forEach((button) => {
+      button.classList.toggle("active", button.dataset.filter === icStaminaFilter);
+    });
+
+    renderIslandChests();
   }
 }
 

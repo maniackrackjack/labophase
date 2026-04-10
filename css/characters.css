@@ -6,18 +6,21 @@
 }
 
 .characters-title-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(260px, max-content) auto;
+  align-items: end;
+  justify-content: start;
+  column-gap: 14px;
+  row-gap: 8px;
 }
 
 .characters-title-actions {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .characters-subtitle {
@@ -26,11 +29,11 @@
 }
 
 .characters-summary {
-  min-width: 220px;
-  padding: 10px 14px;
+  min-width: 200px;
+  padding: 8px 12px;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--text-title) 25%, transparent 75%);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-1) 92%, transparent 8%), color-mix(in srgb, var(--bg-panel) 96%, black 4%));
+  border: 1px solid var(--text-title);
+  background: linear-gradient(180deg, var(--bg-surface-1), var(--bg-panel));
   color: var(--text-panel);
   text-align: center;
   font-weight: 700;
@@ -42,11 +45,11 @@
   grid-template-columns: minmax(220px, 2fr) repeat(5, minmax(140px, 1fr));
   gap: 12px;
   padding: 14px;
-  border: 1px solid color-mix(in srgb, var(--text-title) 18%, transparent 82%);
+  border: 1px solid var(--text-title);
   border-radius: 14px;
   background:
-    radial-gradient(circle at top right, color-mix(in srgb, var(--text-title) 12%, transparent 88%), transparent 35%),
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-1) 96%, transparent 4%), color-mix(in srgb, var(--bg-panel) 98%, black 2%));
+    radial-gradient(circle at top right, var(--text-title), transparent 35%),
+    linear-gradient(180deg, var(--bg-surface-1), var(--bg-panel));
 }
 
 .characters-filter-field {
@@ -66,7 +69,7 @@
 .characters-filter-field select,
 .characters-card-menu input,
 .characters-card-menu select {
-  border: 1px solid color-mix(in srgb, var(--text-title) 22%, transparent 78%);
+  border: 1px solid var(--text-title);
   background: var(--input-bg);
   color: var(--input-text);
   border-radius: 10px;
@@ -84,7 +87,7 @@
 .characters-card-menu select:focus {
   outline-color: var(--input-focus);
   border-color: var(--input-focus);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--input-focus) 22%, transparent 78%);
+  box-shadow: 0 0 0 3px var(--input-focus);
 }
 
 .characters-grid {
@@ -99,18 +102,18 @@
   border-radius: 14px;
   text-align: center;
   color: var(--text-muted);
-  border: 1px dashed color-mix(in srgb, var(--text-title) 20%, transparent 80%);
-  background: color-mix(in srgb, var(--bg-panel) 82%, transparent 18%);
+  border: 1px dashed var(--text-title);
+  background: var(--bg-panel);
 }
 
 .characters-card {
   position: relative;
   min-height: 266px;
   border-radius: 18px;
-  border: 1px solid color-mix(in srgb, var(--text-title) 18%, transparent 82%);
+  border: 1px solid var(--text-title);
   background:
-    radial-gradient(circle at top, color-mix(in srgb, var(--text-title) 8%, transparent 92%), transparent 40%),
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-1) 96%, transparent 4%), color-mix(in srgb, var(--bg-panel) 98%, black 2%));
+    radial-gradient(circle at top, var(--text-title), transparent 40%),
+    linear-gradient(180deg, var(--bg-surface-1), var(--bg-panel));
   overflow: visible;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26);
 }
@@ -137,7 +140,7 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  background: color-mix(in srgb, var(--text-title) 14%, transparent 86%);
+  background: var(--bg-surface-2);
   color: var(--text-title);
 }
 
@@ -203,8 +206,8 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--text-title) 22%, transparent 78%);
-  background: color-mix(in srgb, var(--bg-panel) 90%, transparent 10%);
+  border: 1px solid var(--text-title);
+  background: var(--bg-panel);
   color: var(--text-panel);
   cursor: pointer;
   z-index: 2;
@@ -220,9 +223,9 @@
   gap: 10px;
   padding: 12px;
   border-radius: 14px;
-  border: 1px solid color-mix(in srgb, var(--input-focus) 30%, transparent 70%);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-1) 98%, black 2%), color-mix(in srgb, var(--bg-panel) 98%, black 2%));
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 0 1px color-mix(in srgb, var(--input-focus) 10%, transparent 90%);
+  border: 1px solid var(--input-focus);
+  background: linear-gradient(180deg, var(--bg-surface-1), var(--bg-panel));
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--input-focus);
   z-index: 100;
 }
 
@@ -299,8 +302,8 @@
 }
 
 .characters-skin-btn {
-  border: 1px solid color-mix(in srgb, var(--text-title) 22%, transparent 78%);
-  background: color-mix(in srgb, var(--bg-panel) 90%, transparent 10%);
+  border: 1px solid var(--text-title);
+  background: var(--bg-panel);
   border-radius: 10px;
   min-height: 38px;
   padding: 7px 9px;
@@ -317,9 +320,9 @@
 }
 
 .characters-skin-btn.is-unlocked {
-  border-color: color-mix(in srgb, var(--input-focus) 40%, transparent 60%);
-  background: color-mix(in srgb, var(--bg-surface-1) 88%, green 12%);
-  color: color-mix(in srgb, var(--text-panel) 85%, #b6efc7 15%);
+  border-color: var(--input-focus);
+  background: var(--bg-surface-1);
+  color: var(--text-panel);
 }
 
 .characters-skin-empty {
@@ -340,8 +343,8 @@
 }
 
 .characters-filter-toggle {
-  border: 1px solid color-mix(in srgb, var(--text-title) 22%, transparent 78%);
-  background: color-mix(in srgb, var(--bg-panel) 75%, transparent 25%);
+  border: 1px solid var(--text-title);
+  background: var(--bg-panel);
   border-radius: 8px;
   padding: 5px 6px;
   cursor: pointer;
@@ -361,8 +364,8 @@
 }
 
 .characters-filter-toggle.is-active {
-  border-color: color-mix(in srgb, var(--text-title) 60%, transparent 40%);
-  background: color-mix(in srgb, var(--bg-tab-active) 55%, var(--bg-panel) 45%);
+  border-color: var(--text-title);
+  background: var(--bg-tab-active);
 }
 
 .characters-filter-toggle.is-active img {
@@ -388,17 +391,17 @@
 
 .characters-card.is-inactive .characters-card-name,
 .characters-card.is-inactive .characters-card-meta {
-  color: color-mix(in srgb, var(--text-muted) 75%, black 25%);
+  color: var(--text-muted);
 }
 
 .characters-card.is-active {
-  border-color: color-mix(in srgb, var(--text-title) 34%, transparent 66%);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32), 0 0 0 1px color-mix(in srgb, var(--text-title) 10%, transparent 90%);
+  border-color: var(--text-title);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32), 0 0 0 1px var(--text-title);
 }
 
 .characters-card.is-active .characters-card-status {
-  background: color-mix(in srgb, var(--input-focus) 16%, transparent 84%);
-  color: color-mix(in srgb, var(--text-panel) 85%, #b6efc7 15%);
+  background: var(--input-focus);
+  color: var(--text-panel);
 }
 
 .characters-card.is-active .characters-card-sprite {
@@ -425,6 +428,16 @@
 }
 
 @media (max-width: 620px) {
+  .characters-title-row {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+  }
+
+  .characters-title-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
   .characters-filter-bar {
     grid-template-columns: 1fr;
   }

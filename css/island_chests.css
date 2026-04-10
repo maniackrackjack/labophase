@@ -39,6 +39,28 @@
   gap: 2px;
 }
 
+.ic-sidebar-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 8px 8px;
+}
+
+.ic-sidebar-action-btn {
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-accent);
+  color: var(--text-panel);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.ic-sidebar-action-btn:hover {
+  background: var(--bg-panel);
+}
+
 .ic-island-btn {
   display: flex;
   align-items: center;
@@ -52,14 +74,31 @@
   transition: background 0.15s, border-color 0.15s;
 }
 
+.ic-island-btn .ic-island-banner {
+  filter: saturate(0.28) brightness(0.72);
+  opacity: 0.82;
+  transition: filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
 .ic-island-btn:hover {
-  background: color-mix(in srgb, var(--bg-panel) 60%, var(--bg-surface-1) 40%);
+  background: var(--bg-panel);
+}
+
+.ic-island-btn:hover .ic-island-banner {
+  filter: saturate(0.55) brightness(0.9);
+  opacity: 0.95;
 }
 
 .ic-island-btn.active {
-  background: color-mix(in srgb, var(--bg-tab-active) 20%, transparent 80%);
+  background: var(--bg-tab-active);
   border-left-color: var(--border-accent);
   outline: none;
+}
+
+.ic-island-btn.active .ic-island-banner {
+  filter: saturate(1.1) brightness(1);
+  opacity: 1;
+  transform: scale(1.01);
 }
 
 .ic-island-banner {
@@ -82,6 +121,109 @@
   flex-direction: column;
   gap: 16px;
   min-width: 0;
+}
+
+.ic-multi-island-scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  padding-bottom: 12px;
+}
+
+.ic-scroll-top-wrap {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.ic-scroll-top {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 14px;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  touch-action: pan-x;
+  border: 1px solid var(--border-accent);
+  border-radius: 999px;
+  background: var(--bg-surface-1);
+}
+
+.ic-scroll-top-inner {
+  height: 1px;
+  min-width: 100%;
+}
+
+.ic-scroll-top::-webkit-scrollbar {
+  height: 12px;
+}
+
+.ic-scroll-top::-webkit-scrollbar-thumb {
+  background: var(--text-title);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.ic-scroll-top::-webkit-scrollbar-track {
+  background: var(--bg-surface-1);
+  border-radius: 999px;
+}
+
+.ic-multi-island-scroll::-webkit-scrollbar {
+  height: 12px;
+}
+
+.ic-multi-island-scroll::-webkit-scrollbar-thumb {
+  background: var(--text-title);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.ic-multi-island-scroll::-webkit-scrollbar-track {
+  background: var(--bg-surface-1);
+  border-radius: 999px;
+}
+
+.ic-multi-island-grid {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  min-width: min-content;
+}
+
+.ic-island-panel {
+  width: min(980px, calc(100vw - 320px));
+  min-width: 620px;
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ic-island-panel-banner-wrap {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid var(--border-accent);
+}
+
+.ic-island-panel-banner {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 64px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 /* ---- Header (controls + stats) ---- */
@@ -189,7 +331,7 @@
 }
 
 .ic-action-btn:hover {
-  background: color-mix(in srgb, var(--bg-panel) 60%, var(--bg-surface-1) 40%);
+  background: var(--bg-panel);
 }
 
 .ic-action-btn-danger {
@@ -389,7 +531,7 @@
 
 .ic-chest-card.ic-chest-card-checked {
   border-color: #27ae60;
-  background: color-mix(in srgb, #27ae60 12%, var(--bg-surface-1) 88%);
+  background: #27ae60;
 }
 
 .ic-chest-top {
@@ -596,7 +738,7 @@
 
 .ic-char-table tr:nth-child(even) .ic-chest-cell,
 .ic-char-table tr:nth-child(even) .ic-char-name-cell {
-  background: color-mix(in srgb, var(--bg-surface-1) 40%, var(--bg-panel) 60%);
+  background: var(--bg-surface-1);
 }
 
 /* ---- Small chest cards (table cells) ---- */
@@ -619,7 +761,7 @@
 
 .ic-chest-card-sm.ic-chest-card-checked {
   border-color: #27ae60;
-  background: color-mix(in srgb, #27ae60 15%, transparent 85%);
+  background: #27ae60;
 }
 
 .ic-chest-sprite-sm {
@@ -691,7 +833,7 @@
   scrollbar-gutter: stable;
   border: 1px solid var(--border-accent);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--bg-surface-1) 85%, transparent 15%);
+  background: var(--bg-surface-1);
 }
 
 .ic-stamina-mode .ic-top-scrollbar-spacer {
@@ -732,14 +874,14 @@
 }
 
 .ic-stamina-mode .ic-char-table-wrap::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--text-title) 55%, transparent 45%);
+  background: var(--text-title);
   border-radius: 999px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
 .ic-stamina-mode .ic-char-table-wrap::-webkit-scrollbar-track {
-  background: color-mix(in srgb, var(--bg-surface-1) 75%, transparent 25%);
+  background: var(--bg-surface-1);
   border-radius: 999px;
 }
 
@@ -748,14 +890,14 @@
 }
 
 .ic-stamina-mode .ic-top-scrollbar::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--text-title) 55%, transparent 45%);
+  background: var(--text-title);
   border-radius: 999px;
   border: 2px solid transparent;
   background-clip: content-box;
 }
 
 .ic-stamina-mode .ic-top-scrollbar::-webkit-scrollbar-track {
-  background: color-mix(in srgb, var(--bg-surface-1) 75%, transparent 25%);
+  background: var(--bg-surface-1);
   border-radius: 999px;
 }
 
@@ -763,7 +905,7 @@
 @media (max-width: 640px) {
   .ic-sidebar {
     width: 100%;
-    height: 120px;
+    height: 170px;
     flex-direction: row;
     overflow-x: auto;
     overflow-y: hidden;
@@ -772,6 +914,16 @@
     border-bottom: 1px solid var(--border-accent);
     flex-wrap: nowrap;
     padding: 4px;
+  }
+
+  .ic-sidebar-actions {
+    flex-direction: column;
+    min-width: 120px;
+    padding: 0 6px 0 2px;
+  }
+
+  .ic-sidebar-action-btn {
+    white-space: nowrap;
   }
 
   .ic-layout {
@@ -791,5 +943,10 @@
   .ic-island-btn.active {
     border-left-color: transparent;
     border-bottom-color: var(--border-accent);
+  }
+
+  .ic-island-panel {
+    width: calc(100vw - 32px);
+    min-width: calc(100vw - 32px);
   }
 }

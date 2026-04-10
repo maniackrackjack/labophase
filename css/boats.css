@@ -14,9 +14,9 @@
 }
 
 .boats-section {
-  border: 1px solid color-mix(in srgb, var(--text-title) 20%, transparent 80%);
+  border: 1px solid var(--text-title);
   border-radius: 12px;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-surface-1) 94%, transparent 6%), color-mix(in srgb, var(--bg-panel) 96%, black 4%));
+  background: linear-gradient(180deg, var(--bg-surface-1), var(--bg-panel));
   padding: 12px;
 }
 
@@ -46,8 +46,8 @@
 }
 
 .boats-actions button {
-  border: 1px solid color-mix(in srgb, var(--text-title) 28%, transparent 72%);
-  background: color-mix(in srgb, var(--bg-panel) 90%, transparent 10%);
+  border: 1px solid var(--text-title);
+  background: var(--bg-panel);
   color: var(--text-panel);
   border-radius: 9px;
   padding: 7px 10px;
@@ -61,10 +61,10 @@
 }
 
 .boats-card {
-  border: 1px solid color-mix(in srgb, var(--text-title) 18%, transparent 82%);
+  border: 1px solid var(--text-title);
   border-radius: 10px;
   padding: 8px;
-  background: color-mix(in srgb, var(--bg-panel) 86%, transparent 14%);
+  background: var(--bg-panel);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,7 +93,7 @@
 .boats-card-qty {
   width: 64px;
   text-align: center;
-  border: 1px solid color-mix(in srgb, var(--text-title) 28%, transparent 72%);
+  border: 1px solid var(--text-title);
   background: var(--input-bg);
   color: var(--input-text);
   border-radius: 8px;
@@ -108,8 +108,8 @@
 }
 
 .boats-card.is-selected {
-  border-color: color-mix(in srgb, var(--input-focus) 65%, white 35%);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--text-title) 20%, transparent 80%);
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 1px var(--text-title);
 }
 
 .boats-card.is-disabled {
@@ -117,9 +117,9 @@
 }
 
 .boats-summary {
-  border: 1px solid color-mix(in srgb, var(--text-title) 20%, transparent 80%);
+  border: 1px solid var(--text-title);
   border-radius: 12px;
-  background: color-mix(in srgb, var(--bg-panel) 92%, transparent 8%);
+  background: var(--bg-panel);
   padding: 12px;
   display: grid;
   grid-template-columns: repeat(3, minmax(220px, 1fr));
@@ -131,8 +131,8 @@
 }
 
 .boats-step {
-  background: color-mix(in srgb, var(--bg-surface-1) 88%, transparent 12%);
-  border: 1px solid color-mix(in srgb, var(--text-title) 16%, transparent 84%);
+  background: var(--bg-surface-1);
+  border: 1px solid var(--text-title);
   border-radius: 10px;
   padding: 10px;
 }
@@ -150,10 +150,10 @@
 }
 
 .boats-plan-row-wrap {
-  border: 1px solid color-mix(in srgb, var(--text-title) 14%, transparent 86%);
+  border: 1px solid var(--text-title);
   border-radius: 8px;
   padding: 6px;
-  background: color-mix(in srgb, var(--bg-panel) 66%, transparent 34%);
+  background: var(--bg-panel);
 }
 
 .boats-plan-row {
@@ -198,10 +198,10 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  border: 1px solid color-mix(in srgb, var(--text-title) 14%, transparent 86%);
+  border: 1px solid var(--text-title);
   border-radius: 999px;
   padding: 3px 6px;
-  background: color-mix(in srgb, var(--bg-surface-1) 85%, transparent 15%);
+  background: var(--bg-surface-1);
 }
 
 .boats-req-chip img {

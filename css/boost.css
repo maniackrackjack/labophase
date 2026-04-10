@@ -206,7 +206,7 @@
   height: 32px;
   border: 1px solid var(--border-accent);
   border-radius: 4px;
-  background: color-mix(in srgb, var(--bg-panel) 85%, black 15%);
+  background: var(--bg-panel);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -348,13 +348,13 @@
 }
 
 .boost-total-row {
-  background: color-mix(in srgb, var(--text-title) 8%, transparent 92%) !important;
+  background: var(--text-title) !important;
   border: 2px solid var(--text-title) !important;
   font-weight: bold;
 }
 
 .boost-total-row td {
-  background: color-mix(in srgb, var(--text-title) 8%, transparent 92%) !important;
+  background: var(--text-title) !important;
 }
 
 .boost-note {

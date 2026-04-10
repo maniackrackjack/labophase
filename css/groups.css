@@ -50,7 +50,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
-  background: var(--group-header-color, color-mix(in srgb, var(--bg-panel) 78%, black 22%));
+  background: var(--group-header-color, var(--bg-panel));
   padding: 6px;
   border-radius: 6px;
 }
@@ -151,7 +151,7 @@
 
 .groupDelete {
   border: none;
-  background: color-mix(in srgb, var(--bg-panel) 74%, #8a2a2a 26%);
+  background: var(--bg-panel);
   color: var(--text-panel);
   border-radius: 4px;
   width: 26px;
@@ -165,7 +165,7 @@
   outline: 2px dashed var(--text-title);
   outline-offset: 2px;
   border-radius: 6px;
-  background: color-mix(in srgb, var(--text-title) 8%, transparent 92%);
+  background: var(--text-title);
 }
 
 .draggableCard {
@@ -186,14 +186,14 @@
   height: 110px;
   border: 2px dashed var(--text-title);
   border-radius: 8px;
-  background: color-mix(in srgb, var(--text-title) 12%, transparent 88%);
+  background: var(--text-title);
 }
 
 .groupPlaceholder {
   height: 54px;
   border: 2px dashed var(--text-title);
   border-radius: 8px;
-  background: color-mix(in srgb, var(--text-title) 12%, transparent 88%);
+  background: var(--text-title);
 }
 
 @media (max-width: 740px) {

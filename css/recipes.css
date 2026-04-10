@@ -58,7 +58,7 @@
 }
 
 .r-recipe-item:hover {
-  background: color-mix(in srgb, var(--bg-surface-2) 75%, white 25%);
+  background: var(--bg-surface-2);
   transform: translateX(3px);
 }
 
@@ -68,7 +68,7 @@
 }
 
 .r-recipe-item.selected {
-  background: color-mix(in srgb, var(--bg-tab-active) 75%, var(--bg-surface-2) 25%);
+  background: var(--bg-tab-active);
   border-color: var(--text-title);
 }
 
@@ -151,7 +151,7 @@
   transition: background 0.12s;
 }
 
-.r-ingredient:hover { background: color-mix(in srgb, var(--bg-surface-2) 80%, white 20%); }
+.r-ingredient:hover { background: var(--bg-surface-2); }
 
 .r-ingredient img {
   border-radius: 6px;

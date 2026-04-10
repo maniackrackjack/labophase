@@ -450,8 +450,8 @@
   height: 320px;
   --background: transparent;
   --border-color: transparent;
-  --button-active-background: color-mix(in srgb, var(--bg-tab-active) 70%, black 30%);
-  --button-hover-background: color-mix(in srgb, var(--bg-surface-2) 75%, white 25%);
+  --button-active-background: var(--bg-tab-active);
+  --button-hover-background: var(--bg-surface-2);
   --category-font-color: var(--text-title);
   --input-border-color: var(--input-border);
   --input-font-color: var(--input-text);
