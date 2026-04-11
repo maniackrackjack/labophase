@@ -660,4 +660,20 @@
   .profile-color-input.rgb {
     width: 44px;
   }
+
+  .profile-subform {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-bottom: 10px;
+  }
+
+  .profile-subform-actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    background: var(--bg-surface-1);
+    border-top: 1px solid var(--border-soft);
+    padding-top: 8px;
+    margin-top: 8px;
+  }
 }

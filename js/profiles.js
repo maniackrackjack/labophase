@@ -308,7 +308,7 @@ function _initProfileVisualPickers() {
       theme: 'nano',
       defaultColor: '#8b6a30',
       inline: true,
-      showAlways: false,
+      showAlways: true,
       swatches: ['#8b6a30', '#c97a27', '#bf3b2b', '#6f3bbf', '#2f5fb8', '#1f8a70', '#3d3d3d', '#f0c341'],
       onChange: (color) => _setProfileColorValue(color, false),
     });
@@ -496,6 +496,7 @@ function showProfileSubform(mode) {
   }
 
   subform.style.removeProperty('display');
+  if (_profileColorPickr) _profileColorPickr.show();
   _updateProfileLivePreview();
   if (nameInput) { nameInput.focus(); nameInput.select(); }
 }

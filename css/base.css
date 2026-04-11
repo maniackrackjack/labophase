@@ -43,7 +43,7 @@ body {
 /* SIDEBAR */
 
 .sidebar {
-  width: 200px;
+  width: 220px;
   background: var(--bg-sidebar);
   border-right: 4px solid var(--border-accent);
   padding: 10px;
@@ -57,8 +57,7 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
   transition: width 0.26s cubic-bezier(0.22, 1, 0.36, 1);
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .sidebar-top {
@@ -67,6 +66,33 @@ body {
   flex-direction: column;
   min-height: 0;
   gap: 6px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-gutter: stable both-edges;
+  padding-right: 14px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+
+.sidebar-top::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sidebar-top::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-top::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.sidebar-top:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.34);
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
 .sidebar-bottom {
@@ -86,6 +112,8 @@ body {
   border-bottom: 1px solid var(--border-soft);
   margin-bottom: 6px;
   overflow: hidden;
+  flex-shrink: 0;
+  min-height: 70px;
 }
 
 .logo-icon {
@@ -914,9 +942,8 @@ body {
 }
 
 .themePreview {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
+  display: block;
+  width: 100%;
 }
 
 .themePreviewChip {
@@ -977,7 +1004,8 @@ body {
 }
 
 .sidebar:not(.collapsed) .themePickerActiveName {
-  display: inline;
+  display: block;
+  max-width: 100%;
 }
 
 .sidebar.collapsed .themeSelector {
@@ -1026,9 +1054,8 @@ body {
 }
 
 .themePreview {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 6px;
+  display: block;
+  width: 100%;
 }
 
 .themePreviewChip {
@@ -1077,6 +1104,7 @@ body {
     gap: 4px;
     width: 100%;
     overflow: visible;
+    padding-right: 0;
   }
 
   .sidebar-bottom {
@@ -1157,9 +1185,7 @@ body {
   }
 
   .themePreview {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+    display: block;
     flex: 1;
     min-width: 0;
   }
