@@ -335,17 +335,17 @@ const WB_BOSSES = {
       wbByakkoSkillHealCut:         "wbByakkoDescHealCut",
     },
     phases: [
-      { phase: "Fase 1", damage: "wbPhaseInitial", skills: [{ name: "wbByakkoSkillBasicClaw" }] },
-      { phase: "Fase 2", damage: "*",          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillFrontalRoar" }] },
-      { phase: "Fase 3", damage: "*",          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillTwoTigerWaves" }] },
-      { phase: "Fase 4", damage: "*",          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillFrontalRoar" }] },
-      { phase: "Fase 5", damage: "*",          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillFrontalRoar" }] },
-      { phase: "Fase 6", damage: "*",          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillTwoTigerWaves" }, { name: "wbByakkoSkillBranches" }] },
-      { phase: "Fase 7", damage: "*",          skills: [{ name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillBranches" }] },
-      { phase: "Fase 8", damage: "*",          skills: [{ name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillThreeTigerWaves" }, { name: "wbByakkoSkillBranches" }] },
-      { phase: "Fase 9", damage: "*",          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillThreeTigerWaves" }] },
-      { phase: "Fase 10", damage: "*",         skills: [{ name: "wbByakkoSkillBasicClaw" },] },
-      { phase: "Fase 11", damage: "*",        skills: [{ name: "wbByakkoSkillBasicClaw" }, {name: "wbByakkoSkillSideClaw"}] },
+      { phase: "Fase 1", damage: "wbPhaseInitial", tier: "Tier 7",  skills: [{ name: "wbByakkoSkillBasicClaw" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 2", damage: "~520k",                           skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillFrontalRoar" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 3", damage: "~1.5kk",                          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillTwoTigerWaves" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 4", damage: "~2.54kk", tier: "Tier 6",  skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillFrontalRoar" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 5", damage: "~4.16kk",                          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillFrontalRoar" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 6", damage: "~5.725kk", tier: "Tier 5", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillTwoTigerWaves" }, { name: "wbByakkoSkillBranches" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 7", damage: "~7.84kk*",                         skills: [{ name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillBranches" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 8", damage: "~10.24kk*", tier: "Tier 4*", skills: [{ name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillThreeTigerWaves" }, { name: "wbByakkoSkillBranches" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 9", damage: "~12.96kk*", tier: "Tier 3*", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillThreeTigerWaves" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 10", damage: "~16kk*", tier: "Tier 2*", skills: [{ name: "wbByakkoSkillBasicClaw" }, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 11", damage: "~19.36kk*", tier: "Tier 1*", skills: [{ name: "wbByakkoSkillBasicClaw" }, {name: "wbByakkoSkillSideClaw"}, {name: "wbByakkoSkillHealCut"}] },
     ],
     characters: {
       dps: [
@@ -922,11 +922,13 @@ function wbBuildSimpleTable(bossId) {
       return `<span class="wb-skill-link${activeClass}" data-skill="${wbEscape(s.name)}">${prefix}${wbEscape(skillName)}${suffix}</span>`;
     }).join(", ");
 
+    const tierText = phase.tier ? wbResolveText(phase.tier) : "\u2014";
+
     html += `<tr>
       <td class="wb-phase-cell">${wbEscape(phase.phase)}</td>
       <td class="wb-damage-cell">${wbEscape(wbResolveText(phase.damage))}</td>
       <td class="wb-skills-cell">${skillsHtml}</td>
-      <td class="wb-tier-cell">&#8212;</td>
+      <td class="wb-tier-cell">${wbEscape(tierText)}</td>
     </tr>`;
   }
 
@@ -968,7 +970,8 @@ function wbBuildMatrixTable(bossId) {
       }
     }
 
-    html += `<td class="wb-tier-cell">&#8212;</td></tr>`;
+    const tierText = phase.tier ? wbResolveText(phase.tier) : "\u2014";
+    html += `<td class="wb-tier-cell">${wbEscape(tierText)}</td></tr>`;
   }
 
   html += `</tbody></table>`;

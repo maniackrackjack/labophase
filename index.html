@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/world_bosses.css" />
     <link rel="stylesheet" href="css/foxy_quiz.css" />
     <link rel="stylesheet" href="css/island_chests.css" />
+    <link rel="stylesheet" href="css/tracker.css" />
     <link rel="stylesheet" href="css/profiles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
   </head>
@@ -92,6 +93,9 @@
           </button>
           <button class="tabBtn" onclick="switchTab('foxy_quiz', this)">
             <span class="tab-icon"><img src="sprites/ui/foxy_quiz/foxy_quiz_icon.png" class="tab-icon-img" alt="Foxy Quiz"></span><span class="tab-label" data-lang="foxyQuizTab">Foxy Quiz</span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('tracker', this)">
+            <span class="tab-icon">📌</span><span class="tab-label" data-lang="trackerTab">Tracker</span>
           </button>
           <button class="tabBtn" onclick="switchTab('island_chests', this)">
             <span class="tab-icon">🗺️</span><span class="tab-label" data-lang="islandChestsTab">Island Chests</span>
@@ -727,6 +731,79 @@
           </div>
         </div>
 
+        <div id="tracker" class="tabPanel" style="display: none">
+          <div class="panel tracker-panel">
+            <div class="tracker-title-row">
+              <div>
+                <h3 data-lang="trackerTitle">Tracker</h3>
+                <p class="tracker-subtitle" data-lang="trackerSubtitle">Acompanhe progresso semanal e concluido no seu perfil ativo.</p>
+              </div>
+            </div>
+
+            <div class="tracker-subtabs" role="tablist" aria-label="Tracker views">
+              <button type="button" id="tracker-subtab-btn-boss-rush" class="tracker-subtab-btn active" data-tracker-subtab="boss_rush" role="tab" aria-controls="tracker-subtab-boss-rush" aria-selected="true" onclick="switchTrackerSubTab('boss_rush', this)">
+                <span data-lang="trackerSubtabBossRush">Boss Rush</span>
+              </button>
+              <button type="button" id="tracker-subtab-btn-marineford" class="tracker-subtab-btn" data-tracker-subtab="marineford" role="tab" aria-controls="tracker-subtab-marineford" aria-selected="false" onclick="switchTrackerSubTab('marineford', this)">
+                <span data-lang="trackerSubtabMarineford">Marineford</span>
+              </button>
+              <button type="button" id="tracker-subtab-btn-foxy" class="tracker-subtab-btn" data-tracker-subtab="foxy" role="tab" aria-controls="tracker-subtab-foxy" aria-selected="false" onclick="switchTrackerSubTab('foxy', this)">
+                <span data-lang="trackerSubtabFoxy">Eventos Foxy</span>
+              </button>
+              <button type="button" id="tracker-subtab-btn-one-man-army" class="tracker-subtab-btn" data-tracker-subtab="one_man_army" role="tab" aria-controls="tracker-subtab-one-man-army" aria-selected="false" onclick="switchTrackerSubTab('one_man_army', this)">
+                <span data-lang="trackerSubtabOneManArmy">One Man Army</span>
+              </button>
+            </div>
+
+            <div id="tracker-subtab-boss-rush" class="tracker-subtab-panel active" role="tabpanel">
+              <section class="tracker-box">
+                <div class="tracker-box-head">
+                  <h4 data-lang="trackerBossRushModifiersTitle">Modificadores</h4>
+                  <span id="tracker-br-modifiers-progress" class="tracker-progress-badge">0 / 14</span>
+                </div>
+                <div id="tracker-br-modifiers-progressbar" class="tracker-progressbar" aria-hidden="true"><span></span></div>
+                <div id="tracker-br-modifiers-list" class="tracker-checkbox-list"></div>
+              </section>
+
+              <section class="tracker-box">
+                <div class="tracker-box-head">
+                  <h4 data-lang="trackerBossRushWavesTitle">Waves</h4>
+                  <div class="tracker-inline-actions">
+                    <button id="tracker-br-clear-waves" type="button" class="clearBtn" data-lang="trackerClearWaves">Limpar waves</button>
+                  </div>
+                </div>
+                <small class="tracker-weekly-hint" data-lang="trackerWeeklyHint">Reinicia toda sexta às 00:01 (horário local)</small>
+                <div id="tracker-br-waves-list" class="tracker-br-grid"></div>
+              </section>
+            </div>
+
+            <div id="tracker-subtab-marineford" class="tracker-subtab-panel" role="tabpanel" style="display: none">
+              <section class="tracker-box">
+                <div id="tracker-mf-kills"></div>
+              </section>
+              <div id="tracker-mf-sections" class="tracker-mf-sections"></div>
+            </div>
+
+            <div id="tracker-subtab-foxy" class="tracker-subtab-panel" role="tabpanel" style="display: none">
+              <small class="tracker-weekly-hint" data-lang="trackerWeeklyHint">Reinicia toda sexta às 00:01 (horário local)</small>
+              <div id="tracker-foxy-events" class="tracker-foxy-events"></div>
+            </div>
+
+            <div id="tracker-subtab-one-man-army" class="tracker-subtab-panel" role="tabpanel" style="display: none">
+              <div class="tracker-oma-toolbar">
+                <input id="tracker-oma-search" type="text" data-lang-title="trackerOmaSearchPlaceholder" placeholder="Pesquisar personagem..." />
+                <button id="tracker-oma-hide-done" type="button" class="setBtn" data-lang="trackerOmaHideDone">Ocultar concluidos</button>
+                <button id="tracker-oma-hide-not-done" type="button" class="setBtn" data-lang="trackerOmaHideNotDone">Ocultar nao concluidos</button>
+              </div>
+              <div class="tracker-box-head tracker-oma-head">
+                <h4 data-lang="trackerOmaTitle">One Man Army</h4>
+                <span id="tracker-oma-progress" class="tracker-progress-badge">0 / 0</span>
+              </div>
+              <div id="tracker-oma-list" class="tracker-oma-list"></div>
+            </div>
+          </div>
+        </div>
+
         <div id="boats" class="tabPanel" style="display: none">
           <div class="panel boats-panel">
             <div>
@@ -1256,6 +1333,8 @@
     <script src="js/characters-data.js"></script>
     <script src="js/characters.js"></script>
     <script src="js/foxy_quiz.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="js/tracker.js"></script>
     <script src="js/boats-data.js"></script>
     <script src="js/boats.js"></script>
     <script src="js/wanted-data.js"></script>

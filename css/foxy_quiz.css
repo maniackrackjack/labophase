@@ -35,6 +35,16 @@
   background: var(--bg-surface-1);
 }
 
+.foxy-quiz-weekly-wrap.is-checked {
+  background: rgba(68, 160, 58, 0.28);
+  border-color: rgba(126, 212, 94, 0.8);
+}
+
+.foxy-quiz-weekly-wrap.is-checked .foxy-quiz-weekly-label,
+.foxy-quiz-weekly-wrap.is-checked .foxy-quiz-weekly-hint {
+  color: #d9ffd0;
+}
+
 .foxy-quiz-weekly-label {
   display: inline-flex;
   align-items: center;

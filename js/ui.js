@@ -66,6 +66,11 @@ function switchTab(tab, btn) {
     foxyQuizInit();
   }
 
+  // Init Tracker when the tab becomes visible
+  if (tab === "tracker" && typeof trackerInit === "function") {
+    trackerInit();
+  }
+
   // Init Island Chests when the tab becomes visible
   if (tab === "island_chests" && typeof islandChestsInit === "function") {
     islandChestsInit();

@@ -35,6 +35,11 @@ function foxyQuizGetWeeklyResetKey(now = new Date()) {
 
 function foxyQuizLoadWeeklyState() {
   const resetKey = foxyQuizGetWeeklyResetKey();
+
+  if (typeof trackerGetSharedFoxyQuizWeeklyChecked === "function") {
+    return { resetKey, checked: !!trackerGetSharedFoxyQuizWeeklyChecked() };
+  }
+
   try {
     const raw = window.localStorage ? localStorage.getItem(FOXY_QUIZ_WEEKLY_KEY) : "";
     if (!raw) return { resetKey, checked: false };
@@ -49,6 +54,11 @@ function foxyQuizLoadWeeklyState() {
 }
 
 function foxyQuizSaveWeeklyState(checked) {
+  if (typeof trackerSetSharedFoxyQuizWeeklyChecked === "function") {
+    trackerSetSharedFoxyQuizWeeklyChecked(!!checked);
+    return;
+  }
+
   const state = {
     resetKey: foxyQuizGetWeeklyResetKey(),
     checked: !!checked
@@ -62,13 +72,25 @@ function foxyQuizSaveWeeklyState(checked) {
   }
 }
 
+function foxyQuizUpdateWeeklyVisualState(checked) {
+  const wrap = document.querySelector(".foxy-quiz-weekly-wrap");
+  if (!wrap) return;
+  wrap.classList.toggle("is-checked", !!checked);
+}
+
 function foxyQuizSyncWeeklyCheckbox() {
   const checkbox = document.getElementById("foxy-quiz-weekly-checkbox");
   if (!checkbox) return;
   const state = foxyQuizLoadWeeklyState();
   checkbox.checked = !!state.checked;
-  // Persist normalized state in case key rolled over this week.
-  foxyQuizSaveWeeklyState(checkbox.checked);
+  foxyQuizUpdateWeeklyVisualState(checkbox.checked);
+
+  if (typeof trackerSetSharedFoxyQuizWeeklyChecked === "function") {
+    trackerSetSharedFoxyQuizWeeklyChecked(checkbox.checked, { silent: true });
+  } else {
+    // Persist normalized state in case key rolled over this week.
+    foxyQuizSaveWeeklyState(checkbox.checked);
+  }
 }
 
 // Robust line-by-line parser that handles:
@@ -226,6 +248,7 @@ async function foxyQuizInit() {
     if (weekly) {
       weekly.addEventListener("change", () => {
         foxyQuizSaveWeeklyState(weekly.checked);
+        foxyQuizUpdateWeeklyVisualState(weekly.checked);
       });
     }
   }

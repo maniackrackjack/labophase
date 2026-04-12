@@ -252,3 +252,6 @@ xpInit();
 // Initialize Wanted tab
 wantedInit();
 if (typeof worldBossesInit === "function") worldBossesInit();
+
+// Initialize Tracker tab
+if (typeof trackerInit === "function") trackerInit();
