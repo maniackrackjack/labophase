@@ -35,6 +35,10 @@
 }
 
 .wanted-subtab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   border: 1px solid var(--border-accent);
   background: linear-gradient(180deg, var(--bg-surface-1) 0%, var(--bg-panel) 100%);
   color: var(--text-title);
@@ -46,6 +50,11 @@
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.wanted-subtab-icon {
+  font-size: 14px;
+  line-height: 1;
 }
 
 .wanted-subtab-btn:hover {

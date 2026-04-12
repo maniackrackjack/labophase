@@ -630,9 +630,18 @@
             </div>
 
             <div class="wanted-subtabs" role="tablist" aria-label="Wanted views">
-              <button type="button" id="wanted-subtab-btn-matchups" class="wanted-subtab-btn active" data-wanted-subtab="matchups" data-lang="wantedSubtabMatchups" role="tab" aria-controls="wanted-subtab-matchups" aria-selected="true" onclick="switchWantedSubTab('matchups', this)">Match-ups</button>
-              <button type="button" id="wanted-subtab-btn-tierlist" class="wanted-subtab-btn" data-wanted-subtab="tierlist" data-lang="wantedSubtabTierList" role="tab" aria-controls="wanted-subtab-tierlist" aria-selected="false" onclick="switchWantedSubTab('tierlist', this)">Tier List</button>
-              <button type="button" id="wanted-subtab-btn-rows" class="wanted-subtab-btn" data-wanted-subtab="rows" data-lang="wantedSubtabRows" role="tab" aria-controls="wanted-subtab-rows" aria-selected="false" onclick="switchWantedSubTab('rows', this)">Wanted em linhas</button>
+              <button type="button" id="wanted-subtab-btn-matchups" class="wanted-subtab-btn active" data-wanted-subtab="matchups" role="tab" aria-controls="wanted-subtab-matchups" aria-selected="true" onclick="switchWantedSubTab('matchups', this)">
+                <span class="wanted-subtab-icon" aria-hidden="true">⚖️</span>
+                <span data-lang="wantedSubtabMatchups">Match-ups</span>
+              </button>
+              <button type="button" id="wanted-subtab-btn-tierlist" class="wanted-subtab-btn" data-wanted-subtab="tierlist" role="tab" aria-controls="wanted-subtab-tierlist" aria-selected="false" onclick="switchWantedSubTab('tierlist', this)">
+                <span class="wanted-subtab-icon" aria-hidden="true">📊</span>
+                <span data-lang="wantedSubtabTierList">Tier List</span>
+              </button>
+              <button type="button" id="wanted-subtab-btn-rows" class="wanted-subtab-btn" data-wanted-subtab="rows" role="tab" aria-controls="wanted-subtab-rows" aria-selected="false" onclick="switchWantedSubTab('rows', this)">
+                <span class="wanted-subtab-icon" aria-hidden="true">📚</span>
+                <span data-lang="wantedSubtabRows">Wanted em linhas</span>
+              </button>
             </div>
 
             <div id="wanted-subtab-matchups" class="wanted-subtab-panel active" role="tabpanel">
@@ -742,15 +751,19 @@
 
             <div class="tracker-subtabs" role="tablist" aria-label="Tracker views">
               <button type="button" id="tracker-subtab-btn-boss-rush" class="tracker-subtab-btn active" data-tracker-subtab="boss_rush" role="tab" aria-controls="tracker-subtab-boss-rush" aria-selected="true" onclick="switchTrackerSubTab('boss_rush', this)">
+                <span class="tracker-subtab-icon" aria-hidden="true">💥</span>
                 <span data-lang="trackerSubtabBossRush">Boss Rush</span>
               </button>
               <button type="button" id="tracker-subtab-btn-marineford" class="tracker-subtab-btn" data-tracker-subtab="marineford" role="tab" aria-controls="tracker-subtab-marineford" aria-selected="false" onclick="switchTrackerSubTab('marineford', this)">
+                <span class="tracker-subtab-icon" aria-hidden="true">⚔️</span>
                 <span data-lang="trackerSubtabMarineford">Marineford</span>
               </button>
               <button type="button" id="tracker-subtab-btn-foxy" class="tracker-subtab-btn" data-tracker-subtab="foxy" role="tab" aria-controls="tracker-subtab-foxy" aria-selected="false" onclick="switchTrackerSubTab('foxy', this)">
+                <span class="tracker-subtab-icon" aria-hidden="true">🦊</span>
                 <span data-lang="trackerSubtabFoxy">Eventos Foxy</span>
               </button>
               <button type="button" id="tracker-subtab-btn-one-man-army" class="tracker-subtab-btn" data-tracker-subtab="one_man_army" role="tab" aria-controls="tracker-subtab-one-man-army" aria-selected="false" onclick="switchTrackerSubTab('one_man_army', this)">
+                <span class="tracker-subtab-icon" aria-hidden="true">🏅</span>
                 <span data-lang="trackerSubtabOneManArmy">One Man Army</span>
               </button>
             </div>
