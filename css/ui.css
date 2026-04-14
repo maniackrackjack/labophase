@@ -41,8 +41,13 @@
   display: none !important;
 }
 
-.update-warning-modal {
+.update-warning-shell {
+  position: relative;
   width: min(680px, 100%);
+}
+
+.update-warning-modal {
+  width: 100%;
   max-height: min(85vh, 720px);
   overflow: auto;
   border-radius: 14px;
@@ -51,6 +56,16 @@
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
   color: #f7f2e2;
   padding: 18px 18px 14px;
+  pointer-events: none;
+}
+
+.update-warning-brand {
+  position: absolute;
+  top: -52px;
+  left: -14px;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
   pointer-events: none;
 }
 

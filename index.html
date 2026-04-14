@@ -1327,12 +1327,15 @@
       <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
 
       <div id="update-warning-overlay" class="update-warning-overlay" role="dialog" aria-modal="true" aria-labelledby="update-warning-title" hidden>
-        <div class="update-warning-modal" id="update-warning-modal">
-          <h3 id="update-warning-title">⚠️ Important notice</h3>
-          <div class="update-warning-text" id="update-warning-text">
-            <pre id="update-warning-body" class="update-warning-body"></pre>
+        <div class="update-warning-shell">
+          <img class="update-warning-brand" src="sprites/branding/pop_up.png" alt="" aria-hidden="true" />
+          <div class="update-warning-modal" id="update-warning-modal">
+            <h3 id="update-warning-title">⚠️ Important notice</h3>
+            <div class="update-warning-text" id="update-warning-text">
+              <pre id="update-warning-body" class="update-warning-body"></pre>
+            </div>
+            <p class="update-warning-hint" id="update-warning-hint">Click outside the text to close.</p>
           </div>
-          <p class="update-warning-hint" id="update-warning-hint">Click outside the text to close.</p>
         </div>
       </div>
     </div>
