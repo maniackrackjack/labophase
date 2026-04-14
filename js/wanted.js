@@ -423,9 +423,16 @@ function wantedGetWantedStorageKey(wantedName) {
 function wantedNormalizeTierAssignment(rawAssignment, selectedWanted) {
   const allSet = new Set(wantedCounterPoolNames.filter((name) => name !== selectedWanted));
   const tiers = {};
+  const usedNames = new Set();
 
   WANTED_TIER_IDS.forEach((tierId) => {
-    tiers[tierId] = wantedNormalizeEntryList(rawAssignment && rawAssignment.tiers ? rawAssignment.tiers[tierId] : [], allSet);
+    tiers[tierId] = wantedNormalizeEntryList(rawAssignment && rawAssignment.tiers ? rawAssignment.tiers[tierId] : [], allSet)
+      .filter((entry) => {
+        const key = wantedNormalizeKey(entry.name);
+        if (usedNames.has(key)) return false;
+        usedNames.add(key);
+        return true;
+      });
   });
 
   return { tiers };
@@ -445,6 +452,7 @@ function wantedNormalizeRowsEntry(rawRow) {
 
 function wantedNormalizeEntryList(list, allowedSet) {
   const rawList = Array.isArray(list) ? list : [];
+  const seen = new Set();
   return rawList
     .map((entry) => {
       if (typeof entry === "string") {
@@ -457,7 +465,36 @@ function wantedNormalizeEntryList(list, allowedSet) {
       if (!name || (allowedSet && !allowedSet.has(name))) return null;
       return { id: entry.id || wantedMakeUid(), name };
     })
+    .filter((entry) => {
+      if (!entry) return false;
+      const key = wantedNormalizeKey(entry.name);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
     .filter(Boolean);
+}
+
+function wantedTierHasCounter(assignment, counterName, excludeEntryId = "") {
+  if (!assignment || !counterName) return false;
+  const keyToFind = wantedNormalizeKey(counterName);
+  for (const tierId of WANTED_TIER_IDS) {
+    const exists = (assignment.tiers[tierId] || []).some((entry) => {
+      if (excludeEntryId && entry.id === excludeEntryId) return false;
+      return wantedNormalizeKey(entry.name) === keyToFind;
+    });
+    if (exists) return true;
+  }
+  return false;
+}
+
+function wantedRowHasCounter(row, counterName, excludeEntryId = "") {
+  if (!row || !counterName) return false;
+  const keyToFind = wantedNormalizeKey(counterName);
+  return (row.counters || []).some((entry) => {
+    if (excludeEntryId && entry.id === excludeEntryId) return false;
+    return wantedNormalizeKey(entry.name) === keyToFind;
+  });
 }
 
 function wantedMakeUid() {
@@ -793,23 +830,31 @@ function wantedHandleDropToTier(payload, tierTarget) {
   if (!WANTED_TIER_IDS.includes(tierTarget)) return;
 
   if (payload.context === "pool") {
+    if (wantedTierHasCounter(assignment, payload.name)) return;
     assignment.tiers[tierTarget].push({ id: wantedMakeUid(), name: payload.name });
   } else if (payload.context === "tier") {
     let moved = null;
+    let sourceTier = "";
     WANTED_TIER_IDS.forEach((tierId) => {
       const source = assignment.tiers[tierId] || [];
       const idx = source.findIndex((entry) => entry.id === payload.entryId);
       if (idx !== -1) {
         moved = source[idx];
-        source.splice(idx, 1);
+        sourceTier = tierId;
       }
     });
-    if (moved) assignment.tiers[tierTarget].push(moved);
+    if (!moved) return;
+    if (sourceTier === tierTarget) return;
+    if (wantedTierHasCounter(assignment, moved.name, moved.id)) return;
+    assignment.tiers[sourceTier] = (assignment.tiers[sourceTier] || []).filter((entry) => entry.id !== moved.id);
+    assignment.tiers[tierTarget].push(moved);
   } else if (payload.context === "rows") {
     const row = wantedRowsState.rows.find((r) => r.id === payload.rowId);
     if (row) {
       const entry = row.counters.find((item) => item.id === payload.entryId);
-      if (entry) assignment.tiers[tierTarget].push({ id: wantedMakeUid(), name: entry.name });
+      if (entry && !wantedTierHasCounter(assignment, entry.name)) {
+        assignment.tiers[tierTarget].push({ id: wantedMakeUid(), name: entry.name });
+      }
     }
   }
 
@@ -822,6 +867,7 @@ function wantedHandleDropToRow(payload, rowId) {
   if (!row) return;
 
   if (payload.context === "pool") {
+    if (wantedRowHasCounter(row, payload.name)) return;
     row.counters.push({ id: wantedMakeUid(), name: payload.name });
   } else if (payload.context === "rows") {
     const sourceRow = wantedRowsState.rows.find((r) => r.id === payload.rowId);
@@ -829,6 +875,9 @@ function wantedHandleDropToRow(payload, rowId) {
 
     const idx = sourceRow.counters.findIndex((entry) => entry.id === payload.entryId);
     if (idx === -1) return;
+
+    const movedEntry = sourceRow.counters[idx];
+    if (wantedRowHasCounter(row, movedEntry.name, movedEntry.id)) return;
 
     const [moved] = sourceRow.counters.splice(idx, 1);
     row.counters.push(moved);
@@ -843,7 +892,7 @@ function wantedHandleDropToRow(payload, rowId) {
       if (entry) found = entry;
     });
 
-    if (found) {
+    if (found && !wantedRowHasCounter(row, found.name)) {
       row.counters.push({ id: wantedMakeUid(), name: found.name });
     }
   }

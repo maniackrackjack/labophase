@@ -3374,5 +3374,17 @@
 {
 "nombre": "Vista nació en la gran estirpe.",
 "es": "falso"
+},
+{
+"nombre": "[GLA] Por regla general, la tercera habilidad del personaje se desbloquea en el nivel 10.",
+"es": "verdadero"
+},
+{
+"nombre": "Si el Gobierno Mundial hubiera sabido que Crocodile era el lider de Baroque Works, su recompensa se habria duplicado al menos a 162.000.000 de berry.",
+"es": "verdadero"
+},
+{
+"nombre": "[GLA] En Conomi Island puedes encontrar los siguientes enemigos: Moles, Wolves y Baby Moles.",
+"es": "verdadero"
 }
 ]

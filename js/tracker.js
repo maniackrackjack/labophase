@@ -111,6 +111,7 @@ let trackerBound = false;
 let trackerBossRushUsage = { mainsUsed: new Set(), supportsUsed: new Set() };
 let trackerOmaHideDone = false;
 let trackerOmaHideNotDone = false;
+let trackerCelebrationReady = false;
 let trackerCelebrationState = {
   modifiers: false,
   marinefordConquest: false
@@ -164,11 +165,18 @@ function trackerFireworks() {
 }
 
 function trackerHandleCompletionCelebration(key, isComplete) {
+  const completeNow = !!isComplete;
   const wasComplete = !!trackerCelebrationState[key];
-  if (isComplete && !wasComplete) {
+
+  if (!trackerCelebrationReady) {
+    trackerCelebrationState[key] = completeNow;
+    return;
+  }
+
+  if (completeNow && !wasComplete) {
     trackerFireworks();
   }
-  trackerCelebrationState[key] = !!isComplete;
+  trackerCelebrationState[key] = completeNow;
 }
 
 function trackerGetWeeklyResetKey() {
@@ -424,7 +432,7 @@ function trackerNormalizeBossRushWaves() {
     if (entry.support) supportsSeen.add(entry.support);
   });
 
-  // Wave 7 is always duo and has priority over other duo waves.
+  // Wave 7 is always duo; do not auto-assign a default support.
   const forcedDuoEntry = entries[FORCED_DUO_WAVE_INDEX];
   if (forcedDuoEntry) {
     forcedDuoEntry.mode = "duo";
@@ -435,35 +443,18 @@ function trackerNormalizeBossRushWaves() {
       if (entry.mode === "duo" && entry.support) supportsUsedByOthers.add(entry.support);
     });
 
-    const forcedSupportValid = forcedDuoEntry.support && !supportsUsedByOthers.has(forcedDuoEntry.support);
-    if (!forcedSupportValid) {
-      let availableSupports = TRACKER_BOSS_RUSH_SUPPORTS.filter((s) => !supportsUsedByOthers.has(s.id));
-
-      // If all supports are used by other duo waves, free one support for wave 7.
-      if (!availableSupports.length) {
-        const donorIndex = entries.findIndex((entry, index) => index !== FORCED_DUO_WAVE_INDEX && entry.mode === "duo" && entry.support);
-        if (donorIndex >= 0) {
-          const donor = entries[donorIndex];
-          const donatedSupport = donor.support;
-          donor.mode = "solo";
-          donor.support = "";
-          if (donatedSupport) {
-            forcedDuoEntry.support = donatedSupport;
-          }
-        }
-        availableSupports = TRACKER_BOSS_RUSH_SUPPORTS.filter((s) => s.id === forcedDuoEntry.support || !supportsUsedByOthers.has(s.id));
-      }
-
-      if (!forcedDuoEntry.support) {
-        forcedDuoEntry.support = availableSupports[0] ? availableSupports[0].id : TRACKER_BOSS_RUSH_SUPPORTS[0].id;
-      }
+    // Clear support only if it is now taken by another wave; never auto-assign.
+    if (forcedDuoEntry.support && supportsUsedByOthers.has(forcedDuoEntry.support)) {
+      forcedDuoEntry.support = "";
     }
   }
 
   trackerRecomputeBossRushUsage();
 
-  entries.forEach((entry) => {
+  entries.forEach((entry, idx) => {
     if (entry.mode !== "duo") return;
+    // Wave 7 is permanently duo — skip auto-fill and auto-demote for it.
+    if (idx === FORCED_DUO_WAVE_INDEX) return;
 
     const availableSupports = trackerGetAvailableSupportsForWave(entry, entries);
     if (!entry.support && availableSupports.length === 1) {
@@ -658,7 +649,9 @@ function trackerInit() {
   }
 
   trackerSubTabActive = trackerState.activeSubTab || "boss_rush";
+  trackerCelebrationReady = false;
   trackerRender();
+  trackerCelebrationReady = true;
 }
 
 function trackerRender() {
@@ -1113,7 +1106,9 @@ function getTrackerState() {
 function applyTrackerState(state) {
   trackerState = trackerNormalizeState(state);
   trackerSubTabActive = trackerState.activeSubTab || "boss_rush";
+  trackerCelebrationReady = false;
   trackerRender();
+  trackerCelebrationReady = true;
 }
 
 function resetTrackerState() {

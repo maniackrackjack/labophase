@@ -3374,5 +3374,17 @@
   {
     "name": "Vista was born in grand line.",
     "is": "false"
+  },
+  {
+    "name": "[GLA] As a rule, the character's third ability is unlocked at level 10.",
+    "is": "true"
+  },
+  {
+    "name": "If the World Government had known that Crocodile was the head of Baroque Works, his bounty would be at least doubled to 162,000,000 berry.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] In Conomi Island you can find the following enemies: Moles, Wolves and Baby Moles.",
+    "is": "true"
   }
 ]

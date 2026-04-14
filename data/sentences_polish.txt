@@ -3374,5 +3374,17 @@
 {
 „name”: „Vista narodziła się w wielkiej linii.”,
 „jest”: „fałsz”
+},
+{
+"name": "[GLA] Z reguly trzecia umiejetnosc postaci odblokowuje sie na poziomie 10.",
+"jest": "prawda"
+},
+{
+"name": "Gdyby Rzad Swiatowy wiedzial, ze Crocodile byl szefem Baroque Works, jego nagroda bylaby co najmniej podwojona do 162 000 000 berry.",
+"jest": "prawda"
+},
+{
+"name": "[GLA] Na Conomi Island mozna znalezc nastepujacych przeciwnikow: Moles, Wolves i Baby Moles.",
+"jest": "prawda"
 }
 ]

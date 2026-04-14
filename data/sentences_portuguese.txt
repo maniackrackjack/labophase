@@ -3739,3 +3739,15 @@
     "name": "Zoro empunhou MENOS de 8 espadas diferentes no anime.",
     "is": "false"
   },
+  {
+    "name": "[GLA] Em regra, a terceira habilidade do personagem e desbloqueada no nivel 10.",
+    "is": "true"
+  },
+  {
+    "name": "Se o Governo Mundial soubesse que Crocodile era o lider da Baroque Works, sua recompensa seria pelo menos dobrada para 162.000.000 de berry.",
+    "is": "true"
+  },
+  {
+    "name": "[GLA] Em Conomi Island voce pode encontrar os seguintes inimigos: Moles, Wolves e Baby Moles.",
+    "is": "true"
+  }
