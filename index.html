@@ -107,6 +107,9 @@
           <button class="tabBtn" onclick="switchTab('wanted', this)">
             <span class="tab-icon">🏴‍☠️</span><span class="tab-label" data-lang="wantedTab">Wanted Pirates</span>
           </button>
+          <button class="tabBtn" onclick="switchTab('tierlist', this)">
+            <span class="tab-icon">📊</span><span class="tab-label" data-lang="tierlistTab">Tierlist</span>
+          </button>
           <button class="tabBtn" onclick="switchTab('links', this)">
             <span class="tab-icon">🔗</span><span class="tab-label" data-lang="usefulLinksTab">Links Úteis</span>
           </button>
@@ -701,10 +704,6 @@
                 <span class="wanted-subtab-icon" aria-hidden="true">⚖️</span>
                 <span data-lang="wantedSubtabMatchups">Match-ups</span>
               </button>
-              <button type="button" id="wanted-subtab-btn-tierlist" class="wanted-subtab-btn" data-wanted-subtab="tierlist" role="tab" aria-controls="wanted-subtab-tierlist" aria-selected="false" onclick="switchWantedSubTab('tierlist', this)">
-                <span class="wanted-subtab-icon" aria-hidden="true">📊</span>
-                <span data-lang="wantedSubtabTierList">Tier List</span>
-              </button>
               <button type="button" id="wanted-subtab-btn-rows" class="wanted-subtab-btn" data-wanted-subtab="rows" role="tab" aria-controls="wanted-subtab-rows" aria-selected="false" onclick="switchWantedSubTab('rows', this)">
                 <span class="wanted-subtab-icon" aria-hidden="true">📚</span>
                 <span data-lang="wantedSubtabRows">Wanted em linhas</span>
@@ -730,24 +729,6 @@
               </div>
             </div>
 
-            <div id="wanted-subtab-tierlist" class="wanted-subtab-panel" role="tabpanel" style="display: none">
-              <div class="wanted-tier-toolbar">
-                <label for="wanted-tier-target-select" class="wanted-tier-target-label" data-lang="wantedTierTargetLabel">Wanted</label>
-                <select id="wanted-tier-target-select"></select>
-                <input id="wanted-tier-search-input" type="text" data-lang-title="wantedTierSearchPlaceholder" placeholder="Buscar no pool..." />
-                <button type="button" id="wanted-tier-clear-btn" class="wanted-tier-btn" data-lang="wantedTierClear">Limpar tiers</button>
-                <button type="button" id="wanted-tier-reset-btn" class="wanted-tier-btn" data-lang="wantedTierReset">Resetar lista</button>
-                <button type="button" id="wanted-tier-export-btn" class="wanted-tier-btn is-primary" data-lang="wantedTierExport">Salvar imagem</button>
-              </div>
-
-              <div class="wanted-tier-layout">
-                <div id="wanted-tier-board" class="wanted-tier-board"></div>
-                <aside class="wanted-tier-pool-wrap">
-                  <h4 data-lang="wantedTierPoolTitle">Pool de Wanteds</h4>
-                  <div id="wanted-tier-pool" class="wanted-tier-dropzone" data-tier="pool"></div>
-                </aside>
-              </div>
-            </div>
 
             <div id="wanted-subtab-rows" class="wanted-subtab-panel" role="tabpanel" style="display: none">
               <div class="wanted-rows-toolbar">
@@ -766,6 +747,35 @@
                   <div id="wanted-rows-pool" class="wanted-tier-dropzone"></div>
                 </aside>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tierlist" class="tabPanel" style="display: none">
+          <div class="panel wanted-panel">
+            <div class="wanted-tier-toolbar">
+              <div class="tierlist-select-group">
+                <label for="tierlist-category-select" class="wanted-tier-target-label" data-lang="tierlistCategoryLabel">Categoria</label>
+                <select id="tierlist-category-select">
+                  <option value="wanteds">Wanteds</option>
+                  <option value="worldbosses">Worldbosses</option>
+                  <option value="marineford">Marineford</option>
+                </select>
+                <label for="tierlist-enemy-select" class="wanted-tier-target-label" data-lang="tierlistEnemyLabel">Inimigo</label>
+                <select id="tierlist-enemy-select"></select>
+              </div>
+              <button type="button" id="tierlist-tier-clear-btn" class="wanted-tier-btn" data-lang="wantedTierClear">Limpar tiers</button>
+              <button type="button" id="tierlist-tier-reset-btn" class="wanted-tier-btn" data-lang="wantedTierReset">Resetar lista</button>
+              <button type="button" id="tierlist-tier-export-btn" class="wanted-tier-btn is-primary" data-lang="wantedTierExport">Salvar imagem</button>
+            </div>
+
+            <div class="wanted-tier-layout">
+              <div id="tierlist-tier-board" class="wanted-tier-board"></div>
+              <aside class="wanted-tier-pool-wrap">
+                <h4 data-lang="wantedTierPoolTitle">Pool de Counters</h4>
+                <input id="tierlist-tier-search-input" type="text" data-lang-placeholder="tierlistSearchPlaceholder" placeholder="Buscar no pool..." />
+                <div id="tierlist-tier-pool" class="wanted-tier-dropzone" data-tier="pool"></div>
+              </aside>
             </div>
           </div>
         </div>

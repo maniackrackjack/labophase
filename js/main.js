@@ -251,6 +251,7 @@ xpInit();
 
 // Initialize Wanted tab
 wantedInit();
+if (typeof tierlistInit === "function") tierlistInit();
 if (typeof worldBossesInit === "function") worldBossesInit();
 
 // Initialize Tracker tab

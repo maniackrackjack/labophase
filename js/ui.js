@@ -80,6 +80,11 @@ function switchTab(tab, btn) {
   if (tab === "island_chests" && typeof islandChestsInit === "function") {
     islandChestsInit();
   }
+
+  // Init Inimigo tab when it becomes visible
+  if (tab === "tierlist" && typeof tierlistInit === "function") {
+    tierlistInit();
+  }
 }
 
 function showToast(message, duration = 2500) {

@@ -160,6 +160,13 @@ const COMMON_LANG = {
     wantedSubtabRows: "Wanted em linhas",
     wantedTierTargetLabel: "Wanted",
     wantedTierCurrentCategory: "Categoria ativa",
+    tierlistTab: "Tierlist",
+    tierlistCategoryLabel: "Categoria",
+    tierlistEnemyLabel: "Inimigo",
+    tierlistSearchPlaceholder: "Buscar no pool...",
+    tierlistColumnTank: "Tank",
+    tierlistColumnSupport: "Suporte",
+    tierlistColumnDps: "DPS",
     wantedTierSearchPlaceholder: "Buscar wanted no pool",
     wantedTierPoolTitle: "Pool de Counters",
     wantedTierClear: "Limpar tiers",
@@ -874,6 +881,13 @@ const COMMON_LANG = {
     wantedSubtabRows: "Wanted by rows",
     wantedTierTargetLabel: "Wanted",
     wantedTierCurrentCategory: "Active category",
+    tierlistTab: "Tierlist",
+    tierlistCategoryLabel: "Category",
+    tierlistEnemyLabel: "Enemy",
+    tierlistSearchPlaceholder: "Search in pool...",
+    tierlistColumnTank: "Tank",
+    tierlistColumnSupport: "Support",
+    tierlistColumnDps: "DPS",
     wantedTierSearchPlaceholder: "Search wanted in pool",
     wantedTierPoolTitle: "Counter pool",
     wantedTierClear: "Clear tiers",
@@ -1588,6 +1602,13 @@ const COMMON_LANG = {
     wantedSubtabRows: "Wanted por filas",
     wantedTierTargetLabel: "Wanted",
     wantedTierCurrentCategory: "Categoria activa",
+    tierlistTab: "Tierlist",
+    tierlistCategoryLabel: "Categoría",
+    tierlistEnemyLabel: "Enemigo",
+    tierlistSearchPlaceholder: "Buscar en el pool...",
+    tierlistColumnTank: "Tank",
+    tierlistColumnSupport: "Soporte",
+    tierlistColumnDps: "DPS",
     wantedTierSearchPlaceholder: "Buscar wanted en el pool",
     wantedTierPoolTitle: "Pool de counters",
     wantedTierClear: "Limpiar tiers",
@@ -2302,6 +2323,13 @@ const COMMON_LANG = {
     wantedSubtabRows: "Wanted w wierszach",
     wantedTierTargetLabel: "Wanted",
     wantedTierCurrentCategory: "Aktywna kategoria",
+    tierlistTab: "Tierlist",
+    tierlistCategoryLabel: "Kategoria",
+    tierlistEnemyLabel: "Wróg",
+    tierlistSearchPlaceholder: "Szukaj w puli...",
+    tierlistColumnTank: "Tank",
+    tierlistColumnSupport: "Wsparcie",
+    tierlistColumnDps: "DPS",
     wantedTierSearchPlaceholder: "Szukaj wanted w puli",
     wantedTierPoolTitle: "Pula counterow",
     wantedTierClear: "Wyczysc tiery",
@@ -3370,6 +3398,11 @@ function applyTranslations() {
   document.querySelectorAll("[data-lang-title]").forEach((el) => {
     const key = el.getAttribute("data-lang-title");
     el.setAttribute("title", t(key));
+  });
+
+  document.querySelectorAll("[data-lang-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-lang-placeholder");
+    el.setAttribute("placeholder", t(key));
   });
 
   if (typeof _applyModalTranslations === 'function') {
