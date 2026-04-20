@@ -38,6 +38,7 @@ body {
 .app {
   display: flex;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* SIDEBAR */
@@ -51,10 +52,12 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100dvh;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100dvh;
   box-sizing: border-box;
   transition: width 0.26s cubic-bezier(0.22, 1, 0.36, 1);
   overflow: hidden;
@@ -445,7 +448,7 @@ body {
   flex: 1;
   padding: 15px;
   min-width: 0;
-  overflow: auto;
+  overflow: clip;
   color: var(--text-panel);
 }
 

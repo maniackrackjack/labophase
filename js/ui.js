@@ -61,6 +61,11 @@ function switchTab(tab, btn) {
     worldBossesInit(tab);
   }
 
+  // Init Marineford content when the tab becomes visible
+  if (tab.startsWith("mf_") && typeof marinefordInit === "function") {
+    marinefordInit(tab);
+  }
+
   // Init Foxy Quiz when the tab becomes visible
   if (tab === "foxy_quiz" && typeof foxyQuizInit === "function") {
     foxyQuizInit();

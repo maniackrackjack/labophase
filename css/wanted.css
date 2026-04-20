@@ -4,6 +4,7 @@
 
 .wanted-panel {
   padding: 10px;
+  overflow: clip;
 }
 
 .wanted-title-row {
@@ -535,6 +536,8 @@
   border-radius: 8px;
   padding: 10px;
   background: var(--bg-panel);
+  position: sticky;
+  top: 0;
 }
 
 .wanted-tier-pool-wrap h4 {

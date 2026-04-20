@@ -1,0 +1,624 @@
+Nova pasta de aba (Assim como worldbosses) chamada Marineford.
+
+Nela teremos as abas:
+
+. Conceitos Gerais
+. Bastille
+. Brannew
+. Dalmatian
+. Hina
+. Jango
+. Moria
+. Smoker
+. Tashigi
+. Aokiji
+. Doflamingo
+. Kizaru
+. Mihawk
+. Akainu
+
+Na aba de Conceitos Gerais, bote por enquanto as dicas que tem.
+
+Nas abas de bosses, teremos as habilidades (com tempo de cooldown (cd) e tamanho em area e uma breve descrição), uma imagem mostrando elas e um vídeo mostrando ela (algumas habilidades não tem vídeo, ou não tem imagem da área ou tem mais de uma imagem).
+
+
+O que colocar em cada aba:
+
+. Conceitos Gerais
+
+	📋 Regras e mecânicas das waves
+
+		Recomenda-se levar pelo menos 2 pulls (skills de agrupamento).
+		Existem waves com: Marines, Elite Marines, Marines com mochila (invocam PXs), Marine Lieutenants, Marine Commanders e PXs.
+		Após waves de Bosses, é mais propenso vir Waves com Mochila.
+		Após superbosses, as waves ficam mais fortes (Mais Vida e Mais Ataque)
+
+	⚔️ Regras gerais
+		Elite Marines (mulheres) precisam de uma skill com 30 de power para serem desativadas.
+		Se a wave tiver poucos Elite Marines, haverá cura.
+		Se houver Marine Boxer, não haverá cura.
+		Se houver muitos Elite Marines, não haverá cura.
+
+	🤖 Regras envolvendo PXs
+
+		Se aparecerem apenas 3 PX-7, surgirão mais 3 PX-7.
+		Se houver 2 PX-7 e muitas Elite Marines (mulheres), haverá cura.
+		Se houver PX-5 e PX-6, surgirão 4 Marine Lieutenants.
+		Se houver PX-5, PX-6 e PX-7, ocorrerão 4 curas no total.
+		Se houver PX-5, PX-6 e Marine Commander, ocorrerão 2 curas.
+
+	🔀 Possíveis variações de waves
+
+		Marines, Elite Marines e 4 Marines com mochila.
+		Marines, Elite Marines, Marine Boxers e 4 Marines com mochila.
+		Elite Marines (mulheres) e Marines (mulheres).
+		2 PX-7, Marine Lieutenants e Elite Marines; depois surgem mais 4 Marine Lieutenants.
+		PX-5, PX-6 e 4 Marines com mochila.
+
+	⚠️ Observação
+	
+		Ainda faltam 2 variações de waves com Marine Commander.
+
+. Bastille
+
+	• Initial Wave
+
+		Tamanho: Dois 3x3 de minions separados por um espaço e o Bastille no meio embaixo
+		Cooldown: Somente no inicio.
+		Descrição: 18 Marines aparecerão junto com o Bastille, agrupa, quebra def, buffa, senta o pau e seja feliz
+
+	• Strawberry
+
+		Tamanho: 5x5 quando ele cai e depois um corte 9x3 para cada lado
+		Cooldown: NA
+		Descrição: O strawberry vai cair em algum bobo e dar dois cortes, ou horizontais ou verticais, mosca não.
+
+	• Zanbato Slash
+
+		Tamanho: 3x3 na frente dele
+		Cooldown: NA
+		Descrição: Cortezinho na frente dele.
+		
+	• Birukatta
+
+		Tamanho: 6x3 
+		Cooldown: NA
+		Descrição: Corte em linha reta.
+
+	• Furaingusodo
+
+		Tamanho: Algo como um 3x3, depois um 2x7 e um 4x9 no fim. Começa pequeno e aumenta.
+		Cooldown: NA
+		Descrição: 
+	
+	• Brute Force
+
+		Tamanho: 3x3 primeiro hit, 9x9 segundo hit
+		Cooldown: NA
+		Descrição: Bastile vai macetar o chão, dando 2 hits, área menor, depois maior.
+
+	• Bomb Rain
+
+		Tamanho: Tela toda, menos o 3x3 ao redor dele
+		Cooldown: NA
+		Descrição: Após duas ults, ele usa isso aí, fica perto do meio, não tome slow, seja feliz e corra.
+
+
+
+. Brannew
+
+
+	• Initial Gatling Gun
+
+		Tamanho: 3x3
+		Cooldown: Só uma vez no inicio
+		Descrição: Pew pew pew pew corre corre peteco peteco
+
+	• Area Jump
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: Vai aparecer a sombrinha, corre. Se é 260, usa dash/invul ou ajoelha e reza.
+		
+	• Target Gatling Gun
+
+		Tamanho: 3x3 no alvo e no caminho até o alvo
+		Cooldown: NA
+		Descrição: Só ir pra um lado que a pt não esteja. NORMALMENTE, após 2 dessas, ele usará a mecânica de prender. Pode ser após 1 só caso a pt seja danuda.
+
+	• Onigumo
+
+		Tamanho: 11x11 ao redor dele.
+		Cooldown: NA
+		Descrição: Rapaz, só sair de perto. Se conseguir prender o onigumo, free hit no brannew.
+	
+	• Hold
+
+		Tamanho: Sim
+		Cooldown: Após 2 metralhadoras target NORMALMENTE.
+		Descrição: Ele vai prender 3 bobos, tentem ficar juntos pra utilizar melhor as skills e liberar mais rápido, lind@s.
+
+	• 2 Punches, 1 Smash
+
+		Tamanho: Dois 3x3 na frente dele (ao lado dele conta) e 5x5 no final.
+		Cooldown: NA
+		Descrição: Ele dá dois socões na frente e uma pancada no chão no final, só sair.
+
+
+. Dalmatian
+
+
+	• Armed Shigan
+
+		Tamanho: 6x3
+		Cooldown: NA
+		Descrição: A unhada machuca.
+
+	• Dog Claws
+
+		Tamanho: 6x3
+		Cooldown: NA
+		Descrição: pulinho pra trás e avança pra frente.
+		
+	• Carnage
+
+		Tamanho: 5x5
+		Cooldown: 8 segundos
+		Descrição: Sai de perto se não a cura é louca
+
+	• Ulted Armed Shigan
+
+		Tamanho: 6x3
+		Cooldown: NA
+		Descrição: Unhada esmaltada machuca muito mais.
+	
+	• Aerial Claws
+
+		Tamanho: 8x5
+		Cooldown: NA
+		Descrição: São 3 dessas. Pode ser em qualquer um, horizontal ou vertical.
+
+
+. Hina
+
+
+	• Initial Wave
+
+		Tamanho: 2 2x2 com hina no meio
+		Cooldown: Só no inicio
+		Descrição: Comba tudo e sejam felizes. Não esquece as elites marines.
+
+	• Anti Ranged (Whoever has aggro)
+
+		Tamanho: 1x1
+		Cooldown: NA
+		Descrição: Tome vara preta
+		
+	• Anti Ranged
+
+		Tamanho: 3x3
+		Cooldown: NA
+		Descrição: Fique longe não. Se ficar, ande 2.
+
+	• Awase Baori
+
+		Tamanho: 5x3
+		Cooldown: NA
+		Descrição: Só sair pra não ser preso.
+	
+	• Cage
+
+		Tamanho: 7x7 (9x9 se contar as paredes)
+		Cooldown: NA
+		Descrição: Não fiquem juntos, sempre separados pra não prender mais de um ao mesmo tempo.
+
+	• Rankyaku
+
+		Tamanho: 5x5 e na parte final 7x2
+		Cooldown: NA
+		Descrição: Olha a bicuda
+
+	• Kuroori Supaiku
+
+		Tamanho: Grande
+		Cooldown: NA
+		Descrição: Só corre menor.
+
+	• Bigger Cage
+
+		Tamanho: Tela toda.
+		Cooldown: NA
+		Descrição: Não fique nas pontas, nem no meio, e siga o fluxo.
+
+
+. Jango
+
+	• Initial Wave
+
+		Tamanho: 2 2x2 com jango no meio
+		Cooldown: Só no inicio
+		Descrição: Comba tudo e sejam felizes. Não esquece as elites marines. 
+
+	• Kira Chakram
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: Girou o pião da casa propria. Sai de perto.
+		
+	• Anti Ranged
+
+		Tamanho: 5x3
+		Cooldown: NA
+		Descrição: É um anti ranged pow, só não tomar.
+
+	• Thriller (Debuff)
+
+		Tamanho: Grande (15x15?)
+		Cooldown: NA
+		Descrição: Debuff de ataque e movespeed.
+	
+	• 1, 2, Jango
+
+		Tamanho: Tudo e todos
+		Cooldown: NA
+		Descrição: Usar skill com 30+ de power para parar isso.
+
+
+. Moria
+
+	• Kaiten No Hasami
+
+		Tamanho: 7x7
+		Cooldown: NA
+		Descrição: Roda o pião e toma o bobão.
+
+	• Tsuno Tokage (Doppelman)
+
+		Tamanho: 3x3 cada um
+		Cooldown: NA
+		Descrição: Só desviar ou tomar uma pincelada preta vinda debaixo.
+		
+	• Hasami Giri
+
+		Tamanho: 9x5?
+		Cooldown: NA
+		Descrição: Quer tomar tramontina na cara?
+
+	• Real Form
+
+		Tamanho: 1x1
+		Cooldown: Doppelman atinge a vida vermelha.
+		Descrição: Agora sim comba, explode, bate, chuta, atira.
+	
+	• Brick Bat
+
+		Tamanho: 3x1 > 5x1 > 7x1 > 9x1
+		Cooldown: NA
+		Descrição: I'm Batman
+
+	• Brick Bat Circles
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: Vai aparecer no seu pé. Anda 3 e seja feliz
+
+	• Tsuno Tokage (Real Form) and Kage Wo Yokose
+
+		Tamanho: 5x5 Ambas
+		Cooldown: NA
+		Descrição: Ele dá o "teleporte" e deixa o pilar no local que ele saiu, dando a tesourada na direção de quem está com o Aggro onde ele aparece. Dá dano em ambos os locais.
+ 
+
+. Smoker
+
+	• White Conceal
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: O primeiro é só em áreas fixas. Do segundo em diante, é um na área fixa, e outro nos pés dos players. São 3 rodadas. No final, ele cai usando um white conceal em um distraido. 
+
+	• Wave
+
+		Tamanho: 2 Elite Marines (Mulher)
+		Cooldown: 1 Minuto
+		Descrição: Comba e mata antes do smoker sumir, se não elas ficam invisiveis.
+		
+	• White Vine
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: Dano ao redor e ele some para começar a White Conceal.
+
+	• White Blow
+
+		Tamanho: 4x3
+		Cooldown: NA
+		Descrição: O soco dele
+	
+	• White Strike
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: Sai de perto.
+
+	• White Out
+
+		Tamanho: 4x3
+		Cooldown: NA
+		Descrição: O silence dele.
+
+
+. Tashigi
+
+	• Senbon Sakura 
+
+		Tamanho: 9x9
+		Cooldown: NA
+		Descrição: Tem 1 assim que começa o boss e de tempos em tempos
+
+	• Kiri Shigure
+
+		Tamanho: 6x3
+		Cooldown: NA
+		Descrição: A cortada longa que é usada quando ela usa o Usugasumi também.
+		
+	• Wave
+
+		Tamanho: 9 Marines
+		Cooldown: 145 segundos
+		Descrição: 9 Marines ai pra vocês brincarem.
+
+	• Senbon Sakura
+
+		Tamanho: 4x3
+		Cooldown: NA
+		Descrição: O Senbon Sakura da personagem normal mesmo.
+	
+	• Usugasumi
+
+		Tamanho: 6x3
+		Cooldown: NA
+		Descrição: Ela usou a ult, vai dar 3 Kiri Shigure. Fica 1 diagonal de distância e anda na mesma direção que ela usou a skill. Se você se afastar durante os 3 Kiri Shigures, ela dá um dash pra cima de tu.
+
+
+. Aokiji
+
+	• Initial Skill
+
+		Tamanho: Tela toda
+		Cooldown: Só no inicio
+		Descrição: Só desviar.
+
+	• Ice Saber
+
+		Tamanho: 3x3
+		Cooldown: NA
+		Descrição: Só desviar.
+		
+	• Ice Age
+
+		Tamanho: 11x11
+		Cooldown: NA
+		Descrição: Corre, pula, dash, invul, tp, foge.
+
+	• Ice Block: Partisan
+
+		Tamanho: 5x5 (com os 4 cantos safes)
+		Cooldown: NA
+		Descrição: Dois pra lá.
+	
+	• Ice Time
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: A skill aparece no seu pé. Só andar 3 que sai. No ultimo, recomendado ficar parado e andar no sentido das suas costas.
+
+	• Anti Ranged
+
+		Tamanho: 5x5?
+		Cooldown: NA
+		Descrição: Recomendado andar na direção oposta a que ele apareceu (principalmente para personagens de 260)
+
+	• Anti Ranged (Aggroed)
+
+		Tamanho: 1x1
+		Cooldown: NA
+		Descrição: Só não ir pra longe assim como as maiorias dos bosses que tem essa mecânica.
+
+	• Mechanic
+
+		Tamanho: Tela toda
+		Cooldown: NA
+		Descrição: Se separem, decorem a ordem dos quadrados verdes que aparecerão, e ande 1 a cada chuva de gelo.
+		
+
+. Doflamingo
+
+	• Initial Wave
+
+		Tamanho: 0
+		Cooldown: Só no inicio.
+		Descrição: Cinema.
+
+	• Overheat
+
+		Tamanho: 6x3
+		Cooldown: NA
+		Descrição: Ele vai pular para trás, dando silence, e depois dar o Overheat. Só andar.
+		
+	• Fulbright
+
+		Tamanho: 3x3
+		Cooldown: NA
+		Descrição: Vai e volta.
+
+	• Awakening
+
+		Tamanho: Tela Inteira
+		Cooldown: NA
+		Descrição: Ele despertou e os fios vão dar uma área em reta. Só ficar diagonal.
+	
+	• Mechanic
+
+		Tamanho: Tela Inteira
+		Cooldown: NA
+		Descrição: As linhas tem largura de 1. Então é só não estar onde ela passou.
+
+	• Clone + Cage
+
+		Tamanho: ?
+		Cooldown: NA
+		Descrição: Ele vai invocar o clone, que andará até algum dos Rangeds. Combem o clone e matem antes de encostar no ranged. Se ele encostar, ele ativa a gaiola, causando dano.
+
+	
+. Kizaru
+
+	• Initial Skill
+
+		Tamanho: Tela Toda
+		Cooldown: Só no inicio
+		Descrição: Fica no meio do triângulo do Illuminatti.
+
+	• Lightspeed Kick
+
+		Tamanho: 6x3
+		Cooldown: NA
+		Descrição: Chute com raio lase que explode no fim, o que pode dar errado?
+		
+	• Lightspeed Strike
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: Já levou uma binga na velocidade da bonga?
+
+	• Yasakani no Magatama
+
+		Tamanho: Tela Toda
+		Cooldown: NA
+		Descrição: Só ir pra um sqm verde, que é safe.
+	
+	• Yata no Kagami
+
+		Tamanho: 7x5
+		Cooldown: NA
+		Descrição: Diagonal pro lado e saindo de perto dele é a solução. Manda os rangeds/melees não ficarem na reta e tudo são flores.
+
+	• Yasakani no Magatama Middle
+
+		Tamanho: Tela toda
+		Cooldown: NA
+		Descrição: Só ir pra um sqm verde, que é safe.
+
+	• Laser + Hold
+
+		Tamanho: 1 alvo
+		Cooldown: NA
+		Descrição: Alguém ficará preso. Quem estiver com chamas no corpo tem que ficar entre o Kizaru e a pessoa presa.
+
+
+. Mihawk
+
+	• Initial Wave
+
+		Tamanho: Tela Toda
+		Cooldown: Só no inicio
+		Descrição: Junta, comba e sejam felizes.
+
+	• Suihei + Tornado
+
+		Tamanho: 9x3 + 7x7
+		Cooldown: NA
+		Descrição: Ele dá o corte horizontal que gera um furacão, explodindo numa área maior no fim.
+		
+	• Suihei
+
+		Tamanho: 3x3
+		Cooldown: NA
+		Descrição: Só tomar mesmo, ou desviar se tu é bom.
+
+	• Chi wo Hau Zangeki
+
+		Tamanho: 9x3
+		Cooldown: NA
+		Descrição: Tome esse tramontina.
+	
+	• Anti Ranged Aggroed
+
+		Tamanho: 1
+		Cooldown: Sempre que sair de perto.
+		Descrição: Ele dá tp com dano em quem tá com o Aggro. Se ele mudar de aggro e tiver longe, mesma coisa.
+
+	• Kokuto Kogetsu
+
+		Tamanho: 5x5
+		Cooldown: NA
+		Descrição: Todos estarão silenciados, então só pode andar para sair. É bom ficar separado. Quando aparecer o olho, sai de perto.
+
+	• Mechanic
+
+		Tamanho: Tela toda
+		Cooldown: NA
+		Descrição: Cada corte tem largura de 3 (maior que o do Doflamingo). Então fica esperto. Guarda invul, dash, etc..
+
+	• Kobuto Arahoshi
+
+		Tamanho: 11x11
+		Cooldown: Após o Kokuto Kogetsu
+		Descrição: Só sair andando.
+
+
+. Akainu
+
+	• Initial Skill
+
+		Tamanho: Tela toda
+		Cooldown: Só no inicio
+		Descrição: Só sair andando parecendo barata tonta. O que importa é não estar em cima quando a skill explodir.
+
+	• Anti Ranged
+
+		Tamanho: 3x3
+		Cooldown: NA
+		Descrição: Só sair. O dano 'verdadeiro' é a explosão.
+		
+	• Meigo
+
+		Tamanho: 7x7
+		Cooldown: NA
+		Descrição: Sempre vai nos rangeds/supp. Só sair.
+
+	• Kazan Ken
+
+		Tamanho: 4x3
+		Cooldown: NA
+		Descrição: Sair pro lado.
+	
+	• Kazan Bakuhatsu
+
+		Tamanho: 5x5 ao redor dele e 3x3 em 8 locais.
+		Cooldown: NA
+		Descrição: O único que sempre é igual é ao redor dele, os outros podem ser perto ou longe, diagonais ou laterais.
+
+	• Dai Funka
+
+		Tamanho: 6x3
+		Cooldown: NA
+		Descrição: Tome o socão. Depois da primeira arena, vira o Inugami Guren.
+
+	• Ryuusei Kazan
+
+		Tamanho: Tela toda (meio é safe)
+		Cooldown: NA
+		Descrição: Só o meio do mapa é safe. Se sair toma dano.
+
+	• Inugami Guren
+
+		Tamanho: 6x3 e vira um 5x5 no fim.
+		Cooldown: NA
+		Descrição: Se tomar, é empurrado junto e toma MUITO dano.
+		
+	• Volcanoes
+
+		Tamanho: Sim
+		Cooldown: Sempre depois dos Ryuusei Kazan
+		Descrição: Objetivo é eliminar os 3 aos mesmo tempo. Um deles tem mais vida. Usar uma skill em área no meio de dois é a forma de descobrir qual o que tem mais vida mais rápido. Deixe 1 fixo em cada vulcão e 3 para irem no vulcão com mais vida.

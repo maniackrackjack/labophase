@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="css/wanted.css" />
     <link rel="stylesheet" href="css/links.css" />
     <link rel="stylesheet" href="css/world_bosses.css" />
+    <link rel="stylesheet" href="css/marineford.css" />
     <link rel="stylesheet" href="css/foxy_quiz.css" />
     <link rel="stylesheet" href="css/island_chests.css" />
     <link rel="stylesheet" href="css/tracker.css" />
@@ -109,6 +110,71 @@
           <button class="tabBtn" onclick="switchTab('links', this)">
             <span class="tab-icon">🔗</span><span class="tab-label" data-lang="usefulLinksTab">Links Úteis</span>
           </button>
+
+          <!-- Marineford folder -->
+          <button class="wb-folder-btn" type="button" onclick="mfToggleFolder(this)" aria-expanded="false" aria-controls="mf-folder-submenu">
+            <span class="tab-icon"><img src="sprites/marineford/marineford.png" class="tab-icon-img" alt="Marineford"></span>
+            <span class="tab-label" data-lang="marinefordFolder">Marineford</span>
+            <span class="wb-folder-arrow">▶</span>
+          </button>
+          <div id="mf-folder-submenu" class="wb-folder-submenu">
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_general', this)">
+              <span class="tab-icon">📋</span>
+              <span class="tab-label" data-lang="mfGeneralConcepts">Conceitos Gerais</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_bastille', this)">
+              <span class="tab-icon"><img src="sprites/characters/bastille.png" class="tab-icon-img" alt="Bastille"></span>
+              <span class="tab-label">Bastille</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_brannew', this)">
+              <span class="tab-icon"><img src="sprites/tracker/marineford/brannew_boss.png" class="tab-icon-img" alt="Brannew"></span>
+              <span class="tab-label">Brannew</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_dalmatian', this)">
+              <span class="tab-icon"><img src="sprites/characters/dalmatian.png" class="tab-icon-img" alt="Dalmatian"></span>
+              <span class="tab-label">Dalmatian</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_hina', this)">
+              <span class="tab-icon"><img src="sprites/characters/hina.png" class="tab-icon-img" alt="Hina"></span>
+              <span class="tab-label">Hina</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_jango', this)">
+              <span class="tab-icon"><img src="sprites/characters/jango.png" class="tab-icon-img" alt="Jango"></span>
+              <span class="tab-label">Jango</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_moria', this)">
+              <span class="tab-icon"><img src="sprites/characters/gecko_moria.png" class="tab-icon-img" alt="Moria"></span>
+              <span class="tab-label">Moria</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_smoker', this)">
+              <span class="tab-icon"><img src="sprites/characters/smoker.png" class="tab-icon-img" alt="Smoker"></span>
+              <span class="tab-label">Smoker</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_tashigi', this)">
+              <span class="tab-icon"><img src="sprites/characters/tashigi.png" class="tab-icon-img" alt="Tashigi"></span>
+              <span class="tab-label">Tashigi</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_aokiji', this)">
+              <span class="tab-icon"><img src="sprites/characters/aokiji.png" class="tab-icon-img" alt="Aokiji"></span>
+              <span class="tab-label">Aokiji</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_doflamingo', this)">
+              <span class="tab-icon"><img src="sprites/characters/doflamingo.png" class="tab-icon-img" alt="Doflamingo"></span>
+              <span class="tab-label">Doflamingo</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_kizaru', this)">
+              <span class="tab-icon"><img src="sprites/characters/borsalino_kizaru.png" class="tab-icon-img" alt="Kizaru"></span>
+              <span class="tab-label">Kizaru</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_mihawk', this)">
+              <span class="tab-icon"><img src="sprites/characters/dracule_mihawk.png" class="tab-icon-img" alt="Mihawk"></span>
+              <span class="tab-label">Mihawk</span>
+            </button>
+            <button class="tabBtn wb-child-tab" onclick="switchTab('mf_akainu', this)">
+              <span class="tab-icon"><img src="sprites/characters/akainu.png" class="tab-icon-img" alt="Akainu"></span>
+              <span class="tab-label">Akainu</span>
+            </button>
+          </div>
 
           <!-- World Bosses folder -->
           <button class="wb-folder-btn" type="button" onclick="wbToggleFolder(this)" aria-expanded="false" aria-controls="wb-folder-submenu">
@@ -1185,6 +1251,176 @@
           </div>
         </div>
 
+        <!-- Marineford panels -->
+
+        <div id="mf_general" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title" data-lang="mfGeneralConcepts">Conceitos Gerais</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-general-content" class="mf-general-sections"></div>
+          </div>
+        </div>
+
+        <div id="mf_bastille" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Bastille</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-bastille" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_brannew" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Brannew</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-brannew" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_dalmatian" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Dalmatian</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-dalmatian" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_hina" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Hina</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-hina" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_jango" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Jango</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-jango" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_moria" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Moria</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-moria" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_smoker" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Smoker</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-smoker" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_tashigi" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Tashigi</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-tashigi" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_aokiji" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Aokiji</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-aokiji" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_doflamingo" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Doflamingo</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-doflamingo" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_kizaru" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Kizaru</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-kizaru" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_mihawk" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Mihawk</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-mihawk" class="mf-skills-list"></div>
+          </div>
+        </div>
+
+        <div id="mf_akainu" class="tabPanel" style="display: none">
+          <div class="panel mf-panel">
+            <div class="mf-boss-header">
+              <div>
+                <h3 class="mf-boss-title">Akainu</h3>
+                <p class="mf-boss-subtitle" data-lang="mfBossSubtitle">Marineford</p>
+              </div>
+            </div>
+            <div id="mf-skills-akainu" class="mf-skills-list"></div>
+          </div>
+        </div>
+
         <div id="links" class="tabPanel" style="display: none">
           <div class="panel links-panel">
             <h3 data-lang="usefulLinksTitle">Links Úteis</h3>
@@ -1334,6 +1570,10 @@
             <div class="update-warning-text" id="update-warning-text">
               <pre id="update-warning-body" class="update-warning-body"></pre>
             </div>
+            <label class="update-warning-dont-show">
+              <input type="checkbox" id="update-warning-dont-show-cb">
+              <span id="update-warning-dont-show-label">Don't show again</span>
+            </label>
             <p class="update-warning-hint" id="update-warning-hint">Click outside the text to close.</p>
           </div>
         </div>
@@ -1369,6 +1609,7 @@
     <script src="js/wanted-data.js"></script>
     <script src="js/wanted.js"></script>
     <script src="js/world_bosses.js"></script>
+    <script src="js/marineford.js"></script>
     <script src="js/island_chests.js"></script>
     <script src="js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>

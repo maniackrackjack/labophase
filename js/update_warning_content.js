@@ -9,7 +9,8 @@ const UPDATE_WARNING_CONTENT = {
 
 Voce pode copiar este texto e me enviar quando quiser.`,
     hint: "Clique fora do texto para fechar.",
-    reopenTitle: "Mostrar aviso novamente"
+    reopenTitle: "Mostrar aviso novamente",
+    dontShowLabel: "Não mostrar novamente"
   },
   en: {
     title: "⚠️ Important notice",
@@ -21,7 +22,8 @@ Voce pode copiar este texto e me enviar quando quiser.`,
 
 You can copy this text and send it to me anytime.`,
     hint: "Click outside the text to close.",
-    reopenTitle: "Show warning again"
+    reopenTitle: "Show warning again",
+    dontShowLabel: "Don't show again"
   },
   es: {
     title: "⚠️ Aviso importante",
@@ -33,7 +35,8 @@ You can copy this text and send it to me anytime.`,
 
 Puedes copiar este texto y enviarmelo cuando quieras.`,
     hint: "Haz clic fuera del texto para cerrar.",
-    reopenTitle: "Mostrar aviso nuevamente"
+    reopenTitle: "Mostrar aviso nuevamente",
+    dontShowLabel: "No mostrar de nuevo"
   },
   pl: {
     title: "⚠️ Wazna informacja",
@@ -45,6 +48,7 @@ Puedes copiar este texto y enviarmelo cuando quieras.`,
 
 Mozesz skopiowac ten tekst i wyslac mi go w dowolnym momencie.`,
     hint: "Kliknij poza tekstem, aby zamknac.",
-    reopenTitle: "Pokaz ostrzezenie ponownie"
+    reopenTitle: "Pokaz ostrzezenie ponownie",
+    dontShowLabel: "Nie pokazuj ponownie"
   }
 };

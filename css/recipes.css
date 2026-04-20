@@ -10,6 +10,7 @@
 #receitas-inner {
   display: flex;
   height: calc(100vh - 30px);
+  height: calc(100dvh - 30px);
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.4);
@@ -89,7 +90,7 @@
 
 #r-recipe-details {
   flex: 2;
-  min-width: 300px;
+  min-width: 260px;
   background: var(--bg-panel);
   padding: 20px 18px;
   overflow-y: auto;
@@ -139,6 +140,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
 }
 
 .r-ingredient {
@@ -148,6 +150,9 @@
   background: var(--bg-surface-2);
   border-radius: 8px;
   padding: 8px 12px;
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
   transition: background 0.12s;
 }
 
@@ -281,6 +286,7 @@
     min-width: 0;
     max-width: none;
     width: 100%;
+    box-sizing: border-box;
   }
 
   #r-recipe-list {
@@ -290,13 +296,14 @@
   #r-recipe-list-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    max-height: 230px;
+    max-height: clamp(160px, 28vh, 280px);
   }
 
   #r-recipe-details {
     border-left: none;
     border-right: none;
     border-bottom: 1.5px solid #3d2e28;
+    padding: 16px 12px;
   }
 
   .r-ingredient {
@@ -304,10 +311,6 @@
     grid-template-columns: 32px minmax(0, 1fr) auto;
     align-items: center;
     gap: 8px;
-  }
-
-  .r-ingredient-meta {
-    min-width: 88px;
   }
 }
 
@@ -323,7 +326,7 @@
 
   #r-recipe-list-container {
     grid-template-columns: 1fr;
-    max-height: 200px;
+    max-height: clamp(140px, 25vh, 200px);
   }
 
   .r-ingredient {
@@ -336,5 +339,44 @@
     text-align: left;
     min-width: 0;
     margin-top: 2px;
+  }
+}
+
+@media (max-width: 400px) {
+  #r-recipe-name {
+    font-size: 0.95rem;
+    gap: 6px;
+  }
+
+  .r-recipe-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  #r-recipe-details {
+    padding: 12px 10px;
+  }
+
+  #r-calc-panel {
+    padding: 12px 10px;
+  }
+
+  .r-panel-box {
+    padding: 8px 10px;
+  }
+
+  .r-small-muted {
+    font-size: 0.74rem;
+    padding: 2px 7px;
+  }
+}
+
+@media (min-width: 1400px) {
+  #r-recipe-list {
+    max-width: 280px;
+  }
+
+  #r-calc-panel {
+    max-width: 320px;
   }
 }

@@ -1,0 +1,358 @@
+/* ============================================================
+   Marineford tab
+   ============================================================ */
+
+.mf-panel {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Boss header */
+
+.mf-boss-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mf-boss-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid var(--border-accent);
+  background: var(--bg-surface-1);
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
+
+.mf-boss-title {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--text-title);
+  letter-spacing: 0.03em;
+}
+
+.mf-boss-subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Skills list */
+
+.mf-skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 12px;
+}
+
+/* Skill card */
+
+.mf-skill-card {
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-panel);
+  transition: border-color 0.15s ease;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mf-skill-card:hover {
+  border-color: var(--input-focus);
+}
+
+.mf-skill-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.mf-skill-info {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.mf-skill-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-title);
+}
+
+.mf-skill-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mf-skill-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border-accent);
+  background: var(--bg-surface-1);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.mf-skill-meta-tag strong {
+  color: var(--text-panel);
+  font-weight: 800;
+}
+
+.mf-skill-desc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-panel);
+  line-height: 1.55;
+}
+
+/* Skill media gallery */
+
+.mf-skill-media {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface-1);
+  border-top: 1px solid var(--border-accent);
+}
+
+.mf-media-tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-accent);
+}
+
+.mf-media-tab-btn {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border-accent);
+  background: var(--bg-panel);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  white-space: nowrap;
+}
+
+.mf-media-tab-btn:hover {
+  border-color: var(--input-focus);
+  color: var(--text-panel);
+}
+
+.mf-media-tab-btn.active {
+  background: var(--input-focus);
+  border-color: var(--input-focus);
+  color: #fff;
+}
+
+.mf-media-viewport {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.mf-media-item {
+  display: none;
+  justify-content: center;
+  width: 100%;
+}
+
+.mf-media-item.active {
+  display: flex;
+}
+
+.mf-skill-img {
+  max-width: 220px;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--border-accent);
+  background: var(--bg-panel);
+  cursor: zoom-in;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  display: block;
+}
+
+.mf-skill-img:hover {
+  transform: scale(1.03);
+  border-color: var(--input-focus);
+}
+
+.mf-skill-video {
+  max-width: 320px;
+  max-height: 200px;
+  border-radius: 8px;
+  border: 1px solid var(--border-accent);
+  background: #000;
+  display: block;
+  pointer-events: none;
+}
+
+/* Video thumbnail wrapper (click to open modal) */
+
+.mf-video-thumb {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.15s ease;
+}
+
+.mf-video-thumb:hover {
+  transform: scale(1.02);
+}
+
+.mf-video-play-btn {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.42);
+  opacity: 0.8;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+
+.mf-video-thumb:hover .mf-video-play-btn {
+  opacity: 1;
+}
+
+/* Modal video */
+
+.mf-modal-video {
+  display: block;
+  max-width: min(860px, 88vw);
+  max-height: 75vh;
+  border-radius: 8px;
+  background: #000;
+}
+
+/* Modal skill info */
+
+.mf-modal-info {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-accent);
+}
+
+.mf-modal-skill-name {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-title);
+}
+
+.mf-modal-skill-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.mf-modal-skill-desc {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-panel);
+  line-height: 1.55;
+}
+
+/* General concepts */
+
+.mf-general-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mf-general-section {
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mf-general-section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-surface-1);
+  border-bottom: 1px solid var(--border-accent);
+}
+
+.mf-general-section-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.mf-general-section-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-title);
+}
+
+.mf-general-rules {
+  list-style: none;
+  margin: 0;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.mf-general-rule {
+  font-size: 13px;
+  color: var(--text-panel);
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+
+.mf-general-rule::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .mf-skills-list {
+    grid-template-columns: 1fr;
+  }
+
+  .mf-skill-video {
+    max-width: 100%;
+    max-height: 200px;
+  }
+
+  .mf-skill-img {
+    max-width: 160px;
+    max-height: 140px;
+  }
+}

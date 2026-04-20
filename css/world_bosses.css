@@ -191,15 +191,14 @@
 
 .wb-table-and-preview {
   display: grid;
-  grid-template-columns: max-content max-content;
-  align-items: stretch;
-  justify-content: space-evenly;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  align-items: start;
+  gap: 12px;
   width: 100%;
 }
 
 .wb-table-outer {
-  width: max-content;
-  max-width: 100%;
+  width: 100%;
   overflow: auto;
   border: 1px solid var(--border-accent);
   border-radius: 8px;
@@ -351,11 +350,10 @@
   border: 1px solid var(--border-accent);
   border-radius: 12px;
   padding: 14px 12px;
-  width: auto;
-  min-width: 220px;
-  max-width: 320px;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
   aspect-ratio: 11 / 13;
-  align-self: stretch;
   background: linear-gradient(180deg,
     var(--bg-surface-1) 0%,
     var(--bg-panel) 100%);
@@ -366,6 +364,7 @@
 .wb-skill-gif {
   width: 280px;
   height: 280px;
+  max-width: 100%;
   object-fit: contain;
   border-radius: 10px;
   border: 1px solid var(--border-accent);
@@ -581,19 +580,9 @@
   }
 }
 
-@media (max-width: 900px) {
-  .wb-boss-header {
-    padding-right: 62px;
-  }
-
-  .wb-boss-top1-icon {
-    width: 48px;
-    height: 48px;
-  }
-
+@media (max-width: 1100px) {
   .wb-table-and-preview {
     grid-template-columns: 1fr;
-    justify-content: stretch;
   }
 
   .wb-skill-preview,
@@ -606,6 +595,31 @@
     aspect-ratio: auto;
     align-self: auto;
     position: static;
+  }
+}
+
+@media (max-width: 900px) {
+  .wb-boss-header {
+    padding-right: 62px;
+  }
+
+  .wb-boss-top1-icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wb-skill-gif {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+  }
+
+  .wb-skill-preview,
+  .wb-skill-review {
+    flex-direction: column;
+    align-items: center;
   }
 }
 

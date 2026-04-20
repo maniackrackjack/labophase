@@ -91,8 +91,28 @@
   line-height: 1.45;
 }
 
+.update-warning-dont-show {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 2px 0;
+  cursor: pointer;
+  font-size: 0.82rem;
+  opacity: 0.85;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.update-warning-dont-show input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: #ffcc55;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
 .update-warning-hint {
-  margin: 10px 2px 0;
+  margin: 6px 2px 0;
   font-size: 0.82rem;
   opacity: 0.82;
 }

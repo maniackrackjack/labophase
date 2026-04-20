@@ -91,7 +91,7 @@ const CHARACTER_MECHANICS_CONFIG = {
   ],
   quebra_def: [
     "jewelry_bonney", "brook_ts", "hina", "trafalgar_law", "nami_ts", "rebecca", "basil_hawkins", "gecko_moria", "boa_hancock", "dracule_mihawk",
-    "bartolomeo", "chopper", "cabaji"
+    "bartolomeo", "chopper", "cabaji", "nami", "kalifa", "chopper_ts"
   ],
   cria_ponte: [
     "aokiji", "brook_ts", "doflamingo", "nico_robin_ts", "bartolomeo", "basil_hawkins", "crocodile", "hina", "eustass_kid", "leo_mansherry", "nico_robin", "mr_3"

@@ -400,6 +400,16 @@
   outline: none;
 }
 
+.profile-form-row-emoji {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-form-row-color {
+  position: relative;
+  z-index: 0;
+}
+
 .profile-emoji-selector {
   position: relative;
   display: flex;
