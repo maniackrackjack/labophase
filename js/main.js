@@ -256,3 +256,4 @@ if (typeof worldBossesInit === "function") worldBossesInit();
 
 // Initialize Tracker tab
 if (typeof trackerInit === "function") trackerInit();
+if (typeof weeklyChestInit === "function") weeklyChestInit();

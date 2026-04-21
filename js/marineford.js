@@ -922,11 +922,23 @@ function marinefordInit(tabId) {
   }
 }
 
+// ─── credits ────────────────────────────────────────────────
+
+function mfInjectCredits(panel) {
+  const header = panel && panel.querySelector('.mf-boss-header');
+  if (!header || header.querySelector('.mf-credits')) return;
+  const span = document.createElement('span');
+  span.className = 'wanted-credits mf-credits';
+  span.textContent = typeof t === 'function' ? t('mfCredits') : 'Credits to RedEllen for the videos and Images';
+  header.appendChild(span);
+}
+
 // ─── general concepts ────────────────────────────────────────
 
 function mfRenderGeneral() {
   const el = document.getElementById('mf-general-content');
   if (!el) return;
+  mfInjectCredits(el.closest('.mf-panel'));
 
   let html = '';
   for (const section of MF_GENERAL_SECTIONS) {
@@ -950,9 +962,9 @@ function mfRenderBoss(bossKey) {
   const boss = MF_BOSSES[bossKey];
   if (!boss) return;
 
+  const panel = document.getElementById(`mf_${bossKey}`);
   const iconSrc = MF_BOSS_ICONS[bossKey];
   if (iconSrc) {
-    const panel = document.getElementById(`mf_${bossKey}`);
     const header = panel && panel.querySelector('.mf-boss-header');
     if (header && !header.querySelector('.mf-boss-icon')) {
       const img = document.createElement('img');
@@ -962,6 +974,7 @@ function mfRenderBoss(bossKey) {
       header.insertBefore(img, header.firstChild);
     }
   }
+  mfInjectCredits(panel);
 
   const el = document.getElementById(`mf-skills-${mfEsc(bossKey)}`);
   if (!el) return;

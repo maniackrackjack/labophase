@@ -17,6 +17,16 @@
   gap: 16px;
 }
 
+.mf-credits {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 18px;
+  text-align: right;
+}
+
 .mf-boss-icon {
   width: 56px;
   height: 56px;

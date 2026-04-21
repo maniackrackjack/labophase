@@ -419,6 +419,7 @@ const COMMON_LANG = {
     wbShaiDescSandwormWaves: "Pequenos sandworms emergem em ondas pelo campo de batalha, causando dano aos jogadores que tocarem neles. Elimine-os o mais rápido possível para evitar acúmulo de dano.",
     marinefordFolder: "Marineford",
     mfBossSubtitle: "Marineford",
+    mfCredits: "Créditos a Redellen pelos vídeos e imagens",
     mfGeneralConcepts: "Conceitos Gerais",
     mfSkillSize: "Tamanho",
     mfGenSec1Title: "Regras e mecânicas das waves",
@@ -717,7 +718,28 @@ const COMMON_LANG = {
     profileImportSuccess: "Perfil importado!",
     profileImportError: "Falha ao importar perfil",
     profileShareCopied: "Link do perfil copiado!",
-    profileSharePrompt: "Copie este link:"
+    profileSharePrompt: "Copie este link:",
+    wcTab: "Baú Semanal",
+    wcTitle: "Baú Semanal",
+    wcCredits: "Créditos a Atiosz pela ideia",
+    wcSearchLabel: "Pesquisar",
+    wcSearchPlaceholder: "Nome ou alias...",
+    wcHideNoRotation: "Ocultar sem rotação",
+    wcNoResults: "Nenhum personagem encontrado.",
+    wcLegendCurrent: "Semana atual",
+    wcLegendYellow: "Até 1 mês",
+    wcLegendOrange: "1 a 2 meses",
+    wcLegendRed: "Mais de 2 meses",
+    wcLegendBlue: "Sem rotação",
+    wcLegendPurple: "Ainda não rotacionou",
+    wcCurrentChest: "Semana Atual",
+    wcNextChest: "Próxima Semana",
+    wcChestLabel: "Baú",
+    wcSortLabel: "Ordenar",
+    wcSortNameAZ: "Nome (A-Z)",
+    wcSortNameZA: "Nome (Z-A)",
+    wcSortDateNewest: "Data (mais recente)",
+    wcSortDateOldest: "Data (mais antiga)"
   },
 
   en: {
@@ -1140,6 +1162,7 @@ const COMMON_LANG = {
     wbShaiDescSandwormWaves: "Small sandworms emerge in rolling waves across the battlefield, dealing damage to any player they touch. Eliminate them as quickly as possible to avoid damage buildup.",
     marinefordFolder: "Marineford",
     mfBossSubtitle: "Marineford",
+    mfCredits: "Credits to Redellen for the videos and Images",
     mfGeneralConcepts: "General Concepts",
     mfSkillSize: "Size",
     mfGenSec1Title: "Wave Rules & Mechanics",
@@ -1438,7 +1461,28 @@ const COMMON_LANG = {
     profileImportSuccess: "Profile imported!",
     profileImportError: "Failed to import profile",
     profileShareCopied: "Profile link copied!",
-    profileSharePrompt: "Copy this link:"
+    profileSharePrompt: "Copy this link:",
+    wcTab: "Weekly Chest",
+    wcTitle: "Weekly Chest",
+    wcCredits: "Credits to Atiosz for the idea",
+    wcSearchLabel: "Search",
+    wcSearchPlaceholder: "Name or alias...",
+    wcHideNoRotation: "Hide no rotation",
+    wcNoResults: "No characters found.",
+    wcLegendCurrent: "Current week",
+    wcLegendYellow: "Up to 1 month",
+    wcLegendOrange: "1 to 2 months",
+    wcLegendRed: "More than 2 months",
+    wcLegendBlue: "No rotation",
+    wcLegendPurple: "Not yet rotated",
+    wcCurrentChest: "Current Week",
+    wcNextChest: "Next Week",
+    wcChestLabel: "Chest",
+    wcSortLabel: "Sort",
+    wcSortNameAZ: "Name (A-Z)",
+    wcSortNameZA: "Name (Z-A)",
+    wcSortDateNewest: "Date (newest)",
+    wcSortDateOldest: "Date (oldest)"
   },
 
   es: {
@@ -1861,6 +1905,7 @@ const COMMON_LANG = {
     wbShaiDescSandwormWaves: "Pequenos sandworms emergen en oleadas por el campo de batalla, causando dano a los jugadores que los toquen. Eliminalos lo antes posible para evitar la acumulacion de dano.",
     marinefordFolder: "Marineford",
     mfBossSubtitle: "Marineford",
+    mfCredits: "Créditos a Redellen por los videos e imágenes",
     mfGeneralConcepts: "Conceptos Generales",
     mfSkillSize: "Tamaño",
     mfGenSec1Title: "Reglas y mecánicas de las waves",
@@ -2159,7 +2204,28 @@ const COMMON_LANG = {
     profileImportSuccess: "Perfil importado!",
     profileImportError: "Error al importar perfil",
     profileShareCopied: "Enlace del perfil copiado!",
-    profileSharePrompt: "Copia este enlace:"
+    profileSharePrompt: "Copia este enlace:",
+    wcTab: "Baú Semanal",
+    wcTitle: "Baú Semanal",
+    wcCredits: "Créditos a Atiosz por la idea",
+    wcSearchLabel: "Buscar",
+    wcSearchPlaceholder: "Nombre o alias...",
+    wcHideNoRotation: "Ocultar sin rotación",
+    wcNoResults: "Ningún personaje encontrado.",
+    wcLegendCurrent: "Semana actual",
+    wcLegendYellow: "Hasta 1 mes",
+    wcLegendOrange: "1 a 2 meses",
+    wcLegendRed: "Más de 2 meses",
+    wcLegendBlue: "Sin rotación",
+    wcLegendPurple: "Aún no ha rotado",
+    wcCurrentChest: "Semana Actual",
+    wcNextChest: "Próxima Semana",
+    wcChestLabel: "Baú",
+    wcSortLabel: "Ordenar",
+    wcSortNameAZ: "Nombre (A-Z)",
+    wcSortNameZA: "Nombre (Z-A)",
+    wcSortDateNewest: "Fecha (más reciente)",
+    wcSortDateOldest: "Fecha (más antigua)"
   },
 
   pl: {
@@ -2582,6 +2648,7 @@ const COMMON_LANG = {
     wbShaiDescSandwormWaves: "Male sandwormy wylanaja sie w falach na polu bitwy, zadajac obrazenia graczom, ktorzy ich dotkna. Eliminuj je jak najszybciej, aby uniknac narastajacych obrazen.",
     marinefordFolder: "Marineford",
     mfBossSubtitle: "Marineford",
+    mfCredits: "Podziękowania dla Redellen za filmy i obrazy",
     mfGeneralConcepts: "Ogólne pojęcia",
     mfSkillSize: "Rozmiar",
     mfGenSec1Title: "Zasady i mechaniki fal",
@@ -2880,7 +2947,28 @@ const COMMON_LANG = {
     profileImportSuccess: "Profil zaimportowany!",
     profileImportError: "Błąd importu profilu",
     profileShareCopied: "Link do profilu skopiowany!",
-    profileSharePrompt: "Skopiuj ten link:"
+    profileSharePrompt: "Skopiuj ten link:",
+    wcTab: "Tygodniowa Skrzynia",
+    wcTitle: "Tygodniowa Skrzynia",
+    wcCredits: "Podziękowania dla Atiosz za pomysł",
+    wcSearchLabel: "Szukaj",
+    wcSearchPlaceholder: "Imię lub alias...",
+    wcHideNoRotation: "Ukryj bez rotacji",
+    wcNoResults: "Nie znaleziono postaci.",
+    wcLegendCurrent: "Bieżący tydzień",
+    wcLegendYellow: "Do 1 miesiąca",
+    wcLegendOrange: "1 do 2 miesięcy",
+    wcLegendRed: "Ponad 2 miesiące",
+    wcLegendBlue: "Bez rotacji",
+    wcLegendPurple: "Jeszcze nie rotował",
+    wcCurrentChest: "Bieżący Tydzień",
+    wcNextChest: "Następny Tydzień",
+    wcChestLabel: "Skrzynia",
+    wcSortLabel: "Sortuj",
+    wcSortNameAZ: "Nazwa (A-Z)",
+    wcSortNameZA: "Nazwa (Z-A)",
+    wcSortDateNewest: "Data (najnowsza)",
+    wcSortDateOldest: "Data (najstarsza)"
   }
 };
 
@@ -3446,6 +3534,7 @@ function applyTranslations() {
   if (typeof foxyQuizApplyTranslations === "function") foxyQuizApplyTranslations();
   if (typeof trackerApplyTranslations === "function") trackerApplyTranslations();
   if (typeof islandChestsApplyTranslations === "function") islandChestsApplyTranslations();
+  if (typeof weeklyChestApplyTranslations === "function") weeklyChestApplyTranslations();
   if (typeof updateWarningApplyTranslations === "function") updateWarningApplyTranslations();
   if (typeof refreshSidebarCompactTooltips === "function") refreshSidebarCompactTooltips();
 }

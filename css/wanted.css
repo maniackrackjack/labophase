@@ -662,10 +662,6 @@
     align-items: flex-start;
   }
 
-  .wanted-credits {
-    text-align: left;
-  }
-
   #wanted-search-input {
     min-width: 100%;
   }
@@ -789,6 +785,9 @@
 }
 
 #tierlist-tier-pool {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
   max-height: 520px;
   overflow: auto;
 }

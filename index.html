@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="css/foxy_quiz.css" />
     <link rel="stylesheet" href="css/island_chests.css" />
     <link rel="stylesheet" href="css/tracker.css" />
+    <link rel="stylesheet" href="css/weekly_chest.css" />
     <link rel="stylesheet" href="css/profiles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
   </head>
@@ -100,6 +101,9 @@
           </button>
           <button class="tabBtn" onclick="switchTab('island_chests', this)">
             <span class="tab-icon">🗺️</span><span class="tab-label" data-lang="islandChestsTab">Island Chests</span>
+          </button>
+          <button class="tabBtn" onclick="switchTab('weekly_chest', this)">
+            <span class="tab-icon"><img src="sprites/ui/chests/chest.png" class="tab-icon-img" alt="Baú Semanal"></span><span class="tab-label" data-lang="wcTab">Baú Semanal</span>
           </button>
           <button class="tabBtn" onclick="switchTab('boats', this)">
             <span class="tab-icon"><img src="sprites/boats/skins/boat_classic.png" class="tab-icon-img" alt="Barco"></span><span class="tab-label" data-lang="boatsTab">Barcos</span>
@@ -1496,6 +1500,71 @@
             </section>
           </div>
         </div>
+        <div id="weekly_chest" class="tabPanel" style="display: none">
+          <div class="panel wc-panel">
+            <div class="wc-header-row">
+              <h3 data-lang="wcTitle">Baú Semanal</h3>
+              <span class="wc-credits" data-lang="wcCredits">Créditos a Atiosz pela ideia</span>
+            </div>
+            <div class="wc-legend">
+              <span class="wc-legend-item">
+                <span class="wc-legend-dot wc-legend-dot-current"></span>
+                <span data-lang="wcLegendCurrent">Semana atual</span>
+              </span>
+              <span class="wc-legend-item">
+                <span class="wc-legend-dot wc-legend-dot-yellow"></span>
+                <span data-lang="wcLegendYellow">Até 1 mês</span>
+              </span>
+              <span class="wc-legend-item">
+                <span class="wc-legend-dot wc-legend-dot-orange"></span>
+                <span data-lang="wcLegendOrange">1 a 2 meses</span>
+              </span>
+              <span class="wc-legend-item">
+                <span class="wc-legend-dot wc-legend-dot-red"></span>
+                <span data-lang="wcLegendRed">Mais de 2 meses</span>
+              </span>
+              <span class="wc-legend-item">
+                <span class="wc-legend-dot wc-legend-dot-blue"></span>
+                <span data-lang="wcLegendBlue">Sem rotação</span>
+              </span>
+              <span class="wc-legend-item">
+                <span class="wc-legend-dot wc-legend-dot-purple"></span>
+                <span data-lang="wcLegendPurple">Ainda não rotacionou</span>
+              </span>
+            </div>
+            <div class="wc-chests-section">
+              <div class="wc-chest-panel wc-chest-panel-current">
+                <h4 class="wc-chest-panel-title" data-lang="wcCurrentChest">Semana Atual</h4>
+                <div id="wc-current-chests" class="wc-chest-rows"></div>
+              </div>
+              <div class="wc-chest-panel wc-chest-panel-next">
+                <h4 class="wc-chest-panel-title" data-lang="wcNextChest">Próxima Semana</h4>
+                <div id="wc-next-chests" class="wc-chest-rows"></div>
+              </div>
+            </div>
+            <div class="wc-controls-row">
+              <div class="wc-search-wrap">
+                <label for="wc-search-input" data-lang="wcSearchLabel">Pesquisar</label>
+                <input id="wc-search-input" type="text" autocomplete="off" spellcheck="false" />
+              </div>
+              <div class="wc-sort-wrap">
+                <label for="wc-sort-select" data-lang="wcSortLabel">Ordenar</label>
+                <select id="wc-sort-select">
+                  <option value="name_az" data-lang="wcSortNameAZ">Nome (A-Z)</option>
+                  <option value="name_za" data-lang="wcSortNameZA">Nome (Z-A)</option>
+                  <option value="date_newest" data-lang="wcSortDateNewest">Data (mais recente)</option>
+                  <option value="date_oldest" data-lang="wcSortDateOldest">Data (mais antiga)</option>
+                </select>
+              </div>
+              <label class="wc-checkbox-wrap">
+                <input type="checkbox" id="wc-hide-no-rotation" checked />
+                <span data-lang="wcHideNoRotation">Ocultar sem rotação</span>
+              </label>
+            </div>
+            <div id="wc-filter-row" class="wc-filter-row"></div>
+            <div id="wc-grid" class="wc-grid"></div>
+          </div>
+        </div>
       </div>
 
       <div id="profile-modal-overlay" class="profile-modal-overlay" aria-hidden="true">
@@ -1621,6 +1690,7 @@
     <script src="js/world_bosses.js"></script>
     <script src="js/marineford.js"></script>
     <script src="js/island_chests.js"></script>
+    <script src="js/weekly_chest.js"></script>
     <script src="js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
