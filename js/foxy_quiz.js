@@ -2,16 +2,11 @@
 // Foxy Quiz — sentence true/false search
 // ============================================================
 
-const FOXY_QUIZ_FILES = {
-  pt: "data/sentences_portuguese.txt",
-  en: "data/sentences_english.txt",
-  es: "data/sentences_spanish.txt",
-  pl: "data/sentences_polish.txt"
-};
+const FOXY_QUIZ_FILE = "data/sentences.json";
 
 let foxyQuizSentences = [];
-let foxyQuizLoadedLang = null;
-let foxyQuizBound = false;
+let foxyQuizLoaded    = false;
+let foxyQuizBound     = false;
 const FOXY_QUIZ_WEEKLY_KEY = "labophase.foxyQuiz.weekly";
 
 function foxyQuizGetWeeklyResetKey(now = new Date()) {
@@ -93,66 +88,24 @@ function foxyQuizSyncWeeklyCheckbox() {
   }
 }
 
-// Robust line-by-line parser that handles:
-//  - Truncated JSON (missing closing bracket)
-//  - Missing commas between properties (Spanish)
-//  - Curly/typographic quote delimiters with inner straight quotes (Polish)
-//  - All field-name variants across languages: name/nombre, is/es/jest
-function foxyQuizParseText(text) {
-  const results = [];
-  const lines = text.replace(/\r\n/g, "\n").replace(/\r/g, "\n").split("\n");
-
-  // Matches: "name"/"nombre"/„name" : "value...  (value goes to end of line)
-  // Opening key quote: straight " or „ (U+201E)
-  // Closing key quote: straight " or " (U+201D), optional for curly-quote files
-  const nameRe = /^[\u201e"](?:name|nombre)[\u201d"]?\s*:\s*[\u201e"](.+)/;
-  // Matches: "is"/"es"/"jest" : "VALUE"
-  const valRe  = /^"(?:is|es|jest)"\s*:\s*"([^"]+)"/;
-
-  let pendingName = null;
-
-  for (const rawLine of lines) {
-    const line = rawLine.trim();
-    if (!line) continue;
-
-    const nameMatch = line.match(nameRe);
-    if (nameMatch) {
-      let val = nameMatch[1];
-      // Strip trailing closing delimiter (curly " U+201D or straight ") plus optional comma
-      val = val.replace(/[\u201d"]+,?\s*$/, "");
-      // Unescape JSON-escaped quotes that appear in well-formed files
-      val = val.replace(/\\"/g, '"');
-      // Convert any remaining curly/typographic quotes (e.g. inner „skill name") to straight
-      val = val.replace(/[\u201c\u201d\u201e\u201f]/g, '"');
-      pendingName = val;
-      continue;
-    }
-
-    const valMatch = line.match(valRe);
-    if (valMatch && pendingName !== null) {
-      const rawVal = valMatch[1];
-      const isTrue = rawVal === "true" || rawVal === "verdadero" || rawVal === "prawda";
-      results.push({ name: pendingName, isTrue });
-      pendingName = null;
-    }
-  }
-
-  return results;
-}
-
-async function foxyQuizLoadSentences(lang) {
-  const file = FOXY_QUIZ_FILES[lang] || FOXY_QUIZ_FILES.en;
+async function foxyQuizLoadSentences() {
   try {
-    const resp = await fetch(file);
-    if (!resp.ok) throw new Error("HTTP " + resp.status + " loading " + file);
-    const text = await resp.text();
-    foxyQuizSentences = foxyQuizParseText(text);
-    foxyQuizLoadedLang = lang;
+    const resp = await fetch(FOXY_QUIZ_FILE);
+    if (!resp.ok) throw new Error("HTTP " + resp.status + " loading " + FOXY_QUIZ_FILE);
+    foxyQuizSentences = await resp.json();
+    foxyQuizLoaded = true;
   } catch (err) {
     foxyQuizSentences = [];
-    foxyQuizLoadedLang = lang;
+    foxyQuizLoaded = false;
     console.error("Foxy Quiz: could not load sentences:", err);
   }
+}
+
+// Returns the display text for a sentence in the active language,
+// falling back through other languages if the entry has no translation.
+function foxyQuizGetText(s) {
+  const lang = (typeof currentLang !== "undefined" ? currentLang : null) || "en";
+  return s[lang] || s.en || s.pt || s.es || s.pl || "";
 }
 
 function foxyQuizEscapeHtml(str) {
@@ -168,16 +121,17 @@ function foxyQuizNormalizeString(str) {
   return String(str)
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+    .replace(/[̀-ͯ]/g, "");
 }
 
 function foxyQuizFilter(query) {
   if (!query || !query.trim()) return null;
   const normalizedQuery = foxyQuizNormalizeString(query);
   const terms = normalizedQuery.split(/\s+/);
-  return foxyQuizSentences.filter((s) =>
-    terms.every((term) => foxyQuizNormalizeString(s.name).includes(term))
-  );
+  return foxyQuizSentences.filter((s) => {
+    const text = foxyQuizGetText(s);
+    return terms.every((term) => foxyQuizNormalizeString(text).includes(term));
+  });
 }
 
 function foxyQuizRender(filtered) {
@@ -198,13 +152,14 @@ function foxyQuizRender(filtered) {
 
   container.innerHTML = filtered
     .map((s) => {
-      const cls = s.isTrue ? "is-true" : "is-false";
-      const iconSrc = s.isTrue ? "sprites/ui/foxy_quiz/true_icon.png" : "sprites/ui/foxy_quiz/false_icon.png";
-      const iconAlt = foxyQuizEscapeHtml(t(s.isTrue ? "foxyQuizTrue" : "foxyQuizFalse"));
+      const cls     = s.is ? "is-true" : "is-false";
+      const iconSrc = s.is ? "sprites/ui/foxy_quiz/true_icon.png" : "sprites/ui/foxy_quiz/false_icon.png";
+      const iconAlt = foxyQuizEscapeHtml(t(s.is ? "foxyQuizTrue" : "foxyQuizFalse"));
+      const text    = foxyQuizGetText(s);
       return (
         `<div class="foxy-quiz-sentence ${cls}">` +
         `<img class="foxy-quiz-icon" src="${iconSrc}" alt="${iconAlt}" title="${iconAlt}">` +
-        `<span class="foxy-quiz-text">${foxyQuizEscapeHtml(s.name)}</span>` +
+        `<span class="foxy-quiz-text">${foxyQuizEscapeHtml(text)}</span>` +
         `</div>`
       );
     })
@@ -224,23 +179,19 @@ function foxyQuizApplyTranslations() {
     input.title = t("foxyQuizTooltip");
   }
 
-  // If the language changed while the quiz was loaded, reload sentences
-  const activeLang = (typeof currentLang !== "undefined" ? currentLang : null) || "en";
-  if (foxyQuizLoadedLang && foxyQuizLoadedLang !== activeLang) {
-    foxyQuizLoadSentences(activeLang).then(() => foxyQuizUpdateResults());
-  }
+  // Language changed: re-render with the new active language.
+  // No file reload needed — all languages are in the single sentences.json.
+  foxyQuizUpdateResults();
 }
 
 async function foxyQuizInit() {
-  const activeLang = (typeof currentLang !== "undefined" ? currentLang : null) || "en";
-
-  if (foxyQuizLoadedLang !== activeLang) {
-    await foxyQuizLoadSentences(activeLang);
+  if (!foxyQuizLoaded) {
+    await foxyQuizLoadSentences();
   }
 
   if (!foxyQuizBound) {
     foxyQuizBound = true;
-    const input = document.getElementById("foxy-quiz-input");
+    const input  = document.getElementById("foxy-quiz-input");
     const weekly = document.getElementById("foxy-quiz-weekly-checkbox");
     if (input) {
       input.addEventListener("input", foxyQuizUpdateResults);
