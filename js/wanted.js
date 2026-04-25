@@ -17,7 +17,7 @@ const WANTED_ICON_ALIASES = {
   ace: "portgas_ace",
   apoo: "scratchmen_apoo",
   basil: "basil_hawkins",
-  bn: "buggy",
+  bn: "marshall_teach",
   buchi_sham: "bucchi_sham",
   capone: "capone_bege",
   "capone_gang_bege": "capone_bege",
