@@ -491,7 +491,7 @@ const MF_BOSSES = {
       {
         name: 'Ice Saber',
         size: '3×3',
-        cd: '—',
+        cd: '9s',
         desc: 'mfAokijiIceSaberDesc',
         imgs: ['sprites/marineford/aokiji/aokiji_ice_saber.png'],
         video: 'sprites/marineford/aokiji/aokiji_ice_saber.mp4',
@@ -499,7 +499,7 @@ const MF_BOSSES = {
       {
         name: 'Ice Age',
         size: '11×11',
-        cd: '—',
+        cd: '50s',
         desc: 'mfAokijiIceAgeDesc',
         imgs: ['sprites/marineford/aokiji/aokiji_ice_age.png'],
         video: 'sprites/marineford/aokiji/aokiji_ice_age.mp4',
@@ -507,7 +507,7 @@ const MF_BOSSES = {
       {
         name: 'Ice Block: Partisan',
         size: 'mfAokijiPartisanSize',
-        cd: '—',
+        cd: '12s',
         desc: 'mfAokijiPartisanDesc',
         imgs: ['sprites/marineford/aokiji/aokiji_ice_block_partisan.png'],
         video: 'sprites/marineford/aokiji/aokiji_ice_block_partisan.mp4',
@@ -515,7 +515,7 @@ const MF_BOSSES = {
       {
         name: 'Ice Time',
         size: '5×5',
-        cd: '—',
+        cd: '70s',
         desc: 'mfAokijiIceTimeDesc',
         imgs: ['sprites/marineford/aokiji/aokiji_ice_time.png'],
         video: 'sprites/marineford/aokiji/aokiji_ice_time.mp4',
@@ -523,7 +523,7 @@ const MF_BOSSES = {
       {
         name: 'Anti Ranged',
         size: '~5×5',
-        cd: '—',
+        cd: '7s',
         desc: 'mfAokijiAntiRangedDesc',
         imgs: ['sprites/marineford/aokiji/aokiji_anti_ranged.png'],
         video: 'sprites/marineford/aokiji/aokiji_anti_ranged.mp4',
@@ -531,7 +531,7 @@ const MF_BOSSES = {
       {
         name: 'Anti Ranged (Aggroed)',
         size: '1×1',
-        cd: '—',
+        cd: '0s',
         desc: 'mfAokijiAntiRangedAggroDesc',
         imgs: [],
         video: 'sprites/marineford/aokiji/aokiji_anti_ranged_aggroed.mp4',
@@ -539,7 +539,7 @@ const MF_BOSSES = {
       {
         name: 'Mechanic',
         size: 'mfAokijiMechanicSize',
-        cd: '—',
+        cd: '90s',
         desc: 'mfAokijiMechanicDesc',
         imgs: [],
         video: 'sprites/marineford/aokiji/aokiji_mechanic.mp4',
