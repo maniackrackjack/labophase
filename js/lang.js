@@ -739,7 +739,14 @@ const COMMON_LANG = {
     wcSortNameAZ: "Nome (A-Z)",
     wcSortNameZA: "Nome (Z-A)",
     wcSortDateNewest: "Data (mais recente)",
-    wcSortDateOldest: "Data (mais antiga)"
+    wcSortDateOldest: "Data (mais antiga)",
+    weeklyBossesFolder: "Weekly Bosses",
+    wkbGeneralConcepts: "Conceitos Gerais",
+    wkbBossSubtitle: "Weekly Boss",
+    wkbHardHpTitle: "Vida dos Weekly Bosses Hard",
+    wkbPlayers4: "4 Jogadores",
+    wkbPlayers6: "6 Jogadores",
+    wkbApproxNote: "~ indica valor aproximado"
   },
 
   en: {
@@ -1482,7 +1489,14 @@ const COMMON_LANG = {
     wcSortNameAZ: "Name (A-Z)",
     wcSortNameZA: "Name (Z-A)",
     wcSortDateNewest: "Date (newest)",
-    wcSortDateOldest: "Date (oldest)"
+    wcSortDateOldest: "Date (oldest)",
+    weeklyBossesFolder: "Weekly Bosses",
+    wkbGeneralConcepts: "General Concepts",
+    wkbBossSubtitle: "Weekly Boss",
+    wkbHardHpTitle: "Weekly Bosses Hard HP",
+    wkbPlayers4: "4 Players",
+    wkbPlayers6: "6 Players",
+    wkbApproxNote: "~ indicates an approximate value"
   },
 
   es: {
@@ -2225,7 +2239,14 @@ const COMMON_LANG = {
     wcSortNameAZ: "Nombre (A-Z)",
     wcSortNameZA: "Nombre (Z-A)",
     wcSortDateNewest: "Fecha (más reciente)",
-    wcSortDateOldest: "Fecha (más antigua)"
+    wcSortDateOldest: "Fecha (más antigua)",
+    weeklyBossesFolder: "Weekly Bosses",
+    wkbGeneralConcepts: "Conceptos Generales",
+    wkbBossSubtitle: "Weekly Boss",
+    wkbHardHpTitle: "Vida de los Weekly Bosses Hard",
+    wkbPlayers4: "4 Jugadores",
+    wkbPlayers6: "6 Jugadores",
+    wkbApproxNote: "~ indica un valor aproximado"
   },
 
   pl: {
@@ -2968,7 +2989,14 @@ const COMMON_LANG = {
     wcSortNameAZ: "Nazwa (A-Z)",
     wcSortNameZA: "Nazwa (Z-A)",
     wcSortDateNewest: "Data (najnowsza)",
-    wcSortDateOldest: "Data (najstarsza)"
+    wcSortDateOldest: "Data (najstarsza)",
+    weeklyBossesFolder: "Weekly Bosses",
+    wkbGeneralConcepts: "Ogólne pojęcia",
+    wkbBossSubtitle: "Weekly Boss",
+    wkbHardHpTitle: "HP Weekly Bossów Hard",
+    wkbPlayers4: "4 Graczy",
+    wkbPlayers6: "6 Graczy",
+    wkbApproxNote: "~ oznacza wartość przybliżoną"
   }
 };
 
@@ -3535,6 +3563,7 @@ function applyTranslations() {
   if (typeof trackerApplyTranslations === "function") trackerApplyTranslations();
   if (typeof islandChestsApplyTranslations === "function") islandChestsApplyTranslations();
   if (typeof weeklyChestApplyTranslations === "function") weeklyChestApplyTranslations();
+  if (typeof weeklyBossesApplyTranslations === "function") weeklyBossesApplyTranslations();
   if (typeof updateWarningApplyTranslations === "function") updateWarningApplyTranslations();
   if (typeof refreshSidebarCompactTooltips === "function") refreshSidebarCompactTooltips();
 }

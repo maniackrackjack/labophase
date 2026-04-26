@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="css/links.css" />
     <link rel="stylesheet" href="css/world_bosses.css" />
     <link rel="stylesheet" href="css/marineford.css" />
+    <link rel="stylesheet" href="css/weekly_bosses.css" />
     <link rel="stylesheet" href="css/foxy_quiz.css" />
     <link rel="stylesheet" href="css/island_chests.css" />
     <link rel="stylesheet" href="css/tracker.css" />
@@ -217,6 +218,19 @@
             <button class="tabBtn wb-child-tab" onclick="switchTab('aokiji', this)">
               <span class="tab-icon"><img src="sprites/world_bosses/aokiji/top_1_icon_aokiji.gif" class="tab-icon-img" alt="Aokiji"></span>
               <span class="tab-label" data-lang="wbBossTitleAokiji">Aokiji</span>
+            </button>
+          </div>
+
+          <!-- Weekly Bosses folder -->
+          <button class="wb-folder-btn" type="button" onclick="wkbToggleFolder(this)" aria-expanded="false" aria-controls="wkb-folder-submenu">
+            <span class="tab-icon">⚔️</span>
+            <span class="tab-label" data-lang="weeklyBossesFolder">Weekly Bosses</span>
+            <span class="wb-folder-arrow">▶</span>
+          </button>
+          <div id="wkb-folder-submenu" class="wb-folder-submenu">
+            <button class="tabBtn wb-child-tab" onclick="switchTab('wkb_general', this)">
+              <span class="tab-icon">📋</span>
+              <span class="tab-label" data-lang="wkbGeneralConcepts">Conceitos Gerais</span>
             </button>
           </div>
         </div>
@@ -1265,6 +1279,20 @@
           </div>
         </div>
 
+        <!-- Weekly Bosses panels -->
+
+        <div id="wkb_general" class="tabPanel" style="display: none">
+          <div class="panel wkb-panel">
+            <div class="wkb-boss-header">
+              <div>
+                <h3 class="wkb-boss-title" data-lang="wkbGeneralConcepts">Conceitos Gerais</h3>
+                <p class="wkb-boss-subtitle" data-lang="weeklyBossesFolder">Weekly Bosses</p>
+              </div>
+            </div>
+            <div id="wkb-general-content"></div>
+          </div>
+        </div>
+
         <!-- Marineford panels -->
 
         <div id="mf_general" class="tabPanel" style="display: none">
@@ -1689,6 +1717,7 @@
     <script src="js/wanted.js"></script>
     <script src="js/world_bosses.js"></script>
     <script src="js/marineford.js"></script>
+    <script src="js/weekly_bosses.js"></script>
     <script src="js/island_chests.js"></script>
     <script src="js/weekly_chest.js"></script>
     <script src="js/theme.js"></script>

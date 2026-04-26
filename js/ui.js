@@ -66,6 +66,11 @@ function switchTab(tab, btn) {
     marinefordInit(tab);
   }
 
+  // Init Weekly Bosses content when the tab becomes visible
+  if (tab.startsWith("wkb_") && typeof weeklyBossesInit === "function") {
+    weeklyBossesInit(tab);
+  }
+
   // Init Foxy Quiz when the tab becomes visible
   if (tab === "foxy_quiz" && typeof foxyQuizInit === "function") {
     foxyQuizInit();
