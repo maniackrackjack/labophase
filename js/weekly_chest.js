@@ -19,10 +19,10 @@ const WC_ROTATION_DATA = {
   brook: "10/04",
   "buchi_&_sham": "no_rotation",
   buggy: "no_rotation",
-  burgess: "12/12",
+  burgess: "01/05",
   cabaji: "no_rotation",
   capone_bege: "24/04",
-  carrot: "23/01",
+  carrot: "01/05",
   chew: "no_rotation",
   chopper: "17/04",
   crocodile: "27/03",
@@ -41,7 +41,7 @@ const WC_ROTATION_DATA = {
   hatchan: "no_rotation",
   hawkins: "13/03",
   hina: "10/04",
-  ichiji: "20/02",
+  ichiji: "01/05",
   ivankov: "no_rotation",
   jabra: "17/04",
   jango: "no_rotation",
@@ -49,7 +49,7 @@ const WC_ROTATION_DATA = {
   kaku: "17/04",
   kalifa: "20/02",
   kid: "03/04",
-  killer: "02/01",
+  killer: "01/05",
   kizaru: "no_rotation",
   koala: "10/04",
   kuma: "no_rotation",
@@ -60,7 +60,7 @@ const WC_ROTATION_DATA = {
   lucci: "03/04",
   luffy: "10/04",
   marco: "17/04",
-  marguerite: "27/02",
+  marguerite: "01/05",
   mihawk: "no_rotation",
   "miss_doublefinger_(zala)": "no_rotation",
   miss_goldenweek: "no_rotation",
@@ -96,18 +96,18 @@ const WC_ROTATION_DATA = {
   van_augur: "24/04",
   vivi: "no_rotation",
   wapol: "no_rotation",
-  yonji: "27/02",
+  yonji: "01/05",
   zoro: "20/03"
 };
 
 const WC_CURRENT_CHESTS = [
-  ["kaku", "chopper", "reiju"],
-  ["marco", "apoo", "jabra"]
+  ["rebecca", "van_augur", "robin"],
+  ["leo", "capone_bege", "blueno"]
 ];
 
 const WC_NEXT_CHESTS = [
-  ["rebecca", "van_augur", "robin"],
-  ["leo", "capone_bege", "blueno"]
+  ["carrot", "ichiji", "marguerite"],
+  ["yonji", "burgess", "killer"]
 ];
 
 const WC_CURRENT_SET = new Set(WC_CURRENT_CHESTS.flat());
