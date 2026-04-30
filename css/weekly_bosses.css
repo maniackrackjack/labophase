@@ -57,7 +57,7 @@
 
 .wkb-boss-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 12px;
 }
 
@@ -100,12 +100,12 @@
 }
 
 .wkb-card-name {
-  font-size: 0.95rem;
+  font-size: calc(0.95rem - 3%);
   font-weight: 800;
   color: var(--text-title);
   margin-bottom: 8px;
   line-height: 1.2;
-  overflow-wrap: break-word;
+  white-space: nowrap;
 }
 
 .wkb-hp-rows {

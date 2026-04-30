@@ -439,8 +439,8 @@ const MF_BOSSES = {
         size: '9×9',
         cd: 'mfTashigiSenbonCd',
         desc: 'mfTashigiSenbonDesc',
-        imgs: ['sprites/marineford/tashigi/tashigi_senbon_sakura.png'],
-        video: 'sprites/marineford/tashigi/tashigi_senbon_sakura.mp4',
+        imgs: ['sprites/marineford/tashigi/tashigi_senbon_sakura_area.png'],
+        video: 'sprites/marineford/tashigi/tashigi_senbon_sakura_area.mp4',
       },
       {
         name: 'Kiri Shigure',
@@ -463,8 +463,8 @@ const MF_BOSSES = {
         size: '4×3',
         cd: '—',
         desc: 'mfTashigiSenbonNormalDesc',
-        imgs: ['sprites/marineford/tashigi/tashigi_senbon_sakura_area.png'],
-        video: 'sprites/marineford/tashigi/tashigi_senbon_sakura_area.mp4',
+        imgs: ['sprites/marineford/tashigi/tashigi_senbon_sakura.png'],
+        video: 'sprites/marineford/tashigi/tashigi_senbon_sakura.mp4',
       },
       {
         name: 'Usugasumi',
