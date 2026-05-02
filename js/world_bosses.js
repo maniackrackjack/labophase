@@ -66,16 +66,16 @@ const WB_BOSSES = {
     },
     phases: [
       { phase: "Fase 1",  damage: "wbPhaseInitial", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }] },
-      { phase: "Fase 2",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }] },
-      { phase: "Fase 3",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
-      { phase: "Fase 4",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillTornado" }, { name: "wbShaiSkillHealCutRoar" }] },
+      { phase: "Fase 2",  damage: "~ 1.120.000",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }] },
+      { phase: "Fase 3",  damage: "~ 2.380.000",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
+      { phase: "Fase 4",  damage: "~ 3.782.000",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillTornado" }, { name: "wbShaiSkillHealCutRoar" }] },
       { phase: "Fase 5",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
       { phase: "Fase 6",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillSandwormWaves" }] },
       { phase: "Fase 7",  damage: "*",            skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
       { phase: "Fase 8",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillTornado", count: 2 }, { name: "wbShaiSkillAcidSpit", count: 2 }, { name: "wbShaiSkillHealCutRoar" }] },
-      { phase: "Fase 9",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
-      { phase: "Fase 10", damage: "*",         skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillTornado" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillSandwormWaves" }, { name: "wbShaiSkillHealCutRoar" }] },
-      { phase: "Fase 11", damage: "*",         skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }, { name: "wbShaiSkillTentacles" }] },
+      { phase: "Fase 9",  damage: "~ 12.020.000",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
+      { phase: "Fase 10", damage: "~ 13.700.000",         skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillTornado" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillSandwormWaves" }, { name: "wbShaiSkillHealCutRoar" }] },
+      { phase: "Fase 11", damage: "~ 15.435.000",         skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }, { name: "wbShaiSkillTentacles" }] },
     ],
     characters: {
       tank: [
@@ -105,7 +105,7 @@ const WB_BOSSES = {
         { id: "vinsmoke_reiju",  label: "Reiju" },
       ],
     },
-    rewards: buildRewards("16.000.000", "15.500.000", "11.000.000", "7.500.000", "3.500.000", "1.500.000", "50.000", "shaiArtifacts", "sprites/world_bosses/shai_hulud/shai_icon.png"),
+    rewards: buildRewards("29.000.000", "17.000.000", "15.000.000", "10.500.000", "5.500.000", "3.500.000", "50.000", "shaiArtifacts", "sprites/world_bosses/shai_hulud/shai_icon.png"),
   },
 
   mihawk: {
