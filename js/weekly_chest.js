@@ -10,9 +10,9 @@ const WC_ROTATION_DATA = {
   apoo: "17/04",
   arlong: "no_rotation",
   baby_5: "27/03",
-  bartomolomeo: "10/04",
-  bastille: "10/04",
-  bellamy: "13/03",
+  bartolomeo: "10/04",
+  bastille: "15/05",
+  bellamy: "08/05",
   bepo: "no_rotation",
   blueno: "24/04",
   bonney: "20/03",
@@ -22,7 +22,7 @@ const WC_ROTATION_DATA = {
   burgess: "01/05",
   cabaji: "no_rotation",
   capone_bege: "24/04",
-  carrot: "01/05",
+  carrot: "08/05",
   chew: "no_rotation",
   chopper: "17/04",
   crocodile: "27/03",
@@ -33,7 +33,7 @@ const WC_ROTATION_DATA = {
   drake: "03/04",
   enel: "no_rotation",
   eric: "no_rotation",
-  franky: "27/03",
+  franky: "08/05",
   garp: "no_rotation",
   gedatsu: "no_rotation",
   gin: "no_rotation",
@@ -46,9 +46,9 @@ const WC_ROTATION_DATA = {
   jabra: "17/04",
   jango: "no_rotation",
   jinbe: "no_rotation",
-  kaku: "17/04",
-  kalifa: "20/02",
-  kid: "03/04",
+  kaku: "15/05",
+  kalifa: "08/05",
+  kid: "08/05",
   killer: "01/05",
   kizaru: "no_rotation",
   koala: "10/04",
@@ -57,8 +57,9 @@ const WC_ROTATION_DATA = {
   kuroobi: "no_rotation",
   law: "03/04",
   leo: "24/04",
-  lucci: "03/04",
-  luffy: "10/04",
+  lucci: "15/05",
+  luffy: "15/05",
+  magellan: "no_rotation",
   marco: "17/04",
   marguerite: "01/05",
   mihawk: "no_rotation",
@@ -66,7 +67,7 @@ const WC_ROTATION_DATA = {
   miss_goldenweek: "no_rotation",
   mohji: "no_rotation",
   morgan: "no_rotation",
-  moria: "20/03",
+  moria: "15/05",
   "mr._1": "no_rotation",
   "mr._2": "no_rotation",
   "mr._3": "no_rotation",
@@ -87,7 +88,7 @@ const WC_ROTATION_DATA = {
   satori: "no_rotation",
   shanks: "no_rotation",
   shura: "no_rotation",
-  smoker: "06/02",
+  smoker: "08/05",
   tashigi: "no_rotation",
   teach: "no_rotation",
   urouge: "27/03",
@@ -97,17 +98,17 @@ const WC_ROTATION_DATA = {
   vivi: "no_rotation",
   wapol: "no_rotation",
   yonji: "01/05",
-  zoro: "20/03"
+  zoro: "15/05"
 };
 
 const WC_CURRENT_CHESTS = [
-  ["rebecca", "van_augur", "robin"],
-  ["leo", "capone_bege", "blueno"]
+  ["bellamy", "smoker", "kalifa"],
+  ["carrot", "kid", "franky"]
 ];
 
 const WC_NEXT_CHESTS = [
-  ["carrot", "ichiji", "marguerite"],
-  ["yonji", "burgess", "killer"]
+  ["zoro", "lucci", "bastille"],
+  ["luffy", "moria", "kaku"]
 ];
 
 const WC_CURRENT_SET = new Set(WC_CURRENT_CHESTS.flat());

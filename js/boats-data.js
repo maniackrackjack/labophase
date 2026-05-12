@@ -1,5 +1,5 @@
 // ============================================================
-// Boats Data - derived from boat_items.json and refinery-artillery, ships.txt
+// Boats Data — items, refinery recipes, arsenal recipes, ship skins
 // ============================================================
 
 const BOAT_ITEMS_LIST = [
@@ -205,7 +205,7 @@ const BOAT_REFINERY_LINES = [
   "1 mahogany planks = 10 mahogany log",
   "1 steel ingot = 8 steel ore",
   "1 advanced cloth = 16 advanced cotton",
-  "1 advanced rope = 2 advanced rope",
+  "1 advanced rope = 2 advanced cloth",
   "1 steel nail = 1 steel ingot",
   "1 adam planks = 10 adam log",
   "1 titanium ingot = 9 titanium ore",
@@ -250,7 +250,7 @@ const BOAT_SHIPS_LINES = [
   "quartz = 5 purple ink",
   "topaz = 5 yellow ink",
   "ruby = 5 red ink",
-  "sapphite = 5 blue ink",
+  "sapphire = 5 blue ink",
   "emerald = 5 green ink",
   "pure = 15 white ink, 3 black ink",
   "classic = 14 black ink, 2 white ink",
@@ -260,7 +260,7 @@ const BOAT_SHIPS_LINES = [
   "turquoise = 26 blue ink, 18 green ink",
   "vermillion = 24 red ink, 17 yellow ink",
   "carmesin = 16 red ink, 10 white ink, 10 black ink",
-  "burly wood = 20 black ink, 20 yellow ink, 15 red ink",
+  "burly_wood = 20 black ink, 20 yellow ink, 15 red ink",
   "chartreuse = 25 green ink, 10 black ink",
   "pinky = 30 purple ink, 20 white ink",
   "holy = 20 yellow ink, 15 black ink, 5 white ink"

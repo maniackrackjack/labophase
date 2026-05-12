@@ -36,13 +36,6 @@
   font-size: 14px;
 }
 
-.boost-row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 7px 8px;
-  align-items: center;
-}
-
 .boost-price-list,
 .boost-stock-list {
   display: grid;
@@ -149,15 +142,6 @@
 
 #boost-clear-items-btn::before {
   content: "🧹 ";
-}
-
-.boost-profile-row {
-  margin-top: 8px;
-}
-
-.boost-profile-row select {
-  width: 100%;
-  text-align: left;
 }
 
 .boost-item-head {

@@ -576,22 +576,6 @@
   object-fit: contain;
 }
 
-.ic-item-name {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--text-panel);
-  text-align: center;
-  line-height: 1.1;
-  word-break: break-word;
-}
-
-.ic-item-value {
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: var(--text-title);
-  text-align: center;
-}
-
 .ic-loot-qty {
   position: absolute;
   bottom: 0;
@@ -678,19 +662,6 @@
   font-size: 0.55rem;
   line-height: 1.1;
   width: 100%;
-}
-
-.ic-item-name-sm {
-  font-weight: 600;
-  color: var(--text-panel);
-  text-align: center;
-  word-break: break-word;
-}
-
-.ic-item-value-sm {
-  font-weight: 700;
-  color: var(--text-title);
-  font-size: 0.5rem;
 }
 
 .ic-header-berries {

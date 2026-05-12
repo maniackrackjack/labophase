@@ -642,8 +642,3 @@ function getVariantName(category, variantId, language) {
   const lang = language || (typeof currentLang !== 'undefined' ? currentLang : 'en');
   return items[category].variants[variantId].name?.[lang] || variantId;
 }
-
-// Helper to get all variants of a category
-function getVariantsForCategory(category) {
-  return Object.keys(items[category]?.variants || {});
-}

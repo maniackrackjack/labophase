@@ -19,7 +19,7 @@ function gerarTabelas() {
 <img class="tableIcon" src="${item.icon}">
 
 <div class="tableName">
-${item.nome}
+${t(item.labelKey)}
 </div>
 
 <div class="tableStats">

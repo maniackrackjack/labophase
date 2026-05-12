@@ -340,8 +340,7 @@
 
 /* Section */
 
-.wb-skill-preview,
-.wb-skill-review {
+.wb-skill-preview {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -424,7 +423,7 @@
 
 .wb-role-tank    { background: rgba(112, 189, 232, 0.2); color: #70bde8; }
 .wb-role-dps     { background: rgba(224, 122, 122, 0.2); color: #e07a7a; }
-.wb-role-suporte { background: rgba(127, 209, 109, 0.2); color: #7fd16d; }
+.wb-role-support { background: rgba(127, 209, 109, 0.2); color: #7fd16d; }
 
 .wb-char-list {
   display: flex;
@@ -585,8 +584,7 @@
     grid-template-columns: 1fr;
   }
 
-  .wb-skill-preview,
-  .wb-skill-review {
+  .wb-skill-preview {
     flex-direction: row;
     justify-content: center;
     width: 100%;
@@ -616,8 +614,7 @@
     flex-shrink: 0;
   }
 
-  .wb-skill-preview,
-  .wb-skill-review {
+  .wb-skill-preview {
     flex-direction: column;
     align-items: center;
   }

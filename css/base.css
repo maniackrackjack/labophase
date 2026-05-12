@@ -202,18 +202,6 @@ body {
   transition: transform 0.25s ease;
 }
 
-/* MENU TITLE */
-
-.sidebar-menu-title {
-  color: var(--text-title);
-  text-align: center;
-  margin: 4px 0 6px;
-  font-size: 14px;
-  font-weight: bold;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
 /* TAB BUTTONS */
 
 .tabBtn {
@@ -288,7 +276,6 @@ body {
 }
 
 .sidebar.collapsed .logo-text,
-.sidebar.collapsed .sidebar-menu-title,
 .sidebar.collapsed .tab-label,
 .sidebar.collapsed .footer-dev {
   display: none;
@@ -634,23 +621,6 @@ body {
 
 /* BOTÕES */
 
-.profileControls {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.profileControls select {
-  padding: 6px;
-  border: 2px solid var(--input-border);
-  background: var(--input-bg);
-  color: var(--input-text);
-  border-radius: 4px;
-  min-width: 160px;
-}
-
 .buttons {
   display: flex;
   gap: 8px;
@@ -658,7 +628,6 @@ body {
   flex-wrap: wrap;
 }
 
-.profileControls button,
 .buttons button {
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -680,12 +649,10 @@ body {
     filter 0.18s ease;
 }
 
-.profileControls button::before,
 .buttons button::before {
   margin-right: 7px;
 }
 
-.profileControls button:hover,
 .buttons button:hover {
   transform: translateY(-1px);
   filter: brightness(1.06);
@@ -695,7 +662,6 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
-.profileControls button:active,
 .buttons button:active {
   transform: translateY(1px);
   box-shadow:
@@ -704,7 +670,6 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.profileControls button:focus-visible,
 .buttons button:focus-visible {
   outline: 2px solid #ffe08a;
   outline-offset: 2px;
@@ -949,21 +914,6 @@ body {
   width: 100%;
 }
 
-.themePreviewChip {
-  height: 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  cursor: pointer;
-  padding: 0;
-  background: #000;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
-}
-
-.themePreviewChip.is-active {
-  outline: 2px solid var(--text-title);
-  outline-offset: 1px;
-}
-
 /* THEME PICKER COMPACT TOGGLE */
 
 .themePickerCompact {
@@ -1049,7 +999,6 @@ body {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.26) inset;
 }
 
-.themePresetOptionName,
 .theme-picker-item-name {
   white-space: nowrap;
   overflow: hidden;
@@ -1059,21 +1008,6 @@ body {
 .themePreview {
   display: block;
   width: 100%;
-}
-
-.themePreviewChip {
-  height: 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  cursor: pointer;
-  padding: 0;
-  background: #000;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
-}
-
-.themePreviewChip.is-active {
-  outline: 2px solid var(--text-title);
-  outline-offset: 1px;
 }
 
 /* MOBILE */
@@ -1127,7 +1061,6 @@ body {
     padding: 2px 4px;
   }
 
-  .sidebar-menu-title,
   .sidebar-toggle {
     display: none !important;
   }
@@ -1193,9 +1126,6 @@ body {
     min-width: 0;
   }
 
-  .themePreviewChip {
-    height: 22px;
-  }
 
   .sidebar-footer {
     flex-direction: row;
@@ -1249,17 +1179,11 @@ body {
     width: 28px;
   }
 
-  .profileControls select {
-    min-width: 0;
-    flex: 1;
-  }
-
   .calc-subtabs {
     grid-template-columns: 1fr;
     gap: 8px;
   }
 
-  .profileControls button,
   .buttons button {
     flex: 1 1 calc(50% - 8px);
     text-align: center;
@@ -1340,35 +1264,6 @@ body {
   box-shadow: 0 0 0 2px var(--input-focus);
 }
 
-.theme-picker-swatch {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25) inset;
-}
-
-.theme-picker-close {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border-soft);
-  background: var(--bg-surface-2);
-  color: var(--text-panel);
-  border-radius: 8px;
-  width: 34px;
-  height: 34px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background 0.15s, border-color 0.15s;
-  margin-top: 8px;
-}
-
-.theme-picker-close:hover {
-  background: var(--bg-surface-1);
-  border-color: var(--border-accent);
-}
-
 /* Icon & Media Modal (reusable for boss icons and ability GIFs) */
 .modal-overlay {
   position: fixed;
@@ -1405,13 +1300,6 @@ body {
   height: auto;
   image-rendering: pixelated;
   margin: 0 auto 12px;
-}
-
-.modal-text {
-  color: var(--text-main);
-  font-size: 13px;
-  line-height: 1.5;
-  text-align: center;
 }
 
 .modal-title {

@@ -184,9 +184,6 @@ function setCurrentProfile(profileName) {
   setCurrentProfileName(profileName);
 }
 
-// Stub kept for back-compat (boost.js may call this)
-function updateProfileDropdown() {}
-
 // ------------------------------------------------------------
 // Profile Modal
 // ------------------------------------------------------------

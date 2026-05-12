@@ -208,7 +208,7 @@ const MF_BOSSES = {
         video: 'sprites/marineford/hina/hina_initial_wave.mp4',
       },
       {
-        name: 'Anti Ranged (com Aggro)',
+        name: 'Anti Ranged (with Aggro)',
         size: '1×1',
         cd: '—',
         desc: 'mfHinaAntiRangedAggroDesc',

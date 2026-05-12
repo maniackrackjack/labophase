@@ -22,19 +22,6 @@
   align-items: center;
 }
 
-.tableHeader {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.tableHeader img {
-  width: 28px;
-}
-
 /* SLOT ITEM */
 
 .tableIcon {

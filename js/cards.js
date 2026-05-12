@@ -220,16 +220,16 @@ function getItemStatKeys(item) {
 
 function buildCrystalControlsHtml(cardId, stat, crystalGain, useSharedControl = false) {
   if (useSharedControl) {
-    const sharedTitleDec = "Remover 1 cristal em ambos os stats (usa o ganho de cada stat)";
-    const sharedTitleInc = "Adicionar 1 cristal em ambos os stats (usa o ganho de cada stat)";
+    const sharedTitleDec = t("crystalAdjustDecBoth");
+    const sharedTitleInc = t("crystalAdjustIncBoth");
     return `<div class="statBtnGroup statBtnGroupCrystal">
 <button class="statAdjustBtn statAdjustCrystalBtn statAdjustCrystalDec" type="button" onclick="adjustCardByCrystal('${cardId}', -1)" title="${sharedTitleDec}" aria-label="${sharedTitleDec}"><span class="crystalMiniIcon" aria-hidden="true"></span></button>
 <button class="statAdjustBtn statAdjustCrystalBtn statAdjustCrystalInc" type="button" onclick="adjustCardByCrystal('${cardId}', 1)" title="${sharedTitleInc}" aria-label="${sharedTitleInc}"><span class="crystalMiniIcon" aria-hidden="true"></span></button>
 </div>`;
   }
 
-  const crystalTitleDec = `Remover o equivalente a 1 cristal (${crystalGain} ${stat.toUpperCase()})`;
-  const crystalTitleInc = `Adicionar o equivalente a 1 cristal (${crystalGain} ${stat.toUpperCase()})`;
+  const crystalTitleDec = t("crystalAdjustDec").replace("{gain}", crystalGain).replace("{stat}", stat.toUpperCase());
+  const crystalTitleInc = t("crystalAdjustInc").replace("{gain}", crystalGain).replace("{stat}", stat.toUpperCase());
   return `<div class="statBtnGroup statBtnGroupCrystal">
 <button class="statAdjustBtn statAdjustCrystalBtn statAdjustCrystalDec" type="button" onclick="adjustStatByCrystal('${cardId}', '${stat}', -1)" title="${crystalTitleDec}" aria-label="${crystalTitleDec}"><span class="crystalMiniIcon" aria-hidden="true"></span></button>
 <button class="statAdjustBtn statAdjustCrystalBtn statAdjustCrystalInc" type="button" onclick="adjustStatByCrystal('${cardId}', '${stat}', 1)" title="${crystalTitleInc}" aria-label="${crystalTitleInc}"><span class="crystalMiniIcon" aria-hidden="true"></span></button>
@@ -321,7 +321,7 @@ function addItem(tipo, targetContainer = null, skipRecalc = false) {
   // Default to first variant in category (if exists)
   let defaultVariantId = null;
   let defaultVariantIcon = item.icon;
-  let defaultVariantName = item.nome;
+  let defaultVariantName = t(item.labelKey);
   let variantGearHtml = '';
 
   if (variantCategory && items[variantCategory]?.variants) {

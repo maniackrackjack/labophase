@@ -377,7 +377,6 @@
   opacity: 0.75;
 }
 
-.characters-card-menu-note,
 .characters-card-groups {
   color: var(--text-muted);
   font-size: 0.84rem;

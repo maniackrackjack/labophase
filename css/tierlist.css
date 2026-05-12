@@ -1,0 +1,116 @@
+/* ============================================================
+   Tierlist tab
+   Depends on css/wanted.css for shared .wanted-tier-* classes.
+   ============================================================ */
+
+/* ── Tierlist – select group (category + enemy inline) ────────── */
+.tierlist-select-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tierlist-select-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 6px 28px 6px 10px;
+  border: 2px solid var(--border-accent);
+  border-radius: 8px;
+  background: var(--bg-surface-1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c9a24e'/%3E%3C/svg%3E") no-repeat right 9px center;
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 120px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.tierlist-select-group select:focus {
+  outline: none;
+  border-color: var(--input-focus, #c9a24e);
+  box-shadow: 0 0 0 2px rgba(201, 162, 78, 0.25);
+}
+
+.tierlist-select-group .wanted-tier-target-label {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-panel);
+  white-space: nowrap;
+}
+
+/* ── Tierlist – pool search input ─────────────────────────────── */
+#tierlist-tier-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border-accent);
+  border-radius: 6px;
+  background: var(--bg-surface-1);
+  color: var(--text-main);
+  font-size: 14px;
+}
+
+#tierlist-tier-pool {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  max-height: 520px;
+  overflow: auto;
+}
+
+/* ── Tierlist – 3-column layout (Tank / Support / DPS) ────────── */
+.tierlist-columns-layout {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  margin-top: 12px;
+  align-items: flex-start;
+}
+
+.tierlist-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-accent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-panel);
+  min-width: 0;
+}
+
+.tierlist-column-header {
+  padding: 8px 10px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #241503;
+  text-align: center;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+/* Rank rows inside a column — narrower label than the full-board tier rows */
+.tierlist-rank-row {
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 4px;
+  padding: 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.tierlist-rank-row .wanted-tier-label {
+  font-size: 14px;
+  min-height: 52px;
+  border-radius: 5px;
+}
+
+.tierlist-rank-row .wanted-tier-dropzone {
+  min-height: 52px;
+  padding: 4px;
+}
+
+@media (max-width: 700px) {
+  .tierlist-columns-layout {
+    flex-direction: column;
+  }
+}

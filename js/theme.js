@@ -3,15 +3,7 @@
 // ============================================================
 
 const THEME_STORAGE_KEY = "glacrystal_theme_preset";
-let themeEventManager = null;
 let themePickerOverlay = null;
-
-function getThemeEventManager() {
-  if (!themeEventManager && typeof EventManager === "function") {
-    themeEventManager = new EventManager();
-  }
-  return themeEventManager;
-}
 
 const THEME_PRESETS = {
   classic: {
@@ -488,9 +480,7 @@ function applyThemePreset(presetName) {
   root.setAttribute("data-theme", safePreset);
 
   try {
-    if (typeof storageManager !== "undefined" && storageManager && typeof storageManager.setRaw === "function") {
-      storageManager.setRaw(THEME_STORAGE_KEY, safePreset);
-    } else if (window.localStorage) {
+    if (window.localStorage) {
       localStorage.setItem(THEME_STORAGE_KEY, safePreset);
     }
   } catch (_err) {
@@ -507,9 +497,7 @@ function initThemePresetSelector() {
 
   let storedPreset = defaultPreset;
   try {
-    if (typeof storageManager !== "undefined" && storageManager && typeof storageManager.getRaw === "function") {
-      storedPreset = storageManager.getRaw(THEME_STORAGE_KEY) || defaultPreset;
-    } else if (window.localStorage) {
+    if (window.localStorage) {
       storedPreset = localStorage.getItem(THEME_STORAGE_KEY) || defaultPreset;
     }
   } catch (_err) {
@@ -532,10 +520,3 @@ function themeApplyTranslations() {
   }
 }
 
-function themeOnHide() {
-  closeThemePickerOverlay();
-}
-
-function themeOnShow() {
-  bindThemePreviewEvents();
-}

@@ -25,8 +25,7 @@ const BOAT_KEY_ALIASES = {
   oak_plank: "oak_planks",
   mahogany_plank: "mahogany_planks",
   adam_plank: "adam_planks",
-  titanium_ingots: "titanium_ingot",
-  sapphite: "sapphire"
+  titanium_ingots: "titanium_ingot"
 };
 
 function boatsNormalizeKey(value) {
@@ -105,8 +104,7 @@ function boatsResolveArsenalSprite(itemKey) {
 }
 
 function boatsResolveSkinSprite(skinKey) {
-  const mapped = skinKey === "sapphite" ? "sapphire" : skinKey;
-  return "sprites/boats/skins/boat_" + mapped + ".png";
+  return "sprites/boats/skins/boat_" + skinKey + ".png";
 }
 
 function boatsSplitSections(text) {
@@ -274,7 +272,7 @@ function boatsGetSkinCatalog() {
       key,
       name: boatsItemDisplayName(key),
       sprite: boatsResolveSkinSprite(key),
-      hasRecipe: !!boatData.skins[key] || key === "sapphire"
+      hasRecipe: !!boatData.skins[key]
     };
   });
 }
@@ -421,8 +419,7 @@ function boatsComputeSkinsPlan() {
   const inks = {};
 
   selected.forEach((skinKey) => {
-    const mapped = skinKey === "sapphire" ? "sapphite" : skinKey;
-    const recipe = boatData.skins[mapped];
+    const recipe = boatData.skins[skinKey];
     if (!recipe) return;
     recipe.ingredients.forEach((ing) => {
       inks[ing.key] = (inks[ing.key] || 0) + ing.qty;

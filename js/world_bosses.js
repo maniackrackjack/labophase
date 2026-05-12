@@ -1,5 +1,5 @@
 ﻿// ============================================================
-// World Bosses tabs â€” Shai-Hulud + Mihawk + Hiking Bear + Byakko + Bananawani + Plesiosaur + Aokiji
+// World Bosses tabs — Shai-Hulud + Mihawk + Hiking Bear + Byakko + Bananawani + Plesiosaur + Aokiji
 // ============================================================
 
 const WB_REWARD_ITEM_LABELS = {
@@ -24,6 +24,157 @@ const WB_REWARD_ITEM_LABELS = {
   aokijiSword: "wbRewardAokijiSword",
   aokijiArtifacts: "wbRewardAokijiArtifacts",
 };
+
+// ─── reward builder ──────────────────────────────────────────
+
+// Shared icon paths
+const WB_ICON_AWAKENING = "sprites/items/special/awakening_stone.png";
+const WB_ICON_DYNAMIC   = "sprites/items/special/dynamic_diamond_medal.gif";
+const WB_ICON_KEY       = "sprites/items/special/key.png";
+const WB_ICON_STAMINA   = "sprites/items/special/gl_stamina_potion.png";
+const WB_ICON_VALOR     = "sprites/items/special/valiance_medal.png";
+
+const WB_KID_SET = [
+  { itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" },
+  { itemKey: "kidCoat",     count: 1, icon: "sprites/icons/body/kid_jacket.gif" },
+  { itemKey: "kidPants",    count: 1, icon: "sprites/icons/legs/kid_pants.gif" },
+  { itemKey: "kidEmblem",   count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" },
+  { itemKey: "kidGlasses",  count: 1, icon: "sprites/icons/head/kid_glasses.gif" },
+];
+
+// Reward builder. Accepts a config object so each boss can override only what
+// differs from the standard pattern (kid set + awakening/dynamic/artifact
+// scaling across 7 tiers + Top 1).
+//
+// Tier indices used by `bonusItem.tiers`: 0 = Top 1, 1..7 = Tier 1..7.
+function buildRewards(config) {
+  const {
+    damages,                    // [t1, t2, t3, t4, t5, t6, t7]
+    artifactKey,
+    artifactIcon,
+    top1Icon = artifactIcon,
+    top1Berries = "100.000",
+    includeKidSet = true,
+    bonusItem = null,           // { itemKey, icon, tiers: [0..7] }
+    awakeningCounts    = { top1: 8, t1: 8, t2: 4, t3: 2 },
+    dynamicCounts      = { top1: 2, t1: 2, t2: 1, t3: 1 },
+    artifactCounts     = { top1: 10, t1: 10, t2: 5, t3: 1 },
+    artifactExtraTiers = {},    // e.g. { t4: 3, t5: 1 } for bananawani
+    valorCounts        = { top1: 18, t1: 18, t2: 15, t3: 10, t4: 5, t5: 3 },
+    berriesByTier      = { t1: "30.000", t2: "25.000", t3: "20.000", t4: "15.000", t5: "10.000", t6: "7.000", t7: "5.000" },
+  } = config;
+
+  const kidItems = includeKidSet ? WB_KID_SET : [];
+  const bonusFor = (tierIdx) =>
+    bonusItem && bonusItem.tiers.includes(tierIdx)
+      ? [{ itemKey: bonusItem.itemKey, count: 1, icon: bonusItem.icon }]
+      : [];
+  const artifactExtra = (tierKey) =>
+    artifactExtraTiers[tierKey]
+      ? [{ itemKey: artifactKey, count: artifactExtraTiers[tierKey], icon: artifactIcon }]
+      : [];
+
+  return [
+    {
+      tier: "Top 1", damage: null, top1: true,
+      items: [
+        { itemKey: "exclusiveIcon",       count: 1,                    icon: top1Icon },
+        ...bonusFor(0),
+        ...kidItems,
+        { itemKey: "awakeningStones",     count: awakeningCounts.top1, icon: WB_ICON_AWAKENING },
+        { itemKey: "dynamicDiamondMedal", count: dynamicCounts.top1,   icon: WB_ICON_DYNAMIC },
+        { itemKey: "key",                 count: 1,                    icon: WB_ICON_KEY },
+        { itemKey: "berries",             count: top1Berries,          icon: null },
+        { itemKey: "glStaminaPotion",     count: 4,                    icon: WB_ICON_STAMINA },
+        { itemKey: "valorMedals",         count: valorCounts.top1,     icon: WB_ICON_VALOR },
+        { itemKey: artifactKey,           count: artifactCounts.top1,  icon: artifactIcon },
+      ],
+    },
+    {
+      tier: "Tier 1", damage: damages[0],
+      items: [
+        ...bonusFor(1),
+        ...kidItems,
+        { itemKey: "awakeningStones",     count: awakeningCounts.t1, icon: WB_ICON_AWAKENING },
+        { itemKey: "dynamicDiamondMedal", count: dynamicCounts.t1,   icon: WB_ICON_DYNAMIC },
+        { itemKey: "key",                 count: 1,                  icon: WB_ICON_KEY },
+        { itemKey: "berries",             count: berriesByTier.t1,   icon: null },
+        { itemKey: "glStaminaPotion",     count: 4,                  icon: WB_ICON_STAMINA },
+        { itemKey: "valorMedals",         count: valorCounts.t1,     icon: WB_ICON_VALOR },
+        { itemKey: artifactKey,           count: artifactCounts.t1,  icon: artifactIcon },
+      ],
+    },
+    {
+      tier: "Tier 2", damage: damages[1],
+      items: [
+        ...bonusFor(2),
+        ...kidItems,
+        { itemKey: "awakeningStones",     count: awakeningCounts.t2, icon: WB_ICON_AWAKENING },
+        { itemKey: "dynamicDiamondMedal", count: dynamicCounts.t2,   icon: WB_ICON_DYNAMIC },
+        { itemKey: "key",                 count: 1,                  icon: WB_ICON_KEY },
+        { itemKey: "berries",             count: berriesByTier.t2,   icon: null },
+        { itemKey: "glStaminaPotion",     count: 4,                  icon: WB_ICON_STAMINA },
+        { itemKey: "valorMedals",         count: valorCounts.t2,     icon: WB_ICON_VALOR },
+        { itemKey: artifactKey,           count: artifactCounts.t2,  icon: artifactIcon },
+      ],
+    },
+    {
+      tier: "Tier 3", damage: damages[2],
+      items: [
+        ...bonusFor(3),
+        ...kidItems,
+        { itemKey: "awakeningStones",     count: awakeningCounts.t3, icon: WB_ICON_AWAKENING },
+        { itemKey: "dynamicDiamondMedal", count: dynamicCounts.t3,   icon: WB_ICON_DYNAMIC },
+        { itemKey: "key",                 count: 1,                  icon: WB_ICON_KEY },
+        { itemKey: "berries",             count: berriesByTier.t3,   icon: null },
+        { itemKey: "glStaminaPotion",     count: 4,                  icon: WB_ICON_STAMINA },
+        { itemKey: "valorMedals",         count: valorCounts.t3,     icon: WB_ICON_VALOR },
+        { itemKey: artifactKey,           count: artifactCounts.t3,  icon: artifactIcon },
+      ],
+    },
+    {
+      tier: "Tier 4", damage: damages[3],
+      items: [
+        ...bonusFor(4),
+        ...kidItems,
+        { itemKey: "key",             count: 1,                icon: WB_ICON_KEY },
+        { itemKey: "berries",         count: berriesByTier.t4, icon: null },
+        { itemKey: "glStaminaPotion", count: 4,                icon: WB_ICON_STAMINA },
+        { itemKey: "valorMedals",     count: valorCounts.t4,   icon: WB_ICON_VALOR },
+        ...artifactExtra("t4"),
+      ],
+    },
+    {
+      tier: "Tier 5", damage: damages[4],
+      items: [
+        ...bonusFor(5),
+        { itemKey: "key",             count: 1,                icon: WB_ICON_KEY },
+        { itemKey: "berries",         count: berriesByTier.t5, icon: null },
+        { itemKey: "glStaminaPotion", count: 4,                icon: WB_ICON_STAMINA },
+        { itemKey: "valorMedals",     count: valorCounts.t5,   icon: WB_ICON_VALOR },
+        ...artifactExtra("t5"),
+      ],
+    },
+    {
+      tier: "Tier 6", damage: damages[5],
+      items: [
+        ...bonusFor(6),
+        { itemKey: "key",             count: 1,                icon: WB_ICON_KEY },
+        { itemKey: "berries",         count: berriesByTier.t6, icon: null },
+        { itemKey: "glStaminaPotion", count: 4,                icon: WB_ICON_STAMINA },
+      ],
+    },
+    {
+      tier: "Tier 7", damage: damages[6],
+      items: [
+        ...bonusFor(7),
+        { itemKey: "key",             count: 1,                icon: WB_ICON_KEY },
+        { itemKey: "berries",         count: berriesByTier.t7, icon: null },
+        { itemKey: "glStaminaPotion", count: 4,                icon: WB_ICON_STAMINA },
+      ],
+    },
+  ];
+}
 
 const WB_BOSSES = {
   shai_hulud: {
@@ -66,16 +217,16 @@ const WB_BOSSES = {
     },
     phases: [
       { phase: "Fase 1",  damage: "wbPhaseInitial", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }] },
-      { phase: "Fase 2",  damage: "~ 1.120.000",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }] },
-      { phase: "Fase 3",  damage: "~ 2.380.000",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
-      { phase: "Fase 4",  damage: "~ 3.782.000",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillTornado" }, { name: "wbShaiSkillHealCutRoar" }] },
-      { phase: "Fase 5",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
-      { phase: "Fase 6",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillSandwormWaves" }] },
-      { phase: "Fase 7",  damage: "*",            skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
-      { phase: "Fase 8",  damage: "*",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillTornado", count: 2 }, { name: "wbShaiSkillAcidSpit", count: 2 }, { name: "wbShaiSkillHealCutRoar" }] },
-      { phase: "Fase 9",  damage: "~ 12.020.000",          skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
-      { phase: "Fase 10", damage: "~ 13.700.000",         skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillTornado" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillSandwormWaves" }, { name: "wbShaiSkillHealCutRoar" }] },
-      { phase: "Fase 11", damage: "~ 15.435.000",         skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }, { name: "wbShaiSkillTentacles" }] },
+      { phase: "Fase 2",  damage: "~ 1.120.000", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }] },
+      { phase: "Fase 3",  damage: "~ 2.380.000", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
+      { phase: "Fase 4",  damage: "~ 3.782.000", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillTornado" }, { name: "wbShaiSkillHealCutRoar" }] },
+      { phase: "Fase 5",  damage: "*", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
+      { phase: "Fase 6",  damage: "*", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillSandwormWaves" }] },
+      { phase: "Fase 7",  damage: "*", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
+      { phase: "Fase 8",  damage: "*", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillTornado", count: 2 }, { name: "wbShaiSkillAcidSpit", count: 2 }, { name: "wbShaiSkillHealCutRoar" }] },
+      { phase: "Fase 9",  damage: "~ 12.020.000", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }] },
+      { phase: "Fase 10", damage: "~ 13.700.000", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillTentacles" }, { name: "wbShaiSkillTornado" }, { name: "wbShaiSkillAcidSpit" }, { name: "wbShaiSkillSandwormWaves" }, { name: "wbShaiSkillHealCutRoar" }] },
+      { phase: "Fase 11", damage: "~ 15.435.000", skills: [{ name: "wbShaiSkillBasicAttack" }, { name: "wbShaiSkillSubmersion", note: "wbShaiNoteTotalSilence" }, { name: "wbShaiSkillTentacles" }] },
     ],
     characters: {
       tank: [
@@ -105,7 +256,11 @@ const WB_BOSSES = {
         { id: "vinsmoke_reiju",  label: "Reiju" },
       ],
     },
-    rewards: buildRewards("29.000.000", "17.000.000", "15.000.000", "10.500.000", "5.500.000", "3.500.000", "50.000", "shaiArtifacts", "sprites/world_bosses/shai_hulud/shai_icon.png"),
+    rewards: buildRewards({
+      damages: ["29.000.000", "17.000.000", "15.000.000", "10.500.000", "5.500.000", "3.500.000", "50.000"],
+      artifactKey: "shaiArtifacts",
+      artifactIcon: "sprites/world_bosses/shai_hulud/shai_icon.png",
+    }),
   },
 
   mihawk: {
@@ -163,8 +318,8 @@ const WB_BOSSES = {
       { phase: "Fase 8",  damage: "*", skills: [{ name: "wbMihawkSkillDash" }, { name: "wbMihawkSkillSuihei", note: "M2" }, { name: "wbMihawkSkillChiWoHauZangeki", note: "M3" }] },
       { phase: "Fase 9",  damage: "*", skills: [{ name: "wbMihawkSkillGreenRectangle", count: 2 }, { name: "wbMihawkSkillDash" }, { name: "wbMihawkSkillSuihei", note: "M2" }, { name: "wbMihawkSkillChiWoHauZangeki", note: "M3" }] },
       { phase: "Fase 10", damage: "*", skills: [{ name: "wbMihawkSkillKokutoIssen", note: "M5" }, { name: "wbMihawkSkillDash" }, { name: "wbMihawkSkillSuihei", note: "M2" }, { name: "wbMihawkSkillChiWoHauZangeki", note: "M3" }] },
-      { phase: "Fase 11", damage: "*", skills: [{  }] },
-      { phase: "Fase 12", damage: "*", skills: [{  }] },
+      { phase: "Fase 11", damage: "*", skills: [] },
+      { phase: "Fase 12", damage: "*", skills: [] },
     ],
     characters: {
       tank: [
@@ -189,7 +344,11 @@ const WB_BOSSES = {
         { id: "gecko_moria",     label: "Moria" },
       ],
     },
-    rewards: buildRewards("21.000.000", "19.000.000", "15.000.000", "9.000.000", "400.000", "200.000", "50.000", "mihawkArtifacts", "sprites/world_bosses/mihawk/mihawk_icon.png"),
+    rewards: buildRewards({
+      damages: ["21.000.000", "19.000.000", "15.000.000", "9.000.000", "400.000", "200.000", "50.000"],
+      artifactKey: "mihawkArtifacts",
+      artifactIcon: "sprites/world_bosses/mihawk/mihawk_icon.png",
+    }),
   },
 
   hiking_bear: {
@@ -228,18 +387,18 @@ const WB_BOSSES = {
       wbHikingSkillAvalanche:         "wbHikingDescAvalanche",
     },
     phases: [
-      { phase: "Fase 1", damage: "wbPhaseInitial", skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }] },
-      { phase: "Fase 2", damage: "*",          skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillBigSmash" }, { name: "wbHikingSkillAntiRangedIce" }] },
-      { phase: "Fase 3", damage: "*",          skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillBigSmash" }, { name: "wbHikingSkillAntiRangedBarrier" }] },
-      { phase: "Fase 4", damage: "*",          skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillAntiRangedIce" }, { name: "wbHikingSkillAvalanche", note: "~60s" }] },
-      { phase: "Fase 5", damage: "*",          skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillBigSmash", note: "wbNoteAmplified" }, { name: "wbHikingSkillAntiRangedBarrier" }, { name: "wbHikingSkillAvalanche", note: "~50s" }] },
-      { phase: "Fase 6", damage: "*",          skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillBigSmash", note: "wbNoteAmplified" }, { name: "wbHikingSkillAntiRangedBarrier" }, { name: "wbHikingSkillAntiRangedIce" }] },
-      { phase: "Fase 7", damage: "*",          skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillBigSmash", note: "wbNoteAmplified" }, { name: "wbHikingSkillAntiRangedBarrier" }, { name: "wbHikingSkillAntiRangedIce" }, { name: "wbHikingSkillAvalanche" }] },
-      { phase: "Fase 8", damage: "*",          skills: [{ }] },
-      { phase: "Fase 9", damage: "*",          skills: [{ }] },
-      { phase: "Fase 10", damage: "*",          skills: [{ }] },
-      { phase: "Fase 11", damage: "*",          skills: [{ }] },
-      { phase: "Fase 12", damage: "*",          skills: [{ }] },
+      { phase: "Fase 1",  damage: "wbPhaseInitial", skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }] },
+      { phase: "Fase 2",  damage: "*", skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillBigSmash" }, { name: "wbHikingSkillAntiRangedIce" }] },
+      { phase: "Fase 3",  damage: "*", skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillBigSmash" }, { name: "wbHikingSkillAntiRangedBarrier" }] },
+      { phase: "Fase 4",  damage: "*", skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillAntiRangedIce" }, { name: "wbHikingSkillAvalanche", note: "~60s" }] },
+      { phase: "Fase 5",  damage: "*", skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillBigSmash", note: "wbNoteAmplified" }, { name: "wbHikingSkillAntiRangedBarrier" }, { name: "wbHikingSkillAvalanche", note: "~50s" }] },
+      { phase: "Fase 6",  damage: "*", skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillBigSmash", note: "wbNoteAmplified" }, { name: "wbHikingSkillAntiRangedBarrier" }, { name: "wbHikingSkillAntiRangedIce" }] },
+      { phase: "Fase 7",  damage: "*", skills: [{ name: "wbHikingSkillBasicAttack" }, { name: "wbHikingSkillFrontalPickaxe" }, { name: "wbHikingSkillBigSmash", note: "wbNoteAmplified" }, { name: "wbHikingSkillAntiRangedBarrier" }, { name: "wbHikingSkillAntiRangedIce" }, { name: "wbHikingSkillAvalanche" }] },
+      { phase: "Fase 8",  damage: "*", skills: [] },
+      { phase: "Fase 9",  damage: "*", skills: [] },
+      { phase: "Fase 10", damage: "*", skills: [] },
+      { phase: "Fase 11", damage: "*", skills: [] },
+      { phase: "Fase 12", damage: "*", skills: [] },
     ],
     characters: {
       tank: [
@@ -264,33 +423,12 @@ const WB_BOSSES = {
         { id: "leo_mansherry",   label: "Leo" },
       ],
     },
-    rewards: [
-      {
-        tier: "Top 1", damage: null, top1: true,
-        items: [
-          { itemKey: "exclusiveIcon",       count: 1,         icon: "sprites/world_bosses/hiking_bear/top_1_icon.gif" },
-          { itemKey: "kidNecklace",         count: 1,         icon: "sprites/icons/accessory/kid_necklace.gif" },
-          { itemKey: "kidCoat",             count: 1,         icon: "sprites/icons/body/kid_jacket.gif" },
-          { itemKey: "kidPants",            count: 1,         icon: "sprites/icons/legs/kid_pants.gif" },
-          { itemKey: "kidEmblem",           count: 1,         icon: "sprites/icons/emblem/kid_emblem.gif" },
-          { itemKey: "kidGlasses",          count: 1,         icon: "sprites/icons/head/kid_glasses.gif" },
-          { itemKey: "awakeningStones",     count: 8,         icon: "sprites/items/special/awakening_stone.png" },
-          { itemKey: "dynamicDiamondMedal", count: 2,         icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-          { itemKey: "key",                 count: 1,         icon: "sprites/items/special/key.png" },
-          { itemKey: "berries",             count: "100.000", icon: null },
-          { itemKey: "glStaminaPotion",     count: 4,         icon: "sprites/items/special/gl_stamina_potion.png" },
-          { itemKey: "valorMedals",         count: 18,        icon: "sprites/items/special/valiance_medal.png" },
-          { itemKey: "hikingBearArtifacts", count: 10,        icon: "sprites/world_bosses/hiking_bear/artifact.png" },
-        ],
-      },
-      { tier: "Tier 1", damage: "29.000.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 8, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 2, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "30.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 18, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "hikingBearArtifacts", count: 10, icon: "sprites/world_bosses/hiking_bear/artifact.png" }] },
-      { tier: "Tier 2", damage: "19.500.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 4, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "25.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 15, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "hikingBearArtifacts", count: 5, icon: "sprites/world_bosses/hiking_bear/artifact.png" }] },
-      { tier: "Tier 3", damage: "15.500.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 2, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "20.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 10, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "hikingBearArtifacts", count: 1, icon: "sprites/world_bosses/hiking_bear/artifact.png" }] },
-      { tier: "Tier 4", damage: "11.500.000",  items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "15.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 5, icon: "sprites/items/special/valiance_medal.png" }] },
-      { tier: "Tier 5", damage: "5.500.000",    items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "10.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 3, icon: "sprites/items/special/valiance_medal.png" }] },
-      { tier: "Tier 6", damage: "2.500.000",    items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "7.000",  icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-      { tier: "Tier 7", damage: "50.000",     items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "5.000",  icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-    ],
+    rewards: buildRewards({
+      damages: ["29.000.000", "19.500.000", "15.500.000", "11.500.000", "5.500.000", "2.500.000", "50.000"],
+      artifactKey: "hikingBearArtifacts",
+      artifactIcon: "sprites/world_bosses/hiking_bear/artifact.png",
+      top1Icon: "sprites/world_bosses/hiking_bear/top_1_icon.gif",
+    }),
   },
 
   byakko: {
@@ -335,17 +473,17 @@ const WB_BOSSES = {
       wbByakkoSkillHealCut:         "wbByakkoDescHealCut",
     },
     phases: [
-      { phase: "Fase 1", damage: "wbPhaseInitial", tier: "Tier 7",  skills: [{ name: "wbByakkoSkillBasicClaw" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 2", damage: "~520k",                           skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillFrontalRoar" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 3", damage: "~1.5kk",                          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillTwoTigerWaves" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 4", damage: "~2.54kk", tier: "Tier 6",  skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillFrontalRoar" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 5", damage: "~4.16kk",                          skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillFrontalRoar" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 6", damage: "~5.725kk", tier: "Tier 5", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillTwoTigerWaves" }, { name: "wbByakkoSkillBranches" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 7", damage: "~7.84kk*",                         skills: [{ name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillBranches" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 8", damage: "~10.24kk*", tier: "Tier 4*", skills: [{ name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillThreeTigerWaves" }, { name: "wbByakkoSkillBranches" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 9", damage: "~12.96kk*", tier: "Tier 3*", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillThreeTigerWaves" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 10", damage: "~16kk*", tier: "Tier 2*", skills: [{ name: "wbByakkoSkillBasicClaw" }, {name: "wbByakkoSkillHealCut"}] },
-      { phase: "Fase 11", damage: "~19.36kk*", tier: "Tier 1*", skills: [{ name: "wbByakkoSkillBasicClaw" }, {name: "wbByakkoSkillSideClaw"}, {name: "wbByakkoSkillHealCut"}] },
+      { phase: "Fase 1",  damage: "wbPhaseInitial", tier: "Tier 7", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 2",  damage: "~520k", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 3",  damage: "~1.5kk", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillTwoTigerWaves" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 4",  damage: "~2.54kk", tier: "Tier 6", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 5",  damage: "~4.16kk", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 6",  damage: "~5.725kk", tier: "Tier 5", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillTwoTigerWaves" }, { name: "wbByakkoSkillBranches" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 7",  damage: "~7.84kk*", skills: [{ name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillBranches" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 8",  damage: "~10.24kk*", tier: "Tier 4*", skills: [{ name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillThreeTigerWaves" }, { name: "wbByakkoSkillBranches" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 9",  damage: "~12.96kk*", tier: "Tier 3*", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillRapidClaws" }, { name: "wbByakkoSkillSideClaw" }, { name: "wbByakkoSkillFrontalRoar" }, { name: "wbByakkoSkillThreeTigerWaves" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 10", damage: "~16kk*", tier: "Tier 2*", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillHealCut" }] },
+      { phase: "Fase 11", damage: "~19.36kk*", tier: "Tier 1*", skills: [{ name: "wbByakkoSkillBasicClaw" }, { name: "wbByakkoSkillSideClaw"}, { name: "wbByakkoSkillHealCut" }] },
     ],
     characters: {
       dps: [
@@ -365,33 +503,12 @@ const WB_BOSSES = {
         { id: "gecko_moria",    label: "Moria" },
       ],
     },
-    rewards: [
-      {
-        tier: "Top 1", damage: null, top1: true,
-        items: [
-          { itemKey: "exclusiveIcon",       count: 1,         icon: "sprites/world_bosses/byakko/top_1_icon.gif" },
-          { itemKey: "kidNecklace",         count: 1,         icon: "sprites/icons/accessory/kid_necklace.gif" },
-          { itemKey: "kidCoat",             count: 1,         icon: "sprites/icons/body/kid_jacket.gif" },
-          { itemKey: "kidPants",            count: 1,         icon: "sprites/icons/legs/kid_pants.gif" },
-          { itemKey: "kidEmblem",           count: 1,         icon: "sprites/icons/emblem/kid_emblem.gif" },
-          { itemKey: "kidGlasses",          count: 1,         icon: "sprites/icons/head/kid_glasses.gif" },
-          { itemKey: "awakeningStones",     count: 8,         icon: "sprites/items/special/awakening_stone.png" },
-          { itemKey: "dynamicDiamondMedal", count: 2,         icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-          { itemKey: "key",                 count: 1,         icon: "sprites/items/special/key.png" },
-          { itemKey: "berries",             count: "100.000", icon: null },
-          { itemKey: "glStaminaPotion",     count: 4,         icon: "sprites/items/special/gl_stamina_potion.png" },
-          { itemKey: "valorMedals",         count: 18,        icon: "sprites/items/special/valiance_medal.png" },
-          { itemKey: "byakkoArtifacts",     count: 10,        icon: "sprites/world_bosses/byakko/artifact.png" },
-        ],
-      },
-      { tier: "Tier 1", damage: "19.000.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 8, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 2, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "30.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 18, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "byakkoArtifacts", count: 10, icon: "sprites/world_bosses/byakko/artifact.png" }] },
-      { tier: "Tier 2", damage: "14.500.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 4, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "25.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 15, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "byakkoArtifacts", count: 5, icon: "sprites/world_bosses/byakko/artifact.png" }] },
-      { tier: "Tier 3", damage: "12.500.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 2, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "20.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 10, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "byakkoArtifacts", count: 1, icon: "sprites/world_bosses/byakko/artifact.png" }] },
-      { tier: "Tier 4", damage: "9.000.000",  items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "15.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 5, icon: "sprites/items/special/valiance_medal.png" }] },
-      { tier: "Tier 5", damage: "5.000.000",  items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "10.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 3, icon: "sprites/items/special/valiance_medal.png" }] },
-      { tier: "Tier 6", damage: "2.500.000",  items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "7.000",  icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-      { tier: "Tier 7", damage: "50.000",     items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "5.000",  icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-    ],
+    rewards: buildRewards({
+      damages: ["19.000.000", "14.500.000", "12.500.000", "9.000.000", "5.000.000", "2.500.000", "50.000"],
+      artifactKey: "byakkoArtifacts",
+      artifactIcon: "sprites/world_bosses/byakko/artifact.png",
+      top1Icon: "sprites/world_bosses/byakko/top_1_icon.gif",
+    }),
   },
 
   bananawani: {
@@ -437,15 +554,15 @@ const WB_BOSSES = {
     },
     phases: [
       { phase: "Fase 1",  damage: "wbPhaseInitial", skills: [{ name: "wbBananawaniSkillBite" }] },
-      { phase: "Fase 2",  damage: "*",          skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillAirBlow" }] },
-      { phase: "Fase 3",  damage: "*",          skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCharge" }] },
-      { phase: "Fase 4",  damage: "*",          skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCrocodile" }, { name: "wbBananawaniSkillRocks" }] },
-      { phase: "Fase 5",  damage: "*",          skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillPillars" }, { name: "wbBananawaniSkillHealReduction" }] },
-      { phase: "Fase 6",  damage: "*",          skills: [{ name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillAirBlow" }, { name: "wbBananawaniSkillRocks" }] },
-      { phase: "Fase 7",  damage: "*",          skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillCrocodile" }, { name: "wbBananawaniSkillPillars" }] },
-      { phase: "Fase 8",  damage: "*",          skills: [{ name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillFans" }, { name: "wbBananawaniSkillRocks" }, { name: "wbBananawaniSkillHealReduction" }] },
-      { phase: "Fase 9",  damage: "*",          skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillCrocodile" }, { name: "wbBananawaniSkillPillars" }, { name: "wbBananawaniSkillFans" }] },
-      { phase: "Fase 10", damage: "*",         skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillCrocodile" }, { name: "wbBananawaniSkillAirBlow" }, { name: "wbBananawaniSkillPillars" }, { name: "wbBananawaniSkillRocks" }, { name: "wbBananawaniSkillHealReduction" }, { name: "wbBananawaniSkillFans" }] },
+      { phase: "Fase 2",  damage: "*", skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillAirBlow" }] },
+      { phase: "Fase 3",  damage: "*", skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCharge" }] },
+      { phase: "Fase 4",  damage: "*", skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCrocodile" }, { name: "wbBananawaniSkillRocks" }] },
+      { phase: "Fase 5",  damage: "*", skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillPillars" }, { name: "wbBananawaniSkillHealReduction" }] },
+      { phase: "Fase 6",  damage: "*", skills: [{ name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillAirBlow" }, { name: "wbBananawaniSkillRocks" }] },
+      { phase: "Fase 7",  damage: "*", skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillCrocodile" }, { name: "wbBananawaniSkillPillars" }] },
+      { phase: "Fase 8",  damage: "*", skills: [{ name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillFans" }, { name: "wbBananawaniSkillRocks" }, { name: "wbBananawaniSkillHealReduction" }] },
+      { phase: "Fase 9",  damage: "*", skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillCrocodile" }, { name: "wbBananawaniSkillPillars" }, { name: "wbBananawaniSkillFans" }] },
+      { phase: "Fase 10", damage: "*", skills: [{ name: "wbBananawaniSkillBite" }, { name: "wbBananawaniSkillCharge" }, { name: "wbBananawaniSkillCrocodile" }, { name: "wbBananawaniSkillAirBlow" }, { name: "wbBananawaniSkillPillars" }, { name: "wbBananawaniSkillRocks" }, { name: "wbBananawaniSkillHealReduction" }, { name: "wbBananawaniSkillFans" }] },
     ],
     characters: {
       dps: [
@@ -465,28 +582,20 @@ const WB_BOSSES = {
         { id: "chopper",         label: "Chopper" },
       ],
     },
-    rewards: [
-      {
-        tier: "Top 1", damage: null, top1: true,
-        items: [
-          { itemKey: "exclusiveIcon",       count: 1,         icon: "sprites/world_bosses/bananawani/top_1_icon.gif" },
-          { itemKey: "awakeningStones",     count: 10,        icon: "sprites/items/special/awakening_stone.png" },
-          { itemKey: "dynamicDiamondMedal", count: 3,         icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-          { itemKey: "key",                 count: 1,         icon: "sprites/items/special/key.png" },
-          { itemKey: "berries",             count: "120.000", icon: null },
-          { itemKey: "glStaminaPotion",     count: 4,         icon: "sprites/items/special/gl_stamina_potion.png" },
-          { itemKey: "valorMedals",         count: 20,        icon: "sprites/items/special/valiance_medal.png" },
-          { itemKey: "bananawaniArtifacts", count: 12,        icon: "sprites/world_bosses/bananawani/artifact_banana.png" },
-        ],
-      },
-      { tier: "Tier 1", damage: "18.000.000", items: [{ itemKey: "awakeningStones", count: 8,  icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 2, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "40.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 16, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "bananawaniArtifacts", count: 10, icon: "sprites/world_bosses/bananawani/artifact_banana.png" }] },
-      { tier: "Tier 2", damage: "16.000.000", items: [{ itemKey: "awakeningStones", count: 6,  icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 2, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "30.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 14, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "bananawaniArtifacts", count: 8,  icon: "sprites/world_bosses/bananawani/artifact_banana.png" }] },
-      { tier: "Tier 3", damage: "14.000.000", items: [{ itemKey: "awakeningStones", count: 4,  icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "24.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 10, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "bananawaniArtifacts", count: 5,  icon: "sprites/world_bosses/bananawani/artifact_banana.png" }] },
-      { tier: "Tier 4", damage: "10.000.000", items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "18.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 7,  icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "bananawaniArtifacts", count: 3, icon: "sprites/world_bosses/bananawani/artifact_banana.png" }] },
-      { tier: "Tier 5", damage: "6.000.000",  items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "12.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 4,  icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "bananawaniArtifacts", count: 1, icon: "sprites/world_bosses/bananawani/artifact_banana.png" }] },
-      { tier: "Tier 6", damage: "2.000.000",  items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "8.000",  icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-      { tier: "Tier 7", damage: "50.000",     items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "5.000",  icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-    ],
+    rewards: buildRewards({
+      damages: ["18.000.000", "16.000.000", "14.000.000", "10.000.000", "6.000.000", "2.000.000", "50.000"],
+      artifactKey: "bananawaniArtifacts",
+      artifactIcon: "sprites/world_bosses/bananawani/artifact_banana.png",
+      top1Icon: "sprites/world_bosses/bananawani/top_1_icon.gif",
+      top1Berries: "120.000",
+      includeKidSet: false,
+      awakeningCounts:    { top1: 10, t1: 8,  t2: 6, t3: 4 },
+      dynamicCounts:      { top1: 3,  t1: 2,  t2: 2, t3: 1 },
+      artifactCounts:     { top1: 12, t1: 10, t2: 8, t3: 5 },
+      artifactExtraTiers: { t4: 3,    t5: 1 },
+      valorCounts:        { top1: 20, t1: 16, t2: 14, t3: 10, t4: 7, t5: 4 },
+      berriesByTier:      { t1: "40.000", t2: "30.000", t3: "24.000", t4: "18.000", t5: "12.000", t6: "8.000", t7: "5.000" },
+    }),
   },
 
   plesiosaur: {
@@ -529,14 +638,14 @@ const WB_BOSSES = {
     },
     phases: [
       { phase: "Fase 1", damage: "wbPhaseInitial", skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }] },
-      { phase: "Fase 2", damage: "*",          skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }, { name: "wbPlesiosaurSkillBubbles2" }] },
-      { phase: "Fase 3", damage: "*",          skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }, { name: "wbPlesiosaurSkillBubbles2" }, { name: "wbPlesiosaurSkillWaves", count: 1 }] },
-      { phase: "Fase 4", damage: "*",          skills: [{ name: "wbPlesiosaurSkillSubmersion" }, { name: "wbPlesiosaurSkillWaves", count: 4 }, { name: "wbPlesiosaurSkillBasicAttack" }] },
-      { phase: "Fase 5", damage: "*",          skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }, { name: "wbPlesiosaurSkillBubbles4" }] },
-      { phase: "Fase 6", damage: "*",          skills: [{ name: "wbPlesiosaurSkillWaves", count: 4 }, { name: "wbPlesiosaurSkillAquaticEruptions" }, { name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }] },
-      { phase: "Fase 7", damage: "*",          skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillAquaticEruptions" }, { name: "wbPlesiosaurSkillBubbles4" }, { name: "wbPlesiosaurSkillBasicAttack" }] },
-      { phase: "Fase 8", damage: "*",          skills: [{ }] },
-      { phase: "Fase 9", damage: "*",          skills: [{ }] },
+      { phase: "Fase 2", damage: "590.000~", skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }, { name: "wbPlesiosaurSkillBubbles2" }] },
+      { phase: "Fase 3", damage: "1.400.000~", skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }, { name: "wbPlesiosaurSkillBubbles2" }, { name: "wbPlesiosaurSkillWaves", count: 1 }] },
+      { phase: "Fase 4", damage: "2.280.000~", skills: [{ name: "wbPlesiosaurSkillSubmersion" }, { name: "wbPlesiosaurSkillWaves", count: 4 }, { name: "wbPlesiosaurSkillBasicAttack" }] },
+      { phase: "Fase 5", damage: "*", skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }, { name: "wbPlesiosaurSkillBubbles4" }] },
+      { phase: "Fase 6", damage: "*", skills: [{ name: "wbPlesiosaurSkillWaves", count: 4 }, { name: "wbPlesiosaurSkillAquaticEruptions" }, { name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillBasicAttack" }] },
+      { phase: "Fase 7", damage: "*", skills: [{ name: "wbPlesiosaurSkillHealingCut" }, { name: "wbPlesiosaurSkillAquaticEruptions" }, { name: "wbPlesiosaurSkillBubbles4" }, { name: "wbPlesiosaurSkillBasicAttack" }] },
+      { phase: "Fase 8", damage: "*", skills: [] },
+      { phase: "Fase 9", damage: "*", skills: [] },
     ],
     characters: {
       tank: [
@@ -561,33 +670,12 @@ const WB_BOSSES = {
         { id: "gecko_moria",     label: "Moria" },
       ],
     },
-    rewards: [
-      {
-        tier: "Top 1", damage: null, top1: true,
-        items: [
-          { itemKey: "exclusiveIcon",       count: 1,         icon: "sprites/world_bosses/plesiosaur/top_1_icon.gif" },
-          { itemKey: "kidNecklace",         count: 1,         icon: "sprites/icons/accessory/kid_necklace.gif" },
-          { itemKey: "kidCoat",             count: 1,         icon: "sprites/icons/body/kid_jacket.gif" },
-          { itemKey: "kidPants",            count: 1,         icon: "sprites/icons/legs/kid_pants.gif" },
-          { itemKey: "kidEmblem",           count: 1,         icon: "sprites/icons/emblem/kid_emblem.gif" },
-          { itemKey: "kidGlasses",          count: 1,         icon: "sprites/icons/head/kid_glasses.gif" },
-          { itemKey: "awakeningStones",     count: 8,         icon: "sprites/items/special/awakening_stone.png" },
-          { itemKey: "dynamicDiamondMedal", count: 2,         icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-          { itemKey: "key",                 count: 1,         icon: "sprites/items/special/key.png" },
-          { itemKey: "berries",             count: "100.000", icon: null },
-          { itemKey: "glStaminaPotion",     count: 4,         icon: "sprites/items/special/gl_stamina_potion.png" },
-          { itemKey: "valorMedals",         count: 18,        icon: "sprites/items/special/valiance_medal.png" },
-          { itemKey: "plesiosaurArtifacts", count: 10,        icon: "sprites/world_bosses/plesiosaur/artifact_plesiosaur.png" },
-        ],
-      },
-      { tier: "Tier 1", damage: "21.000.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 8, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 2, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "30.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 18, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "plesiosaurArtifacts", count: 10, icon: "sprites/world_bosses/plesiosaur/artifact_plesiosaur.png" }] },
-      { tier: "Tier 2", damage: "19.000.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 4, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "25.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 15, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "plesiosaurArtifacts", count: 5, icon: "sprites/world_bosses/plesiosaur/artifact_plesiosaur.png" }] },
-      { tier: "Tier 3", damage: "15.000.000", items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "awakeningStones", count: 2, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "20.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 10, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "plesiosaurArtifacts", count: 1, icon: "sprites/world_bosses/plesiosaur/artifact_plesiosaur.png" }] },
-      { tier: "Tier 4", damage: "9.000.000",  items: [{ itemKey: "kidNecklace", count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" }, { itemKey: "kidCoat", count: 1, icon: "sprites/icons/body/kid_jacket.gif" }, { itemKey: "kidPants", count: 1, icon: "sprites/icons/legs/kid_pants.gif" }, { itemKey: "kidEmblem", count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" }, { itemKey: "kidGlasses", count: 1, icon: "sprites/icons/head/kid_glasses.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "15.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 5, icon: "sprites/items/special/valiance_medal.png" }] },
-      { tier: "Tier 5", damage: "400.000",    items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "10.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 3, icon: "sprites/items/special/valiance_medal.png" }] },
-      { tier: "Tier 6", damage: "200.000",    items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "7.000",  icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-      { tier: "Tier 7", damage: "50.000",     items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "5.000",  icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-    ],
+    rewards: buildRewards({
+      damages: ["14.000.000", "11.000.000", "9.000.000", "6.000.000", "4.000.000", "2.000.000", "50.000"],
+      artifactKey: "plesiosaurArtifacts",
+      artifactIcon: "sprites/world_bosses/plesiosaur/artifact_plesiosaur.png",
+      top1Icon: "sprites/world_bosses/plesiosaur/top_1_icon.gif",
+    }),
   },
 
   aokiji: {
@@ -636,14 +724,14 @@ const WB_BOSSES = {
     },
     phases: [
       { phase: "Fase 1", damage: "wbPhaseInitial", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }] },
-      { phase: "Fase 2", damage: "*",           skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }] },
-      { phase: "Fase 3", damage: "*",          skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillIceTime" }, { name: "wbAokijiSkillFreezingStatus" }] },
-      { phase: "Fase 4", damage: "*",          skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceBlockPartisanMechanic" }] },
-      { phase: "Fase 5", damage: "*",          skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceTime" }, { name: "wbAokijiSkillIceAge" }] },
-      { phase: "Fase 6", damage: "*",          skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillFreezingStatus" }, { name: "wbAokijiSkillIceBlockPillars" }, { name: "wbAokijiSkillIceBlockPheasantBeak" }] },
-      { phase: "Fase 7", damage: "*",          skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceBlockPillars" }, { name: "wbAokijiSkillIceBlockPheasantBeak", note: "wbAokijiNoteRightSide" }] },
-      { phase: "Fase 8", damage: "*",            skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceTime" }, { name: "wbAokijiSkillIceAge" }, { name: "wbAokijiSkillIceBlockPartisanMechanic" }, { name: "wbAokijiSkillIceBlockPheasantBeak", note: "wbAokijiNoteRightSide" }] },
-      { phase: "Fase 9", damage: "*",          skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceAge" }, { name: "wbAokijiSkillFreezingStatus" }, { name: "wbAokijiSkillIceBlockPillars" }, { name: "wbAokijiSkillIceBlockPheasantBeak", note: "wbAokijiNoteRightSide" }] },
+      { phase: "Fase 2", damage: "*", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }] },
+      { phase: "Fase 3", damage: "*", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillIceTime" }, { name: "wbAokijiSkillFreezingStatus" }] },
+      { phase: "Fase 4", damage: "*", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceBlockPartisanMechanic" }] },
+      { phase: "Fase 5", damage: "*", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceTime" }, { name: "wbAokijiSkillIceAge" }] },
+      { phase: "Fase 6", damage: "*", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillFreezingStatus" }, { name: "wbAokijiSkillIceBlockPillars" }, { name: "wbAokijiSkillIceBlockPheasantBeak" }] },
+      { phase: "Fase 7", damage: "*", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceBlockPillars" }, { name: "wbAokijiSkillIceBlockPheasantBeak", note: "wbAokijiNoteRightSide" }] },
+      { phase: "Fase 8", damage: "*", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceTime" }, { name: "wbAokijiSkillIceAge" }, { name: "wbAokijiSkillIceBlockPartisanMechanic" }, { name: "wbAokijiSkillIceBlockPheasantBeak", note: "wbAokijiNoteRightSide" }] },
+      { phase: "Fase 9", damage: "*", skills: [{ name: "wbAokijiSkillIceSaber" }, { name: "wbAokijiSkillIceBlockPartisan" }, { name: "wbAokijiSkillAntiRangedIce" }, { name: "wbAokijiSkillIceAge" }, { name: "wbAokijiSkillFreezingStatus" }, { name: "wbAokijiSkillIceBlockPillars" }, { name: "wbAokijiSkillIceBlockPheasantBeak", note: "wbAokijiNoteRightSide" }] },
     ],
     characters: {
       tank: [
@@ -666,33 +754,22 @@ const WB_BOSSES = {
         { id: "gecko_moria",      label: "Moria" },
       ],
     },
-    rewards: [
-      {
-        tier: "Top 1", damage: null, top1: true,
-        items: [
-          { itemKey: "exclusiveIcon",    count: 1,         icon: "sprites/world_bosses/aokiji/top_1_icon_aokiji.gif" },
-          { itemKey: "aokijiSword",      count: 1,         icon: "sprites/items/equipment/weapon/aokiji_sword.gif" },
-          { itemKey: "awakeningStones",  count: 8,         icon: "sprites/items/special/awakening_stone.png" },
-          { itemKey: "dynamicDiamondMedal", count: 2,      icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-          { itemKey: "key",              count: 1,         icon: "sprites/items/special/key.png" },
-          { itemKey: "berries",          count: "100.000", icon: null },
-          { itemKey: "glStaminaPotion",  count: 4,         icon: "sprites/items/special/gl_stamina_potion.png" },
-          { itemKey: "valorMedals",      count: 18,        icon: "sprites/items/special/valiance_medal.png" },
-          { itemKey: "aokijiArtifacts",  count: 10,        icon: "sprites/world_bosses/aokiji/artifact_aokiji.png" },
-        ],
+    rewards: buildRewards({
+      damages: ["23.500.000", "19.750.000", "16.000.000", "11.500.000", "8.000.000", "4.000.000", "50.000"],
+      artifactKey: "aokijiArtifacts",
+      artifactIcon: "sprites/world_bosses/aokiji/artifact_aokiji.png",
+      top1Icon: "sprites/world_bosses/aokiji/top_1_icon_aokiji.gif",
+      includeKidSet: false,
+      bonusItem: {
+        itemKey: "aokijiSword",
+        icon: "sprites/items/equipment/weapon/aokiji_sword.gif",
+        tiers: [0, 1, 2, 3, 4],
       },
-      { tier: "Tier 1", damage: "23.500.000", items: [{ itemKey: "aokijiSword", count: 1, icon: "sprites/items/equipment/weapon/aokiji_sword.gif" }, { itemKey: "awakeningStones", count: 8, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 2, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "30.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 18, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "aokijiArtifacts", count: 10, icon: "sprites/world_bosses/aokiji/artifact_aokiji.png" }] },
-      { tier: "Tier 2", damage: "19.750.000", items: [{ itemKey: "aokijiSword", count: 1, icon: "sprites/items/equipment/weapon/aokiji_sword.gif" }, { itemKey: "awakeningStones", count: 4, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "25.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 15, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "aokijiArtifacts", count: 5, icon: "sprites/world_bosses/aokiji/artifact_aokiji.png" }] },
-      { tier: "Tier 3", damage: "16.000.000", items: [{ itemKey: "aokijiSword", count: 1, icon: "sprites/items/equipment/weapon/aokiji_sword.gif" }, { itemKey: "awakeningStones", count: 2, icon: "sprites/items/special/awakening_stone.png" }, { itemKey: "dynamicDiamondMedal", count: 1, icon: "sprites/items/special/dynamic_diamond_medal.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "20.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 10, icon: "sprites/items/special/valiance_medal.png" }, { itemKey: "aokijiArtifacts", count: 1, icon: "sprites/world_bosses/aokiji/artifact_aokiji.png" }] },
-      { tier: "Tier 4", damage: "11.500.000",  items: [{ itemKey: "aokijiSword", count: 1, icon: "sprites/items/equipment/weapon/aokiji_sword.gif" }, { itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "15.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 5, icon: "sprites/items/special/valiance_medal.png" }] },
-      { tier: "Tier 5", damage: "8.000.000",    items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "10.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }, { itemKey: "valorMedals", count: 3, icon: "sprites/items/special/valiance_medal.png" }] },
-      { tier: "Tier 6", damage: "4.000.000",    items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "7.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-      { tier: "Tier 7", damage: "50.000",     items: [{ itemKey: "key", count: 1, icon: "sprites/items/special/key.png" }, { itemKey: "berries", count: "5.000", icon: null }, { itemKey: "glStaminaPotion", count: 4, icon: "sprites/items/special/gl_stamina_potion.png" }] },
-    ],
+    }),
   },
 };
 
-// â”€â”€â”€ per-boss mutable state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── per-boss mutable state ──────────────────────────────────
 
 const wbState = {
   shai_hulud:  { tableMode: "simple", activeSkill: "wbShaiSkillBasicAttack" },
@@ -706,110 +783,7 @@ const wbState = {
 
 let wbActiveBossId = "shai_hulud";
 
-// â”€â”€â”€ reward builder â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-
-function buildRewards(t1, t2, t3, t4, t5, t6, t7, artifactItemKey, bossIcon) {
-  const baseItems = [
-    { itemKey: "kidNecklace",  count: 1, icon: "sprites/icons/accessory/kid_necklace.gif" },
-    { itemKey: "kidCoat",      count: 1, icon: "sprites/icons/body/kid_jacket.gif" },
-    { itemKey: "kidPants",     count: 1, icon: "sprites/icons/legs/kid_pants.gif" },
-    { itemKey: "kidEmblem",    count: 1, icon: "sprites/icons/emblem/kid_emblem.gif" },
-    { itemKey: "kidGlasses",   count: 1, icon: "sprites/icons/head/kid_glasses.gif" },
-  ];
-
-  return [
-    {
-      tier: "Top 1", damage: null, top1: true,
-      items: [
-        { itemKey: "exclusiveIcon",       count: 1,         icon: bossIcon },
-        ...baseItems,
-        { itemKey: "awakeningStones",     count: 8,         icon: "sprites/items/special/awakening_stone.png" },
-        { itemKey: "dynamicDiamondMedal", count: 2,         icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-        { itemKey: "key",                 count: 1,         icon: "sprites/items/special/key.png" },
-        { itemKey: "berries",             count: "100.000", icon: null },
-        { itemKey: "glStaminaPotion",     count: 4,         icon: "sprites/items/special/gl_stamina_potion.png" },
-        { itemKey: "valorMedals",         count: 18,        icon: "sprites/items/special/valiance_medal.png" },
-        { itemKey: artifactItemKey,       count: 10,        icon: bossIcon },
-      ],
-    },
-    {
-      tier: "Tier 1", damage: t1,
-      items: [
-        ...baseItems,
-        { itemKey: "awakeningStones",     count: 8,        icon: "sprites/items/special/awakening_stone.png" },
-        { itemKey: "dynamicDiamondMedal", count: 2,        icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-        { itemKey: "key",                 count: 1,        icon: "sprites/items/special/key.png" },
-        { itemKey: "berries",             count: "30.000", icon: null },
-        { itemKey: "glStaminaPotion",     count: 4,        icon: "sprites/items/special/gl_stamina_potion.png" },
-        { itemKey: "valorMedals",         count: 18,       icon: "sprites/items/special/valiance_medal.png" },
-        { itemKey: artifactItemKey,       count: 10,       icon: bossIcon },
-      ],
-    },
-    {
-      tier: "Tier 2", damage: t2,
-      items: [
-        ...baseItems,
-        { itemKey: "awakeningStones",     count: 4,        icon: "sprites/items/special/awakening_stone.png" },
-        { itemKey: "dynamicDiamondMedal", count: 1,        icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-        { itemKey: "key",                 count: 1,        icon: "sprites/items/special/key.png" },
-        { itemKey: "berries",             count: "25.000", icon: null },
-        { itemKey: "glStaminaPotion",     count: 4,        icon: "sprites/items/special/gl_stamina_potion.png" },
-        { itemKey: "valorMedals",         count: 15,       icon: "sprites/items/special/valiance_medal.png" },
-        { itemKey: artifactItemKey,       count: 5,        icon: bossIcon },
-      ],
-    },
-    {
-      tier: "Tier 3", damage: t3,
-      items: [
-        ...baseItems,
-        { itemKey: "awakeningStones",     count: 2,        icon: "sprites/items/special/awakening_stone.png" },
-        { itemKey: "dynamicDiamondMedal", count: 1,        icon: "sprites/items/special/dynamic_diamond_medal.gif" },
-        { itemKey: "key",                 count: 1,        icon: "sprites/items/special/key.png" },
-        { itemKey: "berries",             count: "20.000", icon: null },
-        { itemKey: "glStaminaPotion",     count: 4,        icon: "sprites/items/special/gl_stamina_potion.png" },
-        { itemKey: "valorMedals",         count: 10,       icon: "sprites/items/special/valiance_medal.png" },
-        { itemKey: artifactItemKey,       count: 1,        icon: bossIcon },
-      ],
-    },
-    {
-      tier: "Tier 4", damage: t4,
-      items: [
-        ...baseItems,
-        { itemKey: "key",             count: 1,        icon: "sprites/items/special/key.png" },
-        { itemKey: "berries",         count: "15.000", icon: null },
-        { itemKey: "glStaminaPotion", count: 4,        icon: "sprites/items/special/gl_stamina_potion.png" },
-        { itemKey: "valorMedals",     count: 5,        icon: "sprites/items/special/valiance_medal.png" },
-      ],
-    },
-    {
-      tier: "Tier 5", damage: t5,
-      items: [
-        { itemKey: "key",             count: 1,        icon: "sprites/items/special/key.png" },
-        { itemKey: "berries",         count: "10.000", icon: null },
-        { itemKey: "glStaminaPotion", count: 4,        icon: "sprites/items/special/gl_stamina_potion.png" },
-        { itemKey: "valorMedals",     count: 3,        icon: "sprites/items/special/valiance_medal.png" },
-      ],
-    },
-    {
-      tier: "Tier 6", damage: t6,
-      items: [
-        { itemKey: "key",             count: 1,       icon: "sprites/items/special/key.png" },
-        { itemKey: "berries",         count: "7.000", icon: null },
-        { itemKey: "glStaminaPotion", count: 4,       icon: "sprites/items/special/gl_stamina_potion.png" },
-      ],
-    },
-    {
-      tier: "Tier 7", damage: t7,
-      items: [
-        { itemKey: "key",             count: 1,       icon: "sprites/items/special/key.png" },
-        { itemKey: "berries",         count: "5.000", icon: null },
-        { itemKey: "glStaminaPotion", count: 4,       icon: "sprites/items/special/gl_stamina_potion.png" },
-      ],
-    },
-  ];
-}
-
-// â”€â”€â”€ init â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── init ────────────────────────────────────────────────────
 
 function worldBossesInit(tabId = "shai_hulud") {
   const boss = WB_BOSSES[tabId];
@@ -878,7 +852,7 @@ function wbRenderHeaderTop1Icon(bossId = wbActiveBossId) {
   header.appendChild(top1Img);
 }
 
-// â”€â”€â”€ i18n resolution â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── i18n resolution ─────────────────────────────────────────
 
 // Strings starting with "wbXxx" are i18n keys; everything else is literal.
 function wbResolveText(value) {
@@ -888,7 +862,7 @@ function wbResolveText(value) {
   return value;
 }
 
-// â”€â”€â”€ phase table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── phase table ─────────────────────────────────────────────
 
 function wbRenderTable(bossId = wbActiveBossId) {
   const boss = WB_BOSSES[bossId];
@@ -978,7 +952,7 @@ function wbBuildMatrixTable(bossId) {
   return html;
 }
 
-// â”€â”€â”€ skill preview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── skill preview ───────────────────────────────────────────
 
 function wbRenderSkillPreview(bossId = wbActiveBossId) {
   const boss = WB_BOSSES[bossId];
@@ -999,7 +973,7 @@ function wbRenderSkillPreview(bossId = wbActiveBossId) {
   if (desc) desc.textContent = wbResolveText(descKeyOrText);
 }
 
-// â”€â”€â”€ characters â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── characters ──────────────────────────────────────────────
 
 function wbRenderCharacters(bossId = wbActiveBossId) {
   const boss = WB_BOSSES[bossId];
@@ -1031,7 +1005,7 @@ function wbRenderCharacters(bossId = wbActiveBossId) {
   el.innerHTML = html;
 }
 
-// â”€â”€â”€ rewards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── rewards ─────────────────────────────────────────────────
 
 function wbRenderRewards(bossId = wbActiveBossId) {
   const boss = WB_BOSSES[bossId];
@@ -1068,7 +1042,7 @@ function wbRenderRewards(bossId = wbActiveBossId) {
   el.innerHTML = html;
 }
 
-// â”€â”€â”€ events â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── events ──────────────────────────────────────────────────
 
 function wbBindEvents(bossId) {
   const boss      = WB_BOSSES[bossId];
@@ -1100,7 +1074,7 @@ function wbBindTableSkillClicks(bossId = wbActiveBossId) {
   });
 }
 
-// â”€â”€â”€ translations callback â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── translations callback ───────────────────────────────────
 // Called by lang.js applyTranslations() on every language change.
 // Re-renders every panel that has already been initialised so that
 // skill names, descriptions, and reward item labels update live.
@@ -1126,7 +1100,7 @@ function worldBossesApplyTranslations() {
   });
 }
 
-// â”€â”€â”€ sidebar folder toggle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── sidebar folder toggle ───────────────────────────────────
 
 function wbToggleFolder(btn) {
   const submenu = document.getElementById("wb-folder-submenu");
@@ -1136,7 +1110,7 @@ function wbToggleFolder(btn) {
   btn.setAttribute("aria-expanded", open ? "true" : "false");
 }
 
-// â”€â”€â”€ utils â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── utils ───────────────────────────────────────────────────
 
 function wbEscape(str) {
   return String(str)
@@ -1147,7 +1121,7 @@ function wbEscape(str) {
     .replace(/'/g,  "&#39;");
 }
 
-// â”€â”€â”€ boss icon modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── boss icon modal ────────────────────────────────────────
 
 let wbIconModalState = null;
 
@@ -1216,7 +1190,7 @@ function wbHandleIconClick(e) {
   openBossIconModal(imgSrc);
 }
 
-// â”€â”€â”€ ability gif modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── ability gif modal ──────────────────────────────────────
 
 let wbGifModalState = null;
 

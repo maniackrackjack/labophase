@@ -788,15 +788,6 @@ function trackerRecomputeBossRushUsage() {
   return trackerBossRushUsage;
 }
 
-function recomputeUsage() {
-  return trackerRecomputeBossRushUsage();
-}
-
-function renderBossRush() {
-  trackerNormalizeBossRushWaves();
-  trackerRenderBossRush();
-}
-
 function trackerRenderMarinefordKills() {
   const container = document.getElementById("tracker-mf-kills");
   if (!container) return;

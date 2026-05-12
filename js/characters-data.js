@@ -56,6 +56,7 @@ const CHARACTER_SPRITE_IDS = [
   "kuro",
   "kuroobi",
   "leo_mansherry",
+  "magellan",
   "marco",
   "margareth",
   "marshall_teach",
@@ -117,7 +118,7 @@ Aokiji (Kuzan / Blue Pheasant),Diamond,Diamond
 Jinbe (Jimbei / Knight of the Sea),Diamond,Diamond
 Arlong (Arlong the Saw),Silver,Gold
 Baby 5,Gold,Diamond
-Bartomolomeo (Barto),Gold,Diamond
+Bartolomeo (Barto),Gold,Diamond
 Bastille,Gold,Diamond
 Bellamy (Bellamy the Hyena),Gold,Diamond
 Bepo,Silver,Gold
@@ -131,7 +132,7 @@ Burgess (Jesus Burgess / Champion),Gold,Diamond
 Cabaji (Cabaji the Acrobat),Bronze,Silver
 Teach (Marshall / Black Beard / Barba Negra / Kurohige),Diamond,Diamond
 Carrot,Gold,Diamond
-Chew, Bronze,Silver
+Chew,Bronze,Silver
 Chopper (Tony Tony Chopper / Cotton Candy Lover),Gold,Gold
 Chopper TS (Monster Point Chopper / Timeskip),Diamond,Diamond
 Crocodile (Sir Crocodile / Mr. 0),Gold,Diamond
@@ -164,7 +165,7 @@ Kizaru (Borsalino / Yellow Monkey),Diamond,Diamond
 Koala,Gold,Diamond
 Kid (Eustass Kid / Captain Kid),Gold,Diamond
 Kuro (Captain Kuro),Silver,Gold
-Kuroobi, Bronze,Silver
+Kuroobi,Bronze,Silver
 Killer (Massacre Soldier),Gold,Diamond
 Leo (Leo the Tontatta),Gold,Diamond
 Lucci (Rob Lucci),Gold,Diamond
@@ -218,7 +219,6 @@ Zoro TS (Pirate Hunter / Timeskip),Diamond,Diamond`;
 
 const CHARACTER_NAME_TO_SPRITE_ID = {
   ace: "portgas_ace",
-  bartomolomeo: "bartolomeo",
   kuma: "bartholomew_kuma",
   buchi_sham: "bucchi_sham",
   burgess: "jesus_burgess",

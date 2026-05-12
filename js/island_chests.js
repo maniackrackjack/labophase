@@ -23,9 +23,9 @@ const ISLAND_CHEST_DATA = [
     nome: "Foosha Village",
     baus: [
       { id: 0, global: false, stamina: false, loot: "onigiri: 5" },
-      { id: 1, global: false, stamina: false, loot: "bandit_bandana: 1; small_xp_potion: 1; berry: 15" },
+      { id: 1, global: false, stamina: false, loot: "bandit_bandana: 1, small_xp_potion: 1, berry: 15" },
       { id: 2, global: false, stamina: false, loot: "banana: 5" },
-      { id: 3, global: false, stamina: false, loot: "leg_of_meat: 2; berry: 10" },
+      { id: 3, global: false, stamina: false, loot: "leg_of_meat: 2, berry: 10" },
       { id: 4, global: false, stamina: false, loot: "berry: 22" },
       { id: 5, global: true,  stamina: false, loot: "key: 10" }
     ]
@@ -345,7 +345,6 @@ const ISLAND_CHEST_ITEM_PRICES = {
   refined_gun_powder: 130,
   repair_kit_1: 10,
   repair_kit_2: 40,
-  repair_kit_3: 80,
   repair_kit_6: 260,
   rifle: 80,
   spider_talisman: 2250,
@@ -1108,7 +1107,7 @@ function icRenderIslandChests() {
   const hasAnyPerCharacterChest = selectedIslandNames.some((islandName) => (perCharBausByIsland[islandName] || []).length > 0);
 
   let html = `<div class="ic-scroll-top-wrap">
-    <div class="ic-scroll-top" aria-label="Island horizontal scrollbar">
+    <div class="ic-scroll-top" aria-label="${t("icHorizontalScrollbarAria")}">
       <div class="ic-scroll-top-inner"></div>
     </div>
   </div>
@@ -1804,140 +1803,3 @@ function applyIslandChestsState(state) {
   }
 }
 
-// ---- Island Chests-specific profile management ----
-const IC_PROFILES_LS_KEY = "labophase.island_chests.profiles";
-const IC_CURRENT_PROFILE_KEY = "labophase.island_chests.currentProfile";
-
-function icGetProfiles() {
-  if (!storage) return {};
-  try {
-    const raw = storage.getItem(IC_PROFILES_LS_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch (_) {
-    return {};
-  }
-}
-
-function icSetProfiles(profiles) {
-  if (!storage) return;
-  try {
-    storage.setItem(IC_PROFILES_LS_KEY, JSON.stringify(profiles));
-  } catch (_) {}
-}
-
-function icGetCurrentProfile() {
-  if (!storage) return "default";
-  return storage.getItem(IC_CURRENT_PROFILE_KEY) || "default";
-}
-
-function icSetCurrentProfile(name) {
-  if (!storage) return;
-  storage.setItem(IC_CURRENT_PROFILE_KEY, name);
-}
-
-function icProfileUpdateDropdown() {
-  const select = document.getElementById("ic-profile-select");
-  const controls = document.getElementById("ic-profile-controls");
-  if (!select || !controls) return;
-
-  const profiles = icGetProfiles();
-  const names = Object.keys(profiles).sort();
-
-  select.innerHTML = '<option value="" disabled selected hidden data-lang="selectProfile">Selecione um perfil</option>';
-
-  if (names.length === 0) {
-    const opt = document.createElement("option");
-    opt.value = "default";
-    opt.textContent = "default";
-    select.appendChild(opt);
-  } else {
-    names.forEach((name) => {
-      const opt = document.createElement("option");
-      opt.value = name;
-      opt.textContent = name;
-      select.appendChild(opt);
-    });
-  }
-
-  const current = icGetCurrentProfile();
-  if (select.querySelector(`option[value="${current}"]`)) {
-    select.value = current;
-  } else {
-    select.value = names.length > 0 ? names[0] : "default";
-  }
-
-  // Show controls only if there are profiles
-  controls.style.display = names.length > 0 ? "flex" : "none";
-}
-
-function icProfileSave() {
-  const profiles = icGetProfiles();
-  const current = icGetCurrentProfile();
-  profiles[current] = getIslandChestsState();
-  icSetProfiles(profiles);
-  showToast(t("saveProfileSuccess"));
-}
-
-function icProfileCreate() {
-  const name = prompt(t("profileNamePrompt"))?.trim();
-  if (!name) return;
-
-  const profiles = icGetProfiles();
-  if (profiles[name]) {
-    const overwrite = confirm(t("profileExistsConfirm").replace("{name}", name));
-    if (!overwrite) return;
-  }
-
-  profiles[name] = getIslandChestsState();
-  icSetProfiles(profiles);
-  icSetCurrentProfile(name);
-  icProfileUpdateDropdown();
-  showToast(t("profileCreated"));
-}
-
-function icProfileDelete() {
-  const current = icGetCurrentProfile();
-  if (!current || current === "default") return;
-
-  const confirm_delete = confirm(t("profileDeleteConfirm").replace("{name}", current));
-  if (!confirm_delete) return;
-
-  const profiles = icGetProfiles();
-  delete profiles[current];
-  icSetProfiles(profiles);
-
-  const remaining = Object.keys(profiles).sort();
-  const next = remaining.length > 0 ? remaining[0] : "default";
-  icSetCurrentProfile(next);
-  icProfileUpdateDropdown();
-
-  if (next === "default") {
-    applyIslandChestsState(null);
-  } else {
-    applyIslandChestsState(profiles[next]);
-  }
-
-  showToast(t("profileDeleted"));
-}
-
-function icProfileSwitch() {
-  const select = document.getElementById("ic-profile-select");
-  if (!select) return;
-
-  const name = select.value;
-  if (!name) return;
-
-  // Save current state before switching
-  const profiles = icGetProfiles();
-  const current = icGetCurrentProfile();
-  profiles[current] = getIslandChestsState();
-  icSetProfiles(profiles);
-
-  icSetCurrentProfile(name);
-
-  if (name === "default") {
-    applyIslandChestsState(null);
-  } else {
-    applyIslandChestsState(profiles[name]);
-  }
-}
