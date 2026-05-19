@@ -362,6 +362,13 @@
   }
 
   .boost-table {
-    min-width: 620px;
+    min-width: 520px;
+    font-size: 11px;
+  }
+
+  .boost-table th,
+  .boost-table td {
+    padding: 4px 5px;
+    font-size: 11px;
   }
 }

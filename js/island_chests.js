@@ -1351,7 +1351,10 @@ function icAttachTopScrollbar(container) {
       ro.observe(tableWrap);
     }
 
-    window.addEventListener("resize", updateWidth);
+    window.addEventListener(
+      "resize",
+      typeof rafThrottle === "function" ? rafThrottle(updateWidth) : updateWidth
+    );
   });
 }
 

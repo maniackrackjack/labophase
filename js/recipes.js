@@ -324,7 +324,10 @@ function recipesSetupListeners() {
 
 // ---- Init ----
 
+let _recipesInitDone = false;
 function recipesInit() {
+  if (_recipesInitDone) return;
+  _recipesInitDone = true;
   recipesBuildList();
   recipesSetupListeners();
   recipesApplyTranslations();

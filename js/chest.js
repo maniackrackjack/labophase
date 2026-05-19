@@ -305,5 +305,8 @@ function chestInit() {
   const tabIcon = document.getElementById("ch-tab-icon");
   if (tabIcon) tabIcon.src = chestGetSprites().chestClosed;
 
-  window.addEventListener("resize", chestLayoutTorches);
+  window.addEventListener(
+    "resize",
+    typeof rafThrottle === "function" ? rafThrottle(chestLayoutTorches) : chestLayoutTorches
+  );
 }

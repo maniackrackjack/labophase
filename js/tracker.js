@@ -628,7 +628,10 @@ function trackerInit() {
     }
 
     if (omaSearch) {
-      omaSearch.addEventListener("input", () => trackerRenderOneManArmy());
+      const debouncedOma = (typeof debounce === "function"
+        ? debounce(() => trackerRenderOneManArmy(), 140)
+        : () => trackerRenderOneManArmy());
+      omaSearch.addEventListener("input", debouncedOma);
     }
 
     if (omaHideDoneBtn) {

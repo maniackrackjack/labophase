@@ -145,6 +145,29 @@
   min-width: 920px;
 }
 
+@media (max-width: 760px) {
+  .wanted-table {
+    min-width: 640px;
+    font-size: 12px;
+  }
+
+  .wanted-table th,
+  .wanted-table td {
+    padding: 5px 6px;
+    font-size: 12px;
+  }
+
+  .wanted-person img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .wanted-person-main img {
+    width: 38px;
+    height: 38px;
+  }
+}
+
 .wanted-table th,
 .wanted-table td {
   border: 1px solid var(--border-accent);
@@ -674,12 +697,24 @@
     grid-template-columns: 1fr;
   }
 
+  #wanted-tier-target-select,
+  #wanted-tier-search-input,
+  #wanted-rows-target-select,
+  #wanted-rows-search-input {
+    min-width: 0;
+    width: 100%;
+  }
+
   .wanted-tier-layout {
     grid-template-columns: 1fr;
   }
 
   #wanted-tier-pool {
     max-height: 260px;
+  }
+
+  .wanted-tier-pool-wrap {
+    position: static;
   }
 
   .wanted-tier-row {
@@ -695,8 +730,22 @@
     font-size: 18px;
   }
 
+  /* Default cards (rows-pool / matchups) stay auto-sized; only the long horizontal
+     "is-rows"/"is-tier" already squares stay at 90px. The previous 100% blew them up. */
   .wanted-tier-card {
-    width: 100%;
+    width: auto;
+  }
+
+  .wanted-tier-card.is-rows,
+  .wanted-tier-card.is-tier {
+    width: 78px;
+    height: 78px;
+  }
+
+  .wanted-tier-card.is-rows img:not(.wanted-weapon-overlay),
+  .wanted-tier-card.is-tier img:not(.wanted-weapon-overlay) {
+    width: 44px;
+    height: 44px;
   }
 }
 

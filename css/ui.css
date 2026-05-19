@@ -37,6 +37,28 @@
   z-index: 1800;
 }
 
+@media (max-width: 640px) {
+  .update-warning-overlay {
+    padding: 12px;
+  }
+
+  .update-warning-brand {
+    top: -42px;
+    left: 0;
+    width: 56px;
+    height: 56px;
+  }
+
+  .update-warning-modal {
+    padding: 14px 14px 12px;
+  }
+
+  .update-warning-modal h3 {
+    font-size: 1rem;
+    margin-top: 18px;
+  }
+}
+
 .update-warning-overlay[hidden] {
   display: none !important;
 }

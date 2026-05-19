@@ -131,3 +131,24 @@
   padding: 28px 0;
   font-size: 14px;
 }
+
+@media (max-width: 640px) {
+  .foxy-quiz-panel {
+    padding: 6px;
+  }
+
+  .foxy-quiz-banner img {
+    max-width: 220px;
+  }
+
+  .foxy-quiz-sentence {
+    padding: 8px 10px;
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .foxy-quiz-icon {
+    width: 24px;
+    height: 24px;
+  }
+}

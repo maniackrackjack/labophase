@@ -683,3 +683,22 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 520px) {
+  .tracker-subtabs {
+    grid-template-columns: 1fr;
+  }
+
+  .tracker-panel {
+    padding: 6px;
+  }
+
+  .tracker-br-grid {
+    justify-content: center;
+  }
+
+  .tracker-br-card {
+    min-width: 130px;
+    max-width: 100%;
+  }
+}

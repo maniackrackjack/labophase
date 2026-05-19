@@ -1010,6 +1010,72 @@ body {
   width: 100%;
 }
 
+/* iOS auto-zoom prevention: any <input>/<select>/<textarea> with
+   font-size < 16px causes Mobile Safari to zoom in when focused.
+   Bump everything to 16px on coarse pointers — the visual size barely
+   changes (the parent UI is already touch-sized), and the zoom-jump
+   that breaks layout on iPhone is gone. */
+@media (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* TOUCH DRAG GHOST */
+
+.touch-drag-ghost {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Draggable cards should be considered "single-action" on touch — the
+   touch_dnd shim handles vertical scroll via the long-press model, but
+   we still want a faster tap response and no double-tap zoom. */
+@media (pointer: coarse) {
+  [draggable="true"] {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* MOBILE HAMBURGER (only renders on mobile) */
+
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: calc(8px + env(safe-area-inset-top, 0px));
+  right: calc(8px + env(safe-area-inset-right, 0px));
+  z-index: 2500;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--border-accent);
+  background: var(--bg-sidebar);
+  color: var(--text-title);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu-toggle:focus-visible {
+  outline: 2px solid var(--input-focus);
+  outline-offset: 2px;
+}
+
+.mobile-menu-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1900;
+}
+
 /* MOBILE */
 
 @media (max-width: 980px) {
@@ -1017,48 +1083,80 @@ body {
     flex-direction: column;
   }
 
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+
+  body.mobile-menu-open .mobile-menu-backdrop {
+    display: block;
+  }
+
+  body.mobile-menu-open {
+    overflow: hidden;
+    overscroll-behavior: contain;
+  }
+
+  body.mobile-menu-open .content {
+    /* Keep the underlying scroll position visually stable while the
+       drawer is open — iOS Safari otherwise lets the body rubber-band */
+    pointer-events: none;
+  }
+
   .sidebar {
-    width: auto !important;
-    position: static;
-    top: auto;
-    height: auto;
-    min-height: auto;
-    border-right: none;
-    border-bottom: 4px solid var(--border-accent);
-    padding: 8px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 0;
-    transition: none;
-    overflow: visible;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: min(82vw, 320px) !important;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    z-index: 2000;
+    border-right: 4px solid var(--border-accent);
+    border-bottom: none;
+    padding: 10px;
+    padding-top: calc(10px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    padding-left: calc(10px + env(safe-area-inset-left, 0px));
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 6px;
+    transform: translateX(-100%);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
+    box-shadow: 6px 0 24px rgba(0, 0, 0, 0.5);
+  }
+
+  body.mobile-menu-open .sidebar {
+    transform: translateX(0);
   }
 
   .sidebar-top {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 4px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: 6px;
     width: 100%;
-    overflow: visible;
-    padding-right: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 14px;
+    min-height: 0;
+    flex: 1;
   }
 
   .sidebar-bottom {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    display: block;
     border-top: 1px solid var(--border-soft);
-    padding-top: 6px;
-    margin-top: 4px;
+    padding-top: 8px;
+    margin-top: 8px;
   }
 
   .sidebar-logo {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding: 2px 4px;
+    border-bottom: 1px solid var(--border-soft);
+    margin-bottom: 6px;
+    padding: 4px 2px 10px;
   }
 
   .sidebar-toggle {
@@ -1066,12 +1164,16 @@ body {
   }
 
   .tabBtn {
-    width: auto;
+    width: 100%;
     flex: 0 0 auto;
     margin-bottom: 0;
   }
 
-  /* Override collapsed-state hiding on mobile — always show labels */
+  /* The collapsed state is disabled on mobile — the drawer handles it instead */
+  .sidebar.collapsed {
+    width: min(82vw, 320px) !important;
+  }
+
   .sidebar.collapsed .logo-text,
   .sidebar.collapsed .tab-label,
   .sidebar.collapsed .footer-dev {
@@ -1102,30 +1204,47 @@ body {
     display: inline !important;
   }
 
+  .sidebar.collapsed .profile-btn-meta,
+  .sidebar.collapsed .profile-btn-color {
+    display: flex;
+  }
+
+  .sidebar.collapsed .themePickerActiveName {
+    display: block;
+  }
+
+  .sidebar.collapsed .themePickerToggle {
+    width: 100%;
+    min-height: auto;
+    grid-template-columns: 12px minmax(0, 1fr);
+    justify-items: stretch;
+    gap: 8px;
+    padding: 5px 9px;
+    border-radius: 999px;
+  }
+
   .langSelector {
     display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .langButtons {
     flex-direction: row;
-    align-items: center;
-    gap: 8px;
     flex-wrap: wrap;
   }
 
   .themeSelector {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 6px;
     width: 100%;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   .themePreview {
-    display: block;
-    flex: 1;
-    min-width: 0;
+    width: 100%;
   }
-
 
   .sidebar-footer {
     flex-direction: row;
@@ -1145,7 +1264,9 @@ body {
   }
 
   .content {
-    padding: 10px;
+    padding: 12px 10px;
+    padding-top: calc(60px + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
   }
 }
 

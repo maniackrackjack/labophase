@@ -352,8 +352,33 @@
 /* Responsive */
 
 @media (max-width: 600px) {
+  .mf-panel {
+    padding: 10px;
+    gap: 14px;
+  }
+
+  .mf-boss-header {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .mf-boss-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mf-boss-title {
+    font-size: 1.15rem;
+  }
+
+  .mf-credits {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
   .mf-skills-list {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .mf-skill-video {
@@ -364,5 +389,10 @@
   .mf-skill-img {
     max-width: 160px;
     max-height: 140px;
+  }
+
+  .mf-modal-video {
+    max-width: 94vw;
+    max-height: 55vh;
   }
 }

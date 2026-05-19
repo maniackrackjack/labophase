@@ -12,6 +12,15 @@
   overflow: hidden;
 }
 
+@media (max-width: 980px) {
+  #island_chests {
+    height: auto;
+    min-height: calc(100vh - 80px);
+    min-height: calc(100dvh - 80px);
+    overflow: visible;
+  }
+}
+
 /* ---- Layout: sidebar + main ---- */
 .ic-layout {
   display: flex;
@@ -874,6 +883,20 @@
 }
 
 /* ---- Responsive ---- */
+@media (max-width: 980px) {
+  .ic-layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  .ic-main {
+    height: auto;
+    overflow-y: visible;
+    padding: 12px;
+  }
+}
+
 @media (max-width: 640px) {
   .ic-sidebar {
     width: 100%;
@@ -898,10 +921,6 @@
     white-space: nowrap;
   }
 
-  .ic-layout {
-    flex-direction: column;
-  }
-
   .ic-island-btn {
     flex-direction: column;
     align-items: center;
@@ -918,7 +937,7 @@
   }
 
   .ic-island-panel {
-    width: calc(100vw - 32px);
-    min-width: calc(100vw - 32px);
+    width: calc(100vw - 28px);
+    min-width: calc(100vw - 28px);
   }
 }

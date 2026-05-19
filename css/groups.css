@@ -212,4 +212,11 @@
     width: 100%;
     justify-content: flex-start;
   }
+
+  /* Larger touch target for the drag handle on mobile */
+  .groupDragHandle {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
 }

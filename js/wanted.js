@@ -103,7 +103,10 @@ function wantedInit() {
     input.dataset.wantedBound = "1";
     sortSelect.dataset.wantedBound = "1";
 
-    input.addEventListener("input", () => wantedRenderRows(input.value));
+    const debouncedRender = (typeof debounce === "function"
+      ? debounce(() => wantedRenderRows(input.value), 140)
+      : () => wantedRenderRows(input.value));
+    input.addEventListener("input", debouncedRender);
     sortSelect.addEventListener("change", () => wantedRenderRows(input.value));
 
     const rowsTargetSelect = document.getElementById("wanted-rows-target-select");
@@ -113,7 +116,10 @@ function wantedInit() {
     const rowsResetBtn = document.getElementById("wanted-rows-reset-btn");
 
     if (rowsSearchInput) {
-      rowsSearchInput.addEventListener("input", () => wantedRenderRowsMode());
+      const debouncedRowsRender = (typeof debounce === "function"
+        ? debounce(() => wantedRenderRowsMode(), 140)
+        : () => wantedRenderRowsMode());
+      rowsSearchInput.addEventListener("input", debouncedRowsRender);
     }
     if (rowsAddBtn && rowsTargetSelect) {
       rowsAddBtn.addEventListener("click", () => wantedAddWantedRow(rowsTargetSelect.value));

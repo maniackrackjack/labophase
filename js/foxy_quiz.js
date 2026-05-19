@@ -194,7 +194,10 @@ async function foxyQuizInit() {
     const input  = document.getElementById("foxy-quiz-input");
     const weekly = document.getElementById("foxy-quiz-weekly-checkbox");
     if (input) {
-      input.addEventListener("input", foxyQuizUpdateResults);
+      const debouncedFoxy = (typeof debounce === "function"
+        ? debounce(foxyQuizUpdateResults, 140)
+        : foxyQuizUpdateResults);
+      input.addEventListener("input", debouncedFoxy);
     }
     if (weekly) {
       weekly.addEventListener("change", () => {

@@ -630,6 +630,13 @@
   border-radius: 3px;
 }
 
+/* ---- Pickr popover constraint on small viewports ---- */
+@media (max-width: 480px) {
+  .pcr-app[data-theme] {
+    max-width: calc(100vw - 24px) !important;
+  }
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 480px) {

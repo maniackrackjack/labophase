@@ -571,11 +571,24 @@
 /* Section */
 
 @media (max-width: 980px) {
+  /* Drawer sidebar is column-flow, so submenus stay column too */
   .wb-folder-submenu {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-left: 0;
-    gap: 4px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-left: 14px;
+    gap: 6px;
+  }
+
+  /* If a leftover .collapsed class from desktop is present, undo the
+     icon-only collapsed treatment for folder buttons inside the drawer */
+  .sidebar.collapsed .wb-folder-btn {
+    justify-content: flex-start;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .sidebar.collapsed .wb-folder-arrow {
+    display: inline-block;
   }
 }
 
@@ -623,6 +636,37 @@
 @media (max-width: 780px) {
   .wb-bottom-section {
     grid-template-columns: 1fr;
+  }
+
+  .wb-skill-gif {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .wb-skill-preview {
+    aspect-ratio: auto;
+  }
+
+  .wb-boss-header {
+    flex-wrap: wrap;
+    padding-right: 0;
+  }
+
+  .wb-boss-top1-icon {
+    position: static;
+    width: 40px;
+    height: 40px;
+  }
+
+  .wb-boss-title {
+    font-size: 1.2rem;
+  }
+
+  .wb-panel {
+    padding: 12px;
+    gap: 14px;
   }
 }
 

@@ -90,6 +90,17 @@ function switchTab(tab, btn) {
   if (tab === "tierlist" && typeof tierlistInit === "function") {
     tierlistInit();
   }
+
+  // Lazy init fallback for tabs initialised on idle callback —
+  // ensures the panel is populated even if the user clicks before
+  // the idle init has fired (cheap on second visit thanks to the
+  // dataset.*Bound guards inside each init).
+  if (tab === "receitas"      && typeof recipesInit      === "function") recipesInit();
+  if (tab === "chest"         && typeof chestInit        === "function") chestInit();
+  if (tab === "boost"         && typeof boostInit        === "function") boostInit();
+  if (tab === "xp"            && typeof xpInit           === "function") xpInit();
+  if (tab === "wanted"        && typeof wantedInit       === "function") wantedInit();
+  if (tab === "weekly_chest"  && typeof weeklyChestInit  === "function") weeklyChestInit();
 }
 
 function showToast(message, duration = 2500) {
@@ -258,8 +269,16 @@ function initSidebarCompactTooltips() {
   if (document.body.dataset.sidebarCompactTipsBound === '1') return;
   document.body.dataset.sidebarCompactTipsBound = '1';
 
+  // Debounce resize via rAF — refresh fires at most once per frame
+  // instead of per resize event (Safari can emit dozens during a drag).
+  let pending = false;
   window.addEventListener('resize', () => {
-    refreshSidebarCompactTooltips();
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(() => {
+      pending = false;
+      refreshSidebarCompactTooltips();
+    });
   });
 }
 
@@ -274,8 +293,74 @@ function toggleSidebar() {
   } catch (e) {}
 }
 
+function openMobileMenu() {
+  document.body.classList.add('mobile-menu-open');
+  var toggle = document.getElementById('mobile-menu-toggle');
+  if (toggle) {
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.textContent = '✕'; // ✕
+  }
+}
+
+function closeMobileMenu() {
+  document.body.classList.remove('mobile-menu-open');
+  var toggle = document.getElementById('mobile-menu-toggle');
+  if (toggle) {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = '☰'; // ☰
+  }
+}
+
+function toggleMobileMenu() {
+  if (document.body.classList.contains('mobile-menu-open')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+function initMobileMenuAutoClose() {
+  if (document.body.dataset.mobileMenuBound === '1') return;
+  document.body.dataset.mobileMenuBound = '1';
+
+  var sidebar = document.getElementById('sidebar');
+  if (!sidebar) return;
+
+  // Close the drawer whenever the user picks a tab (or any element that switches view)
+  sidebar.addEventListener('click', function (e) {
+    if (window.innerWidth > 980) return;
+    var target = e.target.closest('.tabBtn, .wb-child-tab');
+    if (!target) return;
+    // Folder buttons toggle a submenu — they shouldn't close the drawer
+    if (target.classList.contains('wb-folder-btn')) return;
+    closeMobileMenu();
+  });
+
+  // Close with Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('mobile-menu-open')) {
+      closeMobileMenu();
+    }
+  });
+
+  // If viewport grows back to desktop while drawer is open, close it.
+  // rAF-debounced — resize fires at high frequency during drag-resize.
+  let resizePending = false;
+  window.addEventListener('resize', function () {
+    if (resizePending) return;
+    resizePending = true;
+    requestAnimationFrame(function () {
+      resizePending = false;
+      if (window.innerWidth > 980 && document.body.classList.contains('mobile-menu-open')) {
+        closeMobileMenu();
+      }
+    });
+  });
+}
+
 function initSidebarState() {
   initSidebarCompactTooltips();
+  initMobileMenuAutoClose();
   try {
     if (localStorage.getItem('glac_sidebar_collapsed') === '1' && window.innerWidth > 980) {
       var sidebar = document.getElementById('sidebar');

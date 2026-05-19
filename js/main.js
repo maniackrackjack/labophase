@@ -235,25 +235,29 @@ if (itemsArea) {
   recalc();
 }
 
-// Initialize recipes tab
-recipesInit();
+// Defer the initializers for tabs the user can't see yet until the
+// browser is idle. The default `calc` tab is already wired up above;
+// everything else only needs to be ready by the time the user clicks
+// its sidebar entry, which gives us a free window to spread the work
+// out and avoid jank during the first paint.
+const _idle = typeof window.requestIdleCallback === "function"
+  ? (fn) => window.requestIdleCallback(fn, { timeout: 1500 })
+  : (fn) => setTimeout(fn, 1);
 
-// Initialize chest puzzle tab
-chestInit();
+_idle(() => {
+  if (typeof recipesInit       === "function") recipesInit();
+  if (typeof chestInit         === "function") chestInit();
+  if (typeof boostInit         === "function") boostInit();
+  if (typeof xpInit            === "function") xpInit();
+});
 
-// Initialize boost tab
-boostInit();
+_idle(() => {
+  if (typeof wantedInit        === "function") wantedInit();
+  if (typeof tierlistInit      === "function") tierlistInit();
+  if (typeof worldBossesInit   === "function") worldBossesInit();
+});
 
-// Initialize XP tab
-xpInit();
-
-// Characters tab is initialized before state load
-
-// Initialize Wanted tab
-wantedInit();
-if (typeof tierlistInit === "function") tierlistInit();
-if (typeof worldBossesInit === "function") worldBossesInit();
-
-// Initialize Tracker tab
-if (typeof trackerInit === "function") trackerInit();
-if (typeof weeklyChestInit === "function") weeklyChestInit();
+_idle(() => {
+  if (typeof trackerInit       === "function") trackerInit();
+  if (typeof weeklyChestInit   === "function") weeklyChestInit();
+});

@@ -439,6 +439,7 @@
 
   .characters-filter-bar {
     grid-template-columns: 1fr;
+    padding: 10px;
   }
 
   .characters-summary {
@@ -447,6 +448,19 @@
   }
 
   .characters-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .characters-card {
+    min-height: 220px;
+  }
+
+  .characters-card-sprite-wrap {
+    min-height: 96px;
+  }
+
+  .characters-card-sprite {
+    max-height: 96px;
   }
 }

@@ -45,16 +45,19 @@ function openVariantSelector(cardId, category, event) {
 
   // Prefer wider grids for weapons to avoid long vertical lists
   const variantCount = variantKeys.length;
+  const isNarrow = window.innerWidth <= 480;
   let columns = 3;
   if (category === 'weapon') {
-    columns = 5;
+    columns = isNarrow ? 4 : 5;
   } else if (variantCount > 16) {
-    columns = 5;
+    columns = isNarrow ? 4 : 5;
   } else if (variantCount > 12) {
-    columns = 4;
+    columns = isNarrow ? 3 : 4;
+  } else if (isNarrow) {
+    columns = Math.min(3, columns);
   }
   grid.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-  selector.style.minWidth = `${Math.max(260, columns * 68)}px`;
+  selector.style.minWidth = `${Math.max(isNarrow ? 200 : 260, columns * 64)}px`;
   
   variantKeys.forEach((variantId) => {
     const variant = variants[variantId];
@@ -82,31 +85,33 @@ function openVariantSelector(cardId, category, event) {
   const card = document.getElementById(cardId);
   const rect = card.getBoundingClientRect();
   
-  // Calculate position (prefer right of card, but adjust if off-screen)
-  let left = rect.right + 10;
-  let top = rect.top;
-  
-  // Adjust if goes beyond right edge
-  if (left + selectorRect.width > window.innerWidth - 10) {
-    // Try to position on left side of card
-    left = rect.left - selectorRect.width - 10;
-    
-    // If still off-screen, push to center with padding
-    if (left < 10) {
-      left = Math.max(10, (window.innerWidth - selectorRect.width) / 2);
+  // On narrow viewports, centre the popup over the card instead of
+  // trying to dock it to one side — there is no room on either side
+  // and a centred sheet is easier to interact with.
+  let left;
+  let top;
+  if (isNarrow) {
+    left = Math.max(10, (window.innerWidth  - selectorRect.width)  / 2);
+    top  = Math.max(10, (window.innerHeight - selectorRect.height) / 2);
+  } else {
+    left = rect.right + 10;
+    top  = rect.top;
+
+    if (left + selectorRect.width > window.innerWidth - 10) {
+      left = rect.left - selectorRect.width - 10;
+      if (left < 10) {
+        left = Math.max(10, (window.innerWidth - selectorRect.width) / 2);
+      }
+    }
+
+    if (top + selectorRect.height > window.innerHeight - 10) {
+      top = Math.max(10, window.innerHeight - selectorRect.height - 10);
+    }
+    if (top < 10) {
+      top = 10;
     }
   }
-  
-  // Adjust if goes beyond bottom edge
-  if (top + selectorRect.height > window.innerHeight - 10) {
-    top = Math.max(10, window.innerHeight - selectorRect.height - 10);
-  }
-  
-  // Ensure top is also not too high
-  if (top < 10) {
-    top = 10;
-  }
-  
+
   selector.style.top = top + 'px';
   selector.style.left = left + 'px';
   

@@ -358,3 +358,57 @@
   font-size: 14px;
   padding: 20px 0;
 }
+
+@media (max-width: 640px) {
+  .wc-panel {
+    padding: 6px;
+  }
+
+  .wc-chests-section {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .wc-chest-char-sprite-wrap {
+    width: 52px;
+    height: 52px;
+  }
+
+  .wc-chest-char-name {
+    max-width: 56px;
+    font-size: 9px;
+  }
+
+  .wc-controls-row {
+    gap: 8px;
+  }
+
+  .wc-search-wrap,
+  .wc-sort-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #wc-sort-select {
+    width: 100%;
+  }
+
+  .wc-char-sprite-wrap {
+    width: 72px;
+    height: 72px;
+  }
+
+  .wc-char-name {
+    max-width: 72px;
+    font-size: 10px;
+  }
+
+  .wc-grid {
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .wc-credits {
+    font-size: 15px;
+  }
+}

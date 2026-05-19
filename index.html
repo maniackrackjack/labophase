@@ -13,7 +13,16 @@
 
     <meta charset="UTF-8" />
     <title data-lang="title">Labophase</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <!-- Resource hints — establish CDN sockets in parallel with HTML parse -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <!-- Theme color drives the iOS Safari status-bar tint to match the page -->
+    <meta name="theme-color" content="#2a1a0e" />
+    <meta name="color-scheme" content="dark" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="sprites/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="sprites/favicon/favicon-32x32.png" />
@@ -47,6 +56,8 @@
   </head>
 
   <body>
+    <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" onclick="toggleMobileMenu()" aria-label="Menu" aria-controls="sidebar" aria-expanded="false" title="Menu">☰</button>
+    <div id="mobile-menu-backdrop" class="mobile-menu-backdrop" onclick="closeMobileMenu()" aria-hidden="true"></div>
     <div class="app">
       <div class="sidebar" id="sidebar">
         <div class="sidebar-top">
@@ -1688,43 +1699,48 @@
       </div>
     </div>
 
-    <script src="js/data.js"></script>
-    <script src="js/items.js"></script>
-    <script src="js/lang.js"></script>
-    <script src="js/update_warning_content.js"></script>
-    <script src="js/update_warning.js"></script>
-    <script src="js/rarity.js"></script>
-    <script src="js/combos.js"></script>
-    <script src="js/dnd.js"></script>
-    <script src="js/cards.js"></script>
-    <script src="js/color_picker_factory.js"></script>
-    <script src="js/groups.js"></script>
-    <script src="js/profiles.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/tables.js"></script>
-    <script src="js/recipes-data.js"></script>
-    <script src="js/recipes.js"></script>
-    <script src="js/chest.js"></script>
-    <script src="js/boost.js"></script>
-    <script src="js/xp.js"></script>
-    <script src="js/characters-data.js"></script>
-    <script src="js/characters.js"></script>
-    <script src="js/foxy_quiz.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script src="js/tracker.js"></script>
-    <script src="js/boats-data.js"></script>
-    <script src="js/boats.js"></script>
-    <script src="js/wanted-data.js"></script>
-    <script src="js/wanted.js"></script>
-    <script src="js/tierlist.js"></script>
-    <script src="js/world_bosses.js"></script>
-    <script src="js/marineford.js"></script>
-    <script src="js/weekly_bosses.js"></script>
-    <script src="js/island_chests.js"></script>
-    <script src="js/weekly_chest.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <!-- All app scripts deferred — downloaded in parallel during HTML parse,
+         executed in source order after DOMContentLoaded -->
+    <script defer src="js/debounce.js"></script>
+    <script defer src="js/lazy_images.js"></script>
+    <script defer src="js/data.js"></script>
+    <script defer src="js/items.js"></script>
+    <script defer src="js/lang.js"></script>
+    <script defer src="js/update_warning_content.js"></script>
+    <script defer src="js/update_warning.js"></script>
+    <script defer src="js/rarity.js"></script>
+    <script defer src="js/combos.js"></script>
+    <script defer src="js/dnd.js"></script>
+    <script defer src="js/touch_dnd.js"></script>
+    <script defer src="js/cards.js"></script>
+    <script defer src="js/color_picker_factory.js"></script>
+    <script defer src="js/groups.js"></script>
+    <script defer src="js/profiles.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/tables.js"></script>
+    <script defer src="js/recipes-data.js"></script>
+    <script defer src="js/recipes.js"></script>
+    <script defer src="js/chest.js"></script>
+    <script defer src="js/boost.js"></script>
+    <script defer src="js/xp.js"></script>
+    <script defer src="js/characters-data.js"></script>
+    <script defer src="js/characters.js"></script>
+    <script defer src="js/foxy_quiz.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script defer src="js/tracker.js"></script>
+    <script defer src="js/boats-data.js"></script>
+    <script defer src="js/boats.js"></script>
+    <script defer src="js/wanted-data.js"></script>
+    <script defer src="js/wanted.js"></script>
+    <script defer src="js/tierlist.js"></script>
+    <script defer src="js/world_bosses.js"></script>
+    <script defer src="js/marineford.js"></script>
+    <script defer src="js/weekly_bosses.js"></script>
+    <script defer src="js/island_chests.js"></script>
+    <script defer src="js/weekly_chest.js"></script>
+    <script defer src="js/theme.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
   </body>
 </html>

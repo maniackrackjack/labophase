@@ -12,14 +12,14 @@ const WC_ROTATION_DATA = {
   baby_5: "27/03",
   bartolomeo: "10/04",
   bastille: "15/05",
-  bellamy: "08/05",
+  bellamy: "22/05",
   bepo: "no_rotation",
   blueno: "24/04",
   bonney: "20/03",
-  brook: "10/04",
+  brook: "22/05",
   "buchi_&_sham": "no_rotation",
   buggy: "no_rotation",
-  burgess: "01/05",
+  burgess: "22/05",
   cabaji: "no_rotation",
   capone_bege: "24/04",
   carrot: "08/05",
@@ -49,7 +49,7 @@ const WC_ROTATION_DATA = {
   kaku: "15/05",
   kalifa: "08/05",
   kid: "08/05",
-  killer: "01/05",
+  killer: "22/05",
   kizaru: "no_rotation",
   koala: "10/04",
   kuma: "no_rotation",
@@ -84,14 +84,14 @@ const WC_ROTATION_DATA = {
   robin: "24/04",
   ryuma: "20/03",
   sabo: "no_rotation",
-  sanji: "03/04",
+  sanji: "22/05",
   satori: "no_rotation",
   shanks: "no_rotation",
   shura: "no_rotation",
   smoker: "08/05",
   tashigi: "no_rotation",
   teach: "no_rotation",
-  urouge: "27/03",
+  urouge: "22/05",
   usopp: "27/03",
   uta: "20/03",
   van_augur: "24/04",
@@ -102,13 +102,13 @@ const WC_ROTATION_DATA = {
 };
 
 const WC_CURRENT_CHESTS = [
-  ["bellamy", "smoker", "kalifa"],
-  ["carrot", "kid", "franky"]
+  ["zoro", "lucci", "bastille"],
+  ["luffy", "moria", "kaku"]
 ];
 
 const WC_NEXT_CHESTS = [
-  ["zoro", "lucci", "bastille"],
-  ["luffy", "moria", "kaku"]
+  ["killer", "brook", "bellamy"],
+  ["urouge", "sanji", "urouge"]
 ];
 
 const WC_CURRENT_SET = new Set(WC_CURRENT_CHESTS.flat());
@@ -326,11 +326,21 @@ function wcBuildFilterButtons() {
   });
 }
 
+let _weeklyChestInitDone = false;
 function weeklyChestInit() {
+  if (_weeklyChestInitDone) {
+    wcRender();
+    return;
+  }
+  _weeklyChestInitDone = true;
+
   const searchInput = document.getElementById("wc-search-input");
   if (searchInput) {
     searchInput.placeholder = t("wcSearchPlaceholder");
-    searchInput.addEventListener("input", wcRender);
+    const debouncedWcRender = (typeof debounce === "function"
+      ? debounce(wcRender, 140)
+      : wcRender);
+    searchInput.addEventListener("input", debouncedWcRender);
   }
   const cb = document.getElementById("wc-hide-no-rotation");
   if (cb) cb.addEventListener("change", wcRender);

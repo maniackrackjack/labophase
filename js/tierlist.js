@@ -143,7 +143,12 @@ function tierlistInit() {
       tierlistRenderBoard();
       tierlistRenderPool();
     });
-    if (searchInput) searchInput.addEventListener("input", () => tierlistRenderPool());
+    if (searchInput) {
+      const debouncedPool = (typeof debounce === "function"
+        ? debounce(() => tierlistRenderPool(), 140)
+        : () => tierlistRenderPool());
+      searchInput.addEventListener("input", debouncedPool);
+    }
     if (clearBtn)    clearBtn.addEventListener("click", tierlistClearTiers);
     if (resetBtn)    resetBtn.addEventListener("click", tierlistResetTiers);
     if (exportBtn)   exportBtn.addEventListener("click", tierlistExportImage);
