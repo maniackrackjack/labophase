@@ -142,9 +142,6 @@ function recalc() {
       let cristais = 0;
       let stats = {};
 
-      const statPercents = [];
-      const thresholdRanks = [];
-
       for (let stat in item.max) {
         const input = card.querySelector(`[data-stat="${stat}"]`);
         const valRaw = input ? parseInt(input.value, 10) : NaN;
@@ -153,14 +150,6 @@ function recalc() {
         if (!val) val = item.min[stat];
 
         stats[stat] = val;
-
-        // For multi-stat items, rarity uses the average of each stat percent.
-        const percent = getStatPercent(tipo, stat, val);
-        statPercents.push(percent);
-
-        // Secondary verification: validate rarity using explicit white/blue/purple/gold ranges.
-        const thresholdRarity = getStatRarityFromThresholds(tipo, stat, val);
-        thresholdRanks.push(getRarityRank(thresholdRarity));
 
         let falt = item.max[stat] - val;
         let need = Math.ceil(falt / item.gain[stat]);
@@ -181,25 +170,10 @@ function recalc() {
         desenharBarra(`${card.id}_${stat}_bar`, totalCristais, usados);
       }
 
-      // Determine overall card rarity based on the average percentage of all stats.
-      const averagePercent =
-        statPercents.length > 0
-          ? statPercents.reduce((sum, v) => sum + v, 0) / statPercents.length
-          : 0;
-
-      const percentRarity = getRarityFromPercent(averagePercent);
-
-      // Second check for multi-stat/single-stat items based on explicit thresholds.
-      // We average threshold ranks and apply a conservative floor when checks diverge.
-      const thresholdAvgRank =
-        thresholdRanks.length > 0
-          ? thresholdRanks.reduce((sum, v) => sum + v, 0) / thresholdRanks.length
-          : 0;
-      const thresholdRarity = getRarityByRank(Math.floor(thresholdAvgRank));
-
-      const rarity = getRarityByRank(
-        Math.min(getRarityRank(percentRarity), getRarityRank(thresholdRarity)),
-      );
+      // Overall card rarity = the weakest of the item's individual stat tiers
+      // (see getItemRarity in rarity.js). A maxed stat can't drag a weak
+      // second stat up into a higher rarity than the item actually has.
+      const rarity = getItemRarity(tipo, stats);
       applyCardRarity(card, rarity);
 
       card.dataset.crystalsNeeded = cristais;

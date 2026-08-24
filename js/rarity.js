@@ -75,6 +75,27 @@ function getRarityByRank(rank) {
   return list[Math.max(0, Math.min(3, rank))];
 }
 
+// Overall card rarity = the WEAKEST of the item's individual stat tiers.
+// (Averaging stat percentages lets one maxed stat drag a weak stat up into
+// a higher rarity than the item actually has in-game — this replaces that.)
+function getItemRarity(tipo, stats) {
+  const statKeys = Object.keys(rarityThresholds[tipo] || {});
+  if (statKeys.length === 0) return "common";
+
+  let worstRank = 3;
+  let sawStat = false;
+
+  statKeys.forEach((stat) => {
+    if (typeof stats[stat] !== "number") return;
+    sawStat = true;
+    const rarity = getStatRarityFromThresholds(tipo, stat, stats[stat]);
+    const rank = getRarityRank(rarity);
+    if (rank < worstRank) worstRank = rank;
+  });
+
+  return sawStat ? getRarityByRank(worstRank) : "common";
+}
+
 function buildRarityThresholdTable(itemKey, item) {
   const statThresholds = rarityThresholds[itemKey];
   if (!statThresholds || !item) return "";
