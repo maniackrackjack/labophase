@@ -36,14 +36,14 @@ const CHARACTER_GROUPS_CONFIG = {
    "portgas_ace", "robin_ts", "roronoa_zoro_ts", "sabo", "akainu", "usopp_ts", "uta", "vinsmoke_sanji_ts", "jabra", "kaku", "rob_lucci", "blueno",
    "margareth", "baby_5", "bartolomeo", "bellamy", "capone_bege", "carrot", "killer", "koala", "nami", "robin", "ryuma", "trafalgar_law", "usopp",
    "van_augur", "vinsmoke_niji", "vinsmoke_sanji", "gedatsu", "shura", "bepo", "mr_2", "buggy", "daddy_masterson", "don_krieg", "kuro", "tashigi",
-   "cabaji", "chew", "eric", "gin", "mr_5"
+   "cabaji", "chew", "eric", "gin", "mr_5", "yamato"
   ],
   support: [
     "alvida", "brook", "brook_ts", "chopper", "chopper_ts", "emporio_ivankov", "gecko_moria", "hatchan", "jango", "jewelry_bonney", "kalifa",
     "leo_mansherry", "marco", "miss_goldenweek", "mr_3", "perona", "satori", "scratchmen_apoo", "vinsmoke_reiju", "vivi"
   ],
   fighter: [
-    "monkey_garp", "boa_hancock", "chopper_ts", "emporio_ivankov", "jinbe", "marco", "monkey_luffy_ts", "sabo", "akainu", "vinsmoke_sanji_ts", "rob_lucci", "blueno", "bellamy", "jewelry_bonney", "chopper", "hina", "jesus_burgess", "koala", "monkey_luffy", "smoker", "urouge", "vinsmoke_ichiji", "vinsmoke_sanji", "vinsmoke_yonji", "x_drake", "gedatsu", "arlong", "bepo", "mr_2", "alvida", "gin", "kuroobi", "pearl"
+    "monkey_garp", "boa_hancock", "chopper_ts", "emporio_ivankov", "jinbe", "marco", "monkey_luffy_ts", "sabo", "akainu", "vinsmoke_sanji_ts", "rob_lucci", "blueno", "bellamy", "jewelry_bonney", "chopper", "hina", "jesus_burgess", "koala", "monkey_luffy", "smoker", "urouge", "vinsmoke_ichiji", "vinsmoke_sanji", "vinsmoke_yonji", "x_drake", "gedatsu", "arlong", "bepo", "mr_2", "alvida", "gin", "kuroobi", "pearl", "yamato"
   ],
   shooter: [
     "borsalino_kizaru", "doflamingo", "enel", "franky_ts", "portgas_ace", "usopp_ts", "kaku", "margareth", "baby_5", "capone_bege", "franky", "eustass_kid", "scratchmen_apoo", "usopp", "van_augur", "vinsmoke_niji", "satori", "buggy", "daddy_masterson", "don_krieg", "wapol", "chew", "eric", "gin", "jango", "mr_4", "mr_5"

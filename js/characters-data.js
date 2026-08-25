@@ -105,6 +105,7 @@ const CHARACTER_SPRITE_IDS = [
   "vinsmoke_sanji",
   "vinsmoke_sanji_ts",
   "vinsmoke_yonji",
+  "yamato",
   "vivi",
   "wapol",
   "x_drake"
@@ -214,6 +215,7 @@ Van Augur (Supersonic Van Augur),Gold,Diamond
 Vivi (Nefertari Vivi),Silver,Diamond
 Wapol (King Wapol),Silver,Gold
 Yonji (Vinsmoke Yonji / Winch Green),Gold,Diamond
+Yamato (Kozuki Yamato / Daughter of Oden),Diamond,Diamond
 Zoro (Roronoa Zoro / Pirate Hunter),Gold,Gold
 Zoro TS (Pirate Hunter / Timeskip),Diamond,Diamond`;
 
